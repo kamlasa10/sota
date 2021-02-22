@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'TT Interfaces';
+    src: local('TT Interfaces Semi Bold'), local('TT-Interfaces-Semi-Bold'),
+        url('TTInterfaces-SemiBold.woff2') format('woff2'),
+        url('TTInterfaces-SemiBold.woff') format('woff'),
+        url('TTInterfaces-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }

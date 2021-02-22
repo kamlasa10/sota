@@ -1,0 +1,267 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Главная'
+    var id_page = 'index-page'
+    var class_page = 'index-page'
+    var breadcrumbsBtn = 'filter'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4EBsCfQfnwCFGD_o8iLWwH97tmNCU-6E&amp;ver=1613742125#038;sensor=false&amp;ver=1.33"></script>
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/home.js')
+block content
+  section.main
+    .socials
+      a(href="#").socials__link
+        +svg('fb')
+      a(href="#").socials__link
+        +svg('inst')
+      a(href="#").socials__link
+        +svg('link')
+    .swiper-container.js-main__wrap
+      .main__wrap.swiper-wrapper
+        .main__item.swiper-slide
+          .main__item-bg(style='background-image: url(assets/images/main-bg.jpg);')
+          .container.main__item-container
+            .main__item-wrap
+              .main__small-title Будуємо з любов’ю
+              .main__title заміські<br> будинки
+              .main__desc Для людей з хорошим смаком і високими вимогами до якості життя та особистого простору.
+          .main__progress-wrap
+            .container
+              .main__progress
+                .main__progress-bar
+                  .main__progress-bar-indicator
+                .main__progress-info
+                  span.main__progress-current 01/
+                  span.main__progress-total 04
+              +img('slider-img.png').main__progress-img
+        .main__item.swiper-slide
+          .main__item-bg(style='background-image: url(assets/images/slider-img.png);')
+          .container.main__item-container
+            .main__item-wrap
+              .main__small-title Будуємо з любов’ю
+              .main__title заміські<br> будинки
+              .main__desc Для людей з хорошим смаком і високими вимогами до якості життя та особистого простору.
+          .main__progress-wrap
+            .container
+              .main__progress
+                .main__progress-bar
+                  .main__progress-bar-indicator
+                .main__progress-info
+                  span.main__progress-current 01/
+                  span.main__progress-total 04
+              +img('slider-img.png').main__progress-img
+  section.choise-us
+    .section-grid
+    .section-grid
+    .section-grid
+    .section-grid
+    .choise-us__wrap
+      .container
+        .choise-us__inner-wrap
+          h3.choise-us__title.title Чому ви маєте обрати нас?
+          .choise-us__tabs
+            .choise-us__tab.choise-us__tab--active.js-choise-tab.btn--animate(data-choise="1") ХТО МИ?
+            .choise-us__tab.js-choise-tab(data-choise="2").btn--animate Наші цінності
+            .choise-us__tab.js-choise-tab(data-choise="3").btn--animate Наші переваги
+      .choise-us__content
+        .choise-us__item.choise-us__item--1(data-content-choise="1")
+          .choise-us__item--1-left
+            .choise-us__item--1-img
+              +img('choise-us--1-img.png')
+            .choise-us__item--1-title.small-title-with-decor Barnhouse style
+          .choise-us__item--1-right
+            .choise-us__item--1-right-content
+              p <span>Sota Construction</span> - молода технологічна компанія, яка займається будівництвом сучасних, естетичних і функціональних будинків.
+              p Ми створюємо заміські будинки, які служать продовженням особистості людини.
+            a(href="#").choise-us__link.btn--with-icon Детальніше про компанію
+              span
+              +svg('round')
+
+        .choise-us__item.choise-us__item--2(data-content-choise="2")
+          .choise-us__item--2-left
+            .choise-us__item--2-content
+              .choise-us__item--2-desc.desc-with-border Будуємо сучасні грамотно сплановані функціональні будинки, в яких зручно жити і відпочивати.
+              .choise-us__item--2-wrap
+                ul.choise-us__item--2-list
+                  li.choise-us__item--2-block
+                    b.choise-us__item--2-block-number / 01
+                    .choise-us__item--2-block-title Персоналізація
+                  li.choise-us__item--2-block
+                    b.choise-us__item--2-block-number / 02
+                    .choise-us__item--2-block-title Технологічність
+                  li.choise-us__item--2-block
+                    b.choise-us__item--2-block-number / 03
+                    .choise-us__item--2-block-title Функціональність
+                ul.choise-us__item--2-list
+                  li.choise-us__item--2-block
+                    b.choise-us__item--2-block-number / 04
+                    .choise-us__item--2-block-title Ергономіка
+                  li.choise-us__item--2-block
+                    b.choise-us__item--2-block-number / 05
+                    .choise-us__item--2-block-title Естетика
+          .choise-us__item--2-right
+            .choise-us__item--2-img
+              +img('choise-us--2-img.png')
+            a(href="#").choise-us__link.btn--with-icon Детальніше про компанію
+              span
+              +svg('round')
+        .choise-us__item.choise-us__item--3(data-content-choise="3")
+          .container
+            .choise-us__item--3-wrap
+              .choise-us__item--3-left
+                .choise-us__item--3-title-decor Barnhouse style
+                .choise-us__item--3-img
+                  +img('choise-us--3-img.png')
+                .choise-us__item--3-bg
+              .choise-us__item--3-right
+                .choise-us__item--3-right-content
+                  .choise-us__item--3-small-title З нами зручно
+                  .choise-us__item--3-title.title НАШІ ПЕРЕВАГИ
+                  ul.choise-us__item--3-list
+                    li.choise-us__item--3-block
+                      b.choise-us__item--3-block-number / 01
+                      .choise-us__item--3-block-desc Технологія BIM проектування вашого будинку
+                    li.choise-us__item--3-block
+                      b.choise-us__item--3-block-number / 06
+                      .choise-us__item--3-block-desc Персональний кабінет споживача
+                    li.choise-us__item--3-block
+                      b.choise-us__item--3-block-number / 02
+                      .choise-us__item--3-block-desc Кваліфікований, сертифікований персонал
+                    li.choise-us__item--3-block
+                      b.choise-us__item--3-block-number / 07
+                      .choise-us__item--3-block-desc Адекватна ціна та гнучкі умови фінансування
+                    li.choise-us__item--3-block
+                      b.choise-us__item--3-block-number / 03
+                      .choise-us__item--3-block-desc Прозора система будівництва будинка
+                    li.choise-us__item--3-block
+                      b.choise-us__item--3-block-number / 08
+                      .choise-us__item--3-block-desc Розгалужена система надійних партнерів
+                    li.choise-us__item--3-block
+                      b.choise-us__item--3-block-number / 04
+                      .choise-us__item--3-block-desc Сервіс 360
+                    li.choise-us__item--3-block
+                      b.choise-us__item--3-block-number / 09
+                      .choise-us__item--3-block-desc Зворотній зв'язок 24/7
+                    li.choise-us__item--3-block
+                      b.choise-us__item--3-block-number / 05
+                      .choise-us__item--3-block-desc Охайне будівництво
+                    li.choise-us__item--3-block
+                      b.choise-us__item--3-block-number / 10
+                      .choise-us__item--3-block-desc Гарантія - 5 років
+                  a(href="#").choise-us__link.btn--with-icon Детальніше про компанію
+                    span
+                    +svg('round')
+  section.project
+    .project__wrap
+      .container
+        .project__content
+          .project__content-left
+            .project__small-title Основа
+            .project__title.title Наші проекти
+            p.project__desc.desc-with-border Будинки, які ми створюємо, пройняті ідеєю природної гармонії і ергономіки.
+            p.project__desc.project__desc--none.desc-with-border Беручи за основу прості лаконічні форми, ми створюємо продуманий світ, призначений для вашого життя в ньому.
+          .project__content-right
+            +img('project-pattern.png')
+        ul.project__list
+          li.project__item
+            .project__img
+              a(href="#")
+                +img('/projects/project-img.png')
+              a(href="#").project__info 160 м<sup>2</sup>
+            a(href="#").project__name TMV 1
+          li.project__item
+            .project__img
+              +img('/projects/project-img2.png')
+              .project__info 120 м<sup>2</sup>
+            a(href="#").project__name TMV 2
+          li.project__item
+            .project__img
+              a(href="#")
+                +img('/projects/project-img3.png')
+              .project__info 240 м<sup>2</sup>
+            a(href="#").project__name TMV 3
+          li.project__item
+            .project__img
+              a(href="#")
+                +img('/projects/project-img4.png')
+              .project__info 350 м<sup>2</sup>
+            a(href="#").project__name TMV 4
+          li.project__item
+            .project__img
+              a(href="#")
+                +img('/projects/project-img5.png')
+              .project__info 180 м<sup>2</sup>
+            a(href="#").project__name TMV 5
+          li.project__item
+            .project__img
+              a(href="#")
+                +img('/projects/project-img6.png')
+              .project__info 300 м<sup>2</sup>
+            a(href="#").project__name TMV 6
+          li.project__item
+            .project__img
+              a(href="#")
+                +img('/projects/project-img7.png')
+              .project__info 110 м<sup>2</sup>
+            a(href="#").project__name TMV 7
+          li.project__item
+            .project__img
+              a(href="#")
+                +img('/projects/project-img.png')
+              .project__info 80 м<sup>2</sup>
+            a(href="#").project__name TMV 8
+        .project__block
+          a(href="#").project__link.btn--with-icon Всі наші проекти
+            span
+            +svg('round')
+  section.contacts.section
+    .contacts__bg
+    .container
+      .contacts__left
+        .contacts__left-wrap
+          .contacts__map#map
+      .contacts__right
+        .contacts__content
+          .project__small-title.contacts__small-title Чекаємо саме на тебе
+          .contacts__title.title ДО ЗВ’ЯЗКУ!
+          ul.contacts__list
+            li.contacts__item
+              .contacts__item-title Адреса
+              .contacts__item-content
+                p Київ, вул. Глибочицька, 40Г
+            li.contacts__item.contacts__item--top
+              .contacts__item-title Телефон
+              .contacts__item-content
+                a(href="tel:0440000000") Головний офіс: (044) 000 00 00
+                a(href="tel:0440000001") Відділ сервісу: (044) 000 00 01
+            li.contacts__item
+              .contacts__item-title E-mail
+              .contacts__item-content
+                a(href="mailto:hello@sota-construction.com.ua") hello@sota-construction.com.ua
+          .contacts__block
+            button(type="button").contacts__link.btn--res.js-popup-btn.btn--with-icon НАПИСАТИ НАМ
+              span
+              +svg('round')
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

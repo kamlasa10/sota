@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'TT Firs Neue';
+    src: local('TT Firs Neue Medium'), local('TT-Firs-Neue-Medium'),
+        url('TTFirsNeue-Medium.woff2') format('woff2'),
+        url('TTFirsNeue-Medium.woff') format('woff'),
+        url('TTFirsNeue-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }

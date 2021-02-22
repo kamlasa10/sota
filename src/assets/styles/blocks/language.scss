@@ -1,0 +1,32 @@
+.language {
+  position: absolute;
+  z-index: 15;
+  top: 69px;
+
+  &__link {
+    font-size: 14px;
+    line-height: 1.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(#fff, .7);
+    text-decoration: none;
+    transition: all .4s;
+
+    span {
+      font-size: 16px;
+      margin-left: 3px;
+      margin-right: 3px;
+      color: rgba(#fff, .7);
+      font-weight: 700;
+    }
+
+    &:hover:not(&--current) {
+      opacity: .7;
+    }
+
+    &--current {
+      font-size: 16px;
+      color: #fff;
+    }
+  }
+}

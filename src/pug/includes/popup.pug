@@ -1,0 +1,62 @@
+.overlay
+  .popup-contacts.popup
+    .popup-grid
+    .popup-grid
+    .popup-grid
+    .popup-grid
+    .popup-contacts-close-block
+      button(type="button").popup-close.js-popup-close.nav__close.btn--res ЗАКРИТИ
+    form.popup-contacts__form(data-form="contacts")
+      .popup-contacts__title Ваші данні
+      .popup-contacts__wrap
+        .popup-contacts__item
+          label.popup-contacts__item-label
+            span Ім’я<sup>*</sup>
+            input(type="text" data-required="true" name="name")
+        .popup-contacts__item
+          p.js-popup-contacts__item-text.popup-contacts__item-label Відділ, який вас цікавить
+          .popup-contacts__item-wrap.contacts-select
+            .contacts-select__current(data-select-current="1")
+              span Відділ закупівель
+            .contacts-select__list(data-contacts-list="1")
+              .contacts-select__item.contacts-select__item--selected Відділ закупівель
+              .contacts-select__item Відділ закупівель 1
+              .contacts-select__item Відділ закупівель 2
+              .contacts-select__item Відділ закупівель 3
+      .popup-contacts__wrap
+        .popup-contacts__item
+          label.popup-contacts__item-label
+            span Телефон<sup>*</sup>
+            input(type="tel" name="phone" placeholder="38(0__)___ __ __" data-required="true" data-phone-value="")
+        .popup-contacts__item
+          label.popup-contacts__item-label
+            span E-mail<sup>*</sup>
+            input(type="email" name="email" data-required="true")
+      .popup-contacts__item.popup-contacts__item--w100
+        label.popup-contacts__item-label
+          span Ваше повідомлення
+          textarea(name="message")
+      .popup-contacts__item.popup-contacts__item--w100.popup-contacts__item--file
+        .popup-contacts__item-wrap
+          .popup-contacts__item-file(data-contacts-file="1")
+            span Файл не вибрано
+          label.popup-contacts__item-file-label.btn--with-icon ВИбрати
+            span
+            +svg('round')
+            input(type="file" name="file" data-input-file="1")
+      .popup-contacts__title Як краще з вами зв’язатися?
+      .popup-contacts__item.popup-contacts__item--checkbox
+        label.popup-contacts__item-label(id="byPhone") По телефону
+          input(type="radio" name="contact" value="phone" for="byPhone" checked="checked")
+          span
+        label.popup-contacts__item-label(id="byEmail") Написати на E-mail
+          input(type="radio" name="contact" value="email")
+          span
+      .popup-contacts__footer
+        .popup-contacts__footer-wrap
+          .popup-contacts__footer-text Ми не розповсюджуємо ваші персональні данні
+          button(type="submit").popup-contacts__btn.btn.btn--with-icon.btn--res Вітправити
+            span
+            +svg('round')
+        .popup-contacts__item
+          label.popup-contacts__item-label <sup>*</sup> обов’язкові для заповнення поля

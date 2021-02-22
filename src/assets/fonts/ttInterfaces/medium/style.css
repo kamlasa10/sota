@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'TT Interfaces';
+    src: local('TT Interfaces Medium'), local('TT-Interfaces-Medium'),
+        url('TTInterfaces-Medium.woff2') format('woff2'),
+        url('TTInterfaces-Medium.woff') format('woff'),
+        url('TTInterfaces-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
