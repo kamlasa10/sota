@@ -1,15 +1,21 @@
 .burger-btn {
-  margin-top: -5px;
-  margin-left: 87px;
+  order: -1;
   font-size: 14px;
   position: relative;
   line-height: 1.3em;
-  font-weight: 700;
+  font-weight: 600;
+  padding: 0;
+  text-align: left;
   color: #fff;
   padding-bottom: 8px;
   text-transform: uppercase;
   font-family: $default-font;
   width: 55px;
+
+  @include to(1440px) {
+    font-size: 12px;
+    width: 53px;
+  }
 
   &::before,
   &::after {
@@ -29,14 +35,13 @@
 
   &::after {
     bottom: -6px;
-    left: auto;
-    right: 0;
+    left: 0;
     width: 65%;
   }
 
   &:hover {
     &::after {
-      width: 90%;
+      width: 85%;
     }
   }
 }

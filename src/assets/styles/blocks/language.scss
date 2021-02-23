@@ -1,7 +1,25 @@
 .language {
   position: absolute;
   z-index: 15;
-  top: 69px;
+  right: 0;
+  top: 76px;
+
+  @include to(1440px) {
+    top: 61px;
+  }
+
+  .container {
+    padding-left: 0;
+    padding-right: 146px;
+
+    @include to(1440px) {
+      padding-right: 105px;
+    }
+
+    @include to(1150px) {
+      padding-right: 50px;
+    }
+  }
 
   &__link {
     font-size: 14px;
@@ -12,12 +30,20 @@
     text-decoration: none;
     transition: all .4s;
 
+    @include to(1440px) {
+      font-size: 12px;
+    }
+
     span {
       font-size: 16px;
       margin-left: 3px;
       margin-right: 3px;
       color: rgba(#fff, .7);
       font-weight: 700;
+
+      @include to(1440px) {
+        font-size: 14px;
+      }
     }
 
     &:hover:not(&--current) {
@@ -27,6 +53,10 @@
     &--current {
       font-size: 16px;
       color: #fff;
+
+      @include to(1440px) {
+        font-size: 14px;
+      }
     }
   }
 }

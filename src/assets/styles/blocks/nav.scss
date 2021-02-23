@@ -13,19 +13,51 @@
   flex-direction: column;
   width: 24%;
   transition: all .4s;
+  overflow-x: auto;
+
+  @include to(1440px) {
+    padding-left: 35px;
+    padding-right: 35px;
+    width: 25%;
+  }
+
+  @include to(1370px) {
+    width: 26%;
+  }
+
+  @include to(1250px) {
+    width: 30%;
+  }
+
+  @include to(1025px) {
+    width: 35%;
+  }
 
   &--show {
     transform: translateX(0);
   }
 
+  &__block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   &__close {
-    margin-left: auto;
+    display: block;
+    width: 330px;
+    text-align: left;
+    padding: 0;
     padding-right: 41px;
     font-size: 14px;
     line-height: 1.3em;
     font-weight: 700;
     color: #808080;
     transition: all .4s;
+
+    @include to(1440px) {
+      font-size: 12px;
+    }
 
     &:hover {
       color: darken(#808080, 10%);
@@ -38,12 +70,19 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    overflow-y: auto;
+    height: 700px;
+    margin-top: auto;
   }
 
   &__item {
     width: 330px;
     display: flex;
     margin-bottom: 14px;
+
+    @include to(1440px) {
+      width: 100%;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -57,6 +96,11 @@
       line-height: 1.3em;
       font-weight: 700;
       color: #EC5629;
+
+      @include to(1440px) {
+        font-size: 12px;
+        margin-right: 25px;
+      }
     }
 
     &-title {
@@ -68,6 +112,10 @@
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 2px;
+
+      @include to(1440px){
+        font-size: 14px;
+      }
     }
 
     &-link {
@@ -79,6 +127,10 @@
       color: #c4c4c4;
       margin-bottom: 5px;
       transition: all .4s;
+
+      @include to(1440px) {
+        font-size: 14px;
+      }
 
       &:hover {
         opacity: 0.8;
