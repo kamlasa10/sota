@@ -13,20 +13,36 @@
     width: 100%;
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
 
   &__right {
-    position: absolute;
-    right: 0;
+    position: static;
+    transform: translateX(-200px);
     display: flex;
     justify-self: flex-end;
+
+    @include to(1150px) {
+      transform: translateX(-165px);
+    }
+
+    @include to(1025px) {
+      transform: translateX(-145px);
+    }
   }
 
   &__logo {
     height: var(--header-h);
     transition: all .4s;
+
+    @include to(1440px) {
+      height: var(--header-h - 20px);
+    }
+
+    @include to(1370px) {
+      height: var(--header-h - 30px);
+    }
 
     img {
       width: auto;
@@ -43,6 +59,10 @@
     color: #fff;
     position: relative;
 
+    @include to(1440px) {
+      font-size: 24px;
+    }
+
     &::after {
       bottom: -9px;
     }
@@ -54,6 +74,10 @@
 
     .header__logo {
       height: var(--header-h - 25px);
+
+      @include to(1440px) {
+        height: var(--header-h - 40px);
+      }
     }
   }
 }

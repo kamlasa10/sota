@@ -45,14 +45,15 @@ $fields_ss: 10px;
 }
 
 @mixin wrapper(){
-  position: relative;
-    max-width: 1920px;
+    position: relative;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 140px;
+    padding: 0 30px;
     width: 100%;
 
-  @include to(1440px) {
-    padding: 0 105px;
+  @include to(1370px) {
+    max-width: 1160px;
+    padding: 0 20px;
   }
 }
 
