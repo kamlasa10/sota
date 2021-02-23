@@ -34,7 +34,6 @@ $(document).ready(() => {
           $(this).attr('checked', false)
         })
         $(e.currentTarget).attr('checked', true)
-        console.log($(e.currentTarget).val())
       })
     })
   })()
