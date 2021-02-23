@@ -75,6 +75,10 @@
     align-items: center;
     transition: all .4s;
 
+    @include to(1440px) {
+      font-size: 14px;
+    }
+
     span {
       position: absolute;
       right: 17px;
@@ -110,7 +114,7 @@
   font-family: $druk-cyr;
   color: #EC5629;
 
-  @include to(1370px) {
+  @include to(1440px) {
     font-size: 36px;
   }
 }
@@ -119,9 +123,9 @@
   position: fixed;
   width: 1px;
   left: 20%;
-  z-index: -1;
   background-color: rgba(#f5f5f5, 0.9);
   height: 100%;
+  z-index: -1;
 
   &:nth-child(2) {
     left: 40%;
@@ -147,8 +151,8 @@
     background-color: #EC5629;
     margin-right: 24px;
 
-    @include to(1370px) {
-      width: 82px;
+    @include to(1440px) {
+      width: 80px;
     }
   }
 }
@@ -169,12 +173,8 @@
   background-color: #fff;
   padding-left: 8px;
   padding-right: 8px;
-  transform: translateY(26px);
+  transform: translateY(0);
   transition: all .4s;
-
-  &--animate {
-    transform: translateY(0);
-  }
 }
 
 .inner-page-title{

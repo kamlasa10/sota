@@ -31,7 +31,7 @@ body {
 	font-size: 18px;
   color: #B3B3B3;
 
-  @include to(1370px) {
+  @include to(1440px) {
     font-size: 16px;
   }
 }

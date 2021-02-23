@@ -1,0 +1,75 @@
+.socials {
+    display: block;
+    position: absolute;
+    bottom: 14%;
+    left: 140px;
+    z-index: 10;
+    width: 100px;
+
+    @include to(1440px) {
+      left: 105px;
+    }
+
+    @include to(1150px) {
+      left: 50px;
+    }
+
+    &__link {
+      width: 55px;
+      height: 55px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(5px);
+      /* Note: backdrop-filter has minimal browser support */
+      border-radius: 4px;
+      transition: all .4s;
+
+      @include to(1440px) {
+        width: 48px;
+        height: 48px;
+      }
+
+      &:hover {
+        background-color: rgba(#000, 0.5);
+      }
+
+      &:nth-child(1) {
+        svg {
+          width: 12px;
+          height: 20px;
+
+          @include to(1440px) {
+            width: 8px;
+            height: 16px;
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        svg {
+          width: 20px;
+          height: 20px;
+
+          @include to(1440px) {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+
+      &:nth-child(3) {
+        svg {
+          width: 20px;
+          height: 20px;
+
+          @include to(1440px) {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }

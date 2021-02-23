@@ -42,9 +42,16 @@ $fields_sm: 15px;
 }
 
 @mixin wrapper(){
-    max-width: 1200px;
+    position: relative;
+    max-width: 1400px;
     margin: 0 auto;
-    @include wrapper-full();
+    padding: 0 30px;
+    width: 100%;
+
+  @include to(1370px) {
+    max-width: 1160px;
+    padding: 0 20px;
+  }
 }
 
 @mixin row-flex(){
