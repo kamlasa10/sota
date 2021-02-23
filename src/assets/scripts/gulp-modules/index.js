@@ -1,6 +1,7 @@
 @@include('./libs.js');
 
 let isPhoneValid 
+let isMenuShow = false
 
 $('[name=phone]').each(function() {
   $(this).inputmask("38(099)999 99 99",{placeholder:"38(0__)___ __ __", clearMaskOnLostFocus: true})
@@ -32,7 +33,9 @@ $('.js-popup-btn').on('click', e => {
   $('.overlay').addClass('overlay--show')
 })
 
-$(document).on('click', e => {
+$(document)[0].addEventListener('click', e => {
+  const path = e.path || (e.composedPath && e.composedPath());
+
   if(e.target.classList.contains('overlay')) {
     $('.overlay').removeClass('overlay--show')
   }
@@ -161,13 +164,15 @@ $(document).ready(() => {
                   $(this)
                       .parent()
                       .append(
-                          `<div class="field__error-msg field__error-msg--animate">${msgWarnObj[language].warn}</div>`
+                          `<div class="field__error-msg">${msgWarnObj[language].warn}</div>`
                       );
                   addIndicateWarnForNode($(this), "field--error", true);
                   isValid = false;
                   return;
               }
               }
+
+              $('.field__error-msg').addClass('field__error-msg--animate')
             });
   
             if (!$(this).val().replace(/\s+/g, "") && $(this)[0].type !== 'hidden' && this.dataset.required) {
@@ -217,27 +222,36 @@ $(document).ready(() => {
       let contentType = "application/x-www-form-urlencoded";
 
       let data = new FormData();
-      // tel_input.getSelectedCountryData().dialCode
       let $input = $("#file");
 
-      if ($input.prop("files") !== undefined)
-          data.append("file", $input.prop("files")[0]);
+      if(selectorForm.find('[type=file]').prop('files') !== undefined) {
+        
+      }
+      
+      $.each($(selectorForm)[0], function(key, value) {
+
+        if($(value).attr('name') === 'file' && value.files !== undefined) {
+          data.append('file', value.files[0])
+          return
+        } else if($(value).attr('name') === 'contact') {
+          if($(value).attr('checked')) {
+            data.append('contactBy', $(value).val())
+          }
+          return
+        }
+
+        data.append($(value).attr("name"), $(value).val() || '');
+    });
 
       data.append("action", "application");
-
-      $.each($(selectorForm)[0], function(key, value) {
-          if($(value).attr("name") === 'phone'){
-              data.append($(value).attr("name"), tel_input.getSelectedCountryData().dialCode + $(value).val());
-          } else {
-              data.append($(value).attr("name"), $(value).val());
-          }
-      });
+      contentType = processData = false;
 
       $.ajax({
         url: url, //url страницы (action_ajax_form.php)
         type: "POST", //метод отправки
-        dataType: "html", //формат данных
-        data: $(selectorForm).serialize(), // Сеарилизуем объект
+        processData: processData,
+        contentType: contentType,
+        data: data, // Сеарилизуем объект
         success: function (response) {
           //Данные отправлены успешно
           setTimeout(() => {
