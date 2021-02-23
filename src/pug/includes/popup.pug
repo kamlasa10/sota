@@ -1,20 +1,20 @@
 .overlay
-  .popup-thank.js-popup.popup
+  .popup-thank.js-popup.popup(data-popup="thank")
     .section-grid
     .section-grid
     .section-grid
     .section-grid
     .popup-thank__block
-      button(type="button").popup-close.js-popup-close.nav__close.btn--res ЗАКРИТИ
+      button(type="button" data-popup-type="thank").popup-close.js-popup-close.nav__close.btn--res ЗАКРИТИ
     .popup-thank__title ДЯКУЄМО ЗА ВАШУ ЗАЯВКУ!
     .popup-thank__desc Наш менеджер зв’яжеться з вами, щойно її отримає!
-  .popup-contacts.popup.js-popup
+  .popup-contacts.popup.js-popup(data-popup="contacts")
     .popup-grid
     .popup-grid
     .popup-grid
     .popup-grid
     .popup-contacts-close-block
-      button(type="button").popup-close.js-popup-close.nav__close.btn--res ЗАКРИТИ
+      button(type="button" data-popup-type="contacts").popup-close.js-popup-close.nav__close.btn--res ЗАКРИТИ
     form.popup-contacts__form(data-form="contacts")
       .popup-contacts__title Ваші данні
       .popup-contacts__wrap
@@ -64,7 +64,7 @@
       .popup-contacts__footer
         .popup-contacts__footer-wrap
           .popup-contacts__footer-text Ми не розповсюджуємо ваші персональні данні
-          button(type="submit").popup-contacts__btn.btn.btn--with-icon.btn--res Вітправити
+          button(type="submit").popup-contacts__btn.btn.js-popup-contacts.btn--with-icon.btn--res Вітправити
             span
             +svg('round')
         .popup-contacts__item

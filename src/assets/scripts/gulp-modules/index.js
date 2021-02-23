@@ -14,6 +14,30 @@ $('.js-nav__close').on('click', e => {
   $('.nav').removeClass('nav--show')
 })
 
+$('.js-popup-close').on('click', e => {
+  e.preventDefault()
+
+  $('.overlay').removeClass('overlay--show')
+  setTimeout(() => {
+    $('.popup').hide()
+  }, 400)
+})
+
+$('.js-popup-btn').on('click', e => {
+  $('.js-popup').hide()
+  const popupName = $(e.currentTarget).data().openPopup
+
+  $(`[data-popup=${popupName}]`).show()
+  
+  $('.overlay').addClass('overlay--show')
+})
+
+$(document).on('click', e => {
+  if(e.target.classList.contains('overlay')) {
+    $('.overlay').removeClass('overlay--show')
+  }
+})
+
 $(document).ready(() => {
   (function() {
     $('.contacts-select__list').on('click', e => {
@@ -182,19 +206,32 @@ $(document).ready(() => {
           const isValid = validateForm(inputs);
 
           if (isValid) {
-              const node = document.createElement("div");
-              node.classList.add("preloader-overlay", "preloader-spinner");
-              event.target.parentNode.append(node);
+            console.log(isValid)
               sendAjaxForm("static/mail.php", $form);
           }
         })
     })
 
     function sendAjaxForm(url, selectorForm) {
-      const status = {
-        sucess: "Спасибо за заявку мы с вами свяжемся в ближайшее время",
-        error: "Ошибка на сервере повторите попытку позже",
-      };
+      let processData = true;
+      let contentType = "application/x-www-form-urlencoded";
+
+      let data = new FormData();
+      // tel_input.getSelectedCountryData().dialCode
+      let $input = $("#file");
+
+      if ($input.prop("files") !== undefined)
+          data.append("file", $input.prop("files")[0]);
+
+      data.append("action", "application");
+
+      $.each($(selectorForm)[0], function(key, value) {
+          if($(value).attr("name") === 'phone'){
+              data.append($(value).attr("name"), tel_input.getSelectedCountryData().dialCode + $(value).val());
+          } else {
+              data.append($(value).attr("name"), $(value).val());
+          }
+      });
 
       $.ajax({
         url: url, //url страницы (action_ajax_form.php)
@@ -203,21 +240,15 @@ $(document).ready(() => {
         data: $(selectorForm).serialize(), // Сеарилизуем объект
         success: function (response) {
           //Данные отправлены успешно
-          $(selectorForm).append(
-            `<div class="form__status">${status.sucess}</div>`
-          );
-          const msg = $(selectorForm).find(".form__status");
-          removeNodeByDelay(msg, 5000);
-          $(selectorForm)[0].reset();
+          setTimeout(() => {
+            $('.popup').hide()
+            $('[data-popup="thank"]').show()
+            $('.overlay').addClass('overlay--show')
+            $(selectorForm)[0].reset();
+          }, 300)
         },
         error: function (response) {
           // Данные не отправлены
-          $(selectorForm).append(
-            `<div class="form__status">${status.error}</div>`
-          );
-          const msg = $(selectorForm).find(".form__status");
-
-          removeNodeByDelay(msg, 5000);
           $(selectorForm)[0].reset();
         },
       });
