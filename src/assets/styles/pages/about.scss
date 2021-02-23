@@ -1,0 +1,140 @@
+.about{
+	&__inner-page-title{
+		margin-bottom: 35px;
+	}
+}
+
+.header-tabs{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.single-tab-title{
+	font-family: 'TT Interfaces', sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1;
+	color: #333333;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	position: relative;
+	cursor: pointer;
+	&:hover{
+		&::after{
+			width: 100%;
+		}
+	}
+	&::after{
+		display: block;
+		content: "";
+		height: 3px;
+		background: #EC5629;
+		position: absolute;
+		left: 0;
+		bottom: -9px;	
+		width: 0;
+		transition: all .3s;
+		transform-origin: left;
+	}
+	&_active{
+		&::after{
+			width: 100%;
+		}
+	}
+}
+
+.descr-about{
+	font-size: 14px;
+	line-height: 171%;
+	letter-spacing: 0.06em;
+	font-weight: 400;
+	&__bold{
+		font-weight: 700;
+		color: #333333;
+	}
+
+}
+
+.about-us-tab{
+	&__sec1{
+		padding-bottom: 150px;
+	}
+}
+
+.sec1-about{
+	display: flex;
+	justify-content: space-between;
+	&__about{
+		max-width: 475px;
+	}
+	&__descr{
+		max-width: 216px;
+	}
+	&__quote{
+		margin-top: 35px;
+		margin-bottom: 10px;
+	}
+	&__link{
+		display: inline-flex;
+		font-size: 14px;
+	}
+	&__left{
+		background: url('../../assets/images/about/1.png') no-repeat top right;
+		background-size: 395px 373px;
+		flex-basis: 500px;
+	}
+	&__right{
+		flex-basis: 575px;
+		padding-left: 100px;
+	}
+}
+
+.about-about{
+	font-size: 16px;
+	line-height: 150%;
+	letter-spacing: 0.06em;
+	&__bold{
+		font-weight: 700;
+		color: #333333;
+	}
+	p + p{
+		margin-top: 20px;
+	}
+}
+
+.quote-about{
+	&__text{
+		font-family: 'Druk Text Wide Cyr', sans-serif;
+		font-weight: 900;
+		font-size: 14px;
+		line-height: 2;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: #333333;
+		max-width: 467px;
+		margin-bottom: 15px;
+	}
+	&__author{
+		color: #EC5629;
+		text-transform: uppercase;
+		font-size: 16px;
+		letter-spacing: 0.06em;
+		line-height: 1;
+		font-weight: 700;
+		margin-left: 3.5em;
+	}
+}
+
+.content-tabs{
+	&__single-tab{
+		padding-top: 65px;
+	}
+}
+
+.tabs{
+	&__header{
+		max-width: 810px;
+		margin: 0 auto;
+	}
+}

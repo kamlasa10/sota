@@ -1,0 +1,64 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'about'
+    var id_page = 'id-page-about'
+    var class_page = 'class-page-about'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/about.js')
+block content
+  .about.inner-page
+    .container
+      h1.inner-page-title.about__inner-page-title Про компанію
+      .tabs.about__tabs
+        .tabs__header.header-tabs
+         .header-tabs__single-tab-title.single-tab-title.single-tab-title_active
+            span Про нас
+         .header-tabs__single-tab-title.single-tab-title
+            span Команда
+         .header-tabs__single-tab-title.single-tab-title
+            span Вакансії
+         .header-tabs__single-tab-title.single-tab-title
+            span Відгуки
+        .tabs__content.content-tabs
+          .content-tabs__single-tab
+            .about-us-tab
+              .about-us-tab__sec1.sec1-about
+                .sec1-about__left 
+                  p.sec1-about__descr.descr-about
+                    span.descr-about__bold Сота 
+                    span - це з'єднання ідеальної форми і абсолютної функціональності.
+                .sec1-about__right
+                  .sec1-about__about.about-about
+                    p 
+                      span.about-about__bold Sota Construction 
+                      span - молода технологічна компанія, яка займається будівництвом сучасних, естетичних і функціональних будинків. Ми створюємо заміські будинки, які служать продовженням особистості людини.
+                    p Будинки, які ми створюємо, пройняті ідеєю природної гармонії і ергономіки
+                  .sec1-about__quote.quote-about
+                    p.quote-about__text Місія: створювати не просто будинки, а стиль життя!
+                    p.quote-about__author Ірина грицаєнко
+                  a(href="#").btn--with-icon.sec1-about__link Обрати проект
+                    span
+                    +svg('round')
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

@@ -4,29 +4,29 @@
 var settings = {
     outputStyle: 'scss', /* less || scss || sass || styl */
     columns: 12, /* number of grid columns */
-    offset: '20px', /* gutter width px || % || rem */
+    offset: '30px', /* gutter width px || % || rem */
     mobileFirst: false, /* mobileFirst ? 'min-width' : 'max-width' */
     container: {
-        maxWidth: '1360px', /* max-width оn very large screen */
+        maxWidth: '1200px', /* max-width оn very large screen */
         fields: '30px' /* side fields */
     },
     breakPoints: {
         lg: {
-            width: '1200px', /* -> @media (max-width: 1100px) */
+            width: '1100px', /* -> @media (max-width: 1100px) */
         },
         md: {
-            width: '992px'
+            width: '960px'
         },
         sm: {
-            width: '768px',
-            fields: '10px' /* set fields only if you want to change container.fields */
+            width: '780px',
+            fields: '15px' /* set fields only if you want to change container.fields */
         },
         xs: {
             width: '560px'
         }
         /* 
         We can create any quantity of break points.
- 
+
         some_name: {
             width: 'Npx',
             fields: 'N(px|%|rem)',
