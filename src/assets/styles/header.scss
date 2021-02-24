@@ -70,13 +70,14 @@
 
   &.moving {
     background-color: rgba(#000, .8);
-    padding: 15px 0;
 
     .header__logo {
-      height: var(--header-h - 25px);
+      height: 120px;
+      transform: scale(.9);
 
       @include to(1440px) {
-        height: var(--header-h - 40px);
+        height: 130px;
+        transform: scale(.8);
       }
     }
   }

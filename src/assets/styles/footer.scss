@@ -69,7 +69,7 @@
     content: "";
     position: absolute;
     right: 0;
-    width: 73%;
+    width: 68%;
     top: 0;
     bottom: 0;
     background-color: #333;
@@ -81,6 +81,10 @@
     @media (min-width: 3000px) {
       width: 61%;
     }
+
+    @include to(1440px) {
+      width: 74%;
+    }
   }
 
   .container {
@@ -89,6 +93,7 @@
   }
 
   &__left {
+    margin-right: 10px;
     width: 23%;
   }
 
@@ -157,6 +162,19 @@
     padding-right: 25px;
     display: flex;
     flex-direction: column;
+
+    @include to(1370px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @include to(1100px) {
+      margin-bottom: 25px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
 
     &-name {
       text-transform: uppercase;

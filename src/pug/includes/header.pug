@@ -1,11 +1,4 @@
 header.header.header__top
-  .language.header__language
-    .container
-      a(href="#").language__link.language__link--current UKR
-        span /
-      a(href="#").language__link RU
-        span /
-      a(href="#").language__link EN
   .container
     .header__wrap
       .header__content
@@ -13,6 +6,12 @@ header.header.header__top
           +img('logo.svg')
         .header__right
           a(href="#").header__phone.btn--animate (044) 517 25 20
+        .language.header__language
+          a(href="#").language__link.language__link--current UKR
+            span /
+          a(href="#").language__link RU
+            span /
+          a(href="#").language__link EN
         button(type="button").burger-btn.js-burger-btn.btn--res Меню
   nav.nav
     .nav__block
