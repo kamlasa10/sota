@@ -64,6 +64,10 @@
 		padding-top: 165px;
 		padding-bottom: 75px;
 	}
+	&__sec3{
+		padding-top: 150px;
+		padding-bottom: 150px;
+	}
 }
 
 .sec1-about{
@@ -132,14 +136,20 @@
 		&_bottom{
 			max-width: 60%;
 			margin-left: auto;
+			padding-top: 85px;
 		}
 	}
 	&__bottom{
 		position: relative;
-		padding-top: 100px;
+		padding-top: 30px;
+		display: flex;
 	}
 	&__bottom-inner{
 		display: flex;
+	}
+	&__bottom-content{
+		flex: 0 0 100%;
+		transform: translate(-35%,0);
 	}
 	&__images{
 		position: absolute;
@@ -156,23 +166,25 @@
 		height: 345px;
 	}
 	&__img3{
-		// position: absolute;
-		// width: 30%;
-		// top: 0;
-		// left: 0;
-	}
-	&__img4{
 		position: absolute;
-		width: 50%;
-		bottom: 0;
-		transform: translate(0, 50%);
-		left: 0;
-	}
-	&__bottom-images{
-		position: absolute;
+		width: 100%;
+		height: 100%;
 		top: 0;
 		left: 0;
-		width: 37%;
+		object-fit: cover;
+	}
+	&__img4{
+		z-index: 3;
+    position: absolute;
+    width: 20%;
+    bottom: 0;
+    left: 20%;
+    transform: translateY(50%);
+	}
+	&__bottom-images{
+
+		flex: 0 0 35%;
+		position: relative;
 	}
 	&__link{
 		display: inline-flex;
@@ -287,5 +299,82 @@
 	}
 	&__text-wrapper{
 		padding-left: 25px;
+	}
+}
+
+.sec3-about{
+	counter-reset: my-awesome-counter;
+	&__row{
+		@include row-flex();
+		&_2{
+			margin-bottom: 15px;
+		}
+	}
+	&__col{
+		@include col();
+		@include size(6);
+		&_4{
+			.sec3-about__list{
+				margin-bottom: 50px;
+			}
+		}
+		&_6{
+			padding-top: 40px;
+			.sec3-about__item{
+				max-width: 430px;
+			}
+		}
+
+	}
+	&__list{
+		padding-left: 0;
+		list-style: none;
+	}
+	&__item + &__item{
+		margin-top: 25px;
+	}
+	&__item{
+		counter-increment: my-awesome-counter;
+		position: relative;
+		padding-left: 55px;
+		color: #333333;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 1.5;
+		max-width: 350px;
+		&_wide{
+			max-width: 430px;
+		}
+
+		&::before{
+			content: '/ ' counter(my-awesome-counter, decimal-leading-zero);
+			position: absolute;
+			top: 0;
+			left: 0;
+			font-size: 16px;
+			line-height: 1.5;
+			color: #EC5629;
+			font-weight: 700;
+		}
+	}
+
+	&__img1{
+		width: calc(50vw - 60px);
+    transform: translateX(55px);
+		max-width: inherit;
+	}
+	&__img2{
+		left: 100%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 50vw;
+    position: relative;
+    right: 50%;
+    width: 40vw;
+	}
+	&__link{
+		display: inline-flex;
+		margin-top: 55px;
+		margin-left: 55px;
 	}
 }
