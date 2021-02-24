@@ -93,6 +93,7 @@
       width: 40px;
       height: 45px;
       fill: none;
+      stroke: #EC5629;
     }
 
     &:hover {
@@ -101,6 +102,28 @@
       span {
         right: 12px;
       }
+    }
+
+    &-white {
+        color: #fff !important;
+
+        span {
+          background-color: #fff;
+          right: 21px;
+        }
+
+        svg {
+          stroke: #fff !important;
+          margin-left: 25px;
+        }
+
+        &:hover {
+          color: darken(#fff, 10%);
+
+          span {
+            right: 16px;
+          }
+        }
     }
   }
 }
@@ -137,6 +160,22 @@
 
   &:nth-child(4) {
     left: 80%;
+  }
+
+  @include to(1370px) {
+    left: 20%;
+
+    &:nth-child(2) {
+      left: 39.5%;
+    }
+  
+    &:nth-child(3) {
+      left: 59.5%;
+    }
+  
+    &:nth-child(4) {
+      left: 80.3%;
+    }
   }
 }
 

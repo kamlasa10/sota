@@ -1,24 +1,17 @@
 .language {
   position: absolute;
-  z-index: 15;
+  z-index: 2;
   right: 0;
-  top: 76px;
+  top: 68px;
 
   @include to(1440px) {
     top: 61px;
   }
 
   .container {
-    padding-left: 0;
-    padding-right: 146px;
-
-    @include to(1440px) {
-      padding-right: 105px;
-    }
-
-    @include to(1150px) {
-      padding-right: 50px;
-    }
+    padding: 0 30px;
+    display: flex;
+    justify-content: flex-end;
   }
 
   &__link {
