@@ -71,5 +71,17 @@
           }
         }
       }
+
+      &--4 {
+        svg {
+          width: 27px;
+          height: 20px;
+
+          @include to(1440px) {
+            width: 23px;
+            height: 16px;
+          }
+        }
+      }
     }
   }

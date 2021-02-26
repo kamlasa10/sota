@@ -1,0 +1,229 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'projects'
+    var id_page = 'id-page-projects'
+    var class_page = 'class-page-single-projects'
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/projects.js')
+block content
+    .projects.inner-page
+        .container
+            h1.inner-page-title.about__inner-page-title Наші будинки
+    .tabs.about__tabs
+      .tabs__header.header-tabs
+        .header-tabs__single-tab-title.single-tab-title(data-choise="1")
+          span З чого почати
+        .header-tabs__single-tab-title.single-tab-title.single-tab-title_active(data-choise="2" data-tab-filter="project")
+          span Проєкти будинків
+        .header-tabs__single-tab-title.single-tab-title(data-choise="2" data-tab-filter="complete")
+          span Проєкти в реалізації
+      .tabs__content.content-tabs
+        .content-tabs__single-tab.about-us-tab  
+          .projects-tab__sec1.sec1-projects
+            .projects-start(data-content-choise="1")
+                .projects-start__top 
+                    .projects-start__top-left
+                        .projects-start__top-left-bottom
+                            .projects-start__top-img
+                                +img('./projects/start/project-start-img.png')
+                            .projects-start__top-text.small-title-with-decor MODERN HOUSE
+                            .projects-start__top-img-bottom 
+                                +img('./projects/start/project-start-img2.png')
+                    .projects-start__top-right 
+                        .projects-start__top-content
+                            .projects-start__top-title Як побудувати функціональний будинок?
+                            .projects-start__top-desc.projects-start__top-desc--custom Зміни в світі пов’язані з пандемією сильно актуалізували потребу власного функціонального простору, і питання будівництва заміського будинку перейшло з розряду “мрій” в питання безпосередньо потреби, для нормальної якості життя. 
+                            .projects-start__top-desc Стало абсолютно зрозумілим, що життя, коли всі мої рідні поруч, коли ми ближче до природи, коли я можу насолоджуватися ароматною кавою на власній терасі, коли можу працювати з дому в своєму власному кабінеті, а наші діти в цей час на онлайн-уроках в дитячій кімнаті на 2-у поверсі, це тепер з розряду необхідності, а не просто бажання. 
+                            .projects-start__top-desc Поділюся з вами власним досвідом та рекомендаціями, на що варто звернути увагу, і що врахувати, якщо ви націлені побудувати власний заміський будинок.
+                .projects-start__item.projects-start__item--1
+                    .projects-start__item-left 
+                        .projects-start__item-left-content
+                            .projects-start__item-wrap
+                                .projects-start__item-number / 02
+                                .projects-start__item-title Вибір будівельної компанії
+                            .projects-start__item-desc Для того, щоб зрозуміти свою власну готовність, звичайно я розпочав з відповіді на запитання - чого хочеться? Яку внутрішню потребу я бажаю закрити? Що для мене є критично важливим? 
+                    .projects-start__item-right
+                        .projects-start__item-right-content
+                            .projects-start__item-wrap
+                                .projects-start__item-number / 02
+                                .projects-start__item-title Підрахунок бюджету
+                            .projects-start__item-desc Для того, щоб зрозуміти свою власну готовність, звичайно я розпочав з відповіді на запитання - чого хочеться? Яку внутрішню потребу я бажаю закрити? Що для мене є критично важливим? 
+                            .projects-start__item-desc При зануренні в питання стало очевидним, що на починати потрібно  з фінансового планування, адже на  бюджету вартості будівництва власного будинку впливають дуже багато факторів, котрі краще врахувати заздалегідь - це і локація ділянки, і її якість (рельєф, грунти), поверховість будинку, кількість внутрішніх перегородок, якість та технологічність матеріалів, особливо кількість та якість вікон, характеристики зовнішнього оздоблення, наявність тераси, додаткових технічних приміщень (кладової, гаражу), якість інженерних мереж та технічних рішень, етапність виконання робіт  і фінансування. Це те, що може,  значно вплинути на вартість будівництва, тому важливо відразу визначитися з власним бюджетом.  
+
+            .container
+                div(data-content-choise="2")
+                    .projects__list(data-content-choise="2") 
+                        .projects__item(data-portion="1" data-filter="project") 
+                            .projects__img 
+                                +img('./projects/projects-img.jpg')
+                                .projects__square 201.19 м<sup>2</sup>
+                            .projects__content 
+                                span.border-decor-top 
+                                span.border-decor-right
+                                .projects__name Sota 001
+                                .projects__info 
+                                    .projects__info-item
+                                        .projects__info-title Габарити
+                                        .projects__info-desc 10.06 х 19.20 м 
+                                    .projects__info-item
+                                        .projects__info-title Ціна проекту
+                                        .projects__info-desc 32 500 грн. 
+                                    .projects__info-item
+                                        .projects__info-title Побудувати будинок
+                                        .projects__info-desc 120 000 у.е. 
+                        .projects__item(data-portion="1" data-filter="project") 
+                            .projects__img 
+                                +img('./projects/projects-img2.jpg')
+                                .projects__square 201.19 м2
+                            .projects__content 
+                                span.border-decor-top 
+                                span.border-decor-right
+                                .projects__name Sota 001
+                                .projects__info 
+                                    .projects__info-item
+                                        .projects__info-title Габарити
+                                        .projects__info-desc 10.06 х 19.20 м 
+                                    .projects__info-item
+                                        .projects__info-title Ціна проекту
+                                        .projects__info-desc 32 500 грн. 
+                                    .projects__info-item
+                                        .projects__info-title Побудувати будинок
+                                        .projects__info-desc 120 000 у.е. 
+                        .projects__item(data-portion="1" data-filter="project") 
+                            .projects__img 
+                                +img('./projects/projects-img3.jpg')
+                                .projects__square 201.19 м2
+                            .projects__content 
+                                span.border-decor-top 
+                                span.border-decor-right
+                                .projects__name Sota 001
+                                .projects__info 
+                                    .projects__info-item
+                                        .projects__info-title Габарити
+                                        .projects__info-desc 10.06 х 19.20 м 
+                                    .projects__info-item
+                                        .projects__info-title Ціна проекту
+                                        .projects__info-desc 32 500 грн. 
+                                    .projects__info-item
+                                        .projects__info-title Побудувати будинок
+                                        .projects__info-desc 120 000 у.е. 
+                        .projects__item(data-portion="1" data-filter="complete") 
+                            .projects__img 
+                                +img('./projects/projects-img4.jpg')
+                                .projects__square 201.19 м2
+                            .projects__content 
+                                span.border-decor-top 
+                                span.border-decor-right
+                                .projects__name Sota 001
+                                .projects__info 
+                                    .projects__info-item
+                                        .projects__info-title Габарити
+                                        .projects__info-desc 10.06 х 19.20 м 
+                                    .projects__info-item
+                                        .projects__info-title Ціна проекту
+                                        .projects__info-desc 32 500 грн. 
+                                    .projects__info-item
+                                        .projects__info-title Побудувати будинок
+                                        .projects__info-desc 120 000 у.е. 
+                        .projects__item(data-portion="1" data-filter="complete") 
+                            .projects__img 
+                                +img('./projects/projects-img5.jpg')
+                                .projects__square 201.19 м2
+                            .projects__content 
+                                span.border-decor-top 
+                                span.border-decor-right
+                                .projects__name Sota 001
+                                .projects__info 
+                                    .projects__info-item
+                                        .projects__info-title Габарити
+                                        .projects__info-desc 10.06 х 19.20 м 
+                                    .projects__info-item
+                                        .projects__info-title Ціна проекту
+                                        .projects__info-desc 32 500 грн. 
+                                    .projects__info-item
+                                        .projects__info-title Побудувати будинок
+                                        .projects__info-desc 120 000 у.е. 
+                        .projects__item(data-portion="1" data-filter="complete") 
+                            .projects__img 
+                                +img('./projects/projects-img6.jpg')
+                                .projects__square 201.19 м2
+                            .projects__content 
+                                span.border-decor-top 
+                                span.border-decor-right
+                                .projects__name Sota 001
+                                .projects__info 
+                                    .projects__info-item
+                                        .projects__info-title Габарити
+                                        .projects__info-desc 10.06 х 19.20 м 
+                                    .projects__info-item
+                                        .projects__info-title Ціна проекту
+                                        .projects__info-desc 32 500 грн. 
+                                    .projects__info-item
+                                        .projects__info-title Побудувати будинок
+                                        .projects__info-desc 120 000 у.е. 
+                        .projects__item(data-portion="2" data-filter="project") 
+                            .projects__img 
+                                +img('./projects/projects-img7.jpg')
+                                .projects__square 201.19 м2
+                            .projects__content 
+                                span.border-decor-top 
+                                span.border-decor-right
+                                .projects__name Sota 001
+                                .projects__info 
+                                    .projects__info-item
+                                        .projects__info-title Габарити
+                                        .projects__info-desc 10.06 х 19.20 м 
+                                    .projects__info-item
+                                        .projects__info-title Ціна проекту
+                                        .projects__info-desc 32 500 грн. 
+                                    .projects__info-item
+                                        .projects__info-title Побудувати будинок
+                                        .projects__info-desc 120 000 у.е. 
+                        .projects__item(data-portion="2" data-filter="project") 
+                            .projects__img 
+                                +img('./projects/projects-img8.jpg')
+                                .projects__square 201.19 м2
+                            .projects__content 
+                                span.border-decor-top 
+                                span.border-decor-right
+                                .projects__name Sota 001
+                                .projects__info 
+                                    .projects__info-item
+                                        .projects__info-title Габарити
+                                        .projects__info-desc 10.06 х 19.20 м 
+                                    .projects__info-item
+                                        .projects__info-title Ціна проекту
+                                        .projects__info-desc 32 500 грн. 
+                                    .projects__info-item
+                                        .projects__info-title Побудувати будинок
+                                        .projects__info-desc 120 000 у.е. 
+                    .vacancy__progress 
+                        .vacancy__progress-content
+                            .vacancy__progress-top 
+                                .vacancy__progress-top__text Показано 
+                                .vacancy__progress-top__content 
+                                    span.current.js-progress-current 06/
+                                    span.total.js-progress-total 12 
+                            .vacancy__progress-bottom 
+                                .vacancy__progress-bottom__fill(data-progress="0")
+                            .vacancy__block
+                                a(href="#").choise-us__link.btn--with-icon.projects__progress-link.js-loading__more Дивитись ще
+                                    span
+                                    +svg('round')
+                            
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

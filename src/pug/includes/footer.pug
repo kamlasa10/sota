@@ -4,17 +4,20 @@ footer.footer#footer
     span.btn-top__span
       +svg('icon-top').btn-top__icon
       span наверх
-  .container
+  .footer__wrap
     .footer__left
-      .footer__logo
-        +img('logo-dark.svg')
-      .socials
-        a(href="#").socials__link
-          +svg('fb')
-        a(href="#").socials__link
-          +svg('inst')
-        a(href="#").socials__link
-          +svg('link')
+      .footer__left-wrap
+        .footer__logo
+          +img('logo-dark.svg')
+        .socials
+          a(href="#").socials__link
+            +svg('fb')
+          a(href="#").socials__link
+            +svg('inst')
+          a(href="#").socials__link
+            +svg('link')
+          a(href="#").socials__link.socials__link--4
+            +svg('youtube')
     .footer__right
       .footer__right-wrap
         .footer__item

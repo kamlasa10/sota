@@ -33,6 +33,8 @@ block content
         +svg('inst')
       a(href="#").socials__link
         +svg('link')
+      a(href="#").socials__link.socials__link--4
+            +svg('youtube')
     .swiper-container.js-main__wrap
       .main__wrap.swiper-wrapper
         .main__item.swiper-slide
@@ -42,31 +44,29 @@ block content
               .main__small-title Будуємо з любов’ю
               .main__title заміські<br> будинки
               .main__desc Для людей з хорошим смаком і високими вимогами до якості життя та особистого простору.
-          .main__progress-wrap
-            .container
-              .main__progress
-                .main__progress-bar
-                  .main__progress-bar-indicator
-                .main__progress-info
-                  span.main__progress-current 01/
-                  span.main__progress-total 04
-              +img('slider-img.png').main__progress-img
         .main__item.swiper-slide
-          .main__item-bg(style='background-image: url(assets/images/slider-img.png);')
+          .main__item-bg(style='background-image: url(assets/images/slider-img.jpg);')
           .container.main__item-container
             .main__item-wrap
               .main__small-title Будуємо з любов’ю
               .main__title заміські<br> будинки
               .main__desc Для людей з хорошим смаком і високими вимогами до якості життя та особистого простору.
-          .main__progress-wrap
-            .container
-              .main__progress
-                .main__progress-bar
-                  .main__progress-bar-indicator
-                .main__progress-info
-                  span.main__progress-current 01/
-                  span.main__progress-total 04
-              +img('slider-img.png').main__progress-img
+        .main__item.swiper-slide
+          .main__item-bg(style='background-image: url(assets/images/slider-img2.jpg);')
+          .container.main__item-container
+            .main__item-wrap
+              .main__small-title Будуємо з любов’ю
+              .main__title заміські<br> будинки
+              .main__desc Для людей з хорошим смаком і високими вимогами до якості життя та особистого простору.
+      .main__progress-wrap
+        .container
+          .main__progress
+            .main__progress-bar
+              .main__progress-bar-indicator
+            .main__progress-info
+              span.main__progress-current 01/
+              span.main__progress-total 04
+          +img('slider-img.png').main__progress-img
   section.choise-us
     .choise-us__wrap
       .container
