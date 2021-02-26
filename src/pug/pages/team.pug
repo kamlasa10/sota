@@ -1,0 +1,112 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'team'
+    var id_page = 'id-page-team'
+    var class_page = 'class-page-team'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/about.js')
+block content
+    .team.inner-page
+        .container
+            h1.inner-page-title.about__inner-page-title Про компанію
+    .tabs.about__tabs
+      .tabs__header.header-tabs
+        .header-tabs__single-tab-title.single-tab-title
+          span Про нас
+        .header-tabs__single-tab-title.single-tab-title.single-tab-title_active
+          span Команда
+        .header-tabs__single-tab-title.single-tab-title
+          span Вакансії
+        .header-tabs__single-tab-title.single-tab-title
+          span Відгуки
+      .tabs__content.content-tabs
+        .content-tabs__single-tab.about-us-tab  
+          .team-tab__sec1.sec1-team
+            .container
+                .team__list 
+                    .team__item
+                        .team__content 
+                            .team__img 
+                                +img('./team/team-img-quality.jpg')
+                                .team__info За 22 роки досвіду в будівництві побудував 204 дерев’яних будинки,  20 цегляних та 31 будинок з газоблоку, 7 з яких власноруч. Організував капітальне будівництво та ремонт 4 адміністративних будівель в центрі м. Києва, де крім організації робіт, займався кошторисною та погоджувальною документацією згідно будівельних стандартів. Сьогодні Йосип відповідає за якісне та вчасне будівництво будинків для наших Замовників, організовує процес закупівель та логістики.
+                            .team__name Надія Турій
+                            .team__position СЕО
+                        .team__socials.socials
+                            a(href="#").socials__link
+                                +svg('fb')
+                    .team__item
+                        .team__content  
+                            .team__img 
+                                +img('./team/team-img-quality2.jpg')
+                                .team__info За 22 роки досвіду в будівництві побудував 204 дерев’яних будинки,  20 цегляних та 31 будинок з газоблоку, 7 з яких власноруч. Організував капітальне будівництво та ремонт 4 адміністративних будівель в центрі м. Києва, де крім організації робіт, займався кошторисною та погоджувальною документацією згідно будівельних стандартів. Сьогодні Йосип відповідає за якісне та вчасне будівництво будинків для наших Замовників, організовує процес закупівель та логістики.
+                            .team__name Олександр Зима
+                            .team__position Головний концептолог - продуктолог
+                        .team__socials.socials
+                            a(href="#").socials__link
+                                +svg('fb')
+                    .team__item 
+                        .team__content
+                            .team__img 
+                                +img('./team/team-img-quality3.jpg')
+                                .team__info За 22 роки досвіду в будівництві побудував 204 дерев’яних будинки,  20 цегляних та 31 будинок з газоблоку, 7 з яких власноруч. Організував капітальне будівництво та ремонт 4 адміністративних будівель в центрі м. Києва, де крім організації робіт, займався кошторисною та погоджувальною документацією згідно будівельних стандартів. Сьогодні Йосип відповідає за якісне та вчасне будівництво будинків для наших Замовників, організовує процес закупівель та логістики.
+                            .team__name Олександра Зима
+                            .team__position Комерційний директор
+                        .team__socials.socials
+                            a(href="#").socials__link
+                                +svg('fb')
+                    .team__item 
+                        .team__content
+                            .team__img 
+                                +img('./team/team-img-quality6.jpg')
+                                .team__info За 22 роки досвіду в будівництві побудував 204 дерев’яних будинки,  20 цегляних та 31 будинок з газоблоку, 7 з яких власноруч. Організував капітальне будівництво та ремонт 4 адміністративних будівель в центрі м. Києва, де крім організації робіт, займався кошторисною та погоджувальною документацією згідно будівельних стандартів. Сьогодні Йосип відповідає за якісне та вчасне будівництво будинків для наших Замовників, організовує процес закупівель та логістики.
+                            .team__name Вікторія Зима
+                            .team__position Директор з маркетингу  та інновацій
+                        .team__socials.socials
+                            a(href="#").socials__link
+                                +svg('fb')
+                    .team__item 
+                        .team__content
+                            .team__img 
+                                +img('./team/team-img-quality5.jpg')
+                                .team__info За 22 роки досвіду в будівництві побудував 204 дерев’яних будинки,  20 цегляних та 31 будинок з газоблоку, 7 з яких власноруч. Організував капітальне будівництво та ремонт 4 адміністративних будівель в центрі м. Києва, де крім організації робіт, займався кошторисною та погоджувальною документацією згідно будівельних стандартів. Сьогодні Йосип відповідає за якісне та вчасне будівництво будинків для наших Замовників, організовує процес закупівель та логістики.
+                            .team__name Петро Бубка
+                            .team__position Архітектор
+                        .team__socials.socials
+                            a(href="#").socials__link
+                                +svg('fb')
+                    .team__item 
+                        .team__content
+                            .team__img 
+                                +img('./team/team-img-quality4.jpg')
+                                .team__info За 22 роки досвіду в будівництві побудував 204 дерев’яних будинки,  20 цегляних та 31 будинок з газоблоку, 7 з яких власноруч. Організував капітальне будівництво та ремонт 4 адміністративних будівель в центрі м. Києва, де крім організації робіт, займався кошторисною та погоджувальною документацією згідно будівельних стандартів. Сьогодні Йосип відповідає за якісне та вчасне будівництво будинків для наших Замовників, організовує процес закупівель та логістики.
+                            .team__name Йосип огородник
+                            .team__position Керівник  будівництва
+                        .team__socials.socials
+                            a(href="#").socials__link
+                                +svg('fb')
+                .team__footer
+                    a(href="#").choise-us__link.btn--with-icon.team__link хочу приєднатися в команду
+                        span
+                        +svg('round')
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

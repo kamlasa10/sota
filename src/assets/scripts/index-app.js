@@ -9,16 +9,15 @@ import LocomotiveScroll from 'locomotive-scroll';
  * smooth scroll start
  */
 
-/* eslint-disable-next-line */
-const locoScroll = new LocomotiveScroll({
-  el: document.querySelector('[data-scroll-container]'),
-  smooth: true,
-  smoothMobile: false,
-  inertia: 1.1,
-});
-
 document.addEventListener('DOMContentLoaded', () => {
+  const locoScroll = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true,
+    smoothMobile: false,
+    inertia: 1.1,
+  });
   let isAppend = false;
+  window.locoScroll = locoScroll
 
   locoScroll.on('scroll', (e) => {
     if (e.delta.y > 0 && !isAppend) {

@@ -216,7 +216,7 @@
   transition: all .4s;
 }
 
-.inner-page-title{
+.inner-page-title {
   font-family: 'Druk Text Wide Cyr', sans-serif;
   font-weight: 700;
   font-style: 12px;
@@ -226,4 +226,54 @@
 
 .inner-page{
   padding-top: 165px;
+}
+
+.border-decor {
+    &-top,
+    &-right {
+        position: absolute;
+        height: 3px;
+        background-color: #EC5629;
+        transition: all .4s;
+    }
+
+    &-top {
+        top: -2px;
+        right: 0;
+        width: 40px;
+    }
+
+    &-right {
+        top: -2px;
+        width: 10%;
+        right: -2px;
+        height: 40px;
+        width: 3px;
+    }
+  }
+
+.small-title-with-decor {
+  font-size: 14px;
+  line-height: 4em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+
+  @include to(1440px) {
+    font-size: 12px;
+    line-height: 4.5em;
+  }
+
+  &::before {
+    content: "";
+    margin-right: 10px;
+    display: block;
+    width: $border-small-width;
+    background-color: #B3B3B3;
+    height: 1px;
+
+    @include to(1440px){
+      width: $border-small-width-laptop;
+    }
+  }
 }

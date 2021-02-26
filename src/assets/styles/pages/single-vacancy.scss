@@ -1,0 +1,198 @@
+#id-page-single-vacancy {
+    .single-vacancy {
+        &__img {
+            margin-bottom: 45px;
+            height: 350px;
+            width: 100%;
+            object-fit: cover;
+
+            img {
+                height: 100%;
+            }
+
+            @include to(1440px) {
+                height: 305px;
+            }
+        }
+
+        &__btn {
+            span {
+                right: 25px;
+            }
+
+            &:hover {
+                span {
+                    right: 20px;
+                }
+            }
+        }
+
+        &__back {
+            margin-bottom: 24px;
+            display: inline-flex;
+            align-items: center;
+            color: inherit;
+            font-weight: 500;
+            font-family: $tt-first-neue;
+            text-decoration: none;
+
+            svg {
+                width: 45px;
+                height: 24px;
+                margin-right: 16px;
+                transition: all .4s;
+            }
+
+            &:hover {
+                svg {
+                    transform: translateX(-5px);
+                }
+            }
+        }
+
+        &__title {
+            font-family: $druk-cyr;
+            margin-bottom: 24px;
+            font-size: 26px;
+            line-height: 2em;
+            color: #EC5629;
+            text-transform: uppercase;
+
+            @include to(1440px) {
+                font-size: 24px;
+            }
+        }
+
+        &__desc {
+            max-width: 950px;
+
+            &-item {
+                margin-bottom: 32px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                &-title {
+                    font-size: 20px;
+                    line-height: 1.4em;
+                    color: #333;
+                    font-weight: 700;
+                    margin-bottom: 16px;
+                }
+            }
+
+            &-list {
+                &-item {
+                    font-family: $tt-first-neue;
+                    font-weight: 400;
+                }
+            }
+
+            &-text {
+                margin-bottom: 80px;
+                padding-right: 28%;
+                font-weight: 700;
+                color: #333;
+            }
+        }
+
+        &__form {
+            margin-bottom: 97px;
+
+            &-wrap {
+                max-width: 950px;
+            }
+
+            &-title {
+                margin-bottom: 40px;
+                font-size: 26px;
+                line-height: 1em;
+                font-family: $tt-first-neue;
+                font-weight: 700;
+                color: #EC5629;
+
+                @include to(1440px) {
+                    font-size: 24px;
+                }
+            }
+
+            .popup-contacts__title {
+                margin-bottom: 18px;
+            }
+
+            .popup-contacts__wrap {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+                column-gap: 29px;
+                row-gap: 22px;
+            }
+
+            .popup-contacts__item {
+                width: auto;
+
+                .popup-contacts__item-label span  {
+                    margin-bottom: 21px;
+                }
+
+                &--file {
+                    margin-bottom: 50px;
+                }
+            }
+
+            &-block {
+                margin-top: 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            &-info {
+                margin-bottom: 25px;
+            }
+
+            &-text {
+                sup {
+                    color: #333;
+                }
+            }
+        }
+
+        &__share {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+
+            span:first-child {
+                margin-right: 16px;
+                font-family: $tt-first-neue;
+                font-size: 20px;
+                line-height: 1.4em;
+                color: #808080;
+            }
+
+            &-block {
+                width: 55px;
+                height: 55px;
+                background: #EC5629;
+                backdrop-filter: blur(5px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 4px;
+                transition: all .4s;
+
+                svg {
+                    width: 19px;
+                    height: 22px;
+                }
+            }
+
+            &:hover {
+                .single-vacancy__share-block {
+                    background-color: darken(#EC5629, 10%);
+                }
+            }
+        }
+    }
+}

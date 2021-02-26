@@ -1,0 +1,290 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'vacancy'
+    var id_page = 'id-page-vacancy'
+    var class_page = 'class-page-vacancy'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/vacancy.js')
+block content
+    .vacancy.inner-page
+        .container
+            h1.inner-page-title.about__inner-page-title Про компанію
+    .tabs.about__tabs
+      .tabs__header.header-tabs
+        .header-tabs__single-tab-title.single-tab-title
+          span Про нас
+        .header-tabs__single-tab-title.single-tab-title
+          span Команда
+        .header-tabs__single-tab-title.single-tab-title.single-tab-title_active
+          span Вакансії
+        .header-tabs__single-tab-title.single-tab-title
+          span Відгуки
+      .tabs__content.content-tabs
+        .content-tabs__single-tab.about-us-tab  
+          .vacancy-tab__sec1.sec1-vacancy
+            .container
+                .vacancy__list 
+                    .vacancy__item(data-portion="1") 
+                        span.vacancy__decor-top 
+                        span.vacancy__decor-right 
+                        .vacancy__content 
+                            .vacancy__title Дизайнер Інтер’єру
+                            .vacancy__inner-list.vacancy__inner
+                                .vacancy__inner-item
+                                    +svg('clock')
+                                    span Повна зайнятість
+                                .vacancy__inner-item
+                                    +svg('experience')
+                                    span Досвід роботи від 3 років 
+                                .vacancy__inner-item
+                                    +svg('location')
+                                    span Київ
+                            .vacancy__foter
+                                a(href="#").choise-us__link.btn--with-icon.vacancy__link Детальніше
+                                    span
+                                    +svg('round')
+                    .vacancy__item(data-portion="1") 
+                        span.vacancy__decor-top 
+                        span.vacancy__decor-right 
+                        .vacancy__content 
+                            .vacancy__title Labour Safety Specialist
+                            .vacancy__inner-list.vacancy__inner
+                                .vacancy__inner-item
+                                    +svg('clock')
+                                    span Повна зайнятість
+                                .vacancy__inner-item
+                                    +svg('experience')
+                                    span Досвід роботи від 3 років 
+                                .vacancy__inner-item
+                                    +svg('location')
+                                    span Київ
+                            .vacancy__foter
+                                a(href="#").choise-us__link.btn--with-icon.vacancy__link Детальніше
+                                    span
+                                    +svg('round')
+                    .vacancy__item(data-portion="1")  
+                        span.vacancy__decor-top 
+                        span.vacancy__decor-right 
+                        .vacancy__content 
+                            .vacancy__title Асистент головного інженера
+                            .vacancy__inner-list.vacancy__inner
+                                .vacancy__inner-item
+                                    +svg('clock')
+                                    span Повна зайнятість
+                                .vacancy__inner-item
+                                    +svg('experience')
+                                    span Досвід роботи від 3 років 
+                                .vacancy__inner-item
+                                    +svg('location')
+                                    span Київ
+                            .vacancy__foter
+                                a(href="#").choise-us__link.btn--with-icon.vacancy__link Детальніше
+                                    span
+                                    +svg('round')
+                    .vacancy__item(data-portion="1") 
+                        span.vacancy__decor-top 
+                        span.vacancy__decor-right 
+                        .vacancy__content 
+                            .vacancy__title Фасадчик
+                            .vacancy__inner-list.vacancy__inner
+                                .vacancy__inner-item
+                                    +svg('clock')
+                                    span Повна зайнятість
+                                .vacancy__inner-item
+                                    +svg('experience')
+                                    span Досвід роботи від 3 років 
+                                .vacancy__inner-item
+                                    +svg('location')
+                                    span Київ
+                            .vacancy__foter
+                                a(href="#").choise-us__link.btn--with-icon.vacancy__link Детальніше
+                                    span
+                                    +svg('round')
+                    .vacancy__item(data-portion="1")  
+                        span.vacancy__decor-top 
+                        span.vacancy__decor-right 
+                        .vacancy__content 
+                            .vacancy__title 3D Modeling specialist
+                            .vacancy__inner-list.vacancy__inner
+                                .vacancy__inner-item
+                                    +svg('clock')
+                                    span Повна зайнятість
+                                .vacancy__inner-item
+                                    +svg('experience')
+                                    span Досвід роботи від 3 років 
+                                .vacancy__inner-item
+                                    +svg('location')
+                                    span Київ
+                            .vacancy__foter
+                                a(href="#").choise-us__link.btn--with-icon.vacancy__link Детальніше
+                                    span
+                                    +svg('round')
+                    .vacancy__item(data-portion="1") 
+                        span.vacancy__decor-top 
+                        span.vacancy__decor-right 
+                        .vacancy__content 
+                            .vacancy__title Технічний дизайнер
+                            .vacancy__inner-list.vacancy__inner
+                                .vacancy__inner-item
+                                    +svg('clock')
+                                    span Повна зайнятість
+                                .vacancy__inner-item
+                                    +svg('experience')
+                                    span Досвід роботи від 3 років 
+                                .vacancy__inner-item
+                                    +svg('location')
+                                    span Київ
+                            .vacancy__foter
+                                a(href="#").choise-us__link.btn--with-icon.vacancy__link Детальніше
+                                    span
+                                    +svg('round')
+                    .vacancy__item(data-portion="2")  
+                        span.vacancy__decor-top 
+                        span.vacancy__decor-right 
+                        .vacancy__content 
+                            .vacancy__title Дизайнер Інтер’єру 1
+                            .vacancy__inner-list.vacancy__inner
+                                .vacancy__inner-item
+                                    +svg('clock')
+                                    span Повна зайнятість
+                                .vacancy__inner-item
+                                    +svg('experience')
+                                    span Досвід роботи від 3 років 
+                                .vacancy__inner-item
+                                    +svg('location')
+                                    span Київ
+                            .vacancy__foter
+                                a(href="#").choise-us__link.btn--with-icon.vacancy__link Детальніше
+                                    span
+                                    +svg('round')
+                    .vacancy__item(data-portion="2") 
+                        span.vacancy__decor-top 
+                        span.vacancy__decor-right 
+                        .vacancy__content 
+                            .vacancy__title Дизайнер Інтер’єру 2
+                            .vacancy__inner-list.vacancy__inner
+                                .vacancy__inner-item
+                                    +svg('clock')
+                                    span Повна зайнятість
+                                .vacancy__inner-item
+                                    +svg('experience')
+                                    span Досвід роботи від 3 років 
+                                .vacancy__inner-item
+                                    +svg('location')
+                                    span Київ
+                            .vacancy__foter
+                                a(href="#").choise-us__link.btn--with-icon.vacancy__link Детальніше
+                                    span
+                                    +svg('round')
+                    .vacancy__item(data-portion="2")  
+                        span.vacancy__decor-top 
+                        span.vacancy__decor-right 
+                        .vacancy__content 
+                            .vacancy__title Дизайнер Інтер’єру 3
+                            .vacancy__inner-list.vacancy__inner
+                                .vacancy__inner-item
+                                    +svg('clock')
+                                    span Повна зайнятість
+                                .vacancy__inner-item
+                                    +svg('experience')
+                                    span Досвід роботи від 3 років 
+                                .vacancy__inner-item
+                                    +svg('location')
+                                    span Київ
+                            .vacancy__foter
+                                a(href="#").choise-us__link.btn--with-icon.vacancy__link Детальніше
+                                    span
+                                    +svg('round')
+                    .vacancy__item(data-portion="2") 
+                        span.vacancy__decor-top 
+                        span.vacancy__decor-right 
+                        .vacancy__content 
+                            .vacancy__title Дизайнер Інтер’єру 4
+                            .vacancy__inner-list.vacancy__inner
+                                .vacancy__inner-item
+                                    +svg('clock')
+                                    span Повна зайнятість
+                                .vacancy__inner-item
+                                    +svg('experience')
+                                    span Досвід роботи від 3 років 
+                                .vacancy__inner-item
+                                    +svg('location')
+                                    span Київ
+                            .vacancy__foter
+                                a(href="#").choise-us__link.btn--with-icon.vacancy__link Детальніше
+                                    span
+                                    +svg('round')
+                    .vacancy__item(data-portion="2") 
+                        span.vacancy__decor-top 
+                        span.vacancy__decor-right 
+                        .vacancy__content 
+                            .vacancy__title Дизайнер Інтер’єру 5
+                            .vacancy__inner-list.vacancy__inner
+                                .vacancy__inner-item
+                                    +svg('clock')
+                                    span Повна зайнятість
+                                .vacancy__inner-item
+                                    +svg('experience')
+                                    span Досвід роботи від 3 років 
+                                .vacancy__inner-item
+                                    +svg('location')
+                                    span Київ
+                            .vacancy__foter
+                                a(href="#").choise-us__link.btn--with-icon.vacancy__link Детальніше
+                                    span
+                                    +svg('round')
+                    .vacancy__item(data-portion="2") 
+                        span.vacancy__decor-top 
+                        span.vacancy__decor-right 
+                        .vacancy__content 
+                            .vacancy__title Дизайнер Інтер’єру 6
+                            .vacancy__inner-list.vacancy__inner
+                                .vacancy__inner-item.vacancy__inner-item--1
+                                    +svg('clock')
+                                    span Повна зайнятість
+                                .vacancy__inner-item.vacancy__inner-item--2
+                                    +svg('experience')
+                                    span Досвід роботи від 3 років 
+                                .vacancy__inner-item.vacancy__inner-item--3
+                                    +svg('location')
+                                    span Київ
+                            .vacancy__foter
+                                a(href="#").choise-us__link.btn--with-icon.vacancy__link Детальніше
+                                    span
+                                    +svg('round')
+                .vacancy__progress 
+                    .vacancy__progress-content
+                        .vacancy__progress-top 
+                            .vacancy__progress-top__text Показано 
+                            .vacancy__progress-top__content 
+                                span.current.js-progress-current 06/
+                                span.total.js-progress-total 12 
+                        .vacancy__progress-bottom 
+                            .vacancy__progress-bottom__fill(data-progress="0")
+                        .vacancy__block
+                            a(href="#").choise-us__link.btn--with-icon.vacancy__progress-link.js-loading__more Дивитись ще
+                                span
+                                +svg('round')
+                            
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
