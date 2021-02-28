@@ -1,8 +1,19 @@
-function setPreviewNextSlide(nextSlide, current) {
+let isFirst = true
+
+function setPreviewNextSlide(nextSlide) {
   const src = nextSlide.find('.main__item-bg').css('background-image')
     .slice(5, nextSlide.find('.main__item-bg').css('background-image')
       .length - 2)
-  current.find('.main__progress-img').attr('src', src)
+  if (!isFirst) {
+    $('.main__progress-wrap').find('.main__progress-img').fadeOut(300, () => {
+      $('.main__progress-wrap').find('.main__progress-img').attr('src', src)
+      $('.main__progress-wrap').find('.main__progress-img').fadeIn(300)
+    })
+    return
+  }
+
+  $('.main__progress-wrap').find('.main__progress-img').attr('src', src)
+  isFirst = false
 }
 
 (function () {
@@ -213,11 +224,11 @@ const swiper = new Swiper('.js-main__wrap', {
       setPreviewNextSlide($(e.slides[e.activeIndex + 1]), $(e.slides[e.activeIndex]))
 
       $('.main__progress-current').text('/01')
-      $('.main__progress-total').text(`0${e.slides.length / 2}`)
+      $('.main__progress-total').text(`0${Math.ceil(e.slides.length / 2)}`)
     },
     slideChange(e) {
       try {
-        if (e.slides.length / 2 < e.snapIndex) {
+        if (Math.ceil(e.slides.length / 2) < e.snapIndex) {
           setPreviewNextSlide($(e.slides[2]), $(e.slides[1]))
           $('.main__progress-current').text('/ 01')
 
@@ -225,8 +236,8 @@ const swiper = new Swiper('.js-main__wrap', {
         }
 
         if (e.previousIndex === 1 && !e.activeIndex) {
-          setPreviewNextSlide($(e.slides[1]), $(e.slides[e.slides.length / 2]))
-          $('.main__progress-current').text(`/ 0${e.slides.length / 2}`)
+          setPreviewNextSlide($(e.slides[1]), $(Math.ceil(e.slides[e.slides.length / 2])))
+          $('.main__progress-current').text(`/ 0${Math.ceil(e.slides.length / 2)}`)
 
           return;
         }
