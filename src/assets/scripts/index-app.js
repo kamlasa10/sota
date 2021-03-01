@@ -9,7 +9,6 @@ import LocomotiveScroll from 'locomotive-scroll';
  * smooth scroll start
  */
 
-
 /* eslint-disable-next-line */
 
 document.addEventListener('DOMContentLoaded', () => {
