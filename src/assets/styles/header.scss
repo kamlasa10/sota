@@ -106,7 +106,6 @@
 
   &.moving {
     background-color: rgba(#000, .8);
-    padding: 15px 0;
 
     .header__logo {
       svg{
@@ -133,6 +132,7 @@
       }
       .language__link--current{
         color: #fff;
+
       }
     }
   }

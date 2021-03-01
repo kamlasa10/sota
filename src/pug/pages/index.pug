@@ -33,6 +33,8 @@ block content
         +svg('inst')
       a(href="#").socials__link
         +svg('link')
+      a(href="#").socials__link.socials__link--4
+            +svg('youtube')
     .swiper-container.js-main__wrap
       .main__wrap.swiper-wrapper
         .main__item.swiper-slide
@@ -42,36 +44,34 @@ block content
               .main__small-title Будуємо з любов’ю
               .main__title заміські<br> будинки
               .main__desc Для людей з хорошим смаком і високими вимогами до якості життя та особистого простору.
-          .main__progress-wrap
-            .container
-              .main__progress
-                .main__progress-bar
-                  .main__progress-bar-indicator
-                .main__progress-info
-                  span.main__progress-current 01/
-                  span.main__progress-total 04
-              +img('slider-img.png').main__progress-img
         .main__item.swiper-slide
-          .main__item-bg(style='background-image: url(assets/images/slider-img.png);')
+          .main__item-bg(style='background-image: url(assets/images/slider-img.jpg);')
           .container.main__item-container
             .main__item-wrap
               .main__small-title Будуємо з любов’ю
               .main__title заміські<br> будинки
               .main__desc Для людей з хорошим смаком і високими вимогами до якості життя та особистого простору.
-          .main__progress-wrap
-            .container
-              .main__progress
-                .main__progress-bar
-                  .main__progress-bar-indicator
-                .main__progress-info
-                  span.main__progress-current 01/
-                  span.main__progress-total 04
-              +img('slider-img.png').main__progress-img
+        .main__item.swiper-slide
+          .main__item-bg(style='background-image: url(assets/images/slider-img2.jpg);')
+          .container.main__item-container
+            .main__item-wrap
+              .main__small-title Будуємо з любов’ю
+              .main__title заміські<br> будинки
+              .main__desc Для людей з хорошим смаком і високими вимогами до якості життя та особистого простору.
+      .main__progress-wrap
+        .container
+          .main__progress
+            .main__progress-bar
+              .main__progress-bar-indicator
+            .main__progress-info
+              span.main__progress-current 01/
+              span.main__progress-total 04
+          +img('slider-img.png').main__progress-img
   section.choise-us
     .choise-us__wrap
       .container
         .choise-us__inner-wrap
-          h3.choise-us__title.title Чому ви маєте обрати нас?
+          h3.choise-us__title.title Нас обирають тому що:
           .choise-us__tabs
             .choise-us__tab.choise-us__tab--active.js-choise-tab.btn--animate(data-choise="1") ХТО МИ?
             .choise-us__tab.js-choise-tab(data-choise="2").btn--animate Наші цінності
@@ -178,51 +178,23 @@ block content
         ul.project__list
           li.project__item
             .project__img
+              .project__img--hover 
+                a(href="#").choise-us__link.btn--with-icon.choise-us__link.btn--with-icon-white Відкрити
+                  span
+                  +svg('round')
               a(href="#")
                 +img('/projects/project-img.png')
-              a(href="#").project__info 160 м<sup>2</sup>
-            a(href="#").project__name TMV 1
+              .project__info 201 м<sup>2</sup>
+            a(href="#").project__name SOTA 001
           li.project__item
             .project__img
+              .project__img--hover 
+                a(href="#").choise-us__link.btn--with-icon.choise-us__link.btn--with-icon-white Відкрити
+                  span
+                  +svg('round')
               +img('/projects/project-img2.png')
-              .project__info 120 м<sup>2</sup>
-            a(href="#").project__name TMV 2
-          li.project__item
-            .project__img
-              a(href="#")
-                +img('/projects/project-img3.png')
-              .project__info 240 м<sup>2</sup>
-            a(href="#").project__name TMV 3
-          li.project__item
-            .project__img
-              a(href="#")
-                +img('/projects/project-img4.png')
-              .project__info 350 м<sup>2</sup>
-            a(href="#").project__name TMV 4
-          li.project__item
-            .project__img
-              a(href="#")
-                +img('/projects/project-img5.png')
-              .project__info 180 м<sup>2</sup>
-            a(href="#").project__name TMV 5
-          li.project__item
-            .project__img
-              a(href="#")
-                +img('/projects/project-img6.png')
-              .project__info 300 м<sup>2</sup>
-            a(href="#").project__name TMV 6
-          li.project__item
-            .project__img
-              a(href="#")
-                +img('/projects/project-img7.png')
-              .project__info 110 м<sup>2</sup>
-            a(href="#").project__name TMV 7
-          li.project__item
-            .project__img
-              a(href="#")
-                +img('/projects/project-img.png')
-              .project__info 80 м<sup>2</sup>
-            a(href="#").project__name TMV 8
+              .project__info 280 м<sup>2</sup>
+            a(href="#").project__name Sota 002
         .project__block
           a(href="#").project__link.btn--with-icon Всі наші проекти
             span

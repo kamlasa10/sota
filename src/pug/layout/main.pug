@@ -4,6 +4,7 @@ include ../includes/mixins.pug
     {
       home: '/',
       about: './about.html',
+      team: './team.html'
     }
   ];
 block variable
@@ -51,15 +52,15 @@ html(lang="uk")
       .section-grid
       .section-grid
       .section-grid
-      block language
-      block header
-      // END HEADER
-      .page__inner(data-scroll-container)
-        .page__content
-          block content
+    block language
+    block header
+    // END HEADER
+    .page__inner(data-scroll-container data-scroll-section)
+      .page__content
+        block content
 
-        .page__footer-wrapper
-          // START FOOTER
-          block footer
-          // END FOOTER
-      block scripts
+      .page__footer-wrapper
+        // START FOOTER
+        block footer
+        // END FOOTER
+    block scripts

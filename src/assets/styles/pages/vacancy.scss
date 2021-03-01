@@ -1,0 +1,153 @@
+#id-page-vacancy {
+    .vacancy {
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+            column-gap: 29px;
+            row-gap: 40px;
+            margin-bottom: 73px;
+        }
+
+        &__decor {
+            &-top,
+            &-right {
+                position: absolute;
+                height: 3px;
+                background-color: #EC5629;
+                transition: all .4s;
+            }
+
+            &-top {
+                top: -2px;
+                right: 0;
+                width: 40px;
+            }
+
+            &-right {
+                top: -2px;
+                width: 10%;
+                right: -2px;
+                height: 40px;
+                width: 3px;
+            }
+        }
+
+        &__item {
+            position: relative;
+            padding: 24px 35px;
+            border: 1px solid #C6C5C5;
+
+            &:hover {
+                .vacancy__decor-top {
+                    width: 50%;
+                }
+
+                .vacancy__decor-right {
+                    top: -2px;
+                    height: 50%;
+                }
+            }
+        }
+
+        &__title {
+            margin-bottom: 24px;
+            font-weight: 700;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        &__foter {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        &__inner {
+            margin-bottom: 24px;
+            &-item {
+                margin-bottom: 13px;
+
+                svg {
+                    margin-right: 16px;
+                    width: 14px;
+                    height: 14px;
+
+                    @include to(1440px) {
+                        width: 12px;
+                        height: 12px;
+                    }
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &__block {
+            margin-bottom: 66px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+.vacancy {
+    &__progress {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-content {
+            width: 30%;
+        }
+
+        &-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__text {
+                text-transform: uppercase;
+                color: #333;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 4em;
+                
+                @include to(1440px) {
+                    font-size: 14px;
+                    line-height: 4.5em;
+                }
+            }
+
+            &__content {
+                font-family: $monserrat;
+                .current {
+                    font-size: 26px;
+                    line-height: 1.3em;
+                    color: #EC5629;
+                    font-weight: 600;
+                }
+
+                .total {
+                    font-size: 14px;
+                    line-height: 1.3em;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        &-bottom {
+            margin-bottom: 40px;
+            width: 100%;
+            height: 1px;
+            background: #C6C5C5;
+
+            &__fill {
+                height: 4px;
+                transform: translateY(-2px);
+                width: 30%;
+                background: #EC5629;
+            }
+        }
+    }
+}

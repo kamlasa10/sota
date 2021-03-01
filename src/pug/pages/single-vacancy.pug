@@ -1,0 +1,111 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'single-vacancy'
+    var id_page = 'id-page-single-vacancy'
+    var class_page = 'class-page-single-vacancy'
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/single-vacancy.js')
+block content
+    .single-single-vacancy.inner-page
+        .single-vacancy__img 
+            +img('single-vacancy-img.jpg')
+        .container 
+            a(href="#").single-vacancy__back
+                +svg('arrow-long')
+                span Назад до списку вакансій
+            .single-vacancy__desc 
+                .single-vacancy__title Маркетолог
+                .single-vacancy__desc-item 
+                    .single-vacancy__desc-item-title Що у нас є:
+                    .single-vacancy__desc-list 
+                        .single-vacancy__desc-list-item - розроблений продукт
+                        .single-vacancy__desc-list-item - створено позиціонування, маркетингова стратегія і бренд стратегія
+                        .single-vacancy__desc-list-item - місія, цінності та бачення
+                        .single-vacancy__desc-list-item - гіпотези по цільовій аудиторії
+                .single-vacancy__desc-item 
+                    .single-vacancy__desc-item-title Що нам потрібно:
+                    .single-vacancy__desc-list 
+                        .single-vacancy__desc-list-item - створити (разом з командою) ідеальний сайт для компанії і наповнювати його релевантною інформацією
+                        .single-vacancy__desc-list-item - запустити і вести соціальні мережі компанії (Facebook, Instagram)
+                        .single-vacancy__desc-list-item - контролювати рекламні кампанії і виконання KPI (Діджитал реклама, зовнішня реклама, PR)
+                        .single-vacancy__desc-list-item - займатися PR - просування компанії
+                        .single-vacancy__desc-list-item - rерувати командою маркетингу на аутсорсі (SEO, ppc, таргетинг в соц мережах, дизайнер)
+                        .single-vacancy__desc-list-item - cтворювати всі необхідні РОS матеріали для компанії (онлайн буклети, візитки, подарунки клієнтам і тд)
+                        .single-vacancy__desc-list-item - аналізувати цільову аудиторію і кластеризувати її
+                .single-vacancy__desc-item 
+                    .single-vacancy__desc-item-title Хто нам потрібен:
+                    .single-vacancy__desc-list 
+                        .single-vacancy__desc-list-item - структурований, пишучий маркетолог (-иня) з хваткою бульдога і великою увагою до дрібниць
+                        .single-vacancy__desc-list-item - має відмінне почуття смаку і розуміння «прекрасного»
+                        .single-vacancy__desc-list-item - вміє прекрасно писати тексти / матеріали / статті
+                        .single-vacancy__desc-list-item - розуміється на інструментах маркетингу і реклами
+                        .single-vacancy__desc-list-item - володіє діджитал знаннями
+                        .single-vacancy__desc-list-item - «на ти» з Google analytics
+                        .single-vacancy__desc-list-item - має досвід ведення соц мереж
+                        .single-vacancy__desc-list-item - педант!
+                .single-vacancy__desc-text Будемо дуже раді запросити до нас в команду людину для котрої так само, як і для нас, важливо життя в продуманому світі, в якому комфортно та затишно!
+            .single-vacancy__form 
+                .single-vacancy__form-title Хочете працювати в нас - пишіть нам!
+                form(data-form="single-vacancy").popu-contacts
+                    .single-vacancy__form-wrap
+                        .popup-contacts__title Ваші персональні данні
+                        .popup-contacts__wrap
+                            .popup-contacts__item
+                                label.popup-contacts__item-label
+                                    span Прізвище<sup>*</sup>
+                                    input(type="text" data-required="true" name="surName")
+                            .popup-contacts__item
+                                label.popup-contacts__item-label
+                                    span Ім’я<sup>*</sup>
+                                    input(type="text" data-required="true" name="name")
+                            .popup-contacts__item
+                                label.popup-contacts__item-label
+                                    span Побатькові<sup>*</sup>
+                                    input(type="text" data-required="true" name="patronymic")
+                        .popup-contacts__wrap
+                            .popup-contacts__item
+                                label.popup-contacts__item-label
+                                    span Телефон:<sup>*</sup>
+                                    input(type="tel" placeholder="38(0__)___ __ __" data-required="true" name="phone")
+                            .popup-contacts__item
+                                label.popup-contacts__item-label
+                                    span E-mail:<sup>*</sup>
+                                    input(type="email" data-required="true" name="email")
+                        .popup-contacts__title Прикріпити резюме (в форматі .docs або .pdf) <sup>*</sup>
+                        .popup-contacts__item.popup-contacts__item--w100.popup-contacts__item--file
+                            .popup-contacts__item-wrap
+                                .popup-contacts__item-file(data-contacts-file="1")
+                                    span Файл не вибрано
+                                label.popup-contacts__item-file-label.btn--with-icon ВИбрати
+                                    span
+                                    +svg('round')
+                                    input(type="file" name="file" data-input-file="1" id="file")
+                        .single-vacancy__form-info Ми не розповсюджуємо ваші персональні данні
+                        .single-vacancy__form-text <sup>*</sup> обов’язкові для заповнення поля
+                    .single-vacancy__form-block
+                        .single-vacancy__form-block__left
+                            button(type="submit").popup-contacts__btn.submit__btn.single-vacancy__btn.btn.js-popup-contacts.btn--with-icon.btn--res Подати заявку
+                                span
+                                +svg('round')
+                        a(href="#").single-vacancy__share
+                            span Поділитися
+                            span.single-vacancy__share-block
+                                +svg('share')
+
+                            
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

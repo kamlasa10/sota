@@ -210,8 +210,11 @@ $(document).ready(() => {
               .not("iframe");
           const isValid = validateForm(inputs);
 
+          if($form.data().form === 'single-vacancy' && !$('.popup-contacts__item-file span').text()) {
+            return
+          }
+
           if (isValid) {
-            console.log(isValid)
               sendAjaxForm("static/mail.php", $form);
           }
         })
@@ -246,6 +249,8 @@ $(document).ready(() => {
       data.append("action", "application");
       contentType = processData = false;
 
+      selectorForm.find('button[type=submit]').css('pointer-events', 'none')
+
       $.ajax({
         url: url, //url страницы (action_ajax_form.php)
         type: "POST", //метод отправки
@@ -254,12 +259,11 @@ $(document).ready(() => {
         data: data, // Сеарилизуем объект
         success: function (response) {
           //Данные отправлены успешно
-          setTimeout(() => {
+            selectorForm.find('button[type=submit]').css('pointer-events', 'initial')
             $('.popup').hide()
             $('[data-popup="thank"]').show()
             $('.overlay').addClass('overlay--show')
             $(selectorForm)[0].reset();
-          }, 300)
         },
         error: function (response) {
           // Данные не отправлены
@@ -278,7 +282,7 @@ class Tabs {
     this.init()
   }
 
-  trigger() {
+  trigger(fn) {
     this.tabs.each((_, item) => {
       $(item).on('click', e => {
         e.preventDefault()
@@ -286,6 +290,8 @@ class Tabs {
         this.tabs.removeClass(this.activeClass)
         $(item).addClass(this.activeClass)
         this.contentShow($(item).data('choise'))
+        
+        fn($(item))
       })
     })
 
@@ -295,7 +301,6 @@ class Tabs {
   }
 
   contentShow(value) {
-    console.log(value)
     this.content.hide()
     this.content.each((_, item) => {
       if ($(item).data('content-choise') === value) {

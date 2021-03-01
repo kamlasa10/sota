@@ -21,7 +21,14 @@ const locoScroll = new LocomotiveScroll({
 window.loco = locoScroll;
 
 document.addEventListener('DOMContentLoaded', () => {
+  const locoScroll = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true,
+    smoothMobile: false,
+    inertia: 1.1,
+  });
   let isAppend = false;
+  window.locoScroll = locoScroll
 
   locoScroll.on('scroll', (e) => {
     if (e.delta.y > 0 && !isAppend) {
