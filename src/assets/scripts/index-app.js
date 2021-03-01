@@ -9,7 +9,7 @@ import LocomotiveScroll from 'locomotive-scroll';
  * smooth scroll start
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   const locoScroll = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
     smooth: true,
