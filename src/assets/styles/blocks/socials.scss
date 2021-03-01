@@ -7,11 +7,15 @@
     width: 100px;
 
     @include to(1440px) {
-      left: 105px;
+      left: 30px;
     }
 
-    @include to(1150px) {
-      left: 50px;
+    @include to(1370px) {
+      left: 100px;
+    }
+
+    @include to(1250px) {
+      left: 20px;
     }
 
     &__link {

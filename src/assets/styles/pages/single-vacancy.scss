@@ -1,4 +1,6 @@
 #id-page-single-vacancy {
+    color: #808080;
+
     .single-vacancy {
         &__img {
             margin-bottom: 45px;
@@ -31,9 +33,8 @@
             margin-bottom: 24px;
             display: inline-flex;
             align-items: center;
-            color: inherit;
+            color: #808080;
             font-weight: 500;
-            font-family: $tt-first-neue;
             text-decoration: none;
 
             svg {

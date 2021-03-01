@@ -35,7 +35,6 @@ class VacancyProgress {
     const delta = (this.currentPortion / this.maxPortionValue) * 100
     $('[data-progress]').css('width', `${delta}%`)
     this.progressChange()
-
     this.isFirst = false
   }
 
@@ -47,6 +46,7 @@ class VacancyProgress {
     this.currentPortion += 1
     $(`[data-portion=${this.currentPortion}]`).fadeIn(400)
     this.calculateCountLoading()
+    window.locoScroll.update()
   }
 
   progressChange() {
