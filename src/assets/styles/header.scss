@@ -4,6 +4,40 @@
   z-index: 10;
   transition: all .4s;
 
+
+
+  &_dark{
+    .header__phone{
+      color: #333333;
+    }
+
+    .burger-btn{
+      color: #333333;
+      &::after, &::before{
+        background-color:#333333
+      }
+    }
+    .header__logo{
+      svg{
+        transition: all .3s;
+        fill: #333;
+      }
+    }
+    .language__link{
+      color: #B3B3B3;
+      &:hover{
+        color: #333;
+      }
+      span{
+        color: #B3B3B3;
+
+      }
+    }
+    .language__link--current{
+      color: #333;
+    }
+  }
+
   &__wrap {
     display: flex;
     align-items: center;
@@ -15,6 +49,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 110px;
   }
 
   &__right {
@@ -33,20 +68,21 @@
   }
 
   &__logo {
-    height: var(--header-h);
+    height: 70px;
     transition: all .4s;
 
     @include to(1440px) {
-      height: var(--header-h - 20px);
+      // height: var(--header-h - 20px);
     }
 
     @include to(1370px) {
-      height: var(--header-h - 30px);
+      // height: var(--header-h - 30px);
     }
 
-    img {
-      width: auto;
-      height: 100%;
+    svg {
+      width: 200px;
+      height: 70px;
+      fill: white;
     }
   }
 
@@ -58,7 +94,7 @@
     text-transform: uppercase;
     color: #fff;
     position: relative;
-
+    transition: all .3s;
     @include to(1440px) {
       font-size: 24px;
     }
@@ -73,10 +109,30 @@
     padding: 15px 0;
 
     .header__logo {
-      height: var(--header-h - 25px);
+      svg{
+        fill: #fff;
+      }
+    }
 
-      @include to(1440px) {
-        height: var(--header-h - 40px);
+    &.header_dark{
+      .header__phone{
+        color: #fff;
+      }
+      .burger-btn {
+        color: #fff;
+        &::before, &::after{
+          background-color: #fff;
+        }
+      }
+      .language__link{
+        color: #B3B3B3;
+        span{
+          color: #B3B3B3;
+  
+        }
+      }
+      .language__link--current{
+        color: #fff;
       }
     }
   }

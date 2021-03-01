@@ -1,0 +1,206 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'single-building'
+    var id_page = 'id-page-single-building'
+    var class_page = 'class-page-single-building'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/single-building.js')
+block content
+  .sb.inner-page
+    .container
+      h1.inner-page-title.sb__inner-page-title Наші будинки
+      .tabs.sb__tabs
+        .tabs__header.header-tabs
+          .header-tabs__single-tab-title.single-tab-title
+            span З чого почати
+          .header-tabs__single-tab-title.single-tab-title
+            span Проєкти будинків
+          .header-tabs__single-tab-title.single-tab-title.single-tab-title.active
+            span Проєкти в реалізації
+      .sb__content.content-sb
+        a(href="#").content-sb__arrow.content-sb__arrow_prev
+          +svg('slider-arrow')
+        .content-sb__inner 
+          .content-sb__product-gallery.product-gallery
+            .product-gallery__thumbs.swiper-container 
+              .swiper-wrapper 
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+            .product-gallery__main.swiper-container 
+              .swiper-wrapper 
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+              .product-gallery__controls.cntrl-prod-gal
+                button.cntrl-prod-gal__arrow.cntrl-prod-gal__arrow_prev
+                  +svg('prod-gal-arrow')
+                span.cntrl-prod-gal__line
+                button.cntrl-prod-gal__arrow.cntrl-prod-gal__arrow_next
+                  +svg('prod-gal-arrow')
+              .product-gallery__size 
+                span 201.19 м
+                sup 2
+          .content-sb__descr.build-descr
+            .build-descr__title.title Sota 006
+            .build-descr__subtitle с. Святопетрівське
+            table.build-descr__table
+              tr 
+                td Статус будівництва
+                td Будується
+              tr 
+                td Ціна проєкту
+                td 32 000 грн
+              tr 
+                td Вартість будівництва  
+                td ~ 111 000 у.е
+              tr 
+                td Термін будівництва
+                td 6 місяців
+            a(href="#").btn--with-icon.build-descr__link ЗАМОВИТИ такий ПРОєКТ
+              span
+              +svg('round')
+        a(href="#").content-sb__arrow.content-sb__arrow_next
+          +svg('slider-arrow')
+  .sb-ss 
+    .container 
+      .tabs.sb-ss__tabs
+        .tabs__header.header-tabs
+          a(href="#tab-building").header-tabs__single-tab-title.single-tab-title.active.js-tab-btn
+            span Будівництво
+          a(href="#tab-project").header-tabs__single-tab-title.single-tab-title.js-tab-btn
+            span Про проєкт
+        .tabs__body.body-tabs.js-tab-content
+          .body-tabs__tab.active.js-single-tab(data-tab="#tab-building")
+            .sb-ss__constr-filter.constr-filter
+              a(href="#constr-tab-foundation").constr-filter__item.active.js-constr-tab-btn
+                span.constr-filter__num / 01
+                span.constr-filter__text Влаштування фундаменту
+              a(href="#constr-tab-frame").constr-filter__item.js-constr-tab-btn
+                span.constr-filter__num / 02
+                span.constr-filter__text Зведення каркасу
+              a(href="#constr-tab-finish").constr-filter__item.js-constr-tab-btn
+                span.constr-filter__num / 03
+                span.constr-filter__text Оздоблювальні роботи
+            .sb-ss__constr-content.body-tabs.js-constr-content.constr-content
+              each val in ["#constr-tab-foundation", "#constr-tab-frame", "#constr-tab-finish"]
+                .body-tabs__tab.js-constr-single-tab(data-tab=val class=val==="#constr-tab-foundation" ? 'active' : '')
+                  .constr-content__slider.constr-slider 
+                    button.constr-slider__arrow.constr-slider__arrow_prev
+                      +svg('slider-arrow')
+                    .constr-slider__slider.js-constr-slider.swiper-container
+                      .swiper-wrapper 
+                        each val in [1, 2, 3, 1, 2, 3]
+                          a(href="#").swiper-slide.constr-slide
+                            .constr-slide__img-wrapper
+                              +img('single-building/slider' + val +'.jpg')
+                            .constr-slide__date
+                              span 11 / 02 / 2021
+                            h4.constr-slide__title Облаштування опалубки
+                    button.constr-slider__arrow.constr-slider__arrow_next
+                      +svg('slider-arrow')              
+          .body-tabs__tab.js-single-tab(data-tab="#tab-project").project-tab
+            .project-tab__inner 
+              .project-tab__col
+                .project-tab__plan
+                  h4.project-tab__subtitle 1 поверх
+                  .project-tab__img-wrapper
+                    +img('single-building/plan1.png')
+                .project-tab__plan
+                  h4.project-tab__subtitle Мансарда
+                  .project-tab__img-wrapper
+                    +img('single-building/plan2.png')
+              .project-tab__col
+                h4.project-tab__subtitle Загальні характеристики
+                table.project-tab__table
+                  tr 
+                    td Загальна площа
+                    td 201.19 м2
+                  tr 
+                    td Площа 1-го поверху
+                    td 103.54 м2
+                  tr 
+                    td Площа мансарди
+                    td 97.65 м2
+                  tr 
+                    td Жила площа
+                    td 107.02 м2
+                  tr 
+                    td Габарити
+                    td 9.13 х 17.3 м2
+                  tr 
+                    td Висота 1 поверху
+                    td 3 м
+                  tr 
+                    td Висота 2 поверху
+                    td 2.8 м
+                  tr 
+                    td Кубатура
+                    td 640.57 м3
+                  tr 
+                    td Площа забудови
+                    td 175.65 м2
+                  tr 
+                    td Площа даху
+                    td 185 м2
+                  tr 
+                    td Кут нахилу даху
+                    td 380
+                  tr 
+                    td Висота будинку в коньку
+                    td 8.73 м
+                  tr 
+                    td Внесення змін
+                    td можливі
+                  tr 
+                    td Автор проекту
+                    td SOTA
+                ul.projet-tab__list 
+                  li.project-tab__item 
+                    h4.project-tab__subtitle Стіни
+                    span Газобетон 375мм+ утеплювач 50 мм
+                  li.project-tab__item 
+                    h4.project-tab__subtitle Фундамент
+                    span Монолітно-стрічкові
+                  li.project-tab__item 
+                    h4.project-tab__subtitle Перекриття
+                    span Монолітно-залізобенні
+                  li.project-tab__item 
+                    h4.project-tab__subtitle Крівля
+                    span Бітумна черепиця
+
+
+      
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

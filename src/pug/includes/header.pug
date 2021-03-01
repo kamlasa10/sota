@@ -1,4 +1,4 @@
-header.header.header__top
+header.header.header__top(class=class_page === "class-page-single-building" ? "header_dark" : "")
   .language.header__language
     .container
       a(href="#").language__link.language__link--current UKR
@@ -9,8 +9,8 @@ header.header.header__top
   .container
     .header__wrap
       .header__content
-        .header__logo
-          +img('logo.svg')
+        a(href="./").header__logo
+          +svg('logo1')
         .header__right
           a(href="#").header__phone.btn--animate (044) 517 25 20
         button(type="button").burger-btn.js-burger-btn.btn--res Меню

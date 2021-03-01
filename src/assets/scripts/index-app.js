@@ -17,6 +17,9 @@ const locoScroll = new LocomotiveScroll({
   inertia: 1.1,
 });
 
+
+window.loco = locoScroll;
+
 document.addEventListener('DOMContentLoaded', () => {
   let isAppend = false;
 
