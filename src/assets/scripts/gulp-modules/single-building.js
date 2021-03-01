@@ -49,7 +49,7 @@ $(document).ready(() => {
     const containerItem = document.querySelector(container);
     const tabHeight = activeTabItem.offsetHeight;
     containerItem.style.height = `${tabHeight}px`;
-    window.loco.update();
+    window.locoScroll.update();
   }
 
 
@@ -67,7 +67,7 @@ $(document).ready(() => {
         const activeTab = document.querySelector(`[data-tab="${activeHref}"]`);
         activeTab.classList.add('active');
         setTabHeight(`${tabClass}.active`, containerClass)
-        window.loco.update();
+        window.locoScroll.update();
       })
     })
   }
