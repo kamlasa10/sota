@@ -83,33 +83,67 @@ block content
                   +img('about/2.jpg').sec2-about__img1
                   +img('about/3.jpg').sec2-about__img2
             .sec2-about__bottom
+              +img('about/5.jpg').sec2-about__img4
               .sec2-about__bottom-images
                 +img('about/4.jpg').sec2-about__img3
-                +img('about/5.jpg').sec2-about__img4
-              .container
-                .sec2-about__inner.sec2-about__inner_bottom
-                  .values-text-block.sec2-about__values-text-block
-                    .values-text-block__title-wrapper.values-text-block__title-wrapper_wide
-                      h4.values-text-block__title ФУНКЦІОНАЛЬНІСТЬ
-                    .values-text-block__text-wrapper
-                      p.values-text-block__text Ми не прагнемо нав'язати вам будинок побільше - він повинен бути сумірний вашим потребам, вашому стилю життя
-                      p.values-text-block__text Кожен квадратний метр повинен працювати на вас, повинен приносити щастя
-                  .values-text-block.sec2-about__values-text-block
-                    .values-text-block__title-wrapper.values-text-block__title-wrapper_wide
-                      h4.values-text-block__title Персоналізація
-                    .values-text-block__text-wrapper
-                      p.values-text-block__text Робочий процес починається з максимального занурення в ваш світ, ваші потреби, ваші прагнення
-                      p.values-text-block__text Ми пропонуємо готові рішення, які вдумливо адаптуємо під ваші потрібні
-                  .values-text-block.sec2-about__values-text-block
-                    .values-text-block__title-wrapper.values-text-block__title-wrapper_wide
-                      h4.values-text-block__title Технологічність
-                    .values-text-block__text-wrapper
-                      p.values-text-block__text Максимальна діджіталізація процесів
-                      p.values-text-block__text Інноваційні рішення будівництва
-                      a(href="#").btn--with-icon.sec2-about__link Обрати проект
-                        span
-                        +svg('round')
-
+                
+              .sec2-about__bottom-content
+                .container
+                  .sec2-about__inner.sec2-about__inner_bottom
+                    .values-text-block.sec2-about__values-text-block
+                      .values-text-block__title-wrapper.values-text-block__title-wrapper_wide
+                        h4.values-text-block__title ФУНКЦІОНАЛЬНІСТЬ
+                      .values-text-block__text-wrapper
+                        p.values-text-block__text Ми не прагнемо нав'язати вам будинок побільше - він повинен бути сумірний вашим потребам, вашому стилю життя
+                        p.values-text-block__text Кожен квадратний метр повинен працювати на вас, повинен приносити щастя
+                    .values-text-block.sec2-about__values-text-block
+                      .values-text-block__title-wrapper.values-text-block__title-wrapper_wide
+                        h4.values-text-block__title Персоналізація
+                      .values-text-block__text-wrapper
+                        p.values-text-block__text Робочий процес починається з максимального занурення в ваш світ, ваші потреби, ваші прагнення
+                        p.values-text-block__text Ми пропонуємо готові рішення, які вдумливо адаптуємо під ваші потрібні
+                    .values-text-block.sec2-about__values-text-block
+                      .values-text-block__title-wrapper.values-text-block__title-wrapper_wide
+                        h4.values-text-block__title Технологічність
+                      .values-text-block__text-wrapper
+                        p.values-text-block__text Максимальна діджіталізація процесів
+                        p.values-text-block__text Інноваційні рішення будівництва
+                        a(href="#").btn--with-icon.sec2-about__link Обрати проект
+                          span
+                          +svg('round')
+          .about-us-tab__sec3.sec3-about
+            .container 
+              .sec3-about__inner
+                .sec3-about__row 
+                  .sec3-about__col.sec3-about__col_1
+                  .sec3-about__col.sec3-about__col_2
+                    h3.sec3-about__title.title Чому ви маєте обрати нас?
+                .sec3-about__row.sec3-about__row_2
+                  .sec3-about__col.sec3-about__col_3
+                    ol.sec3-about__list
+                      li.sec3-about__item Будуємо сучасні грамотно сплановані функціональні будинки, в яких зручно жити і відпочивати 
+                      li.sec3-about__item Прозора система будівництва вашого будинка
+                      li.sec3-about__item.sec3-about__item_wide Адекватна ціна та гнучкі умови фінансування
+                      li.sec3-about__item.sec3-about__item_wide Сучасна архітектура та 4 стилів будівництва: Barnhouse, Hi-tech, Європейський, Скандинавський
+                      li.sec3-about__item.sec3-about__item_wide Сервіс 360 - від підбору землі, до будівництва, ремонту, ландшафту та введення в експлуатацію вашого будинка! 
+                  .sec3-about__col.sec3-about__col_4
+                    ol.sec3-about__list
+                      li.sec3-about__item Розгалужена система надійних партнерів
+                      li.sec3-about__item Гарантія - 5 років
+                      li.sec3-about__item Кваліфікований, сертифікований персонал, який нон-стоп навчається та відслідковує останні тренда будівництва
+                    +img('about/6.jpg').sec3-about__img1
+                .sec3-about__row 
+                  .sec3-about__col.sec3-about__col_5
+                    +img('about/7.jpg').sec3-about__img2
+                  .sec3-about__col.sec3-about__col_6
+                    ol.sec3-about__list
+                      li.sec3-about__item Технологія BIM проектування вашого будинку
+                      li.sec3-about__item Персональний кабінет споживача, в якому зібрана вся документація і матеріали по будівництву, договір
+                      li.sec3-about__item Зворотній зв'язок 24/7 і встановлені камери на будівництві та фото ходу будівництва (віднині ви не будете почуватися самотьно і покинуто після того6 як внесли гроші за будинок)
+                      li.sec3-about__item Охайне будівництво на усіх етапах із акуратними будівельниками
+                    a(href="#").btn--with-icon.sec3-about__link Обрати проект
+                      span
+                      +svg('round')
 
 block footer
   include ../includes/footer.pug

@@ -69,3 +69,23 @@
             +svg('round')
         .popup-contacts__item
           label.popup-contacts__item-label <sup>*</sup> обов’язкові для заповнення поля
+
+
+.reviews-popup.js-reviews-popup
+  .reviews-popup__inner
+    button.reviews-popup__close-btn.js-reviews-popup-close ЗАКРИТИ
+    button.reviews-pu-arrow.reviews-pu-arrow_prev.js-reviews-pu-arrow-prev
+      +svg('slider-arrow')
+    .reviews-popup-main-slider.js-reviews-popup-main-slider
+      .reviews-popup-main-wrapper.swiper-wrapper
+        .reviews-popup-main-slider__screen1.swiper-slide
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/MDEJev6bLeM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        .reviews-popup-main-slider__screen2.swiper-slide.pu-slider-s2
+          .pu-slider-s2__inner 
+            .pu-slider-s2__img-wrapper 
+              +img('about-reviews/1.jpg')
+            .pu-slider-s2__text 
+              p 10 років досвіту в побудові-проектуванні 3D моделей будівель і споруд, ландшафту, з них 5 років - виконання екстер’єрних візуалізації. 10 років досвіту в побудові-проектуванні 3D моделей будівель і споруд, ландшафту, з них 5 років - виконання екстер’єрних візуалізації. 10 років досвіту в побудові-проектуванні 3D моделей будівель і споруд.
+          
+    button.reviews-pu-arrow.reviews-pu-arrow_next.js-reviews-pu-arrow-next
+      +svg('slider-arrow')

@@ -1,0 +1,113 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'about-reviews'
+    var id_page = 'id-page-about-reviews'
+    var class_page = 'class-page-about-reviews'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/about-reviews.js')
+block content
+  .about.inner-page
+    .container
+      h1.inner-page-title.about__inner-page-title Про компанію
+    .tabs.about__tabs
+      .tabs__header.header-tabs
+        .header-tabs__single-tab-title.single-tab-title
+          span Про нас
+        .header-tabs__single-tab-title.single-tab-title
+          span Команда
+        .header-tabs__single-tab-title.single-tab-title
+          span Вакансії
+        .header-tabs__single-tab-title.single-tab-title.single-tab-title_active
+          span Відгуки
+      .tabs__content.content-tabs
+        .content-tabs__single-tab.about-review-tab
+          .container
+            .about-review-tab__inner
+              .about-review-tab__preview.preview.preview_prev
+                .preview__main
+                  .preview__img 
+                    +img('about-reviews/1.jpg')
+                    .preview__play-btn.play-btn
+                      +svg('play-arrow')
+                  .preview__descr 
+                    .preview__text 
+                      span.preview__text-line 
+                      span.js-prev-text Yasnohorodka, 2021
+                .preview__progress-bar.preview-progress-bar
+                  .preview-progress-bar__top 
+                    span.preview-progress-bar__text Показано 
+                    .preview-progress-bar__slides-number 
+                      span.preview-progress-bar__current-slide.js-current-slide 03
+                      span.preview-progress-bar__current-slide /
+                      span.preview-progress-bar__total-slide.js-total-slides 08
+                  .preview-progress-bar__line
+                    .preview-progress-bar__line-progress
+              .about-review-tab__slider.js-review-slider
+                .swiper-wrapper
+                  .preview.preview_main.swiper-slide
+                    .preview__main
+                      .preview__img 
+                        +img('about-reviews/1.jpg')
+                        .preview__play-btn.play-btn
+                          +svg('play-arrow')
+                      .preview__descr 
+                        .preview__text 
+                          span.preview__text-line 
+                          span.js-preview-text Yasnohorodka, 2021
+                  .preview.preview_main.swiper-slide
+                    .preview__main
+                      .preview__img 
+                        +img('about-reviews/2.jpg')
+                        .preview__play-btn.play-btn
+                          +svg('play-arrow')
+                      .preview__descr 
+                        .preview__text 
+                          span.preview__text-line 
+                          span.js-preview-text TARASIVKA, 2021
+                  .preview.preview_main.swiper-slide
+                    .preview__main
+                      .preview__img 
+                        +img('about-reviews/3.jpg')
+                        .preview__play-btn.play-btn
+                          +svg('play-arrow')
+                      .preview__descr 
+                        .preview__text 
+                          span.preview__text-line 
+                          span.js-preview-text BOHDANIVKA, 2021
+              .about-review-tab__preview.preview.preview_next
+                .preview__main
+                  .preview__img 
+                    +img('about-reviews/3.jpg')
+                    .preview__play-btn.play-btn
+                      +svg('play-arrow')
+                  .preview__descr 
+                    .preview__text 
+                      span.preview__text-line 
+                      span.js-next-text BOHDANIVKA, 2021
+                .preview__slider-control.preview-slider-control
+                  button.preview-slider-control__btn.preview-slider-control__btn_next.js-preview-slider-next Вперед
+                  .preview-slider-control__line 
+                    .preview-slider-control__line-active
+                  button.preview-slider-control__btn.preview-slider-control__btn_prev.js-preview-slider-prev Назад
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
