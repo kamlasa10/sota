@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  locoScroll.on("scroll", ScrollTrigger.update);
+
   $('.js-btn-top').click(() => {
     if ($(window).width() < 1025) {
       $(document.body).stop().animate({ scrollTop: 0 }, 700)

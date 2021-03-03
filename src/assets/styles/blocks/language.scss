@@ -2,11 +2,15 @@
   position: absolute;
   z-index: 2;
   right: 0;
-  top: 45px;
+  top: 42px;
 
 
   @include to(1440px) {
-    top: 61px;
+    top: 41px;
+  }
+
+  @include to(1370px) {
+    top: 42px;
   }
 
   .container {

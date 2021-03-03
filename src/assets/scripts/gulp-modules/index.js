@@ -19,6 +19,7 @@ $('.js-popup-close').on('click', e => {
   e.preventDefault()
 
   $('.overlay').removeClass('overlay--show')
+  $('.header').removeClass('show')
   setTimeout(() => {
     $('.popup').hide()
   }, 400)
@@ -31,6 +32,8 @@ $('.js-popup-btn').on('click', e => {
   $(`[data-popup=${popupName}]`).show()
   
   $('.overlay').addClass('overlay--show')
+  
+  $('.header').addClass('show')
 })
 
 $(document)[0].addEventListener('click', e => {
@@ -38,6 +41,7 @@ $(document)[0].addEventListener('click', e => {
 
   if(e.target.classList.contains('overlay')) {
     $('.overlay').removeClass('overlay--show')
+    $('.header').removeClass('show')
   }
 })
 
@@ -118,8 +122,34 @@ $(document).ready(() => {
     function checkNumbers(str) {
       return str.replace(/[\W_]+/g, '')
     }
+
+    function setTextByFileName(idx, name) {
+      $(`[data-contacts-file=${idx}]`).find('span').text(name)
+      $(`[data-contacts-file=${idx}]`).data().value = true
+    }
   
-    function validateForm(inputs) {
+    try {
+        $('[name="file"]').on("change", (e) => {
+            const { name } = e.target.files[0];
+            const idx = e.currentTarget.dataset.inputFile
+            const avaliablesFormats = ['pdf, docs']
+            const reg = "\.(doc|pdf)$"
+            const hasValue = name.toLowerCase().match(reg)
+
+            if(idx == 2) {
+              hasValue && setTextByFileName(idx, name)
+              hasValue && $('.popup-contacts__item-file').removeClass('error')
+              return
+            }
+
+            setTextByFileName(idx, name)
+        });
+    } catch (e) {}
+  
+    (function() {
+      let isFirstShowWarn = true
+
+      function validateForm(inputs) {
         let isValid = true;
         inputs.each(function() {
             $(this).on("input", (e) => {
@@ -132,7 +162,7 @@ $(document).ready(() => {
                   $(this)
                       .parent()
                       .append(
-                          `<div class="field__error-msg">${msgWarnObj[language].email}</div>`
+                          `<div class="field__error-msg field__error-msg--animate">${msgWarnObj[language].email}</div>`
                       );
                   addIndicateWarnForNode($(this), "field--error", true);
                   isValid = false;
@@ -147,7 +177,7 @@ $(document).ready(() => {
                   $(this)
                       .parent()
                       .append(
-                          `<div class="field__error-msg">${msgWarnObj[language].phone}</div>`
+                          `<div class="field__error-msg field__error-msg--animate">${msgWarnObj[language].phone}</div>`
                       );
                   addIndicateWarnForNode($(this), "field--error", true);
                   isValid = false;
@@ -164,42 +194,55 @@ $(document).ready(() => {
                   $(this)
                       .parent()
                       .append(
-                          `<div class="field__error-msg">${msgWarnObj[language].warn}</div>`
+                          `<div class="field__error-msg field__error-msg--animate">${msgWarnObj[language].warn}</div>`
                       );
                   addIndicateWarnForNode($(this), "field--error", true);
                   isValid = false;
                   return;
               }
               }
-
-              $('.field__error-msg').addClass('field__error-msg--animate')
             });
-  
+
+            if($(this).attr('type') === 'file' && 
+             $('[data-value]').data().value === false) {
+              $('.popup-contacts__item-file').addClass('error')
+              isValid = false
+            } 
+
             if (!$(this).val().replace(/\s+/g, "") && $(this)[0].type !== 'hidden' && this.dataset.required) {
-                removeFormTextWarn($(this));
-                $(this)
+                removeFormTextWarn($(this))
+                
+                if(!isFirstShowWarn) {
+                  $(this)
                     .parent()
                     .append(
                         `<div class="field__error-msg field__error-msg--animate">${msgWarnObj[language].warn}</div>`
-                    );
-                addIndicateWarnForNode($(this), "field--error", true);
+                    )
+                  addIndicateWarnForNode($(this), "field--error", true)
+                  isValid = false
+                  return
+                }
+
+                $(this)
+                    .parent()
+                    .append(
+                        `<div class="field__error-msg">${msgWarnObj[language].warn}</div>`
+                    )
+                addIndicateWarnForNode($(this), "field--error", true)
                 isValid = false;
             }
-        });
-  
+        })   
+        setTimeout(() => {
+          if(isFirstShowWarn) {
+            $('.field__error-msg').addClass('field__error-msg--animate')
+            isFirstShowWarn = false
+          }
+        }, 50) 
+
         return isValid;
     }
-  
-    try {
-        $('[name="file"]').on("change", (e) => {
-            const { name } = e.target.files[0];
-            const idx = e.currentTarget.dataset.inputFile
 
-            $(`[data-contacts-file=${idx}]`).find('span').text(name)
-        });
-    } catch (e) {}
-  
-    $('[data-form]').each(function() {
+      $('[data-form]').each(function() {
         this.addEventListener('submit', e => {
           e.preventDefault()
           $form = $(this)
@@ -208,17 +251,18 @@ $(document).ready(() => {
               .find($("[name]"))
               .not(".g-recaptcha-response")
               .not("iframe");
-          const isValid = validateForm(inputs);
+          const isValid = validateForm(inputs, isFirstShowWarn);
 
           if($form.data().form === 'single-vacancy' && !$('.popup-contacts__item-file span').text()) {
             return
           }
 
           if (isValid) {
-              sendAjaxForm("static/mail.php", $form);
+            sendAjaxForm("static/mail.php", $form);
           }
         })
-    })
+      })
+    })()
 
     function sendAjaxForm(url, selectorForm) {
       let processData = true;
@@ -250,6 +294,8 @@ $(document).ready(() => {
       contentType = processData = false;
 
       selectorForm.find('button[type=submit]').css('pointer-events', 'none')
+
+      $(`[data-contacts-file span]`).text('')
 
       $.ajax({
         url: url, //url страницы (action_ajax_form.php)
@@ -307,11 +353,17 @@ class Tabs {
         $(item).fadeIn(200)
       }
     })
+
+    try {
+      window.locoScroll.update()
+    } catch(e) {}
   }
 
   init() {
     this.trigger()
   }
 }
+
+// animate 
 
 

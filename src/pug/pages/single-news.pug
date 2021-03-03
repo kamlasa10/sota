@@ -1,0 +1,97 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'single-news'
+    var id_page = 'id-page-single-news'
+    var class_page = 'class-page-single-news'
+    var breadcrumbsSubitem = [
+      {
+        label: 'single-news',
+        link: pagesLink[0].news
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/single-news.js')
+block content
+  .single-news.inner-page
+    .container
+      h1.inner-page-title.about__inner-page-title новини
+    .tabs.about__tabs
+      .tabs__header.header-tabs
+        .header-tabs__single-tab-title.single-tab-title.single-tab-title_active
+          span останні новини
+        .header-tabs__single-tab-title.single-tab-title
+          span Слово CEO
+        .header-tabs__single-tab-title.single-tab-title
+          span Слово головного архітектора
+        .header-tabs__single-tab-title.single-tab-title
+          span Слово маркетолога
+      .tabs__content.content-tabs
+        .content-tabs__single-tab.about-us-tab  
+            .container
+              .single-news__content 
+                .single-news__wrap
+                  .single-news__type.small-title-with-decor ПРО НАГОРОДИ
+                  .single-news__title.title Куб CHICAGO Central House отримав нагороду у міжнародному конкурсі LIT Lighting Design Awards 2020
+                  .single-news__info 
+                      .single-news__author ВІКТОРІЯ ЗИМА
+                      .single-news__date 18 лютого
+                      a(href="#").single-vacancy__share
+                          span Поділитися
+                          span.single-vacancy__share-block
+                            +svg('share')
+                  .single-news__intro Радіємо черговій перемозі! Наша медіаскульптура у CHICAGO Central House отримала визнання на міжнародному конкурсі LIT Lighting Design Awards 2020. 
+                +img('./news/single-news.jpg').single-news__img
+                p Щороку журі конкурсу приймає заявки з усього світу та визначає найкращі проєкти світлового дизайну: вуличне, садово-паркове, театральне освітлення, інноваційний дизайн освітлення — всього 47 категорій, за якими дається оцінка. У 2020-му журі LIT Lighting Design Awards розглянуло 350 заявок із 43 країн.
+                p Пишаємося, що серед усіх претендентів на перемогу в категорії Interactive Lighting Projects проєкт CHICAGO Central House визнаний найкращим. Куб став першою масштабною медіаскульптурою в Європі, яка за допомогою цифрових технологій відображає ритм міста.
+                p Дякуємо нашим партнерам з Expolight, з якими ми втілили проєкт куба в життя, та вітаємо зі спільною нагородою.
+              .single-news__similar 
+                .inner-page-title Вам також може бути цікаво
+                ul.single-news__similar-list 
+                  li.single-news__similar-item
+                    a(href="#")
+                      .single-news__similar-img
+                        +img('./news/news-img2.jpg')
+                      .single-news__similar-info 
+                        .single-news__similar-auhor.single-news__author ВІКТОРІЯ ЗИМА
+                        .single-news__similar-date.single-news__date 28 січня
+                      .single-news__similar-text Піар в сфері нерухомості? Як це працює.
+                  li.single-news__similar-item
+                    a(href="#")
+                      .single-news__similar-img
+                        +img('./news/news-img3.jpg')
+                      .single-news__similar-info 
+                        .single-news__similar-auhor.single-news__author ВІКТОРІЯ ЗИМА
+                        .single-news__similar-date.single-news__date 28 січня
+                      .single-news__similar-text Пропозиція скорочується. Як сильно виростуть ціни на нерухомість в Києві в 2021
+                  li.single-news__similar-item
+                    a(href="#")
+                      .single-news__similar-img
+                        +img('./news/news-img4.jpg')
+                      .single-news__similar-info 
+                        .single-news__similar-auhor.single-news__author ВІКТОРІЯ ЗИМА
+                        .single-news__similar-date.single-news__date 28 січня
+                      .single-news__similar-text Експерт пояснив зростання цін на нерухомість у 2021.
+                  li.single-news__similar-item
+                    a(href="#")
+                      .single-news__similar-img
+                        +img('./news/news-img5.jpg')
+                      .single-news__similar-info 
+                        .single-news__similar-auhor.single-news__author ВІКТОРІЯ ЗИМА
+                        .single-news__similar-date.single-news__date 28 січня
+                      .single-news__similar-text Як придумати вдалу назву для проекту. 5 порад, що працюють.
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
