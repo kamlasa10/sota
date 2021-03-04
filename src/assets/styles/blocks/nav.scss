@@ -112,6 +112,7 @@
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 2px;
+      text-decoration: none;
 
       @include to(1440px){
         font-size: 14px;

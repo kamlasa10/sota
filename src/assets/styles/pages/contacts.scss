@@ -1,0 +1,148 @@
+.contacts{
+	.tabs{
+		&__body{
+			position: relative;
+		}
+		&__header{
+			margin-bottom: 60px;
+		}
+	}
+
+
+
+	&__inner{
+		display: flex;
+		padding-bottom: 90px;
+		position: relative;
+	}
+
+	&__map{
+		width: 100%;
+		height: 100%;
+		
+	}
+
+	&__socials{
+		right: 0;
+		left: auto;
+		background: url('../../assets/images/contacts/social-bg.jpg') no-repeat left -3px;
+		background-size: cover;
+		bottom: 0;
+		width: 20%;
+		padding-left: 45px;
+		padding-top: 50px;
+		height: 400px;
+		.socials__link{
+			background-color: #EC5629;
+			&:hover{
+				background-color: #d03e12;
+			}
+		}
+	}
+
+	&__map-wrapper {
+		width: 65%;
+		padding-top: 60px;
+		padding-bottom: 45px;
+		padding-right: 100px;
+	}
+
+	&__content{
+		.container{
+			max-width: 100%;
+			padding-left: 0;
+			padding-right: 13%;
+		}
+	}
+
+	&__content-wrapper, &__map-wrapper{
+		background: #333333;
+
+	}
+
+	&__content-wrapper{
+		width: 65%;
+		margin-left: auto;
+		padding-top: 50px;
+		padding-bottom: 30px;
+
+	}
+
+	&__title{
+		font-weight: 700;
+		font-size: 36px;
+		line-height: 133%;
+		text-transform: uppercase;
+		color: #EC5629;
+		letter-spacing: 0.02em;
+		font-family: 'Druk Text Cyr', sans-serif;
+		margin-bottom: 40px;
+	}
+
+	&__subtitle{
+		color: #B3B3B3;
+		text-transform: uppercase;
+		font-size: 12px;
+		line-height: 1;
+		letter-spacing: 0.06em;
+		padding-left: 48px;
+		position: relative;
+		margin-bottom: 12px;
+		display: block;
+		&::before{
+			position: absolute;
+			content: '';
+			height: 1px;
+			width: 32px;
+			background: #B3B3B3;
+			left: 0;
+			top: 7px;
+		}
+	}
+
+	&__link{
+		display: inline-flex;
+	}
+
+	&__adress{
+		margin-bottom: 40px;
+	}
+}
+
+.adress-contacts{
+	&__key{
+		font-weight: 700;
+		text-transform: uppercase;
+		color: #FFFFFF;
+		font-size: 14px;
+		line-height: 24px;
+		letter-spacing: 0.04em;
+		flex-basis: 100px;
+		margin-right: 15px;
+	}
+
+	&__item{
+		display: flex;
+		align-items: flex-start;
+	}
+
+	&__item + &__item{
+		margin-top: 30px;
+	}
+
+	&__val{
+		color: #C4C4C4;
+		font-size: 16px;
+		line-height: 1.5;
+	}
+
+	&__working-hours {
+		li{
+			color: #C4C4C4;
+			font-size: 16px;
+			line-height: 1.5;
+		}
+	}
+
+
+}

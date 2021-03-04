@@ -1,0 +1,60 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'wordofceo'
+    var id_page = 'id-page-wordofceo'
+    var class_page = 'class-page-wordofceo'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/wordofceo.js')
+block content
+  .word.inner-page
+    .container
+      h1.inner-page-title.word__inner-page-title новини
+      .word__tabs.tabs
+        .tabs__header.header-tabs
+          .header-tabs__single-tab-title.single-tab-title
+            span останні новини
+          .header-tabs__single-tab-title.single-tab-title.active
+            span Слово CEO
+          .header-tabs__single-tab-title.single-tab-title
+            span Слово головного архітектора
+          .header-tabs__single-tab-title.single-tab-title
+            span Слово маркетолога
+      .word__content 
+        .row
+          .word__left 
+            .word__img-wrapper 
+              +img('wordofceo/1.jpg')
+          .word__right
+            .word__quote.quote
+              .quote__icon 
+                +svg('quote')
+              p.quote__text Будинок повинен бути зручний для декількох поколінь сім'ї, для їх гостей, для домашніх тварин. Незначних дрібниць не буває, все важливо, все враховується.
+              span.quote__author Надія турій, СЕО
+            .word__text-block
+              p.word__subtitle Радіємо черговій перемозі! Наша медіаскульптура у CHICAGO Central House отримала визнання на міжнародному конкурсі LIT Lighting Design Awards 2020. 
+              p.word__text Щороку журі конкурсу приймає заявки з усього світу та визначає найкращі проєкти світлового дизайну: вуличне, садово-паркове, театральне освітлення, інноваційний дизайн освітлення — всього 47 категорій, за якими дається оцінка. У 2020-му журі LIT Lighting Design Awards розглянуло 350 заявок із 43 країн.
+              p.word__text Пишаємося, що серед усіх претендентів на перемогу в категорії Interactive Lighting Projects проєкт CHICAGO Central House визнаний найкращим. Куб став першою масштабною медіаскульптурою в Європі, яка за допомогою цифрових технологій відображає ритм міста.
+              p.word__text Дякуємо нашим партнерам з Expolight, з якими ми втілили проєкт куба в життя, та вітаємо зі спільною нагородою. 
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

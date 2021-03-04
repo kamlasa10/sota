@@ -1,0 +1,156 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'contacts'
+    var id_page = 'id-page-contacts'
+    var class_page = 'class-page-contacts'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4EBsCfQfnwCFGD_o8iLWwH97tmNCU-6E&amp;ver=1613742125#038;sensor=false&amp;ver=1.33"></script>
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/contacts.js')
+block content
+  .contacts.inner-page
+    .container
+      h1.inner-page-title.word__inner-page-title Контакти
+    .contacts__tabs.tabs
+      .tabs__header.header-tabs
+        a(href="#clients").header-tabs__single-tab-title.single-tab-title.active.js-contacts-tab-btn
+          span ДЛЯ КЛієнтів
+        a(href="#marketing").header-tabs__single-tab-title.single-tab-title.js-contacts-tab-btn
+          span Для маркетингу
+        a(href="#buy").header-tabs__single-tab-title.single-tab-title.js-contacts-tab-btn
+          span Для відділу закупівель
+      .tabs__body.js-contacts-tab-content.body-tabs
+        .body-tabs__tab.js-contacts-tab.active(data-tab="#clients")
+          .contacts__content
+            .contacts__socials.socials
+              a(href="#").socials__link
+                +svg('fb')
+              a(href="#").socials__link
+                +svg('inst')
+              a(href="#").socials__link
+                +svg('link')
+              a(href="#").socials__link.socials__link--4
+                +svg('youtube')
+            .container
+              .contacts__inner
+                .contacts__map-wrapper
+                  .contacts__map#map1
+                .contacts__content-wrapper
+                  span.contacts__subtitle Чекаємо на тебе
+                  h2.contacts__title ДО ЗВ’ЯЗКУ!
+                  ul.contacts__adress.adress-contacts
+                    li.adress-contacts__item 
+                      span.adress-contacts__key Адреса
+                      span.adress-contacts__val Київ, вул. Глибочицька, 40Г, 3 поверх, оф.13
+                    li.adress-contacts__item 
+                      span.adress-contacts__key Працюємо
+                      ul.adress-contacts__working-hours 
+                        li пн-пт 9:00 до 20:00
+                        li сб. 10:00 до 17:00
+                        li нд. вихідний
+                    li.adress-contacts__item 
+                      span.adress-contacts__key Телефон
+                      span.adress-contacts__val Головний офіс: +38067 313 29 38
+                    li.adress-contacts__item 
+                      span.adress-contacts__key E-mail
+                      span.adress-contacts__val hello@sota-construction.com.ua
+                  a(href="#").btn--with-icon.contacts__link НАПИСАТИ НАМ
+                    span
+                    +svg('round')
+        .body-tabs__tab.js-contacts-tab(data-tab="#marketing")
+          .contacts__content
+            .contacts__socials.socials
+              a(href="#").socials__link
+                +svg('fb')
+              a(href="#").socials__link
+                +svg('inst')
+              a(href="#").socials__link
+                +svg('link')
+              a(href="#").socials__link.socials__link--4
+                +svg('youtube')
+            .container
+              .contacts__inner
+                .contacts__map-wrapper
+                  .contacts__map#map2
+                .contacts__content-wrapper
+                  span.contacts__subtitle Чекаємо на тебе
+                  h2.contacts__title ДО ЗВ’ЯЗКУ!
+                  ul.contacts__adress.adress-contacts
+                    li.adress-contacts__item 
+                      span.adress-contacts__key Адреса
+                      span.adress-contacts__val Київ, вул. Глибочицька, 40Г, 3 поверх, оф.13
+                    li.adress-contacts__item 
+                      span.adress-contacts__key Працюємо
+                      ul.adress-contacts__working-hours 
+                        li пн-пт 9:00 до 20:00
+                        li сб. 10:00 до 17:00
+                        li нд. вихідний
+                    li.adress-contacts__item 
+                      span.adress-contacts__key Телефон
+                      span.adress-contacts__val Головний офіс: +38067 313 29 38
+                    li.adress-contacts__item 
+                      span.adress-contacts__key E-mail
+                      span.adress-contacts__val hello@sota-construction.com.ua
+                  a(href="#").btn--with-icon.contacts__link НАПИСАТИ НАМ
+                    span
+                    +svg('round')
+        .body-tabs__tab.js-contacts-tab(data-tab="#buy")
+          .contacts__content
+            .contacts__socials.socials
+              a(href="#").socials__link
+                +svg('fb')
+              a(href="#").socials__link
+                +svg('inst')
+              a(href="#").socials__link
+                +svg('link')
+              a(href="#").socials__link.socials__link--4
+                +svg('youtube')
+            .container
+              .contacts__inner
+                .contacts__map-wrapper
+                  .contacts__map#map3
+                .contacts__content-wrapper
+                  span.contacts__subtitle Чекаємо на тебе
+                  h2.contacts__title ДО ЗВ’ЯЗКУ!
+                  ul.contacts__adress.adress-contacts
+                    li.adress-contacts__item 
+                      span.adress-contacts__key Адреса
+                      span.adress-contacts__val Київ, вул. Глибочицька, 40Г, 3 поверх, оф.13
+                    li.adress-contacts__item 
+                      span.adress-contacts__key Працюємо
+                      ul.adress-contacts__working-hours 
+                        li пн-пт 9:00 до 20:00
+                        li сб. 10:00 до 17:00
+                        li нд. вихідний
+                    li.adress-contacts__item 
+                      span.adress-contacts__key Телефон
+                      span.adress-contacts__val Головний офіс: +38067 313 29 38
+                    li.adress-contacts__item 
+                      span.adress-contacts__key E-mail
+                      span.adress-contacts__val hello@sota-construction.com.ua
+                  a(href="#").btn--with-icon.contacts__link НАПИСАТИ НАМ
+                    span
+                    +svg('round')
+
+      
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

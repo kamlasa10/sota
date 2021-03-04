@@ -1,0 +1,55 @@
+.word{
+	&__inner-page-title{
+		margin-bottom: 35px;
+	}
+
+	&__tabs{
+		.tabs__header{
+			max-width: 1100px;
+			margin-bottom: 60px;
+		}
+	}
+
+	&__left{
+		@include col();
+		@include size(3);
+		@include shift-left(1);
+	}
+	&__right{
+		@include col();
+		@include size(8);
+		padding-top: 10px;
+	}
+
+	&__quote{
+		margin-bottom: 40px;
+	}
+
+	&__subtitle{
+		font-size: 12px;
+		color: #333333;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		line-height: 183%;
+		font-weight: 600;
+		margin-bottom: 10px;
+	}
+
+	&__text{
+		color: #808080;
+		font-size: 16px;
+		line-height: 1.5;
+	}
+
+	&__text + &__text{
+		margin-top: 25px;
+	}
+
+	&__text-block{
+		padding-left: 45px;
+	}
+
+	&__content{
+		padding-bottom: 80px;
+	}
+}
