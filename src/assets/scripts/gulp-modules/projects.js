@@ -15,7 +15,7 @@ class ProjectsTabs extends Tabs {
             new VacancyProgress($(`[data-filter=${filterName}]`))
         }
 
-        window.locoScroll.init()
+        window.locoScroll.update()
     }
 
     trigger() {
@@ -23,4 +23,4 @@ class ProjectsTabs extends Tabs {
     }
 }
 
-new ProjectsTabs($('[data-content-choise]'), $('.header-tabs__single-tab-title'), 'single-tab-title_active')
+new ProjectsTabs($('[data-content-choise]'), $('.header-tabs__single-tab-title'), 'active')

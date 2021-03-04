@@ -1,0 +1,117 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'news'
+    var id_page = 'id-page-news'
+    var class_page = 'class-page-news'
+    var breadcrumbsSubitem = [
+      {
+        label: 'News',
+        link: pagesLink[0].news
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/news.js')
+block content
+  .news.inner-page
+    .container
+      h1.inner-page-title.about__inner-page-title новини
+    .tabs.about__tabs
+      .tabs__header.header-tabs
+        .header-tabs__single-tab-title.single-tab-title.single-tab-title_active
+          span останні новини
+        .header-tabs__single-tab-title.single-tab-title
+          span Слово CEO
+        .header-tabs__single-tab-title.single-tab-title
+          span Слово головного архітектора
+        .header-tabs__single-tab-title.single-tab-title
+          span Слово маркетолога
+      .tabs__content.content-tabs
+        .content-tabs__single-tab.about-us-tab  
+            .container
+                .news__wrap
+                    .news__left 
+                        .news__nav 
+                            ul.news__nav-list  
+                                li.news__nav-item.current 
+                                    a(href="#" class="news__nav-link").header-tabs__single-tab-title.single-tab-title Новини SOTA
+                                li.news__nav-item 
+                                    a(href="#" class="news__nav-link").header-tabs__single-tab-title.single-tab-title Новини Партнерів
+                                li.news__nav-item 
+                                    a(href="#" class="news__nav-link").header-tabs__single-tab-title.single-tab-title Про нас пишуть
+                    .news__right 
+                        ul.news__items 
+                            li.news__item
+                                a(href="#").news__item-link
+                                    +img('./news/news-img.jpg')
+                                .news__item-content.news-info 
+                                    .news-info__type.small-title-with-decor ПРО НАГОРОДИ
+                                    a(href="#").news-info__title Куб CHICAGO Central House отримав нагороду у міжнародному конкурсі LIT Lighting Design Awards 2020.
+                                    .news-info__footer 
+                                        .news-info__footer-name ВІКТОРІЯ ЗИМА
+                                        .news-info__footer-date 18 лютого 
+                            li.news__item
+                                a(href="#").news__item-link
+                                    +img('./news/news-img2.jpg')
+                                .news__item-content.news-info 
+                                    .news-info__type.small-title-with-decor ПРО ПІАР
+                                    a(href="#").news-info__title Піар в сфері нерухомості? Як це працює.
+                                    .news-info__footer 
+                                        .news-info__footer-name MMR.ua
+                                        .news-info__footer-date 12 лютого
+                            li.news__item
+                                a(href="#").news__item-link
+                                    +img('./news/news-img3.jpg')
+                                .news__item-content.news-info 
+                                    .news-info__type.small-title-with-decor Про нерухомість
+                                    a(href="#").news-info__title Пропозиція скорочується. Як сильно виростуть ціни на нерухомість в Києві в 2021
+                                    .news-info__footer 
+                                        .news-info__footer-name ВІКТОРІЯ ЗИМА
+                                        .news-info__footer-date 09 лютого
+                            li.news__item
+                                a(href="#").news__item-link
+                                    +img('./news/news-img4.jpg')
+                                .news__item-content.news-info 
+                                    .news-info__type.small-title-with-decor Про нерухомість
+                                    a(href="#").news-info__title Експерт пояснив зростання цін на нерухомість у 2021.
+                                    .news-info__footer 
+                                        .news-info__footer-name ВІКТОРІЯ ЗИМА
+                                        .news-info__footer-date 28 січня
+                            li.news__item
+                                a(href="#").news__item-link
+                                    +img('./news/news-img5.jpg')
+                                .news__item-content.news-info 
+                                    .news-info__type.small-title-with-decor Про піар
+                                    a(href="#").news-info__title Як придумати вдалу назву для проекту. 5 порад, що працюють.
+                                    .news-info__footer 
+                                        .news-info__footer-name ВІКТОРІЯ ЗИМА
+                                        .news-info__footer-date 20 січня
+                        .vacancy__progress 
+                            .vacancy__progress-content
+                                .vacancy__progress-top 
+                                    .vacancy__progress-top__text Показано 
+                                    .vacancy__progress-top__content 
+                                        span.current.js-progress-current 06/
+                                        span.total.js-progress-total 12 
+                                .vacancy__progress-bottom 
+                                    .vacancy__progress-bottom__fill(data-progress="0")
+                                .vacancy__block
+                                    a(href="#").choise-us__link.btn--with-icon.vacancy__progress-link.js-loading__more Дивитись ще
+                                        span
+                                        +svg('round')
+                        
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
