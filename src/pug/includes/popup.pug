@@ -9,20 +9,20 @@
     .popup-thank__title ДЯКУЄМО ЗА ВАШУ ЗАЯВКУ!
     .popup-thank__desc Наш менеджер зв’яжеться з вами, щойно її отримає!
   .popup-contacts.popup.js-popup(data-popup="contacts")
-    .popup-grid
-    .popup-grid
-    .popup-grid
-    .popup-grid
     .popup-contacts-close-block
       button(type="button" data-popup-type="contacts").popup-close.js-popup-close.nav__close.btn--res ЗАКРИТИ
     form.popup-contacts__form(data-form="contacts")
+      .section-grid
+      .section-grid
+      .section-grid
+      .section-grid
       .popup-contacts__title Ваші данні
       .popup-contacts__wrap
         .popup-contacts__item
           label.popup-contacts__item-label
             span Ім’я<sup>*</sup>
             input(type="text" data-required="true" name="name")
-        .popup-contacts__item
+        .popup-contacts__item.popup-contacts__item--select
           p.js-popup-contacts__item-text.popup-contacts__item-label Відділ, який вас цікавить
           .popup-contacts__item-wrap.contacts-select
             .contacts-select__current(data-select-current="1")

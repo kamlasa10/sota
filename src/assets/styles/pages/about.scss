@@ -8,6 +8,10 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	@include to(1370px) {
+		justify-content: space-around;
+	}
 }
 
 .body-tabs{

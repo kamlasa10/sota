@@ -9,7 +9,7 @@
 
             @include to(1370px) {
                 column-gap: 23px;
-                grid-template-columns: repeat(auto-fit, minmax(358px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(3px, 1fr));
             }
         }
 
@@ -103,7 +103,15 @@
         align-items: center;
 
         &-content {
-            width: 30%;
+            width: 390px;
+
+            @include to(1440px) {
+                width: 370px;
+            }
+
+            @include to(1370px) {
+                width: 360px;
+            }
         }
 
         &-top {

@@ -10,19 +10,18 @@
   height: 100%;
   width: 100%;
   justify-content: center;
-  align-items: flex-end;
-  z-index: 10;
-  padding-bottom: 20px;
+  align-items: center;
   opacity: 0;
   transition: all .4s;
   z-index: -1;
 
   &--show {
     opacity: 1;
-    z-index: 100;
+    z-index: 50;
   }
 
   .section-grid {
+    z-index: -1;
     left: 7.5%;
     top: 0;
     bottom: 0;
@@ -42,11 +41,19 @@
 }
 
 .popup {
+  margin-top: var(--header-h);
+  height: calc(100vh - var(--header-h));
+  overflow-y: scroll;
   position: relative;
   max-width: 1100px;
   width: 100%;
   background-color: #fff;
   padding: 45px 100px;
+
+  .section-grid {
+    position: absolute;
+    z-index: 2;
+  }
   
   &-close {
     width: auto;
@@ -56,11 +63,12 @@
   }
 
   &-thank {
+    margin-top: var(--header-h);
     position: absolute;
     top: 52%;
     transform: translateY(-50%);
     text-align: center;
-    min-height: 305px;
+    height: 305px;
 
     &__block {
       display: flex;
@@ -84,7 +92,25 @@
   }
 
   &-contacts {
+    overflow-y: scroll;
     display: none;
+    color: #808080;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      width: 5px;
+      border-radius: 999px;
+      background-color: #454545;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #c4c4c4;
+      border-radius: 999px;
+    }
+
     sup {
       margin-left: 3px;
       font-weight: 700;
@@ -105,6 +131,7 @@
     }
 
     &__wrap {
+      position: relative;
       margin-bottom: 9px;
       display: flex;
       flex-wrap: wrap;
@@ -160,6 +187,7 @@
         margin-right: 36px;
         width: 23%;
         color: #808080;
+        transition: all .4s;
 
         &-label {
           cursor: pointer;
@@ -174,6 +202,10 @@
           text-overflow: ellipsis;
           overflow: hidden;
           display: block;
+        }
+
+        &.error {
+          border: 1px solid #EC5629;
         }
       }
 
@@ -229,6 +261,12 @@
           }
         }
       }
+
+      &--select {
+        .popup-contacts__item-label {
+          margin-top: 5px;
+        }
+      }
     }
 
     &__footer {
@@ -267,6 +305,7 @@
     padding: 7px 20px;
     width: 100%;
     border-radius: 4px;
+    color: #333;
     opacity: 0;
     z-index: -1;
     transition: opacity .4s;
@@ -302,7 +341,7 @@
       content: "";
       position: absolute;
       right: 20px;
-      top: 17px;
+      top: 18px;
       width: 0;
       height: 0;
       border-left: 8px solid transparent;
@@ -329,7 +368,7 @@
     }
     .contacts-select__list {
       opacity: 1;
-      z-index: 1;
+      z-index: 3;
     }
   }
 

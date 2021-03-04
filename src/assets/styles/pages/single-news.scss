@@ -1,0 +1,193 @@
+#id-page-single-news {
+    .single-news {
+        .tabs__header {
+            max-width: 1100px;
+
+            @include to(1440px) {
+                max-width: 1010px;
+            }
+        }
+
+        &__content {
+            margin-left: 300px;
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                margin-bottom: 32px;
+            }
+
+            @include to(1370px) {
+                margin-left: 245px;
+            }
+        }
+
+        &__type {
+            font-weight: 400;
+        }
+
+        .single-vacancy__share span:first-child {
+            color: #b3b3b3;
+        }
+
+        p {
+            margin-bottom: 22px;
+            color: #808080;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &__title {
+            font-family: $default-font;
+            margin-bottom: 25px;
+            font-size: 34px;
+            text-transform: none;
+
+            @include to(1440px) {
+                font-size: 32px;
+            }
+        }
+
+        &__wrap {
+            max-width: 780px;
+
+            @include to(1370px) {
+                max-width: 602px;
+            }
+        }
+
+        &__info {
+            width: 95%;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        &__author,
+        &__date {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #333;
+            margin-right: 75px;
+            font-weight: 600;
+
+            @include to(1440px) {
+                margin-right: 61px;
+            }
+        }
+
+        &__date {
+            text-transform: uppercase;
+            color: #b3b3b3;
+            font-weight: 500;
+        }
+
+        &__intro {
+            margin-bottom: 32px;
+            width: 96%;
+            font-size: 14px;
+            line-height: 1.8em;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: #333;
+
+            @include to(1440px) {
+                font-size: 12px;
+                width: 103%;
+            }
+
+            @include to(1370px) {
+                width: 100%;
+            }
+        }
+
+        .single-vacancy__share-block {
+            width: 38px;
+            height: 38px;
+
+            svg {
+                width: 14px;
+                height: 15px;
+            }
+
+            @include to(1370px) {
+                width: 32px;
+                height: 32px;
+
+                svg {
+                    width: 10px;
+                    height: 11px;
+                }
+            }
+        }
+
+        &__similar {
+            margin-top: 72px;
+            margin-bottom: 88px;
+
+            .inner-page-title {
+                text-transform: uppercase;
+                margin-bottom: 40px;
+            }
+
+            &-list {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(269px, 1fr));
+                column-gap: 30px;
+                row-gap: 35px;
+            }
+
+            .single-news__author,
+            .single-news__date {
+                margin-right: 0;
+            }
+
+            &-item {
+                a {
+                    text-decoration: none;
+                    overflow: hidden;
+                    display: block;
+                }
+
+                img {
+                    margin-bottom: 16px;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: all .4s;
+                }
+            }
+
+            &-text {
+                color: #333;
+                font-weight: 700;
+            }
+
+            &-info {
+                margin-bottom: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            &-title {
+                margin-bottom: 31px;
+                text-transform: uppercase;
+            }
+
+            &-img {
+                margin-bottom: 16px;
+                overflow: hidden;
+                width: 100%;
+                height: 200px;
+
+                &:hover img {
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+}
