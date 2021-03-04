@@ -84,8 +84,13 @@
       right: 17px;
       width: 36px;
       height: 2px;
+      top: 48%;
       background-color: #EC5629;
       transition: all .4s;
+
+      @include to(1440px) {
+        top: 50%;
+      }
     }
 
     svg {

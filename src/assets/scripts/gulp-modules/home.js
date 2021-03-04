@@ -25,8 +25,8 @@ function setPreviewNextSlide(nextSlide, current) {
       { duration: 1, scale: 1, delay: 0.3 })
       .fromTo(current.find('.main__small-title'), {
         duration: 1, y: -35, opacity: 0, delay: 0.4 
-      }, { duration: 1, opacity: 1, y: 0 }, '<0.4')
-      .fromTo(current.find('.main__title'), { duration: 1, y: 30, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, 1.2)
+      }, { duration: 1, opacity: 1, y: 0 }, '<0.3')
+      .fromTo(current.find('.main__title'), { duration: 1, y: 30, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, 1.1)
       .fromTo(current.find('.main__desc'), { duration: 1, y: 40, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, '<0.2')
 
     return
@@ -232,6 +232,21 @@ function setPreviewNextSlide(nextSlide, current) {
   });
 }())
 
+$("#map").on("wheel mousewheel DOMMouseScroll", (e) => {
+  e.preventDefault();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Control') {
+    window.locoScroll.stop();
+  }
+});
+document.addEventListener('keyup', (e) => {
+  if (e.key === 'Control') {
+    window.locoScroll.start();
+  }
+});
+
 const swiper = new Swiper('.js-main__wrap', {
   pagination: {
     el: '.main__progress-bar',
@@ -274,17 +289,29 @@ gsap.from('.socials', {
   opacity: 0,
 })
 
-const tl1 = gsap.timeline({
-  scrollTrigger: {
-    trigger: '.choise-us',
-    markers: true
-  }
-})
+function choiseSec() {
+  const tl = gsap.timeline()
 
-tl1.from('.title', {
-  duration: 2,
-  y: -100
-})
+  tl.fromTo('.title', {
+    duration: 1,
+    y: -30,
+    opacity: 0
+  }, {
+    y: 0,
+    opacity: 1,
+    duration: 1
+  })
+}
+
+ScrollTrigger.create({
+  trigger: ".choise-us",
+  start: "top center",
+  // end: "+=1000",
+  markers: true,
+  scroller: ".js-scroll-container",
+  animation: choiseSec(),
+  scrub: true,
+});
 
 // window.addEventListener("load", () => {
 //   // set up our WebGL context and append the canvas to our wrapper
