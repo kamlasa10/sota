@@ -13,10 +13,10 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 
 /* eslint-disable-next-line */
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger)
 
-  window.locoScroll = new LocomotiveScroll({
+  const locoScroll = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
     smooth: true,
     smoothMobile: false,
@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
   });
 
   let isAppend = false;
-  // window.locoScroll = locoScroll;
+  window.locoScroll = locoScroll;
 
   locoScroll.on('scroll', (e) => {
     if (e.delta.y > 0 && !isAppend) {
