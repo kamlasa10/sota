@@ -20,14 +20,14 @@ function setPreviewNextSlide(nextSlide, current) {
         }, 200)
       } 
     })
-    console.log(nextSlide, current)
 
     tl.fromTo('.main__progress-img', { duration: 1, scale: 0, delay: 0.2 }, 
-      { duration: 1, scale: 1, delay: 0.3 }).fromTo(current.find('.main__small-title'), {
-      duration: 1, y: -35, opacity: 0, delay: 0.5 
-    }, { duration: 1, opacity: 1, y: 0 }, 1)
-      .fromTo(current.find('.main__title'), { duration: 1, y: 30, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, 1.5)
-      .fromTo(current.find('.main__desc'), { duration: 1, y: 40, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, '<0.7')
+      { duration: 1, scale: 1, delay: 0.3 })
+      .fromTo(current.find('.main__small-title'), {
+        duration: 1, y: -35, opacity: 0, delay: 0.4 
+      }, { duration: 1, opacity: 1, y: 0 }, '<0.4')
+      .fromTo(current.find('.main__title'), { duration: 1, y: 30, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, 1.2)
+      .fromTo(current.find('.main__desc'), { duration: 1, y: 40, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, '<0.2')
 
     return
   }
@@ -247,17 +247,16 @@ const swiper = new Swiper('.js-main__wrap', {
       $('.main__progress-total').text(`0${Math.ceil(e.slides.length / 2)}`)
     },
     slideChange(e) {
-      console.log(e.slides)
       try {
         if (Math.ceil(e.slides.length / 2) < e.snapIndex) {
-          setPreviewNextSlide($(e.slides[2]), $(e.slides[1]))
+          setPreviewNextSlide($(e.slides[2]), $(e.slides[e.activeIndex]))
           $('.main__progress-current').text('/ 01')
 
           return
         }
 
         if (e.previousIndex === 1 && !e.activeIndex) {
-          setPreviewNextSlide($(e.slides[1]), $(Math.ceil(e.slides[e.slides.length / 2])))
+          setPreviewNextSlide($(e.slides[1]), $(e.slides[e.activeIndex]))
           $('.main__progress-current').text(`/ 0${Math.ceil(e.slides.length / 2)}`)
 
           return;
@@ -267,6 +266,24 @@ const swiper = new Swiper('.js-main__wrap', {
       $('.main__progress-current').text(`/0${e.activeIndex}`)
     },
   },
+})
+
+gsap.from('.socials', {
+  duration: 1.4,
+  y: 35,
+  opacity: 0,
+})
+
+const tl1 = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.choise-us',
+    markers: true
+  }
+})
+
+tl1.from('.title', {
+  duration: 2,
+  y: -100
 })
 
 // window.addEventListener("load", () => {

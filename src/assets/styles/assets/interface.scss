@@ -137,6 +137,7 @@
   font-weight: 700;
   font-family: $druk-cyr;
   color: #EC5629;
+  display: block;
 
   @include to(1440px) {
     font-size: 36px;

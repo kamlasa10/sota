@@ -3,6 +3,7 @@
 let isPhoneValid 
 let isMenuShow = false
 
+
 $('[name=phone]').each(function() {
   $(this).inputmask("38(099)999 99 99",{placeholder:"38(0__)___ __ __", clearMaskOnLostFocus: true})
 })
