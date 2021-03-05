@@ -1,3 +1,38 @@
+#Preloader {
+  position: absolute;
+  width: 310px;
+  height: 320px;
+  left: 50%;
+  z-index: 5;
+  top: 49%;
+  transform: translate(-50%, -50%) scale(0.75);
+  transform-origin: center center;
+}
+@media (max-width: 767px) {
+  #Preloader {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}
+@media (max-width: 419px) {
+  #Preloader {
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+}
+@keyframes PreloaderWavesAnimation1 {
+  0% {
+    transform: translate(0) scaleY(1.2);
+  }
+  100% {
+    transform: translate(-100%) scaleY(1.2);
+  }
+}
+.Preloader_wave {
+  animation-name: PreloaderWavesAnimation1;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
 .row {
 	@include row-flex();
 }
@@ -84,6 +119,7 @@
       right: 17px;
       width: 36px;
       height: 2px;
+      top: 33px;
       background-color: #EC5629;
       transition: all .4s;
     }
