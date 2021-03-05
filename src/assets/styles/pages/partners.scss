@@ -1,0 +1,72 @@
+.partners{
+	padding-bottom: 35px;
+	&__col{
+		@include col();
+		@include size(5);
+		@include shift-right(1);
+		display: flex;
+		position: relative;
+		padding-right: 32px;
+		padding-top: 5px;
+		font-size: 16px;
+		color: #808080;
+		letter-spacing: 0.06em;
+		line-height: 1.5;
+		margin-bottom: 50px;
+		&::after, &::before{
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			background: #EC5629;
+		}
+		&::after{
+			height: 3px;
+			width: 38px;
+		}
+		&::before{
+			height: 38px;
+			width: 3px;
+		}
+	}
+
+
+	&__logo{
+		svg{
+			width: 100px;
+		}
+
+		&_soda{
+			svg{
+				height: 35px;
+			}
+		}
+
+		&_kotsiuda{
+			margin-top: 3px;
+			svg{
+				height: 25px;
+			}
+		}
+
+		&_buro{
+			svg{
+				height: 40px;
+			}
+		}
+
+		&_terra{
+			svg{
+				height: 30px;
+			}
+		}
+	}
+
+	&__inner-page-title{
+		margin-bottom: 65px;
+	}
+
+	&__text{
+		padding-left: 30px;
+	}
+}

@@ -1,0 +1,24 @@
+.page404-wrap{
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.class-page-error{
+	.page__content{
+		flex-direction: column;
+		display: flex;
+	}
+}
+
+.page404{
+	text-align: center;
+	&__link{
+		margin-top: 25px;
+		display: inline-flex;
+	}
+	&__subtitle{
+		color: #333;
+	}
+}

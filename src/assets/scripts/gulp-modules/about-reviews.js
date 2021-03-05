@@ -99,7 +99,7 @@ $(document).ready(() => {
 
   const popupCloseBtn = document.querySelector('.js-reviews-popup-close');
   const popup = document.querySelector('.js-reviews-popup');
-  const previewBtnsArray = document.querySelectorAll('.preview')
+  const previewBtnsArray = document.querySelectorAll('.preview__main')
 
   popupCloseBtn.addEventListener('click', () => {
     popup.classList.remove('show')

@@ -41,6 +41,7 @@
 	text-transform: uppercase;
 	position: relative;
 	cursor: pointer;
+	text-decoration: none;
 	&:hover{
 		&::after{
 			width: 100%;

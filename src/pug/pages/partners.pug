@@ -1,0 +1,51 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'partners'
+    var id_page = 'id-page-partners'
+    var class_page = 'class-page-partners'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/partners.js')
+block content
+  .partners.inner-page
+    .container
+      h1.inner-page-title.partners__inner-page-title НАШІ ПАРТНЕРИ
+      .row 
+        .partners__col
+          .partners__logo.partners__logo_soda
+            +svg('soda-logo')
+          span.partners__text SODA Digital Advertising Group — компанія, яка спеціалізується на розробці й впровадженні комплексних діджитал- та комунікаційних стратегій для брендів. Охоплює 2 агенції: SODA Performance та SODA Communications. SODA Performance працює з великим спектром digital-інструментів (SEO, PPC, WEB-аналітика та інше), а SODA Communications вважає, що комунікації — це не лише те, що ти говориш про себе; це і те, що про тебе говорять інші, над чим, власне, і працює.
+        .partners__col
+          .partners__logo.partners__logo_kotsiuda
+            +svg('kotsiuda-logo')
+          span.partners__text Доступний суспільний простір та якісний благоустрій прибудинкової території — обов’язкові складові проектів SOTA Constraction. Для розробки та втілення концепцій ландшафтного проєктування ми співпрацюємо зі студією Kotsiuba — компанією, яка близька нам за принципом своєї роботи про те, що людина має комфортно почувати себе у міському просторі.
+        .partners__col
+          .partners__logo.partners__logo_buro
+              +svg('buro-logo')
+          span.partners__text Команда архітекторів і дизайнерів, які змінюють українські міста на краще. Компанія спеціалізується у проєктуванні житлових будинків, розробляє концепцію реновації колишніх промислових територій та займається масштабним міським плануванням.
+        .partners__col
+          .partners__logo.partners__logo_terra
+            +svg('terra-logo')
+          span.partners__text Для нас важлива діджіталізація процесів і використання ВІМ-моделювання у будівництві, тому ми співпрацюємо з Terra project — проєктною організацією, яка використовує сучасні технології та інноваційні підходи у проєктуванні міського простору.
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
