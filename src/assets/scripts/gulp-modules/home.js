@@ -312,7 +312,7 @@ function choiseSec() {
       width: '0%'
     }, {
       duration: 0.8,
-      width: '72%'
+      width: $(window).width() > 1440 ? '80%' : '77%'
     }, 1)
     .fromTo('.choise-us__item--1-right', {
       opacity: 0,

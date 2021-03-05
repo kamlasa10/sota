@@ -7,10 +7,10 @@ var __FinishPreload = (function () {
   var l = document.getElementById("Preloader_waveContainer"),
     n = 285,
     r = -30,
-    e = 0.5,
+    e = 0.9,
     t = null,
     a = !1,
-    i = setInterval(o, 400 / 60);
+    i = setInterval(o, 200 / 60);
   function o() {
     if (n <= r) {
       clearInterval(i);
@@ -24,14 +24,37 @@ var __FinishPreload = (function () {
     if (a) return r();
     e = 1;
     var l = setInterval(function () {
-      if (n > 30) e *= 1.2;
-    }, 1000 / 30);
+      if (n > 30) e *= 1.3;
+    }, 100 / 30);
     t = function () {
       clearInterval(l);
       r();
     };
   };
 })();
+
+setTimeout(() => {
+  const tl = gsap.timeline()
+
+  tl.to('.bg-for-finish-animate', {
+    duration: 1.8,
+    x: '100%'
+  }).to('#Preloader', {
+    duration: 1.6,
+    x: 450
+  }, 0.2)
+  .to('.preloader-bg', {
+    duration: 0.8,
+    opacity: 0,
+    zIndex: -100
+  }, 1)
+  .to('#Preloader', {
+    opacity: 0,
+    zIndex: -100
+  }, 0.6)
+
+
+}, 2500)
 
 
 $('[name=phone]').each(function() {
@@ -356,7 +379,7 @@ $(document).ready(() => {
 
             selectorForm.find('button[type=submit]').css('pointer-events', 'none')
 
-            $(`[data-contacts-file span]`).text('')
+            $(`[data-contacts-file] span`).text('')
 
             $.ajax({
                 url: url, //url страницы (action_ajax_form.php)

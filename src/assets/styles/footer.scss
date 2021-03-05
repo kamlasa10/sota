@@ -140,14 +140,14 @@
     align-items: flex-end;
 
     @include to(1440px) {
-      width: 20%;
+      width: 22%;
     }
 
     @include to(1370px) {
       width: 31%;
     }
 
-    @include to(1025px) {
+    @include to(1300px) {
       align-items: flex-start;
       padding-left: 20px;
     }

@@ -65,12 +65,12 @@
   &-thank {
     margin-top: var(--header-h);
     position: absolute;
-    top: 52%;
-    transform: translateY(-50%);
+    bottom: 50px;
     text-align: center;
     height: 305px;
 
     &__block {
+      margin-bottom: 15px;
       display: flex;
       justify-content: flex-end;
     }
@@ -277,7 +277,7 @@
 
       .popup-contacts__item {
         margin-bottom: 0;
-        margin-top: -23px;
+        margin-top: -15px;
       }
 
       .popup-contacts__btn {
@@ -290,6 +290,10 @@
             right: 19px;
           }
         }
+      }
+
+      .popup-contacts__btn {
+        line-height: 4.2em;
       }
     }
   }

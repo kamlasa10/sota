@@ -12,16 +12,6 @@
 window.addEventListener('load', () => {
   let isAppend = false;
 
-  const locoScroll = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
-    smooth: true,
-    smoothMobile: false,
-    inertia: 1.1,
-  });
-
-  let isAppend = false;
-  window.locoScroll = locoScroll;
-
   window.locoScroll.on('scroll', (e) => {
     if (e.delta.y > 0 && !isAppend) {
       // eslint-disable-next-line no-undef
