@@ -18,15 +18,15 @@ function setPreviewNextSlide(nextSlide, current) {
         setTimeout(() => {
           $('.main__progress-wrap').find('.main__progress-img img').attr('src', src)
         }, 200)
-      } 
+      }
     })
 
-    tl.fromTo('.main__progress-img', { duration: 1, scale: 0, delay: 0.2 }, 
+    tl.fromTo('.main__progress-img', { duration: 1, scale: 0, delay: 0.2 },
       { duration: 1, scale: 1, delay: 0.3 })
       .fromTo(current.find('.main__small-title'), {
-        duration: 1, y: -35, opacity: 0, delay: 0.4 
-      }, { duration: 1, opacity: 1, y: 0 }, '<0.4')
-      .fromTo(current.find('.main__title'), { duration: 1, y: 30, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, 1.2)
+        duration: 1, y: -35, opacity: 0, delay: 0.4
+      }, { duration: 1, opacity: 1, y: 0 }, '<0.3')
+      .fromTo(current.find('.main__title'), { duration: 1, y: 30, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, 1.1)
       .fromTo(current.find('.main__desc'), { duration: 1, y: 40, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, '<0.2')
 
     return
@@ -232,6 +232,21 @@ function setPreviewNextSlide(nextSlide, current) {
   });
 }())
 
+$("#map").on("wheel mousewheel DOMMouseScroll", (e) => {
+  e.preventDefault();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Control') {
+    window.locoScroll.stop();
+  }
+});
+document.addEventListener('keyup', (e) => {
+  if (e.key === 'Control') {
+    window.locoScroll.start();
+  }
+});
+
 const swiper = new Swiper('.js-main__wrap', {
   pagination: {
     el: '.main__progress-bar',
@@ -274,17 +289,50 @@ gsap.from('.socials', {
   opacity: 0,
 })
 
-const tl1 = gsap.timeline({
-  scrollTrigger: {
-    trigger: '.choise-us',
-    markers: true
-  }
-})
+function choiseSec() {
+  const tl = gsap.timeline()
 
-tl1.from('.title', {
-  duration: 2,
-  y: -100
-})
+  tl.fromTo('.title', {
+    duration: 1.2,
+    y: -30,
+    opacity: 0
+  }, {
+    y: 0,
+    opacity: 1
+  }, 0.5)
+    .fromTo('.choise-us__tab', {
+      opacity: 0,
+      y: 10,
+      duration: 1.5
+    }, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.11
+    }).fromTo('.choise-us__item--1-img img', {
+      width: '0%'
+    }, {
+      duration: 0.8,
+      width: '72%'
+    }, 1)
+    .fromTo('.choise-us__item--1-right', {
+      opacity: 0,
+      x: 100
+    }, {
+      duration: 1,
+      opacity: 1,
+      x: 0
+    }, '<0.2')
+
+  return tl
+}
+
+ScrollTrigger.create({
+  trigger: ".choise-us",
+  // end: "+=1000",
+  markers: true,
+  scroller: ".js-scroll-container",
+  animation: choiseSec(),
+});
 
 // window.addEventListener("load", () => {
 //   // set up our WebGL context and append the canvas to our wrapper
