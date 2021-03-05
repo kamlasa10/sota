@@ -66,7 +66,8 @@ $(document).ready(() => {
         const activeHref = this.getAttribute('href');
         const activeTab = document.querySelector(`[data-tab="${activeHref}"]`);
         activeTab.classList.add('active');
-        setTabHeight(`${tabClass}.active`, containerClass)
+        setTabHeight(`${tabClass}.active`, containerClass);
+        setTabHeight('.js-single-tab.active', '.js-tab-content');
         window.locoScroll.update();
       })
     })
