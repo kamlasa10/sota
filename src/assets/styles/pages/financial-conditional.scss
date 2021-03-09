@@ -1,0 +1,314 @@
+#id-page-financial {
+    .financial {
+        &__intro {
+            display: flex;
+            align-items: flex-end;
+    
+            &-left {
+                width: 45%;
+
+                @include to(1370px) {
+                    width: 44%;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+    
+            &-right {
+                position: relative;
+                width: 55%;
+                margin-bottom: 17px;
+
+                @include to(1370px) {
+                    width: 56%;
+                }
+
+                img {
+                    width: 39%;
+                    height: 94%;
+                    position: absolute;
+                    right: 0;
+                    bottom: -81%;
+                    z-index: 2;
+                    object-fit: cover;
+
+                    @include to(1440px) {
+                        width: 52%;
+                        height: 94%;
+                        bottom: -81%;
+                    }
+
+                    @include to(1370px) {
+                        width: 48%;
+                        height: 76%;
+                        bottom: -65%;
+                    }
+                }
+
+                &-block {
+                    position: relative;
+                    background-color: #333;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    color: #fff;
+                    padding: 55px 0;
+                    padding-bottom: 70px;
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: -2px;
+                        top: 0;
+                        bottom: 0;
+                        width: 2px;
+                        background-color: #333;
+
+                        @media (min-width: 2000px) {
+                            left: -3px;
+                            width: 3px;
+                        }
+                    }
+
+                    @include to(1370px) {
+                        align-items: flex-start;
+                        padding-left: 80px;
+                    }
+                }
+
+                &-wrap {
+                    display: flex;
+                    justify-content: center;
+
+                    @include to(1370px) {
+                        justify-content: flex-start;
+                    }
+                }
+            }
+
+            &-title {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 22px;
+                font-family: $druk-cyr;
+                font-size: 26px;
+                text-transform: uppercase;
+                color: #EC5629;
+                max-width: 700px;
+                line-height: 1.5em;
+
+                @include to(1440px) {
+                    font-size: 24px;
+                }
+
+                @include to(1370px) {
+                    justify-content: flex-start;
+                    padding-left: 80px;
+                    max-width: 735px;
+                }
+            }
+
+            &-desc {
+                font-size: 20px;
+                line-height: 1.5em;
+                max-width: 602px;
+                margin-left: -95px;
+
+                @include to(1440px) {
+                    font-size: 18px;
+                }
+
+                @include to(1370px) {
+                    max-width: 542px;
+                    margin-left: 0;
+                }
+            }
+        }
+
+        &__step {
+            margin-bottom: 70px;
+            padding-left: 70px;
+            padding-right: 70px;
+            margin-top: 85px;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 13px;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 2px;
+                background-color: #333;
+            }
+
+            &-item {
+                position: relative;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+
+                &:last-child {
+                    position: relative;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        z-index: 1;
+                        top: 13px;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 2px;
+                        background-color: #fff;
+                    }
+                }
+
+                &--right {
+                    align-items: flex-end;
+                }
+
+                svg {
+                    position: absolute;
+                    top: 2px;
+                    right: calc(50% - 17px);
+                    transform: translateX(-50%);
+                    fill: #fff;
+                    stroke-width: 8px;
+                    width: 17px;
+                    height: 17px;
+                    z-index: 1;
+                }
+
+                &:not(:first-child) {
+                    svg {
+                        top: 8px;
+                    }
+                }
+
+                &-content {
+                    width: 43%;
+
+                    @include to(1370px) {
+                        width: 44%;
+                    }
+                }
+
+                &-top {
+                    margin-bottom: 16px;
+                    display: flex;
+                    align-items: flex-start;
+
+                    .number {
+                        min-width: 68px;
+                        font-family: $druk-cyr;
+                        font-size: 26px;
+                        line-height: 1.5em;
+                        color: #EC5629;
+                        margin-right: 10px;
+                        display: block;
+                        transform: translateY(-12px);
+                    }
+
+                    .text {
+                        margin-bottom: 10px;
+                        display: block;
+                       color: #333;
+                       text-transform: uppercase;
+                    }
+                }
+
+                &:not(:first-child) {
+                    .number {
+                        min-width: 80px;
+                    }
+                }
+
+                &-desc {
+                    color: #808080;
+                }
+            }
+        }
+
+        &__info {
+            margin-bottom: 150px;
+            display: flex;
+
+            &-left {
+                width: 60%;
+                margin-right: -60px;
+
+                &-wrap {
+                    margin-bottom: 68px;
+                    padding: 62px;
+                    background-color: #333;
+
+                    @include to(1440px) {
+                        padding-left: 50px;
+                    }
+
+                    @include to(1370px) {
+                        padding-left: 14.5%;
+                    }
+
+                    @include to(1280px) {
+                        padding-left: 10%;
+                    }
+                }
+
+                .container {
+                    padding-left: 219px;
+
+                    .choise-us__link {
+                        display: inline-flex;
+                    }
+
+                    @include to(1440px) {
+                        padding-left: 0;
+                    }
+                }
+
+                &-block {
+                    padding-left: 120px;
+                }
+            }
+
+            &-text {
+                color: #fff;
+                font-size: 20px;
+                line-height: 1.5em;
+                font-weight: 400;
+                width: 77%;
+
+                @include to(1440px) {
+                    font-size: 18px;
+                    width: 80%;
+                }
+
+                @include to(1370px) {
+                    width: 98%;
+                }
+            }
+
+            &-right {
+                position: relative;
+                width: 45%;
+
+                img {
+                    position: absolute;
+                    right: 0;
+                    top: 18%;
+                    bottom: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}

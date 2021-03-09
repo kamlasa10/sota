@@ -10,7 +10,7 @@ var __FinishPreload = (function () {
     e = 0.9,
     t = null,
     a = !1,
-    i = setInterval(o, 200 / 60);
+    i = setInterval(o, 20 / 60);
   function o() {
     if (n <= r) {
       clearInterval(i);
@@ -24,7 +24,7 @@ var __FinishPreload = (function () {
     if (a) return r();
     e = 1;
     var l = setInterval(function () {
-      if (n > 30) e *= 1.3;
+      if (n > 30) e *= 0.7;
     }, 100 / 30);
     t = function () {
       clearInterval(l);
@@ -37,10 +37,10 @@ setTimeout(() => {
   const tl = gsap.timeline()
 
   tl.to('.bg-for-finish-animate', {
-    duration: 1.8,
+    duration: 1.5,
     x: '100%'
   }).to('#Preloader', {
-    duration: 1.6,
+    duration: 1.1,
     x: 450
   }, 0.2)
   .to('.preloader-bg', {
@@ -51,10 +51,10 @@ setTimeout(() => {
   .to('#Preloader', {
     opacity: 0,
     zIndex: -100
-  }, 0.6)
+  }, 0.8)
 
 
-}, 2500)
+}, 1800)
 
 
 $('[name=phone]').each(function() {
@@ -131,6 +131,8 @@ ScrollTrigger.refresh();
 
 $(document).ready(() => {
     (function() {
+        $('.status-request').hide()
+
         $('.contacts-select__list').on('click', e => {
             if ($(e.target).hasClass('contacts-select__item')) {
                 const value = $(e.target).text()
@@ -380,6 +382,7 @@ $(document).ready(() => {
             selectorForm.find('button[type=submit]').css('pointer-events', 'none')
 
             $(`[data-contacts-file] span`).text('')
+            $('.status-request').show()
 
             $.ajax({
                 url: url, //url страницы (action_ajax_form.php)
@@ -393,6 +396,7 @@ $(document).ready(() => {
                     $('.popup').hide()
                     $('[data-popup="thank"]').show()
                     $('.overlay').addClass('overlay--show')
+                    $('.status-request').hide()
                     $(selectorForm)[0].reset();
                 },
                 error: function(response) {

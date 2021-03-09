@@ -382,7 +382,7 @@
   }
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 2) and ( min-width: 1439px) {
+@media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 1445px) {
   .field__error-msg {
     top: 32px;
   }
