@@ -1,17 +1,19 @@
 .socials {
     display: block;
     position: absolute;
-    bottom: 14%;
+    bottom: 13.5%;
     left: 100px;
     z-index: 10;
     width: 100px;
 
     @include to(1440px) {
       left: 30px;
+      bottom: 14%;
     }
 
     @include to(1370px) {
       left: 100px;
+      bottom: 13.5%;
     }
 
     @include to(1250px) {
@@ -87,5 +89,11 @@
           }
         }
       }
+    }
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 2) and ( min-width: 1439px) {
+    .socials {
+      left: 45px;
     }
   }

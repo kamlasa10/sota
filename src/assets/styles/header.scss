@@ -24,6 +24,8 @@
         transition: all .3s;
         fill: #333;
       }
+
+     
     }
     .language__link{
       color: #B3B3B3;
@@ -136,5 +138,12 @@
         color: #fff;
       }
     }
+  }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) and ( min-width: 1439px) {
+  .header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
