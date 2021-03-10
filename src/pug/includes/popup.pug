@@ -1,12 +1,21 @@
 <div id="Preloader">
 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M27.4393 27.693H0.118884V22.4707H22.1907V16.6745H0V0.436035H27.3229V5.65841H5.24857V11.4521H27.4393V27.693Z" fill="white"/>
+<path stroke="#fff" stroke-width="0" d="M27.4393 27.693H0.118884V22.4707H22.1907V16.6745H0V0.436035H27.3229V5.65841H5.24857V11.4521H27.4393V27.693Z" fill="#000"/>
 </svg>
 <div class="preloader__mask"></div>
 </div>
 .preloader-bg 
 .bg-for-finish-animate
 .overlay
+  .popup-thank.js-popup.popup(data-popup="resume")
+    .section-grid
+    .section-grid
+    .section-grid
+    .section-grid
+    .popup-thank__block
+      button(type="button" data-popup-type="resume").popup-close.js-popup-close.nav__close.btn--res ЗАКРИТИ
+    .popup-thank__title ДЯКУЄМО ЗА ВАШЕ РЕЗЮМЕ!!
+    .popup-thank__desc Наш HR-менеджер зв’яжеться з вами найближчим часом.!
   .popup-thank.js-popup.popup(data-popup="thank")
     .section-grid
     .section-grid
@@ -19,7 +28,7 @@
   .popup-contacts.popup.js-popup(data-popup="contacts")
     .popup-contacts-close-block
       button(type="button" data-popup-type="contacts").popup-close.js-popup-close.nav__close.btn--res ЗАКРИТИ
-    form.popup-contacts__form(data-form="contacts")
+    form.popup-contacts__form(data-form="contacts" data-success-type="thank")
       .status-request Запрос в обработке...
       .section-grid
       .section-grid

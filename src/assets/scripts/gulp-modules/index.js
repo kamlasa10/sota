@@ -3,60 +3,30 @@
 let isPhoneValid
 let isMenuShow = false
 
-var __FinishPreload = (function () {
-  var l = document.getElementById("Preloader_waveContainer"),
-    n = 285,
-    r = -30,
-    e = 0.9,
-    t = null,
-    a = !1,
-    i = setInterval(o, 20 / 60);
-  function o() {
-    if (n <= r) {
-      clearInterval(i);
-      n = r;
-      a = 1;
-      t && t();
-    } else n -= e;
-    l.style.transform = "translate(0, " + n + "px)";
-  }
-  return function (r) {
-    if (a) return r();
-    e = 1;
-    var l = setInterval(function () {
-      if (n > 30) e *= 0.7;
-    }, 100 / 30);
-    t = function () {
-      clearInterval(l);
-      r();
-    };
-  };
-})();
-
-
-
 setTimeout(() => {
   const tl = gsap.timeline()
 
+  tl.to('.preloader__mask', {
+    duration: 1.2,
+    y: '-100%'
+  })
   tl.to('.bg-for-finish-animate', {
     duration: 1.5,
     x: '100%'
-  }).to('#Preloader', {
+   }, 1.2).to('#Preloader', {
     duration: 1.1,
     x: 450
-  }, 0.2)
+  }, 1.33)
   .to('.preloader-bg', {
     duration: 0.8,
     opacity: 0,
     zIndex: -100
-  }, 1)
-//   .to('#Preloader', {
-//     opacity: 0,
-//     zIndex: -100
-//   }, 0.8)
-
-
-}, 1800)
+  }, 1.6)
+  .to('#Preloader', {
+    opacity: 0,
+    zIndex: -100
+  }, 1.7)
+ }, 500)
 
 
 $('[name=phone]').each(function() {
@@ -93,7 +63,7 @@ $('.js-popup-btn').on('click', e => {
 })
 
 window.locoScroll = new LocomotiveScroll({
-    el: document.querySelector(".js-scroll-container"),
+    el: document.querySelector("[data-scroll-container]"),
     smooth: true,
     smoothMobile: false,
     inertia: 1.1
@@ -101,7 +71,7 @@ window.locoScroll = new LocomotiveScroll({
 
 window.locoScroll.on("scroll", ScrollTrigger.update);
 
-ScrollTrigger.scrollerProxy(".js-scroll-container", {
+ScrollTrigger.scrollerProxy("[data-scroll-container]", {
     scrollTop(value) {
         return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
     }, // we don't have to define a scrollLeft because we're only scrolling vertically.
@@ -114,7 +84,7 @@ ScrollTrigger.scrollerProxy(".js-scroll-container", {
         };
     },
     // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-    pinType: document.querySelector(".js-scroll-container").style.transform ? "transform" : "fixed"
+    pinType: document.querySelector("[data-scroll-container]").style.transform ? "transform" : "fixed"
 });
 
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
@@ -396,7 +366,8 @@ $(document).ready(() => {
                     //Данные отправлены успешно
                     selectorForm.find('button[type=submit]').css('pointer-events', 'initial')
                     $('.popup').hide()
-                    $('[data-popup="thank"]').show()
+                    console.log($(`[data-popup=${selectorForm.data().successType}]`))
+                    $(`[data-popup=${selectorForm.data().successType}]`).show()
                     $('.overlay').addClass('overlay--show')
                     $('.status-request').hide()
                     $(selectorForm)[0].reset();

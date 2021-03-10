@@ -330,7 +330,7 @@ ScrollTrigger.create({
   trigger: ".choise-us",
   // end: "+=1000",
   markers: true,
-  scroller: ".js-scroll-container",
+  scroller: "[data-scroll-container]",
   animation: choiseSec(),
 });
 

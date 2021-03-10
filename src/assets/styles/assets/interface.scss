@@ -4,14 +4,20 @@
   height: 320px;
   left: 50%;
   z-index: 5;
-  top: 49%;
+  top: 50%;
   transform: translate(-50%, -50%) scale(0.75);
   transform-origin: center center;
   z-index: 1001;
+  overflow: hidden;
 
   svg {
+    padding: 2px;
     width: 100%;
     height: 100%;
+    outline: none;
+    stroke-width: 0;
+    overflow: hidden;
+    stroke: transparent;
   }
 
   .preloader__mask {
@@ -20,6 +26,8 @@
     left: 0;
     right: 0;
     bottom: 0;
+    width: 120%;
+    height: 120%;
     background-color: #fff;
     z-index: 1002;
   }
@@ -398,7 +406,7 @@
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 1445px) {
-  
+
 .radio-btn-wrapper{
   display: flex;
   align-items: center;
@@ -462,4 +470,5 @@
   font-weight: 700;
   line-height: 1;
 
+}
 }

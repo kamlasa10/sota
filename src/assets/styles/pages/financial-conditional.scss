@@ -140,7 +140,7 @@
             &::after {
                 content: "";
                 position: absolute;
-                top: 13px;
+                top: -8px;
                 bottom: 0;
                 left: 50%;
                 transform: translateX(-50%);
@@ -175,7 +175,7 @@
 
                 svg {
                     position: absolute;
-                    top: 2px;
+                    top: -9px;
                     right: calc(50% - 17px);
                     transform: translateX(-50%);
                     fill: #fff;
@@ -187,7 +187,7 @@
 
                 &:not(:first-child) {
                     svg {
-                        top: 8px;
+                        top: 5px;
                     }
                 }
 
@@ -310,5 +310,13 @@
                 }
             }
         }
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 1445px) {
+    #id-page-financial .financial__intro-right img {
+        width: 51%;
+        height: 89%;
+        bottom: -75%;
     }
 }
