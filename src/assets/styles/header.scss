@@ -58,19 +58,11 @@
 
   &__right {
     position: static;
-    transform: translateX(-200px);
+    transform: translateX(-175px);
     display: flex;
     justify-self: flex-end;
 
     @include to(1440px) {
-      transform: translateX(-175px);
-    }
-
-    @include to(1150px) {
-      transform: translateX(-165px);
-    }
-
-    @include to(1025px) {
       transform: translateX(-145px);
     }
   }

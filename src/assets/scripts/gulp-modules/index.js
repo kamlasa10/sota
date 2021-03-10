@@ -33,6 +33,8 @@ var __FinishPreload = (function () {
   };
 })();
 
+
+
 setTimeout(() => {
   const tl = gsap.timeline()
 
@@ -48,10 +50,10 @@ setTimeout(() => {
     opacity: 0,
     zIndex: -100
   }, 1)
-  .to('#Preloader', {
-    opacity: 0,
-    zIndex: -100
-  }, 0.8)
+//   .to('#Preloader', {
+//     opacity: 0,
+//     zIndex: -100
+//   }, 0.8)
 
 
 }, 1800)
@@ -90,15 +92,6 @@ $('.js-popup-btn').on('click', e => {
     $('.header').addClass('show')
 })
 
-$(document)[0].addEventListener('click', e => {
-    const path = e.path || (e.composedPath && e.composedPath());
-
-    if (e.target.classList.contains('overlay')) {
-        $('.overlay').removeClass('overlay--show')
-        $('.header').removeClass('show')
-    }
-})
-
 window.locoScroll = new LocomotiveScroll({
     el: document.querySelector(".js-scroll-container"),
     smooth: true,
@@ -128,6 +121,15 @@ ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
 // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
 ScrollTrigger.refresh();
+
+$(document)[0].addEventListener('click', e => {
+    const path = e.path || (e.composedPath && e.composedPath());
+
+    if (e.target.classList.contains('overlay')) {
+        $('.overlay').removeClass('overlay--show')
+        $('.header').removeClass('show')
+    }
+})
 
 $(document).ready(() => {
     (function() {
@@ -288,7 +290,7 @@ $(document).ready(() => {
                             }
                         }
                     });
-                    console.log($('[data-value]')[0])
+                    
                     if ($(this).attr('type') === 'file' &&
                         $('[data-value]')[0] && $('[data-value]').data().value === false) {
                         $('.popup-contacts__item-file').addClass('error')

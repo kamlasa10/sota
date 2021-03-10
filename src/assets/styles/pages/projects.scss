@@ -202,6 +202,10 @@
                             @include to(1310px) {
                                 margin-left: 2%;
                             }
+
+                            @include to(1280px) {
+                                margin-left: -2%;
+                            }
                         }
 
                         .projects-start__item-desc {
@@ -512,6 +516,10 @@
                             width: 80%;
                             margin-left: 60px;
                             margin-right: 0;
+                        }
+
+                        @include to(1280px) {
+                            margin-left: 55px;
                         }
 
                         @include to(1150px) {
