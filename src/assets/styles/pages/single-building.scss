@@ -13,10 +13,16 @@
 
 	&__inner{
 		display: flex;
+		@include to(1280px){
+			max-width: 940px;
+		}
 	}
 	&__descr{
 		padding-left: 60px;
 		flex-shrink: 0;
+		@include to(1280px){
+			padding-left: 40px;
+		}
 	}
 	&__arrow{
 		display: flex;
@@ -41,11 +47,20 @@
 	display: flex;
 	padding: 20px 0;
 	flex-wrap: wrap;
+	.swiper-slide{
+		img{
+			height: 100%;
+			object-fit: cover;
+		}
+	}
 	&__main{
 		height: 375px;
 		width: 565px;
 		margin-left: 0;
 		margin-right: 0;
+		@include to(1280px){
+			width: 480px;
+		}
 	}
 	&__thumbs{
 		width: 100px;
@@ -189,13 +204,19 @@
 	&__link{
 		font-size: 14px;
 		display: inline-flex;
+		// span{
+		// 	top: 29px
+		// }
 	}
 }
 
 .sb-ss {
 	padding-bottom: 90px;
 	.tabs__header{
-		max-width: 770px;
+		max-width: 1020px;
+		@include to(1280px){
+			max-width: 940px;
+		}
 		justify-content: flex-start;
 		.header-tabs__single-tab-title{
 			text-decoration: none;
@@ -340,6 +361,11 @@
 .project-tab{
 	&__inner{
 		display: flex;
+		
+		@include to(1280px){
+			max-width: 940px;
+			margin: 0 auto;
+		}
 	}
 	&__col{
 		flex-basis: 50%;
