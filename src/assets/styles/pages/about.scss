@@ -42,6 +42,10 @@
 	position: relative;
 	cursor: pointer;
 	text-decoration: none;
+	a{
+		color: #333333;
+		text-decoration: none;
+	}
 	&:hover{
 		&::after{
 			width: 100%;
