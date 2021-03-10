@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  const galleryThumbs = new Swiper(".product-gallery__thumbs", {
+  const galleryThumbs = new Swiper(".js-gallery-thumbs", {
     centeredSlides: true,
     centeredSlidesBounds: true,
     slidesPerView: 4,
@@ -10,7 +10,7 @@ $(document).ready(() => {
     spaceBetween: 10
   });
 
-  const galleryMain = new Swiper(".product-gallery__main", {
+  const galleryMain = new Swiper(".js-gallery-main", {
     watchOverflow: true,
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
@@ -36,44 +36,6 @@ $(document).ready(() => {
     galleryMain.slideTo(galleryThumbs.activeIndex);
   });
 
-
-  // TABS
-  const removeClass = (array, className) => {
-    array.forEach((item, _) => {
-      item.classList.remove(className);
-    })
-  }
-
-  const setTabHeight = (activeTab, container) => {
-    const activeTabItem = document.querySelector(activeTab);
-    const containerItem = document.querySelector(container);
-    const tabHeight = activeTabItem.offsetHeight;
-    containerItem.style.height = `${tabHeight}px`;
-    window.locoScroll.update();
-  }
-
-
-  const tabSwitch = (tabClass, btnClass, containerClass) => {
-    const tabBtns = document.querySelectorAll(btnClass);
-    const tabs = document.querySelectorAll(tabClass);
-
-    tabBtns.forEach((btn, _) => {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        removeClass(tabBtns, 'active');
-        removeClass(tabs, 'active');
-        this.classList.add('active');
-        const activeHref = this.getAttribute('href');
-        const activeTab = document.querySelector(`[data-tab="${activeHref}"]`);
-        activeTab.classList.add('active');
-        setTabHeight(`${tabClass}.active`, containerClass);
-        setTabHeight('.js-single-tab.active', '.js-tab-content');
-        window.locoScroll.update();
-      })
-    })
-  }
-
-
   // CONSTRUCTION SLIDERS 
 
   const constrSliders = document.querySelectorAll('.js-constr-slider');
@@ -96,12 +58,12 @@ $(document).ready(() => {
     })
   })
 
-  setTabHeight('.js-constr-single-tab.active', '.js-constr-content');
-  setTabHeight('.js-single-tab.active', '.js-tab-content');
+  // TABS
+  const constrTab = new TabChange('.js-constr-single-tab', '.js-constr-tab-btn', '.js-constr-content');
+  const singleTab = new TabChange('.js-single-tab', '.js-tab-btn', '.js-tab-content');
 
-  tabSwitch('.js-single-tab', '.js-tab-btn', '.js-tab-content');
-  tabSwitch('.js-constr-single-tab', '.js-constr-tab-btn', '.js-constr-content');
-
+  constrTab.init();
+  singleTab.init();
 
   // AJAX CONSTRUCTION POPUP
 	

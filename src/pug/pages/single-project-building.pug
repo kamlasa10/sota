@@ -1,0 +1,355 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'single-building'
+    var id_page = 'id-page-single-building'
+    var class_page = 'class-page-single-building'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  //- script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/single-project-building.js')
+block content
+  .sb.inner-page
+    .container
+      h1.inner-page-title.sb__inner-page-title Наші будинки
+      .tabs.sb__tabs
+        .tabs__header.header-tabs
+          .header-tabs__single-tab-title.single-tab-title
+            span З чого почати
+          .header-tabs__single-tab-title.single-tab-title.active
+            span Проєкти будинків
+          .header-tabs__single-tab-title.single-tab-title
+            span Проєкти в реалізації
+      .sb__content.content-sb
+        a(href="#").content-sb__arrow.content-sb__arrow_prev
+          +svg('slider-arrow')
+        .content-sb__inner 
+          .content-sb__product-gallery.product-gallery
+            .product-gallery__thumbs.swiper-container.js-project-thumb-slider
+              .swiper-wrapper 
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+            .product-gallery__main.swiper-container.js-project-main-slider
+              .swiper-wrapper 
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+              .product-gallery__controls.cntrl-prod-gal
+                button.cntrl-prod-gal__arrow.cntrl-prod-gal__arrow_prev
+                  +svg('prod-gal-arrow')
+                span.cntrl-prod-gal__line
+                button.cntrl-prod-gal__arrow.cntrl-prod-gal__arrow_next
+                  +svg('prod-gal-arrow')
+              .product-gallery__size 
+                span 201.19 м
+                sup 2
+          .content-sb__descr.build-descr
+            .build-descr__title.title Sota 001
+            table.build-descr__table.table-build-descr
+              tr 
+                td Площа будинку
+                td 178 м2
+              tr 
+                td Вартість ескізного проекту
+                td 26 700 грн
+              tr 
+                td Термін підготовки робочого проєкту
+                td 38 робочих днів
+              tr 
+                td Термін будівництва
+                td 6 місяців
+              tr 
+                td(colspan="2").table-build-descr__colspan Вартість будівництва будинку в комплектації:
+              tr 
+                td 
+                  .radio-btn-wrapper.table-build-descr__radio-btn-wrapper
+                    input(type="radio" id="sotaoptima" checked name="sota")
+                    label(for="sotaoptima").radio-btn-wrapper__circle
+                    label(for="sotaoptima").radio-btn-wrapper__text Sota Optima
+                  .radio-btn-wrapper.table-build-descr__radio-btn-wrapper
+                    input(type="radio" id="sotaprime" name="sota")
+                    label(for="sotaprime").radio-btn-wrapper__circle
+                    label(for="sotaprime").radio-btn-wrapper__text Sota Prime
+                td 126 500$
+
+            a(href="#").btn--with-icon.build-descr__link ЗАМОВИТИ такий ПРОєКТ
+              span
+              +svg('round')
+        a(href="#").content-sb__arrow.content-sb__arrow_next
+          +svg('slider-arrow')
+  .sb-ss 
+    .container 
+      .tabs.sb-ss__tabs
+        .tabs__header.header-tabs
+          a(href="#tab-plan").header-tabs__single-tab-title.single-tab-title.active.js-proj-tab-btn
+            span Планування
+          a(href="#tab-specs").header-tabs__single-tab-title.single-tab-title.js-proj-tab-btn
+            span Комплектації та специфікація проєкту
+          a(href="#tab-about").header-tabs__single-tab-title.single-tab-title.js-proj-tab-btn
+            span Опис проєкту
+          a(href="#tab-sklad").header-tabs__single-tab-title.single-tab-title.js-proj-tab-btn
+            span Складова проєкту
+        .tabs__body.body-tabs.js-proj-tab-content
+          .body-tabs__tab.active.js-proj-single-tab(data-tab="#tab-plan").project-plan-tab
+            .project-plan-tab__inner  
+              .project-plan-tab__slider-wrapper
+                .project-plan-tab__slider-control.slider-control
+                  h4.slider-control__subtitle.orange-subtitle 1 поверх
+                  .preview-progress-bar
+                    .preview-progress-bar__arrow.preview-progress-bar__arrow_prev.js-tab-prev
+                      +svg('slider-arrow-project')
+                    .preview-progress-bar__slides-number 
+                      span.preview-progress-bar__current-slide.js-current-slide 01
+                      span.preview-progress-bar__current-slide /
+                      span.preview-progress-bar__total-slide.js-total-slides 08
+                    .preview-progress-bar__arrow.preview-progress-bar__arrow_next.js-tab-next
+                      +svg('slider-arrow-project')
+                .project-plan-tab__slider.js-plan-slider
+                  .swiper-wrapper 
+                    each val in [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+                      .swiper-slide
+                        +img('single-building/plan3.png')
+              .project-plan-tab__info 
+                h4.project-plan-tab__title.orange-subtitle Специфікація проєкту
+                ol.project-plan-tab__list.plan-tab-list
+                  li.plan-tab-list__item 
+                    span.plan-tab-list__key Тамбур
+                    span.plan-tab-list__value 9 м<sup>2</sup>
+                  li.plan-tab-list__item 
+                    span.plan-tab-list__key Гардероб
+                    span.plan-tab-list__value 9 м<sup>2</sup>
+                  li.plan-tab-list__item 
+                    span.plan-tab-list__key Тех приміщення
+                    span.plan-tab-list__value 7 м<sup>2</sup>
+                  li.plan-tab-list__item 
+                    span.plan-tab-list__key С/в
+                    span.plan-tab-list__value 7 м<sup>2</sup>
+                  li.plan-tab-list__item 
+                    span.plan-tab-list__key Коридор
+                    span.plan-tab-list__value 15 м<sup>2</sup>
+                  li.plan-tab-list__item 
+                    span.plan-tab-list__key Вітальня
+                    span.plan-tab-list__value 26 м<sup>2</sup>
+                  li.plan-tab-list__item 
+                    span.plan-tab-list__key Кухня
+                    span.plan-tab-list__value 16 м<sup>2</sup>
+                  li.plan-tab-list__item 
+                    span.plan-tab-list__key Кладова
+                    span.plan-tab-list__value 8 м<sup>2</sup>
+                  li.plan-tab-list__item 
+                    span.plan-tab-list__key Гараж
+                    span.plan-tab-list__value 26 м<sup>2</sup>
+          .body-tabs__tab.js-proj-single-tab(data-tab="#tab-specs").project-specs-tab
+            table.project-specs-tab__spec-table.spec-table
+              thead
+                tr 
+                  th.orange-subtitle Sota Optima
+                  th.orange-subtitle Sota Prime
+              tbody 
+                tr 
+                  td Вишукувальні роботи (геологія, геодезія)
+                  td Вишукувальні роботи (геологія, геодезія)
+                tr 
+                  td Організація будівельного майданчика
+                  td Організація будівельного майданчика
+                tr 
+                  td Підготовка ділянки
+                  td Підготовка ділянки
+                tr 
+                  td Плитний фундамент з утепленням по периметру 
+                  td Плитний фундамент з утепленням по периметру 
+                tr 
+                  td Стіни з газобетону 300 мм
+                  td Стіни з газобетону <span class="spec-table-higlight">400 мм</span>
+                tr 
+                  td Міжкімнатні перегородки 
+                  td Міжкімнатні перегородки 
+                tr 
+                  td Монолітна плита перекриття
+                  td Монолітна плита перекриття
+                tr 
+                  td Покрівля з утепленням мінеральною ватою 250 мм 
+                  td Покрівля з утепленням мінеральною ватою 250 мм 
+                tr 
+                  td Фальцевий матеріал  та снігоутримувачі
+                  td Фальцевий матеріал  та снігоутримувачі
+                tr 
+                  td - 
+                  td <span class="spec-table-higlight">Декоративний навіс тераси з маркізом</span>
+                tr 
+                  td Зовнішне оздоблення будинку вентильованим дерев'яним та металевим фасадами та декоративним каменем
+                  td Зовнішне оздоблення будинку вентильованим дерев'яним та металевим фасадами та декоративним каменем
+                tr 
+                  td Внутрішне оздоблення та інженерія відсутні
+                  td Внутрішне оздоблення та інженерія відсутні
+                tr 
+                  td Утеплення фасаду мініральною ватою 100 мм
+                  td Утеплення фасаду мініральною ватою 100 мм
+                tr 
+                  td Алюмінієві вікна
+                  td Алюмінієві вікна
+                tr 
+                  td Мансардні вікна 
+                  td Мансардні вікна 
+                tr 
+                  td Водовідвідна система покрівлі
+                  td Водовідвідна система покрівлі
+                tr 
+                  td Влаштування тераси (фундамент, плита, колони)
+                  td Влаштування тераси (фундамент, плита, колони, <span class="spec-table-higlight"> декоративний навіс з маркізом, композитна терасна дошка</span>)
+                tr 
+                  td -
+                  td <span class="spec-table-higlight">Декоративні фасадні світильники</span>
+                tr 
+                  td -
+                  td <span class="spec-table-higlight">Склянні перила на балконах</span>
+                tr 
+                  td -
+                  td <span class="spec-table-higlight">Гаражні автоматичні ролети</span>
+                tr 
+                  td Проектна документація 
+                  td Проектна документація 
+                tr 
+                  td Прибирання ділянки, вивезення сміття
+                  td Прибирання ділянки, вивезення сміття        
+          .body-tabs__tab.js-proj-single-tab(data-tab="#tab-about").project-about-tab  
+            .project-about-tab__inner 
+              .project-about-tab__sec1 
+                p.project-about-tab__text "Барн" - сучасний  будинок для однієї сім’ї із цікаво оформленим фасадом. Темна фальцева покрівля на фасаді і світла дерев’яна обробка ідеально поєднуються в даному будинку. На незвичні, трикутні вікна неодмінно звертають на себе увагу. За будинком вражає широка частково крита тераса. Зручний тамбур з прямим проходом до котельні та пральні, а потім до гаража запрошує до внутрішньої частини будинку. Денна зона - це світлий, відкритий простір, що складається з вітальні, зони каміну, їдальні та кухні. На мансарді три спальні (одна з окремим місцем для гардеробу та санвузлом) та ванна кімната. Проект доступний у версії з одним  та двома гаражами.
+              .project-about-tab__sec2 
+                h4.project-about-tab__sec2-title.orange-subtitle Ключові особливості:
+                ul.project-about-tab__list 
+                  li 178 м2 корисної площі
+                  li 2 поверхи
+                  li Гараж на 1-2 авто
+                  li Простора комора для інвентарю та  шин
+                  li Оупенспейс 45м2 для кухні та вітальні
+                  li 3 спальні (1 мастербедрум) (1 кімната - трансформер кабінет / спальня / гостьова)
+                  li 3 с / у (ванна під вікнами)
+                  li Простора тераса з можливістю розміщення басейну
+                  li Комбінація матеріалів обробки
+          .body-tabs__tab.js-proj-single-tab(data-tab="#tab-sklad").project-sklad-tab  
+            .project-sklad-tab__inner 
+              ul.project-sklad-tab__list.sklad-list
+                li.sklad-list__item
+                  .sklad-list__key 
+                    h4.sklad-list__title.orange-subtitle Ескізний проект:
+                  .sklad-list__value
+                    span Склад проекту:
+                    ol.sklad-list__ordered-list
+                      li Титульний лист
+                      li Склад проекту
+                      li Загальні дані
+                      li Схема розміщення будинку на ділянці
+                      li Візуалізація проекту 2шт.
+                      li Плани поверхів
+                      li Фасади будівлі
+                      li Розріз сходів
+                      li План покрівлі
+                      li Специфікація вікон та дверей
+                li.sklad-list__item
+                  .sklad-list__key 
+                    h4.sklad-list__title.orange-subtitle Архітектурний розділ:
+                  .sklad-list__value
+                    ol.sklad-list__ordered-list
+                      li Загальні дані 
+                      li Плани поверхів, експлікація приміщень 
+                      li Розріз сходів
+                      li Фасади, відомість фасадів
+                      li План даху, розтину, відомість матеріалу 
+                      li Покрівельні  плани поверхів
+                      li Вентиляційні канали
+                      li Специфікація перемичок
+                      li Відомість заповнення віконних і дверних отворів
+                      li Вхідні групи
+                    span Візуалізація проекту 4-6 шт.
+                li.sklad-list__item
+                  .sklad-list__key 
+                    h4.sklad-list__title.orange-subtitle Конструктивний розділ:
+                  .sklad-list__value
+                    ol.sklad-list__ordered-list
+                      li 
+                        span Фундамент
+                        p Схема розміщення фундаменту. Інженерно-геологічний розріз фундаменту. Характерні перетини фундаменту. Схема заставних деталей для інженерних мереж. Специфікація матеріалів
+                      li 
+                        span Перекриття
+                        p План перекриття з прив'язками отворів і відмітками висот. Перетин перекриття. Деталі й вузли сполучення деталей несучої конструкції перекриття.
+                      li 
+                        span Сходи
+                        p План і розрізи сходів. Специфікація на матеріали та вироби для сходів. Монтажні вузли.
+                      li 
+                        span Дах (з використанням дерев'яних крокв / монолітна плита перекриття)
+                        p Схема пристрою несучої конструкції даху (розкладка крокв). Вузол спирання крокв на коньковую балку. Вузол спирання крокв на підкроквяний стілець. Розріз конькового бруса та яндов , монтажні з’єднання (зрощування) яндов, крокв та конькових балок.  ро. Вузол  титульного бруса. Вузол звисів з карнизної дошкою, латами і контр латою. Схема пристрою мауерлата і вузол опори даху. Схема розгортки підпірних конструкцій даху з розмірами і відмітками. Вузли кріплення затяжки крокв. Вузол спирання яндов на центральну стійку. Вузол кріплення затяжки до крокв. Вузли сполучення димарів, вентиляційних каналів і фанових труб з конструкцією даху. Розріз. Спеціфікація на матеріали.
+                li.sklad-list__item
+                  .sklad-list__key 
+                    h4.sklad-list__title.orange-subtitle Інженерний розділ:
+                  .sklad-list__value
+                    span Електротехнічні рішення (стандартне)
+                    ol.sklad-list__ordered-list
+                      li Загальні дані
+                      li Пояснювальна записка
+                      li Розрахунок навантажень
+                      li Принципові електричні схеми (щити)
+                      li План електроосвітлення
+                      li План розміщення електрообладнання
+                      li План розміщення розеток і вимикачів
+                      li Плани прокладки кабельних мереж силового електрообладнання
+                      li Технічна специфікація обладнання і матеріалів
+                li.sklad-list__item
+                  .sklad-list__key 
+                    h4.sklad-list__title.orange-subtitle Водопостачання і каналізація:
+                  .sklad-list__value
+                    ol.sklad-list__ordered-list
+                      li Загальні дані
+                      li Пояснювальна записка
+                      li Розрахункові дані (енерговитрати на нагрів води, загальні витрати холодної і горячої води, максимальний рівень тиску для систем водопроводу і каналізації, максимальна пропускна здатність каналізації)
+                      li Схема розведення труб водопостачання і каналізації, установка сантехнічного та тепло генеруючого обладнання для певних поверхів з відмітками висот
+                      li Схема підключення фільтраційного обладнання для питної води (при необхідності)
+                      li Схеми підключення внутрішньої насосної групи (при необхідності)
+                      li Специфікація обладнання, приладів і матеріалів для систем водопроводу і каналізації
+                li.sklad-list__item
+                  .sklad-list__key 
+                    h4.sklad-list__title.orange-subtitle Опланння та вентиляція:
+                  .sklad-list__value
+                    ol.sklad-list__ordered-list
+                      li Загальні дані
+                      li Пояснювальна записка
+                      li Розрахункові дані
+                      li План і схема системи вентиляції
+                      li План і схема системи кондиціонування і система виведення конденсату
+                      li Принципова схема системи кондиціонування
+                      li План системи опалення
+                      li Вузли підключення опалювальних приладів
+                      li Принципова схема теплового вузла (Топкова)
+                      li Специфікація обладнання, приладів і матеріалів для систем опалення та вентиляції
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

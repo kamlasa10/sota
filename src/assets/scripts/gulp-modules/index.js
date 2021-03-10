@@ -448,4 +448,52 @@ class Tabs {
     }
 }
 
+class TabChange {
+    constructor(tabClass, tabBtnClass, tabWrapperClass) {
+      this.tabBtnClass = tabBtnClass;
+      this.tabClass = tabClass;
+      this.tabWrapperClass = tabWrapperClass
+    }
+
+    removeClass(array, className) {
+      array.forEach((item, _) => {
+        item.classList.remove(className);
+      })
+    }
+
+    setTabHeight(activeTab, container) {
+      const activeTabItem = document.querySelector(activeTab);
+      const containerItem = document.querySelector(container);
+      const tabHeight = activeTabItem.offsetHeight;
+      containerItem.style.height = `${tabHeight}px`;
+      window.locoScroll.update();
+    }
+
+    tabSwitch(tabClass, btnClass, containerClass) {
+      const self = this;
+      const tabBtns = document.querySelectorAll(btnClass);
+      const tabs = document.querySelectorAll(tabClass);
+	
+      tabBtns.forEach((btn, _) => {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          self.removeClass(tabBtns, 'active');
+          self.removeClass(tabs, 'active');
+          this.classList.add('active');
+          const activeHref = this.getAttribute('href');
+          const activeTab = document.querySelector(`[data-tab="${activeHref}"]`);
+          activeTab.classList.add('active');
+          self.setTabHeight(`${tabClass}.active`, containerClass)
+          window.locoScroll.update();
+        })
+      })
+    }
+
+    init() {
+      this.setTabHeight(`${this.tabClass}.active`, this.tabWrapperClass)
+      this.tabSwitch(this.tabClass, this.tabBtnClass, this.tabWrapperClass)
+    }
+  }
+
+
 // animate

@@ -18,7 +18,7 @@ block meta
 block head
     link(rel='stylesheet', href="./assets/styles/main.min.css")
 block scripts
-  script(defer src='./assets/scripts/vendors.bundle.js')
+  //- script(defer src='./assets/scripts/vendors.bundle.js')
   script(defer src='./assets/scripts/index.bundle.js')
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/single-building.js')
@@ -39,7 +39,7 @@ block content
           +svg('slider-arrow')
         .content-sb__inner 
           .content-sb__product-gallery.product-gallery
-            .product-gallery__thumbs.swiper-container 
+            .product-gallery__thumbs.swiper-container.js-gallery-thumbs
               .swiper-wrapper 
                 .swiper-slide
                   +img('single-building/01.jpg')
@@ -49,7 +49,7 @@ block content
                   +img('single-building/01.jpg')
                 .swiper-slide
                   +img('single-building/01.jpg')
-            .product-gallery__main.swiper-container 
+            .product-gallery__main.swiper-container.js-gallery-main
               .swiper-wrapper 
                 .swiper-slide
                   +img('single-building/01.jpg')
