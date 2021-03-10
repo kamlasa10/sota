@@ -1,3 +1,135 @@
+.pu-form{
+  &__header{
+   
+  }
+  &__data{
+    margin-top: 60px;
+  }
+}
+
+.header-pu-form{
+  display: flex;
+  &__title{
+    margin-bottom: 40px;
+  }
+  &__info-wrapper {
+    padding-left: 30px;
+  }
+  &__radio-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  &__img-wrapper {
+    flex-basis: 50%;
+    flex-shrink: 0;
+    img{
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__radio-btn-wrapper{
+    flex-basis: 50%;
+   
+  }
+}
+
+.data-pu-form{
+  &__row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__subtitle{
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #333333;
+    margin-bottom: 16px;
+    &_m40{
+      margin-bottom: 40px;
+    }
+    &_price{
+      margin-bottom: 0;
+    }
+  }
+  &__row + &__row{
+    margin-top: 16px;
+  }
+
+  &__form-input-group{
+    &_three{
+      flex-basis: calc(33.3% - 15px);
+    }
+    &_two{
+      flex-basis: calc(67% - 12px);
+    }
+    &_full{
+      flex-basis: 100%;
+    }
+    &_phone{
+      flex-basis: calc(40% - 15px);
+    }
+    &_email{
+      flex-basis: calc(60% - 15px);
+    }
+  }
+
+  &__price{
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+  }
+
+  &__warning-text{
+    
+  }
+}
+
+.form-input-group{
+  label.form-input-group__upload-btn{
+    display: inline-flex;
+    cursor: pointer;
+    input{
+      display: none;
+    }
+  }
+  &__upload-text-wrapper{
+    border-radius: 4px;
+    border: 1px solid #808080;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    height: 52px;
+  }
+  &__input{
+    border-radius: 4px;
+    border: 1px solid #808080;
+    padding: 0 16px;
+    height: 52px;
+    width: 100%;
+
+    &_textarea{
+      height: 95px;
+      resize: none;
+      width: 100%;
+      padding-top: 5px;
+    }
+  }
+
+  &_upload{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+  &__label{
+    margin-bottom: 15px;
+    display: block;
+  }
+
+}
+
+
 #Preloader {
   position: absolute;
   width: 310px;
@@ -319,6 +451,67 @@
     }
   }
 
+  .radio-btn-wrapper{
+    display: flex;
+    align-items: center;
+    label{
+      cursor: pointer;
+    }
+    &__circle{
+      position: relative;
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+      &::before, &::after{
+        content: '';
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+      }
+      &::before{
+        border: 1px solid #808080;
+        width: 24px;
+        height: 24px;
+      }
+      &::after{
+        background: #EC5629;
+        width: 10px;
+        height: 10px;
+        transition: all .3s;
+        opacity: 0;
+      }
+    }
+  
+    input[type="radio"]{
+      display: none;
+    }
+  
+    input:checked + .radio-btn-wrapper__circle{
+      &::after{
+        opacity: 1;
+      }
+    }
+    .radio-btn-wrapper__text{
+      transition: all .3s;
+    }
+  
+    input:checked ~ .radio-btn-wrapper__text{
+      font-weight: 700;
+    }
+  }
+  
+  .orange-subtitle{
+    font-size: 18px;
+    color: #EC5629;
+    font-weight: 700;
+    line-height: 1;
+  
+  }
+
 .small-title-with-decor {
   font-size: 14px;
   line-height: 4em;
@@ -382,66 +575,7 @@
   }
 }
 
-.radio-btn-wrapper{
-  display: flex;
-  align-items: center;
-  label{
-    cursor: pointer;
-  }
-  &__circle{
-    position: relative;
-    width: 24px;
-    height: 24px;
-    margin-right: 15px;
-    &::before, &::after{
-      content: '';
-      display: block;
-      border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      
-    }
-    &::before{
-      border: 1px solid #808080;
-      width: 24px;
-      height: 24px;
-    }
-    &::after{
-      background: #EC5629;
-      width: 10px;
-      height: 10px;
-      transition: all .3s;
-      opacity: 0;
-    }
-  }
 
-  input[type="radio"]{
-    display: none;
-  }
-
-  input:checked + .radio-btn-wrapper__circle{
-    &::after{
-      opacity: 1;
-    }
-  }
-  .radio-btn-wrapper__text{
-    transition: all .3s;
-  }
-
-  input:checked ~ .radio-btn-wrapper__text{
-    font-weight: 700;
-  }
-}
-
-.orange-subtitle{
-  font-size: 18px;
-  color: #EC5629;
-  font-weight: 700;
-  line-height: 1;
-
-}
 
 @media screen and (-webkit-min-device-pixel-ratio: 2) and ( min-width: 1439px) {
   .field__error-msg {
