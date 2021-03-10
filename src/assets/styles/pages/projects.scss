@@ -202,6 +202,10 @@
                             @include to(1310px) {
                                 margin-left: 2%;
                             }
+
+                            @include to(1280px) {
+                                margin-left: -2%;
+                            }
                         }
 
                         .projects-start__item-desc {
@@ -514,6 +518,10 @@
                             margin-right: 0;
                         }
 
+                        @include to(1280px) {
+                            margin-left: 55px;
+                        }
+
                         @include to(1150px) {
                             margin-left: 33px;
                         }
@@ -661,7 +669,7 @@
     }
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 2) and ( min-width: 1439px) {
+@media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 1445px) {
     .projects-start__item-right {
       width: 74% !important;
     }
