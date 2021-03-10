@@ -58,15 +58,11 @@
 
   &__right {
     position: static;
-    transform: translateX(-200px);
+    transform: translateX(-175px);
     display: flex;
     justify-self: flex-end;
 
-    @include to(1150px) {
-      transform: translateX(-165px);
-    }
-
-    @include to(1025px) {
+    @include to(1440px) {
       transform: translateX(-145px);
     }
   }
@@ -74,6 +70,9 @@
   &__logo {
     height: 70px;
     transition: all .4s;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 
     @include to(1440px) {
       // height: var(--header-h - 20px);
@@ -140,7 +139,7 @@
     }
   }
 }
-@media screen and (-webkit-min-device-pixel-ratio: 2) and ( min-width: 1439px) {
+@media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 1445px) {
   .header__logo {
     position: absolute;
     left: 50%;

@@ -8,6 +8,21 @@
   transform: translate(-50%, -50%) scale(0.75);
   transform-origin: center center;
   z-index: 1001;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .preloader__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 1002;
+  }
 }
 @media (max-width: 767px) {
   #Preloader {
@@ -382,6 +397,7 @@
   }
 }
 
+@media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 1445px) {
 .radio-btn-wrapper{
   display: flex;
   align-items: center;
@@ -433,6 +449,10 @@
   input:checked ~ .radio-btn-wrapper__text{
     font-weight: 700;
   }
+  
+  .field__error-msg {
+    top: 32px;
+  }
 }
 
 .orange-subtitle{
@@ -440,11 +460,4 @@
   color: #EC5629;
   font-weight: 700;
   line-height: 1;
-
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 2) and ( min-width: 1439px) {
-  .field__error-msg {
-    top: 32px;
-  }
 }
