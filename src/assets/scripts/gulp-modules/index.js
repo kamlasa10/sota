@@ -1,4 +1,5 @@
 @@include('./libs.js');
+@@include('../modules/vacancy/vacancyLoadingLogic.js');
 
 let isPhoneValid
 let isMenuShow = false
@@ -7,26 +8,27 @@ setTimeout(() => {
   const tl = gsap.timeline()
 
   tl.to('.preloader__mask', {
-    duration: 1.2,
+    duration: 0.8,
     y: '-100%'
   })
   tl.to('.bg-for-finish-animate', {
     duration: 1.5,
-    x: '100%'
-   }, 1.2).to('#Preloader', {
+    x: '100%',
+    ease: Power1.ease
+   }, .8).to('#Preloader', {
     duration: 1.1,
     x: 450
-  }, 1.33)
+  }, 0.9)
   .to('.preloader-bg', {
     duration: 0.8,
     opacity: 0,
     zIndex: -100
-  }, 1.6)
+  }, 1.3)
   .to('#Preloader', {
     opacity: 0,
     zIndex: -100
-  }, 1.7)
- }, 500)
+  }, 1.2)
+ }, 100)
 
 
 $('[name=phone]').each(function() {
@@ -35,7 +37,22 @@ $('[name=phone]').each(function() {
 
 $('.js-burger-btn').on('click', e => {
     $('.nav').toggleClass('nav--show')
+    const coord = $('.js-burger-btn')[0].getBoundingClientRect()
+
+    $('.js-nav__close').css({
+        top: coord.y + 5,
+        left: coord.x + 5
+    })
 })
+
+$(window).resize(() => {
+    const coord = $('.js-burger-btn')[0].getBoundingClientRect()
+
+    $('.js-nav__close').css({
+        top: coord.y + 5,
+        left: coord.x + 5
+    })
+}).trigger('resize')
 
 $('.js-nav__close').on('click', e => {
     $('.nav').removeClass('nav--show')
@@ -382,14 +399,15 @@ $(document).ready(() => {
 })
 
 class Tabs {
-    constructor(content, tabs, activeClass) {
+    constructor(content, tabs, activeClass, showedTabInit = 1) {
         this.content = content
         this.tabs = tabs
         this.activeClass = activeClass
+        this.showedTabInit = showedTabInit
         this.init()
     }
 
-    trigger(fn) {
+    trigger(fn, idxFirstShowTab = 0) {
         this.tabs.each((_, item) => {
             $(item).on('click', e => {
                 e.preventDefault()
@@ -401,16 +419,15 @@ class Tabs {
                 fn($(item))
             })
         })
-
         this.tabs.removeClass(this.activeClass)
-        this.tabs.eq(0).addClass(this.activeClass)
-        this.contentShow(1)
+        this.tabs.eq(idxFirstShowTab).addClass(this.activeClass)
+        this.contentShow(this.showedTabInit)
     }
 
     contentShow(value) {
         this.content.hide()
         this.content.each((_, item) => {
-            if ($(item).data('content-choise') === value) {
+            if ($(item).data('content-choise') == value) {
                 $(item).fadeIn(200)
             }
         })

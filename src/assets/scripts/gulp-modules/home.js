@@ -17,12 +17,12 @@ function setPreviewNextSlide(nextSlide, current) {
       onStart(data) {
         setTimeout(() => {
           $('.main__progress-wrap').find('.main__progress-img img').attr('src', src)
-        }, 200)
+        }, 50)
       }
     })
 
-    tl.fromTo('.main__progress-img', { duration: 1, scale: 0, delay: 0.2 },
-      { duration: 1, scale: 1, delay: 0.3 })
+    tl.fromTo('.main__progress-img', { scale: 0 },
+      { duration: 1, scale: 1, delay: 0.8 }, 0.2)
       .fromTo(current.find('.main__small-title'), {
         duration: 1, y: -35, opacity: 0, delay: 0.4
       }, { duration: 1, opacity: 1, y: 0 }, '<0.3')
@@ -262,6 +262,7 @@ const swiper = new Swiper('.js-main__wrap', {
       $('.main__progress-total').text(`0${Math.ceil(e.slides.length / 2)}`)
     },
     slideChange(e) {
+      console.log('after')
       try {
         if (Math.ceil(e.slides.length / 2) < e.snapIndex) {
           setPreviewNextSlide($(e.slides[2]), $(e.slides[e.activeIndex]))
@@ -280,7 +281,14 @@ const swiper = new Swiper('.js-main__wrap', {
       setPreviewNextSlide($(e.slides[e.activeIndex + 1]), $(e.slides[e.activeIndex]))
       $('.main__progress-current').text(`/0${e.activeIndex}`)
     },
+    transitionStart(e) {
+      console.log('before')
+    }
   },
+})
+
+$('.main__progress-img').click(() => {
+  swiper.slideNext()
 })
 
 gsap.from('.socials', {
@@ -329,7 +337,7 @@ function choiseSec() {
 ScrollTrigger.create({
   trigger: ".choise-us",
   // end: "+=1000",
-  markers: true,
+  // markers: true,
   scroller: "[data-scroll-container]",
   animation: choiseSec(),
 });

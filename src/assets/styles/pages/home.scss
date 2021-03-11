@@ -93,6 +93,7 @@
       line-height: 1.2em;
       font-family: $druk-cyr;
       margin-bottom: 31px;
+      font-weight: 600;
       text-transform: uppercase;
 
       @include to(1440px) {
@@ -203,6 +204,7 @@
         object-fit: cover;
         overflow: hidden;
         border-radius: 6px;
+        cursor: pointer;
 
         @include to(1440px) {
           width: 23%;
