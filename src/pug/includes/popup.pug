@@ -87,6 +87,93 @@
             +svg('round')
         .popup-contacts__item
           label.popup-contacts__item-label <sup>*</sup> обов’язкові для заповнення поля
+  .popup-project-form.popup.js-popup(data-popup="single-project")
+    .pu-form.popup-project-form__form
+      .pu-form__inner
+        button(type="button" data-popup-type="single-project").popup-close.js-popup-close.nav__close.btn--res.pu__close ЗАКРИТИ
+        .pu-form__header.header-pu-form
+          .header-pu-form__img-wrapper 
+            +img('single-building/01.jpg')
+          .header-pu-form__info-wrapper 
+            h3.header-pu-form__title.title SOTA 001
+            .header-pu-form__radio-wrapper 
+              .radio-btn-wrapper.header-pu-form__radio-btn-wrapper
+                input(type="radio" id="proj-sotaoptima" checked name="sotaseries" value="sotaoptima")
+                label(for="proj-sotaoptima").radio-btn-wrapper__circle
+                label(for="proj-sotaoptima").radio-btn-wrapper__text Sota Optima
+              .radio-btn-wrapper.header-pu-form__radio-btn-wrapper
+                input(type="radio" id="proj-sotaprime" name="sotaseries" value="sotaprime")
+                label(for="proj-sotaprime").radio-btn-wrapper__circle
+                label(for="proj-sotaprime").radio-btn-wrapper__text Sota Prime
+            .header-pu-form__input-group.form-input-group
+              label(for="proj-data").form-input-group__label Додаткова інформація, яку потрібно враховувати:
+              textarea(id="proj-data").form-input-group__input.form-input-group__input_textarea
+            .header-pu-form__input-group.form-input-group.form-input-group_upload(data-contacts-file="1")
+              .form-input-group__upload-text-wrapper
+                span Файл не вибрано
+              label.form-input-group__upload-btn.btn--with-icon ВИбрати
+                span
+                +svg('round')
+                input(type="file" name="file" data-input-file="1" id="file")
+        .pu-form__data.data-pu-form
+          h4.data-pu-form__subtitle Данні для договору 
+          .data-pu-form__row
+            .data-pu-form__form-input-group.data-pu-form__form-input-group_three.form-input-group
+              label(for="proj-lastname").form-input-group__label Прізвище <sup>*</sup>
+              input(type="text" name="lastname" id="proj-lastname").form-input-group__input
+            .data-pu-form__form-input-group.data-pu-form__form-input-group_three.form-input-group
+              label(for="proj-name").form-input-group__label Ім’я <sup>*</sup>
+              input(type="text" name="name" id="proj-name").form-input-group__input
+            .data-pu-form__form-input-group.data-pu-form__form-input-group_three.form-input-group
+              label(for="proj-middlename").form-input-group__label Побатькові <sup>*</sup>
+              input(type="text" name="middlaname" id="proj-middlename").form-input-group__input
+          .data-pu-form__row
+            .data-pu-form__form-input-group.data-pu-form__form-input-group_three.form-input-group
+              label(for="proj-passport").form-input-group__label Серія і номер паспорту
+              input(type="text" name="passport" id="proj-passport").form-input-group__input
+            .data-pu-form__form-input-group.data-pu-form__form-input-group_two.form-input-group
+              label(for="proj-issued").form-input-group__label Ким і коли виданий
+              input(type="text" name="issued" id="proj-issued").form-input-group__input
+          .data-pu-form__row
+            .data-pu-form__form-input-group.data-pu-form__form-input-group_full.form-input-group
+              label(for="proj-companydata").form-input-group__label Назва і реквізити компанії (для юридичних осіб)
+              textarea(name="companydata" id="proj-companydata").form-input-group__input.form-input-group__input_textarea
+          .data-pu-form__row
+            .data-pu-form__form-input-group.data-pu-form__form-input-group_two.form-input-group
+              label(for="proj-city").form-input-group__label Населений пункт
+              input(type="text" name="city" id="proj-city").form-input-group__input
+          .data-pu-form__row
+            .data-pu-form__form-input-group.data-pu-form__form-input-group_phone.form-input-group
+              label(for="proj-phone").form-input-group__label Телефон <sup>*</sup>
+              input(type="text" name="phone" id="proj-phone").form-input-group__input
+            .data-pu-form__form-input-group.data-pu-form__form-input-group_email.form-input-group
+              label(for="proj-email").form-input-group__label E-mail <sup>*</sup>
+              input(type="text" name="email" id="proj-email").form-input-group__input
+        .pu-form__data.data-pu-form
+          h4.data-pu-form__subtitle.data-pu-form__subtitle_m40 Адреса Відправки
+          .data-pu-form__row
+            .radio-btn-wrapper.header-pu-form__radio-btn-wrapper
+              input(type="radio" id="proj-mailto-mail" checked name="mailto" value="mail")
+              label(for="proj-mailto-mail").radio-btn-wrapper__circle
+              label(for="proj-mailto-mail").radio-btn-wrapper__text Відіслати на вказану адресу
+            .radio-btn-wrapper.header-pu-form__radio-btn-wrapper
+              input(type="radio" id="proj-mailto-office" name="mailto" value="office")
+              label(for="proj-mailto-office").radio-btn-wrapper__circle
+              label(for="proj-mailto-office").radio-btn-wrapper__text Отримати в офісі SOTA
+          .data-pu-form__row
+            .data-pu-form__form-input-group.data-pu-form__form-input-group_full.form-input-group
+              label(for="proj-address").form-input-group__label Адреса відправки
+              textarea(name="address" id="proj-address").form-input-group__input.form-input-group__input_textarea
+          .data-pu-form__row
+            span.data-pu-form__subtitle.data-pu-form__subtitle_price Ціна проекту
+            span.data-pu-form__price(data-price="32500") 32 500 грн.
+          .data-pu-form__row
+            .data-pu-form__warning-text 
+              p Ми не розповсюджуємо ваші персональні данні
+              p <span>*</span> обов’язкові для заповнення поля
+            button(type="submit").data-pu-form__btn.btn.js-popup-projects.btn--with-icon.btn--res Вітправити
+              span
+              +svg('round')
 
 
 .reviews-popup.js-reviews-popup

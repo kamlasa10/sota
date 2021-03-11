@@ -21,7 +21,7 @@ block scripts
   //- script(defer src='./assets/scripts/vendors.bundle.js')
   script(defer src='./assets/scripts/index.bundle.js')
   script(defer src='./assets/scripts/index.js')
-  script(defer src='./assets/scripts/single-project-building.js')
+  script(defer src='./assets/scripts/single-building.js')
 block content
   .sb.inner-page
     .container
@@ -96,8 +96,7 @@ block content
                     label(for="sotaprime").radio-btn-wrapper__circle
                     label(for="sotaprime").radio-btn-wrapper__text Sota Prime
                 td 126 500$
-
-            a(href="#" data-open-popup="project").btn--with-icon.build-descr__link ЗАМОВИТИ такий ПРОєКТ
+            button(data-open-popup="single-project").btn--with-icon.build-descr__link.btn--res.js-popup-btn ЗАМОВИТИ такий ПРОєКТ
               span
               +svg('round')
         a(href="#").content-sb__arrow.content-sb__arrow_next
