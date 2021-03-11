@@ -207,6 +207,16 @@
 		// span{
 		// 	top: 29px
 		// }
+
+		span {
+			right: 25px;
+		}
+
+		&:hover {
+			span {
+				right: 20px;
+			}
+		}
 	}
 }
 

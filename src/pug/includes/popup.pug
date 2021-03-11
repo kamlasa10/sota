@@ -88,7 +88,7 @@
         .popup-contacts__item
           label.popup-contacts__item-label <sup>*</sup> обов’язкові для заповнення поля
   .popup-project-form.popup.js-popup(data-popup="single-project")
-    .pu-form.popup-project-form__form
+    form.pu-form.popup-project-form__form(data-form="single-project")
       .pu-form__inner
         button(type="button" data-popup-type="single-project").popup-close.js-popup-close.nav__close.btn--res.pu__close ЗАКРИТИ
         .pu-form__header.header-pu-form
@@ -108,8 +108,8 @@
             .header-pu-form__input-group.form-input-group
               label(for="proj-data").form-input-group__label Додаткова інформація, яку потрібно враховувати:
               textarea(id="proj-data").form-input-group__input.form-input-group__input_textarea
-            .header-pu-form__input-group.form-input-group.form-input-group_upload(data-contacts-file="1")
-              .form-input-group__upload-text-wrapper
+            .header-pu-form__input-group.form-input-group.form-input-group_upload
+              .form-input-group__upload-text-wrapper(data-contacts-file="1")
                 span Файл не вибрано
               label.form-input-group__upload-btn.btn--with-icon ВИбрати
                 span
@@ -120,13 +120,13 @@
           .data-pu-form__row
             .data-pu-form__form-input-group.data-pu-form__form-input-group_three.form-input-group
               label(for="proj-lastname").form-input-group__label Прізвище <sup>*</sup>
-              input(type="text" name="lastname" id="proj-lastname").form-input-group__input
+              input(type="text" name="lastname" id="proj-lastname" data-required="true").form-input-group__input
             .data-pu-form__form-input-group.data-pu-form__form-input-group_three.form-input-group
               label(for="proj-name").form-input-group__label Ім’я <sup>*</sup>
-              input(type="text" name="name" id="proj-name").form-input-group__input
+              input(type="text" name="name" id="proj-name" data-required="true").form-input-group__input
             .data-pu-form__form-input-group.data-pu-form__form-input-group_three.form-input-group
               label(for="proj-middlename").form-input-group__label Побатькові <sup>*</sup>
-              input(type="text" name="middlaname" id="proj-middlename").form-input-group__input
+              input(type="text" name="middlaname" id="proj-middlename" data-required="true").form-input-group__input
           .data-pu-form__row
             .data-pu-form__form-input-group.data-pu-form__form-input-group_three.form-input-group
               label(for="proj-passport").form-input-group__label Серія і номер паспорту
@@ -145,10 +145,10 @@
           .data-pu-form__row
             .data-pu-form__form-input-group.data-pu-form__form-input-group_phone.form-input-group
               label(for="proj-phone").form-input-group__label Телефон <sup>*</sup>
-              input(type="text" name="phone" id="proj-phone").form-input-group__input
+              input(type="text" name="phone" id="proj-phone" data-required="true").form-input-group__input
             .data-pu-form__form-input-group.data-pu-form__form-input-group_email.form-input-group
               label(for="proj-email").form-input-group__label E-mail <sup>*</sup>
-              input(type="text" name="email" id="proj-email").form-input-group__input
+              input(type="text" name="email" id="proj-email" data-required="true").form-input-group__input
         .pu-form__data.data-pu-form
           h4.data-pu-form__subtitle.data-pu-form__subtitle_m40 Адреса Відправки
           .data-pu-form__row
@@ -171,7 +171,7 @@
             .data-pu-form__warning-text 
               p Ми не розповсюджуємо ваші персональні данні
               p <span>*</span> обов’язкові для заповнення поля
-            button(type="submit").data-pu-form__btn.btn.js-popup-projects.btn--with-icon.btn--res Вітправити
+            button(type="submit").data-pu-form__btn.btn.js-popup-projects.submit__btn.btn--with-icon.btn--res Вітправити
               span
               +svg('round')
 

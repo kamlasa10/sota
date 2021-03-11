@@ -351,7 +351,7 @@ $(document).ready(() => {
             }
 
             $.each($(selectorForm)[0], function(key, value) {
-
+                console.log(key, value)
                 if ($(value).attr('name') === 'file' && value.files !== undefined) {
                     data.append('file', value.files[0])
                     return
@@ -360,7 +360,7 @@ $(document).ready(() => {
                         data.append('contactBy', $(value).val())
                     }
                     return
-                }
+                } 
 
                 data.append($(value).attr("name"), $(value).val() || '');
             });
@@ -370,8 +370,9 @@ $(document).ready(() => {
 
             selectorForm.find('button[type=submit]').css('pointer-events', 'none')
 
-            $(`[data-contacts-file] span`).text('')
+            $(`[data-contacts-file] span`).text('Файл не вибрано')
             $('.status-request').show()
+            
 
             $.ajax({
                 url: url, //url страницы (action_ajax_form.php)

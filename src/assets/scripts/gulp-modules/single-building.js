@@ -258,7 +258,6 @@ $(document).ready(() => {
   /*     SINGLE PROJECT BUILDING                */
   /*     SINGLE PROJECT BUILDING                */
 
-
   const galleryProjectThumbs = new Swiper(".js-project-thumb-slider", {
     centeredSlides: true,
     centeredSlidesBounds: true,
