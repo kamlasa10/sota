@@ -1,4 +1,34 @@
+function changeValueByProp(prop, value) {
+  window.dataForProjectForm[prop] = value
+}
+
+function setNewProjectPrice(prop, value) {
+  changeValueByProp(prop, value)
+
+  $('.js-project-price').text(value)
+  $('.js-current-project-value').text(value)
+}
+
 $(document).ready(() => {
+  try {
+    window.dataForProjectForm = {
+      name: $('.build-descr__title').text(),
+      activeImgSrc: $('.js-project-main-slider swiper-slide-active img').attr('src'),
+      projectPrice: $('.js-active-choise-plan').data().price,
+    }
+    $('.js-project-price').text(`${dataForProjectForm.projectPrice}$`)
+    $('.header-pu-form__title').text(window.dataForProjectForm.name)
+
+    $('[data-price]').on('change', (e) => {
+      const currentPrice = $(e.target).data().price
+      const currentChoisePlanName = $(e.target).attr('id')
+
+      setNewProjectPrice('projectPrice', `${currentPrice}$`)
+      $('[name=sotaseries]').checked = ''
+      $(`[data-plan-name=${currentChoisePlanName}]`).attr('checked', 'checked')
+    })
+  } catch (e) {}
+
   const galleryThumbs = new Swiper(".js-gallery-thumbs", {
     centeredSlides: true,
     centeredSlidesBounds: true,
@@ -289,6 +319,14 @@ $(document).ready(() => {
   
   galleryProjectMain.on('slideChangeTransitionStart', () => {
     galleryProjectThumbs.slideTo(galleryProjectMain.activeIndex);
+    
+    try { 
+      changeValueByProp(
+        'activeImgSrc', 
+        $('.js-project-main-slider swiper-slide-active img').attr('src')
+      )
+      $('.js-choise-img-form').attr('src', window.dataForProjectForm.activeImgSrc)
+    } catch (e) {}
   });
   
   galleryProjectThumbs.on('transitionStart', () => {

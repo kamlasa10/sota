@@ -66,8 +66,8 @@ block content
               span.main__progress-current 01/
               span.main__progress-total 04
           .main__progress-img
-            +img('slider-img.png')
-  section.choise-us
+            img(src="").main__progress-img--1
+  section.choise-us(data-section="choise")
     .choise-us__wrap
       .container
         .choise-us__inner-wrap
@@ -177,7 +177,7 @@ block content
                   +svg('round')
             .choise-us__item--3-bottom-right 
               +img('chouse-us--3-img-bottom.png')
-  section.project
+  section.project(data-section="project")
     .project__wrap
       .container
         .project__content
@@ -209,10 +209,10 @@ block content
               .project__info 280 м<sup>2</sup>
             a(href="#").project__name Sota 002
         .project__block
-          a(href="#").project__link.btn--with-icon Всі наші проекти
+          a(href="#").project__link.btn--with-icon Всі наші проЄкти
             span
             +svg('round')
-  section.contacts.section
+  section.contacts
     .contacts__bg
     .container
       .contacts__left

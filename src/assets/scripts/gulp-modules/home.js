@@ -13,20 +13,22 @@ function setPreviewNextSlide(nextSlide, current) {
     .slice(5, nextSlide.find('.main__item-bg').css('background-image')
       .length - 2)
   if (!isFirst) {
-    const tl = gsap.timeline({
-      onStart(data) {
-        setTimeout(() => {
-          $('.main__progress-wrap').find('.main__progress-img img').attr('src', src)
-        }, 50)
-      }
-    })
+    gsap.to('.main__progress-img', { opacity: 0, x: 50 })
+    setTimeout(() => {
+      $('.main__progress-img img').attr('src', src)
+    }, 300)
 
-    tl.fromTo('.main__progress-img', { scale: 0 },
-      { duration: 1, scale: 1, delay: 0.8 }, 0.2)
+    const tl = gsap.timeline()
+
+    setTimeout(() => {
+      gsap.to('.main__progress-img', { opacity: 1, x: 0 })
+    }, 900)
+
+    tl
       .fromTo(current.find('.main__small-title'), {
         duration: 1, y: -35, opacity: 0, delay: 0.4
-      }, { duration: 1, opacity: 1, y: 0 }, '<0.3')
-      .fromTo(current.find('.main__title'), { duration: 1, y: 30, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, 1.1)
+      }, { duration: 1, opacity: 1, y: 0 }, '<0.2')
+      .fromTo(current.find('.main__title'), { duration: 1, y: 30, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, 0.9)
       .fromTo(current.find('.main__desc'), { duration: 1, y: 40, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, '<0.2')
 
     return
@@ -248,21 +250,38 @@ document.addEventListener('keyup', (e) => {
 });
 
 const swiper = new Swiper('.js-main__wrap', {
-  pagination: {
-    el: '.main__progress-bar',
-    type: 'progressbar',
+  autoplay: {
+    delay: 10000,
+    disableOnInteraction: false,
   },
   loop: true,
   slidesPerView: 1,
+  speed: 800,
   on: {
     init(e) {
-      setPreviewNextSlide($(e.slides[e.activeIndex + 1]), $(e.slides[e.activeIndex]))
-
+      setTimeout(() => {
+        setPreviewNextSlide($(e.slides[e.activeIndex + 1]), $(e.slides[e.activeIndex]))
+      }, 800)
+      gsap.fromTo('.main__progress-bar-indicator', {
+        width: 0
+      }, {
+        delay: 1.8,
+        duration: 8.5,
+        width: '100%'
+      })
       $('.main__progress-current').text('/01')
       $('.main__progress-total').text(`0${Math.ceil(e.slides.length / 2)}`)
     },
     slideChange(e) {
-      console.log('after')
+      gsap.to('.main__progress-bar-indicator', { width: 0 })
+      
+      gsap.fromTo('.main__progress-bar-indicator', {
+        width: 0
+      }, {
+        duration: 11.2,
+        width: '100%'
+      })
+
       try {
         if (Math.ceil(e.slides.length / 2) < e.snapIndex) {
           setPreviewNextSlide($(e.slides[2]), $(e.slides[e.activeIndex]))
@@ -281,9 +300,6 @@ const swiper = new Swiper('.js-main__wrap', {
       setPreviewNextSlide($(e.slides[e.activeIndex + 1]), $(e.slides[e.activeIndex]))
       $('.main__progress-current').text(`/0${e.activeIndex}`)
     },
-    transitionStart(e) {
-      console.log('before')
-    }
   },
 })
 
@@ -334,13 +350,52 @@ function choiseSec() {
   return tl
 }
 
+function projectSec() {
+  const tl = gsap.timeline()
+
+  tl.fromTo('.project__content-left', {
+    opacity: 0,
+    y: 30
+  }, {
+    duration: 1,
+    opacity: 1,
+    delay: 0.5,
+    y: 0
+  })
+
+  return tl
+}
+
+const objWithFnAnimation = {
+  choise: choiseSec,
+  project: projectSec
+}
+
+gsap.utils.toArray('[data-section]').forEach((item) => {
+  const fn = objWithFnAnimation[$(item).data().section]
+
+  ScrollTrigger.create({
+    trigger: item,
+    // end: "+=1000",
+    markers: true,
+    scroller: "[data-scroll-container]",
+    animation: fn()
+  });
+})
+
+function animatePattern() {
+  const tl = gsap.timeline()
+
+  gsap.to('.project__content-right', {
+
+  })
+}
+
 ScrollTrigger.create({
-  trigger: ".choise-us",
-  // end: "+=1000",
-  // markers: true,
-  scroller: "[data-scroll-container]",
-  animation: choiseSec(),
-});
+  trigger: '.project__wrap',
+  scrub: true,
+  markers: true
+})
 
 // window.addEventListener("load", () => {
 //   // set up our WebGL context and append the canvas to our wrapper

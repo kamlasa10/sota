@@ -28,8 +28,25 @@ setTimeout(() => {
     opacity: 0,
     zIndex: -100
   }, 1.2)
- }, 100)
+  .fromTo('.header', {
+    y: '-80',
+    opacity: 0
+  }, {
+    opacity: 1,
+    y: 0,
+    duration: 1.3
+  }, 0.6)
+  .fromTo('.socials', {
+    y: 50,
+    opacity: 0
+  }, {
+    y: 0,
+    duration: 1.3,
+    opacity: 1
+  }, 1.3)
 
+
+ }, 100)
 
 $('[name=phone]').each(function() {
     $(this).inputmask("38(099)999 99 99", { placeholder: "38(0__)___ __ __", clearMaskOnLostFocus: true })

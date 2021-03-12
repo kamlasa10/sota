@@ -88,14 +88,14 @@ block content
               tr 
                 td 
                   .radio-btn-wrapper.table-build-descr__radio-btn-wrapper
-                    input(type="radio" id="sotaoptima" checked name="sota")
+                    input(type="radio" id="sotaoptima" class="js-active-choise-plan" checked name="sota" data-price="125000")
                     label(for="sotaoptima").radio-btn-wrapper__circle
                     label(for="sotaoptima").radio-btn-wrapper__text Sota Optima
                   .radio-btn-wrapper.table-build-descr__radio-btn-wrapper
-                    input(type="radio" id="sotaprime" name="sota")
+                    input(type="radio" id="sotaprime" name="sota" data-price="175000")
                     label(for="sotaprime").radio-btn-wrapper__circle
                     label(for="sotaprime").radio-btn-wrapper__text Sota Prime
-                td 126 500$
+                td.js-project-price 126 500$
             button(data-open-popup="single-project").btn--with-icon.build-descr__link.btn--res.js-popup-btn ЗАМОВИТИ такий ПРОєКТ
               span
               +svg('round')

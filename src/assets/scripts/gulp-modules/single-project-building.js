@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
   swiper.on('slideChange', () => {
     progressBarActive.style.width = `${swiper.progress * 100}%`;
     update();
+    console.log($('.js-project-main-slider swiper-slide-active img'))
   })
 
   swiper.init();

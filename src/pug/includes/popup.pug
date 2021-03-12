@@ -85,24 +85,24 @@
           button(type="submit").popup-contacts__btn.btn.js-popup-contacts.btn--with-icon.btn--res Вітправити
             span
             +svg('round')
-        .popup-contacts__item
+        .popup-contacts__item 
           label.popup-contacts__item-label <sup>*</sup> обов’язкові для заповнення поля
   .popup-project-form.popup.js-popup(data-popup="single-project")
-    form.pu-form.popup-project-form__form(data-form="single-project")
+    form.pu-form.popup-project-form__form(data-form="single-project" data-success-type="thank")
       .pu-form__inner
         button(type="button" data-popup-type="single-project").popup-close.js-popup-close.nav__close.btn--res.pu__close ЗАКРИТИ
         .pu-form__header.header-pu-form
           .header-pu-form__img-wrapper 
-            +img('single-building/01.jpg')
+            +img('single-building/01.jpg').js-choise-img-form
           .header-pu-form__info-wrapper 
             h3.header-pu-form__title.title SOTA 001
             .header-pu-form__radio-wrapper 
               .radio-btn-wrapper.header-pu-form__radio-btn-wrapper
-                input(type="radio" id="proj-sotaoptima" checked name="sotaseries" value="sotaoptima")
+                input(type="radio" id="proj-sotaoptima" checked name="sotaseries" data-plan-name="sotaoptima" value="sotaoptima")
                 label(for="proj-sotaoptima").radio-btn-wrapper__circle
                 label(for="proj-sotaoptima").radio-btn-wrapper__text Sota Optima
               .radio-btn-wrapper.header-pu-form__radio-btn-wrapper
-                input(type="radio" id="proj-sotaprime" name="sotaseries" value="sotaprime")
+                input(type="radio" id="proj-sotaprime" name="sotaseries" data-plan-name="sotaprime" value="sotaprime")
                 label(for="proj-sotaprime").radio-btn-wrapper__circle
                 label(for="proj-sotaprime").radio-btn-wrapper__text Sota Prime
             .header-pu-form__input-group.form-input-group
@@ -166,7 +166,7 @@
               textarea(name="address" id="proj-address").form-input-group__input.form-input-group__input_textarea
           .data-pu-form__row
             span.data-pu-form__subtitle.data-pu-form__subtitle_price Ціна проекту
-            span.data-pu-form__price(data-price="32500") 32 500 грн.
+            span.data-pu-form__price.js-current-project-value 32 500 грн.
           .data-pu-form__row
             .data-pu-form__warning-text 
               p Ми не розповсюджуємо ваші персональні данні
