@@ -73,6 +73,8 @@
     padding-right: 0;
     margin-bottom: 40px;
     color: #333;
+    position: static;
+    letter-spacing: 0.06em;
   }
 
   &-thank {
@@ -145,6 +147,7 @@
       font-weight: 700;
       color: #333;
       text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     &__wrap {
@@ -227,7 +230,7 @@
       }
 
       &--file .popup-contacts__item-wrap {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         align-items: center;
       }
 

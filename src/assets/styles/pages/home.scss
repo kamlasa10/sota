@@ -266,7 +266,7 @@
 
     &__tabs {
       margin-bottom: 160px;
-      width: 56%;
+      width: 55.6%;
       display: flex;
       justify-content: space-between;
 
@@ -328,8 +328,7 @@
           align-items: flex-end;
           justify-content: flex-end;
 
-          &::before {
-            content: "";
+          .bg {
             position: absolute;
             top: 0;
             left: 0;
@@ -739,7 +738,7 @@
 
         &-title {
           margin-bottom: 30px;
-          font-family: $druk-text-cyr;
+          font-family: $druk-cyr;
           color: #333333;
         }
 
@@ -1086,12 +1085,26 @@
     &__block {
       display: flex;
       justify-content: flex-end;
+
+      .project__link {
+        span {
+          right: 19px;
+        }
+
+        &:hover {
+          span {
+            right: 14px;
+          }
+        }
+      }
     }
   }
 
   .contacts {
     position: relative;
     display: flex;
+    padding-top: 150px;
+    padding-bottom: 140px;
 
     .container {
       display: flex;
@@ -1113,7 +1126,7 @@
 
     &__title {
       margin-bottom: 32px;
-      font-family: $druk-text-cyr;
+      font-family: $druk-cyr;
     }
 
     &__list {
@@ -1121,7 +1134,7 @@
     }
 
     &__item {
-      margin-bottom: 32px;
+      margin-bottom: 24px;
       display: flex;
       align-items: center;
 
@@ -1182,14 +1195,20 @@
 
     &__link {
       span {
-        right: 24px;
+        right: 19px;
       }
 
       &:hover {
         span {
-          right: 19px;
+          right: 14px;
         }
       }
+    }
+  }
+
+  .contacts__block {
+    button {
+      padding: 0;
     }
   }
 }

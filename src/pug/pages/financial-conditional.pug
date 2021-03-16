@@ -21,12 +21,12 @@ block scripts
   script(defer src='./assets/scripts/vendors.bundle.js')
   script(defer src='./assets/scripts/index.bundle.js')
   script(defer src='./assets/scripts/index.js')
-  script(defer src='./assets/scripts/financial.js')
+  script(defer src='./assets/scripts/financial-conditional.js')
 block content
   .financial.inner-page
     .container
       h1.inner-page-title.about__inner-page-title Фінансові умови
-    .financial__intro 
+    .financial__intro(data-section="first") 
       .financial__intro-left
         +img('./financial/financial-img.jpg')
       .financial__intro-right 
@@ -36,8 +36,9 @@ block content
         .financial__intro-right-block
           .financial__intro-desc Фінансування процесу будівництва прив'язане безпосередньо до етапів виконання робіт. В договорі на будівництво зазначено графік фінансування будівельного процесу за наступною схемою:
     .container
-      .financial__step
+      .financial__step(data-section="second")
         .financial__step-item 
+          .border
           +svg('rhombus-small')
           .financial__step-item-content 
             .financial__step-item-top
@@ -54,6 +55,7 @@ block content
                 b.text Етап
                 .financial__step-item-desc Після перевірки та прийняття робіт з першого етапу та підписання відповідного акту, ви здійснюєте сплату наступних 30 % від вартості послуг згідно договору на виконання робіт зі зведення каркасу та на закупівлю матеріалів для влаштування покрівлі. 
         .financial__step-item
+          .border
           +svg('rhombus-small')
           .financial__step-item-content 
             .financial__step-item-top
@@ -69,7 +71,7 @@ block content
               .financial__step-item-top-content
                 b.text Етап
                 .financial__step-item-desc Залишок в розмірі 10 % ви сплачуєте тільки після підписання акту приймання-передачі робіт з будівництва всього будинку. 
-    .financial__info 
+    .financial__info(data-section="three") 
       .financial__info-left
         .financial__info-left-wrap
           .container 

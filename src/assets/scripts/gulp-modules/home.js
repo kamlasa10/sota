@@ -39,12 +39,114 @@ function setPreviewNextSlide(nextSlide, current) {
 }
 
 (function () {
-  new Tabs($('[data-content-choise]'),
+  function animateTabs(node) {
+    const tabName = node.data().choise
+    const tl = gsap.timeline()
+
+    switch (tabName) {
+      case 1: {
+        tl.fromTo('.choise-us__item--1-img img', {
+          width: '0%'
+        }, {
+          duration: 0.8,
+          width: $(window).width() > 1440 ? '80%' : '77%'
+        }, 0.6)
+          .fromTo('.choise-us__item--1-right', {
+            opacity: 0,
+            x: 100
+          }, {
+            duration: 1,
+            opacity: 1,
+            x: 0
+          }, '<0.3')
+          .fromTo('.choise-us__item--1-left .bg', {
+            y: 80,
+            opacity: 0
+          }, {
+            y: 0,
+            duration: 1.2,
+            opacity: 1
+          }, 0)
+        return
+      }
+      case 2: {
+        tl.fromTo('.choise-us__item--2-right', {
+          x: '30%',
+          opacity: 0
+        }, {
+          x: '0',
+          opacity: 1,
+          duration: 1
+        })
+          .fromTo('.choise-us__item--2-content', {
+            y: 50,
+            opacity: 0
+          }, {
+            y: 0,
+            opacity: 1,
+            duration: 1
+          }, 0)
+
+        return
+      }
+      case 3: {
+        let imgHeight = '100%'
+        
+        if ($(window).width() <= 1440 && $(window).width() > 1370) {
+          imgHeight = '97%'
+        } else if ($(window).width <= 1370) {
+          '92%'
+        }
+
+        tl.fromTo('.choise-us__item--3-small-title', {
+          y: -30,
+          opacity: 0
+        }, {
+          y: 0,
+          duration: 1,
+          opacity: 1
+        })
+          .fromTo('.choise-us__item--3-img', {
+            height: '85%'
+          }, {
+            height: imgHeight,
+            duration: 1
+          }, 0.3)
+          .fromTo('.choise-us__item--3-title', {
+            y: 30,
+            opacity: 0
+          }, {
+            y: 0,
+            opacity: 1,
+            duration: 1
+          }, 0.3)
+          .fromTo('.choise-us__item--3-list', {
+            y: 60,
+            opacity: 0
+          }, {
+            opacity: 1,
+            y: 0,
+            duration: 1
+          }, 0.6)
+      }
+    }
+  }
+
+  class TabsWithAnimation extends Tabs {
+    constructor(...data) {
+      super(...data)
+    }
+
+    trigger() {
+      super.trigger(animateTabs)
+    }
+  }
+  new TabsWithAnimation($('[data-content-choise]'),
     $('.js-choise-tab'), 'choise-us__tab--active')
 
   const map = new google.maps.Map(document.getElementById('map'), {
     center: { lat: 50.461714448701464, lng: 30.496371456088845 },
-    zoom: 14,
+    zoom: 15,
     disableDefaultUI: true,
     styles: [
       {
@@ -249,6 +351,9 @@ document.addEventListener('keyup', (e) => {
   }
 });
 
+let myTl
+let sliderFlag = true
+
 const swiper = new Swiper('.js-main__wrap', {
   autoplay: {
     delay: 10000,
@@ -262,26 +367,33 @@ const swiper = new Swiper('.js-main__wrap', {
       setTimeout(() => {
         setPreviewNextSlide($(e.slides[e.activeIndex + 1]), $(e.slides[e.activeIndex]))
       }, 800)
-      gsap.fromTo('.main__progress-bar-indicator', {
+      myTl = gsap.fromTo('.main__progress-bar-indicator', {
         width: 0
       }, {
-        delay: 1.8,
-        duration: 8.5,
+        delay: 2,
+        duration: 8.4,
         width: '100%'
       })
       $('.main__progress-current').text('/01')
       $('.main__progress-total').text(`0${Math.ceil(e.slides.length / 2)}`)
     },
     slideChange(e) {
-      gsap.to('.main__progress-bar-indicator', { width: 0 })
-      
-      gsap.fromTo('.main__progress-bar-indicator', {
-        width: 0
-      }, {
-        duration: 11.2,
-        width: '100%'
-      })
+      if (!sliderFlag) {
+        myTl.pause()
+        $('.main__progress-bar-indicator').css('width', 0)
 
+        setTimeout(() => {
+          myTl.pause()
+          $('.main__progress-bar-indicator').css('width', 0)
+
+          myTl = gsap.fromTo('.main__progress-bar-indicator', {
+            width: 0
+          }, {
+            duration: 10.5,
+            width: '100%'
+          })
+        }, 800)
+      }
       try {
         if (Math.ceil(e.slides.length / 2) < e.snapIndex) {
           setPreviewNextSlide($(e.slides[2]), $(e.slides[e.activeIndex]))
@@ -299,6 +411,8 @@ const swiper = new Swiper('.js-main__wrap', {
       } catch (e) {}
       setPreviewNextSlide($(e.slides[e.activeIndex + 1]), $(e.slides[e.activeIndex]))
       $('.main__progress-current').text(`/0${e.activeIndex}`)
+
+      sliderFlag = false
     },
   },
 })
@@ -346,56 +460,129 @@ function choiseSec() {
       opacity: 1,
       x: 0
     }, '<0.2')
+    .fromTo('.choise-us__item--1-left .bg', {
+      y: 80,
+      opacity: 0
+    }, {
+      y: 0,
+      duration: 1.2,
+      opacity: 1
+    }, 0.2)
 
   return tl
 }
 
 function projectSec() {
   const tl = gsap.timeline()
+  const imgOffset = '-47%'
+
+  if ($(window).width() <= 1370) {
+    imgOffset = '-41%'
+  }
 
   tl.fromTo('.project__content-left', {
-    opacity: 0,
-    y: 30
+    y: 70
   }, {
-    duration: 1,
-    opacity: 1,
-    delay: 0.5,
     y: 0
   })
+    .fromTo('.project__content-right', {
+      y: '-13%'
+    }, {
+      y: imgOffset
+    }, 0)
+    .fromTo('.project__content-right img', {
+      backgroundPosition: '-50% -50%'
+    }, {
+      backgroundPosition: '0 0'
+    }, 0)
+    .fromTo('.project__list', {
+      y: 100,
+    }, {
+      y: 0
+    })
+
+  return tl
+}
+
+function contactsSec() {
+  const tl = gsap.timeline()
+
+  tl.fromTo('.contacts__bg', {
+    y: 80,
+    opacity: 0
+  }, {
+    y: 0,
+    opacity: 1,
+    duration: 1.3
+  })
+    .fromTo('.contacts__small-title', {
+      y: -30,
+      opacity: 0
+    }, {
+      y: 0,
+      opacity: 1,
+      duration: 1
+    }, 0.5)
+    .fromTo('.contacts__title', {
+      y: 50,
+      opacity: 0
+    }, {
+      y: 0,
+      opacity: 1,
+      duration: 1
+    }, 0.1)
+    .fromTo('.contacts__list', {
+      x: 100,
+      opacity: 0
+    }, {
+      x: 0,
+      opacity: 1,
+      duration: 1
+    }, 1.3)
+    .fromTo('.contacts__block', {
+      x: 100,
+      opacity: 0
+    }, {
+      x: 0,
+      opacity: 1,
+      duration: 1
+    }, 1.3)
+    .fromTo('.contacts__map', {
+      width: 0,
+    }, {
+      width: '100%',
+      duration: 1
+    }, 1.5)
 
   return tl
 }
 
 const objWithFnAnimation = {
   choise: choiseSec,
-  project: projectSec
+  project: projectSec,
+  contacts: contactsSec
 }
 
 gsap.utils.toArray('[data-section]').forEach((item) => {
   const fn = objWithFnAnimation[$(item).data().section]
 
+  let offsetPattern = '+=1800'
+
+  if ($(window).width() <= 1440) {
+    offsetPattern = '+=1500'
+  }
+
   ScrollTrigger.create({
     trigger: item,
     // end: "+=1000",
     markers: true,
+    scrub: $(item).data().section === 'project',
     scroller: "[data-scroll-container]",
-    animation: fn()
+    animation: fn(),
+    end: $(item).data().section === 'project' ? offsetPattern : ''
   });
 })
 
-function animatePattern() {
-  const tl = gsap.timeline()
-
-  gsap.to('.project__content-right', {
-
-  })
-}
-
-ScrollTrigger.create({
-  trigger: '.project__wrap',
-  scrub: true,
-  markers: true
-})
 
 // window.addEventListener("load", () => {
 //   // set up our WebGL context and append the canvas to our wrapper

@@ -79,6 +79,7 @@ block content
       .choise-us__content
         .choise-us__item.choise-us__item--1(data-content-choise="1")
           .choise-us__item--1-left
+            .bg
             .choise-us__item--1-img
               +img('choise-us--1-img.png')
             .choise-us__item--1-title.small-title-with-decor Barnhouse style
@@ -212,7 +213,7 @@ block content
           a(href="#").project__link.btn--with-icon Всі наші проЄкти
             span
             +svg('round')
-  section.contacts
+  section.contacts(data-section="contacts")
     .contacts__bg
     .container
       .contacts__left
