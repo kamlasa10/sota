@@ -1,18 +1,27 @@
 #id-page-team {
 	.team {
 		&__list {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-				column-gap: 82px;
-				row-gap: 39px;
-				margin-bottom: 50px;
-				margin-right: 50px;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+			column-gap: 82px;
+			row-gap: 39px;
+			margin-bottom: 50px;
+			margin-right: 50px;
+
+			@include to(1370px) {
+				column-gap: 55px;
+			}
 		}
 
 		&__footer {
-			display: flex;
-			justify-content: flex-end;
+			display: grid;
+			column-gap: 82px;
+			grid-template-columns: repeat(auto-fit, minmax(310px, 375.33px));
 			margin-bottom: 50px;
+
+			.choise-us__link {
+				display: inline-flex;
+			}
 		}
 
 		&__content {

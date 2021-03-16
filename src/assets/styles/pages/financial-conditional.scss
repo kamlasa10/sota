@@ -6,6 +6,7 @@
     
             &-left {
                 width: 45%;
+                overflow: hidden;
 
                 @include to(1370px) {
                     width: 44%;
@@ -137,22 +138,35 @@
             margin-top: 85px;
             position: relative;
 
-            &::after {
-                content: "";
-                position: absolute;
-                top: -8px;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 2px;
-                background-color: #333;
-            }
+            // &::after {
+            //     content: "";
+            //     position: absolute;
+            //     top: -8px;
+            //     bottom: 0;
+            //     left: 50%;
+            //     transform: translateX(-50%);
+            //     width: 2px;
+            //     background-color: #333;
+            // }
 
             &-item {
                 position: relative;
                 width: 100%;
                 display: flex;
                 flex-direction: column;
+                z-index: 2;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 2px;
+                    background-color: #333;
+                    transition: all .4s;
+                }
 
                 &:last-child {
                     position: relative;

@@ -9,6 +9,8 @@
             &__top {
                 margin-bottom: 59px;
                 display: flex;
+                position: relative;
+                z-index: 2;
 
                 &-text {
                     position: absolute;
@@ -83,17 +85,18 @@
                     &-bottom {
                         bottom: -43%;
                         right: 0;
-                        transform: translateX(20%);
+                        transform: translateX(20%) translateY(-27%);
+                        overflow: hidden;
                         z-index: 2;
                         position: absolute;
                         height: 58%;
                         width: 39%;
 
                         img {
+                            transform: translateY(0);
                             width: 100%;
                             height: 100%;
                         }
-
                     }
                 }
 
@@ -356,19 +359,23 @@
                     .projects-start__item-left,
                     .projets-start__item-right {
                         position: relative;
-                        width: 43%;
+                        width: 36%;
+                        margin-right: 130px;
                     }
 
                     .projects-start__item-left {
                         position: relative;
                         z-index: 2;
+                        transform: translateY(-7%);
+                        overflow: hidden;
+
                         img {
                             position: absolute;
-                            top: -7%;
+                            top: 0;
                             left: 0;
                             right: 0;
                             height: 117%;
-                            width: 84%;
+                            width: 100%;
                             object-fit: cover;
 
                             @include to(1440px) {
@@ -531,7 +538,7 @@
                         display: inline-flex;
 
                         @include to(1440px) {
-                            min-width: 178px;
+                            min-width: 189px;
                         }
                     }
                 }
