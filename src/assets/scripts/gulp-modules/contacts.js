@@ -192,7 +192,7 @@ $(document).ready(() => {
   new google.maps.Marker({
     position: { lat: 50.461714448701464, lng: 30.496371456088845 },
     map,
-    icon: '../dist/assets/images/maps/home.svg'
+    icon: '../wp-content/themes/sota/assets/images/maps/home.svg'
   });
 
   const map2 = new google.maps.Map(document.getElementById('map2'), {
@@ -205,7 +205,7 @@ $(document).ready(() => {
   new google.maps.Marker({
     position: { lat: 50.461714448701464, lng: 30.496371456088845 },
     map: map2,
-    icon: '../dist/assets/images/maps/home.svg'
+    icon: '../wp-content/themes/sota/assets/images/maps/home.svg'
   });
 
   const map3 = new google.maps.Map(document.getElementById('map3'), {
@@ -218,6 +218,6 @@ $(document).ready(() => {
   new google.maps.Marker({
     position: { lat: 50.461714448701464, lng: 30.496371456088845 },
     map: map3,
-    icon: '../dist/assets/images/maps/home.svg'
+    icon: '../wp-content/themes/sota/assets/images/maps/home.svg'
   });
 });

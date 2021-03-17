@@ -288,8 +288,13 @@
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
 		color: #333333;
-		max-width: 467px;
+		max-width: 475px;
 		margin-bottom: 15px;
+		&_orange{
+			color: #EC5629;
+			margin-bottom: 0;
+
+		}
 	}
 	&__author{
 		color: #EC5629;
