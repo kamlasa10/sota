@@ -3,7 +3,7 @@
   z-index: 2;
   right: 0;
   top: 36px;
-
+  transition: all .4s;
 
   @include to(1440px) {
     top: 41px;

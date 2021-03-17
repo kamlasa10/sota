@@ -21,8 +21,8 @@ function setPreviewNextSlide(nextSlide, current, isAnimateText = true) {
     setTimeout(() => {
       gsap.to('.main__progress-img', { opacity: 1, x: 0 })
     }, 900)
-
-    if (isAnimateText) {
+    console.log(window.showAnimation)
+    if (isAnimateText || window.showAnimation) {
       const tl = gsap.timeline()
 
       tl
@@ -147,7 +147,7 @@ let scrollTriggerIntance
       }
     }
 
-    ScrollTriggerInstance.refresh()
+    ScrollTrigger.refresh()
   }
 
   class TabsWithAnimation extends Tabs {
@@ -371,6 +371,7 @@ document.addEventListener('keyup', (e) => {
 
 let myTl
 let sliderFlag = true
+window.countShowWithAnimation = 0
 
 const swiper = new Swiper('.js-main__wrap', {
   autoplay: {
@@ -413,6 +414,17 @@ const swiper = new Swiper('.js-main__wrap', {
         }, 800)
       }
       try {
+        if (currentPos <= 400 && window.showAnimation) {
+          ++window.countShowWithAnimation
+          setTimeout(() => {
+            window.showAnimation = false
+          }, 10000)
+
+          if (window.countShowWithAnimation > 1) {
+            window.showAnimation = false
+          }
+        }
+
         if (Math.ceil(e.slides.length / 2) < e.snapIndex) {
           setPreviewNextSlide($(e.slides[2]), $(e.slides[e.activeIndex]), false)
           $('.main__progress-current').text('01/')
@@ -451,25 +463,23 @@ function choiseSec() {
   tl.fromTo('.title', {
     duration: 1.2,
     y: -30,
-    opacity: 0
   }, {
     y: 0,
-    opacity: 1
-  }, 0.5)
+  }, 0)
     .fromTo('.choise-us__tab', {
       opacity: 0,
-      y: 10,
+      y: 20,
       duration: 1.5
     }, {
       opacity: 1,
       y: 0,
-      stagger: 0.11
-    }).fromTo('.choise-us__item--1-img img', {
+      stagger: 0.15
+    }, 0).fromTo('.choise-us__item--1-img img', {
       width: '0%'
     }, {
       duration: 0.8,
       width: $(window).width() > 1440 ? '80%' : '77%'
-    }, 1)
+    }, 0.2)
     .fromTo('.choise-us__item--1-right', {
       opacity: 0,
       x: 100
@@ -477,15 +487,19 @@ function choiseSec() {
       duration: 1,
       opacity: 1,
       x: 0
-    }, '<0.2')
+    }, 0)
     .fromTo('.choise-us__item--1-left .bg', {
       y: 80,
-      opacity: 0
     }, {
       y: 0,
       duration: 1.2,
       opacity: 1
-    }, 0.2)
+    }, 0)
+    .fromTo('.choise-us__contentt', {
+      y: 80
+    }, {
+      y: 0
+    }, 0)
 
   return tl
 }
@@ -526,51 +540,47 @@ function contactsSec() {
   const tl = gsap.timeline()
 
   tl.fromTo('.contacts__bg', {
-    y: 80,
-    opacity: 0
+    y: 200,
   }, {
     y: 0,
     opacity: 1,
     duration: 1.3
   })
     .fromTo('.contacts__small-title', {
-      y: -30,
-      opacity: 0
+      y: -40,
     }, {
       y: 0,
       opacity: 1,
       duration: 1
-    }, 0.5)
+    }, 0)
     .fromTo('.contacts__title', {
-      y: 50,
+      y: 20,
       opacity: 0
     }, {
       y: 0,
       opacity: 1,
       duration: 1
-    }, 0.1)
+    }, 0)
     .fromTo('.contacts__list', {
-      x: 100,
-      opacity: 0
+      y: 50,
     }, {
-      x: 0,
+      y: 0,
       opacity: 1,
       duration: 1
-    }, 1.3)
+    }, 0)
     .fromTo('.contacts__block', {
-      x: 100,
-      opacity: 0
+      y: 80,
     }, {
-      x: 0,
+      y: 0,
       opacity: 1,
       duration: 1
-    }, 1.3)
+    }, 0)
     .fromTo('.contacts__map', {
       width: 0,
     }, {
       width: '100%',
       duration: 1
-    }, 1.5)
+    }, 0)
 
   return tl
 }
@@ -600,7 +610,6 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
       // end: "+=1000",
       scrub: $(item).data().section === 'project',
       scroller: "[data-scroll-container]",
-      markers: $(item).data().section === 'project',
       animation: fn(),
       end: $(item).data().section === 'project' ? offsetPattern : ''
     });
@@ -608,12 +617,19 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
     return
   }
 
+  let offsetContacts = '+=1300'
+
+  if ($(window).width() <= 1440) {
+    offsetContacts = '+=1100'
+  }
+
   ScrollTrigger.create({
     trigger: item,
-    // end: "+=1000",
-    scrub: $(item).data().section === 'project',
+    end: $(item).data().section === 'choise' ? offsetContacts : '',
+    scrub: true,
     scroller: "[data-scroll-container]",
     animation: fn(),
+    markers: true
   });
 })
 
