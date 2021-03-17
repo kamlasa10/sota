@@ -322,10 +322,15 @@
       fill: none;
       stroke: #EC5629;
       stroke-width: 2px;
+      transition: all .4s;
     }
 
     &:hover {
       color: darken(#EC5629, 10%);
+
+      svg {
+        transform: scale(1.1);
+      }
 
       span {
         right: 12px;
