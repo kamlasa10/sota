@@ -361,6 +361,10 @@
                         position: relative;
                         width: 36%;
                         margin-right: 130px;
+                        
+                        @include to(1440px) {
+                            margin-right: 80px;
+                        }
                     }
 
                     .projects-start__item-left {
@@ -380,12 +384,12 @@
 
                             @include to(1440px) {
                                 height: 115%;
-                                width: 87%;
+                                width: 100%;
                                 top: -6%;
                             }
 
                             @include to(1370px) {
-                                width: 92%;
+                                width: 100%;
                                 height: 113%;
                                 top: -5%;
                             }
@@ -547,13 +551,13 @@
 
         &__list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(370px, 400px));
             column-gap: 29px;
             row-gap: 69px;
             margin-bottom: 60px;
 
             @include to(1370px) {
-                grid-template-columns: repeat(auto-fit, minmax(354px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(354px, 375px));
             }
         }
 
@@ -568,6 +572,13 @@
                 width: 100%;
                 height: 100%;
                 transition: all .4s;
+            }
+
+            &:hover {
+                .project__img--hover {
+                    transform: translateX(0) !important;
+                    transition: all 0.4s;
+                }
             }
         }
 
@@ -708,4 +719,19 @@
         height: 151%;
         top: -24%;
     }
+}
+
+.project__img--hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.72);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    justify-content: center;
+    transition: all .4s;
+    transform: translateX(-100%);
 }
