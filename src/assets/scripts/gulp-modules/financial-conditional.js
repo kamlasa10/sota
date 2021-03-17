@@ -38,7 +38,7 @@ function firstSec() {
 function secondSec() {
   const tl = gsap.timeline()
 
-  tl.fromTo('.financial__step-item:not(:first-child)', {
+  tl.fromTo('.financial__step-item--animate', {
     opacity: 0,
     y: -30,
   }, {
@@ -119,7 +119,6 @@ function createScrollTrigger(opts, fn, scrub = true) {
     scrub,
     animation: fn(),
     ...opts,
-    markers: true,
     scroller: "[data-scroll-container]"
   })
 }

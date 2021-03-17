@@ -227,7 +227,6 @@ function createScrollTrigger(opts, fn, scrub = true) {
     scrub,
     animation: fn(),
     ...opts,
-    markers: true,
     scroller: "[data-scroll-container]"
   })
 }

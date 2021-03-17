@@ -16,13 +16,17 @@
 	}
 	&__inner{
 		display: flex;
-		max-width: 1020px;
+		// max-width: 1020px;
 		margin: 0 auto;
+		max-width: 1160px;
+		@include to(1370px){
+			max-width: 980px;
+		}
 	}
 
 	&__slider-wrapper{
 		display: flex;
-		flex-basis: 50%;
+		flex-basis: 60%;
 	}
 	&__slider{
 		max-width: 400px;
@@ -121,7 +125,11 @@
 
 .spec-table{
 	line-height: 150%;
-	max-width: 1020px;
+	// max-width: 1020px;
+	max-width: 1160px;
+	@include to(1370px){
+		max-width: 980px;
+	}
 	margin: 0 auto;
 	thead{
 		th{
@@ -144,7 +152,11 @@
 
 .project-about-tab{
 	&__inner{
-		max-width: 1020px;
+		// max-width: 1020px;
+		max-width: 1160px;
+		@include to(1370px){
+			max-width: 980px;
+		}
 		margin: 0 auto;
 	}
 	&__list{
@@ -170,7 +182,11 @@
 }
 .project-sklad-tab{
 	&__inner{
-		max-width: 1020px;
+		// max-width: 1020px;
+		max-width: 1160px;
+		@include to(1370px){
+			max-width: 980px;
+		}
 		margin: 0 auto;
 	}
 

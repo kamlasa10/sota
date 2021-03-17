@@ -284,10 +284,11 @@ $(document).ready(() => {
   createPopupData.init();
 
 
-  /*     SINGLE PROJECT BUILDING                */
-  /*     SINGLE PROJECT BUILDING                */
-  /*     SINGLE PROJECT BUILDING                */
+  /** *********************************************** */
+  /*          SINGLE PROJECT BUILDING                */
+  /** *********************************************** */
 
+  
   const galleryProjectThumbs = new Swiper(".js-project-thumb-slider", {
     centeredSlides: true,
     centeredSlidesBounds: true,
@@ -366,48 +367,17 @@ $(document).ready(() => {
   });
   
   const update = () => {
-    currentSlide.innerHTML = `0${swiper.realIndex + 1}`;
-    const nextSlideIndex = swiper.realIndex + 1;
-    const prevSlideIndex = swiper.realIndex - 1;
-  
-    // if (nextSlideIndex < swiper.slides.length) {
-    //   nextSlideData = {
-    //     img: swiper.slides[nextSlideIndex].querySelector('img').src,
-    //     text: swiper.slides[nextSlideIndex].querySelector('.js-preview-text').innerHTML
-    //   }
-    // } else if (nextSlideIndex === swiper.slides.length) {
-    //   nextSlideData = {
-    //     img: swiper.slides[0].querySelector('img').src,
-    //     text: swiper.slides[0].querySelector('.js-preview-text').innerHTML
-    //   }
-    // }
-  
-    // if (prevSlideIndex >= 0) {
-    //   prevSlideData = {
-    //     img: swiper.slides[prevSlideIndex].querySelector('img').src,
-    //     text: swiper.slides[prevSlideIndex].querySelector('.js-preview-text').innerHTML
-    //   }
-    // } else if (prevSlideIndex < 0) {
-    //   prevSlideData = {
-    //     img: swiper.slides[swiper.slides.length - 1].querySelector('img').src,
-    //     text: swiper.slides[swiper.slides.length - 1].querySelector('.js-preview-text').innerHTML
-    //   }
-    // }
-        
-    // nextSlidePreview.querySelector('img').src = nextSlideData.img;
-    // nextSlidePreview.querySelector('.js-next-text').innerHTML = nextSlideData.text;
-  
-    // prevSlidePreview.querySelector('img').src = prevSlideData.img;
-    // prevSlidePreview.querySelector('.js-prev-text').innerHTML = prevSlideData.text;
+    const currentSlide = document.querySelector('.js-current-slide');
+    currentSlide.innerHTML = swiper.realIndex < 9 ? `0${swiper.realIndex + 1}` : swiper.realIndex + 1;
   }
   
   swiper.on('init', () => {
-    totalSlides.innerHTML = `0${swiper.slides.length}`;
+    const totalSlides = document.querySelector('.js-total-slides')
+    totalSlides.innerHTML = swiper.slides.length < 10 ? `0${swiper.slides.length}` : `${swiper.slides.length}`;
     update();
   })
   
   swiper.on('slideChange', () => {
-    progressBarActive.style.width = `${swiper.progress * 100}%`;
     update();
   })
   

@@ -51,10 +51,12 @@ block content
                     p 
                       span.about-about__bold Sota Construction 
                       span - молода технологічна компанія, яка займається будівництвом сучасних, естетичних і функціональних будинків. Ми створюємо заміські будинки, які служать продовженням особистості людини.
-                    p Будинки, які ми створюємо, пройняті ідеєю природної гармонії і ергономіки
+                    p Наші будинки пройняті ідеєю природної гармонії і ергономіки.
                   .sec1-about__quote.quote-about
-                    p.quote-about__text Місія: створювати не просто будинки, а стиль життя!
-                    p.quote-about__author Ірина грицаєнко
+                    p.quote-about__text.quote-about__text_orange Місія:
+                    p.quote-about__text будувати так, щоб клієнтам хотілось запросити нас до себе на новосілля.
+
+                    
                   a(href="#").btn--with-icon.sec1-about__link Обрати проект
                     span
                     +svg('round')
@@ -80,12 +82,16 @@ block content
                     p.values-text-block__text Будинок повинен бути зручний для декількох поколінь сім'ї, для їх гостей, для домашніх тварин
                     p.values-text-block__text Незначних дрібниць не буває, все важливо, все враховується 
                 .sec2-about__images 
-                  +img('about/2.jpg').sec2-about__img1
-                  +img('about/3.jpg').sec2-about__img2
+                  .sec2-about__img1
+                    +img('about/2.jpg')
+                  .sec2-about__img2
+                    +img('about/3.jpg')
             .sec2-about__bottom
-              +img('about/5.jpg').sec2-about__img4
+              .sec2-about__img4
+                +img('about/5.jpg')
               .sec2-about__bottom-images
-                +img('about/4.jpg').sec2-about__img3
+                .sec2-about__img3
+                  +img('about/4.jpg')
                 
               .sec2-about__bottom-content
                 .container
@@ -117,7 +123,7 @@ block content
                 .sec3-about__row 
                   .sec3-about__col.sec3-about__col_1
                   .sec3-about__col.sec3-about__col_2
-                    h3.sec3-about__title.title Чому ви маєте обрати нас?
+                    h3.sec3-about__title.title Нас обирають тому що:
                 .sec3-about__row.sec3-about__row_2
                   .sec3-about__col.sec3-about__col_3
                     ol.sec3-about__list

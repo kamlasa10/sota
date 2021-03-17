@@ -19,6 +19,16 @@
 			grid-template-columns: repeat(auto-fit, minmax(310px, 375.33px));
 			margin-bottom: 50px;
 
+			@include to(1370px) {
+				column-gap: 55px;
+				grid-template-columns: repeat(auto-fit, minmax(310px, 322px));
+			}
+
+			@include to(1025px) {
+				column-gap: 10px;
+				grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+			}
+
 			.choise-us__link {
 				display: inline-flex;
 			}
