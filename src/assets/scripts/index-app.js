@@ -26,6 +26,10 @@ window.addEventListener('load', () => {
       })
       isAppend = false;
     }
+
+    if (e.delta.y > 3000) {
+      window.showAnimation = true
+    }
   });
 
   $('.js-btn-top').click(() => {
