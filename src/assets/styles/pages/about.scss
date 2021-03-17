@@ -253,6 +253,7 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			object-position: 5px;
 		}
 	}
 	&__bottom-images{
@@ -392,6 +393,11 @@
 	&__col{
 		@include col();
 		@include size(6);
+		&_3{
+			@include to(1440px){
+				padding-left: 50px;
+			}
+		}
 		&_4{
 			.sec3-about__list{
 				margin-bottom: 50px;

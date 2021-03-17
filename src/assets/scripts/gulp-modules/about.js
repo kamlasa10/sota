@@ -27,30 +27,50 @@ $(document).ready(() => {
       duration: 1,
       // delay: 1.5
     }, '<')
+    .fromTo('.sec1-about__left', {
+      backgroundSize: '355px 335px ',
+    }, {
+      backgroundSize: '395px 373px',
+      duration: 1,
+
+    }, '<')
 
   function aboutValuesOnEnter(item) {
     const tl = gsap.timeline()
-    tl.fromTo(item, {
-      opacity: 0,
-      x: 100
-    }, {
-      opacity: 1,
-      x: 0,
-      duration: 1
-    },)
+    if (item === ".sec3-about__img1") {
+      tl.fromTo(item, {
+        opacity: 0.4,
+        x: 100
+      }, {
+        opacity: 1,
+        x: 55,
+        duration: 1
+      })
+    } else {
+      tl.fromTo(item, {
+        opacity: 0.4,
+        x: 100
+      }, {
+        opacity: 1,
+        x: 0,
+        duration: 1
+      })
+    }
+    
     return tl;
   }
 
   function aboutValuesOnEnterFromRight(item) {
-    const tl = gsap.timeline()
+    const tl = gsap.timeline();
+
     tl.fromTo(item, {
-      opacity: 0,
+      opacity: 0.4,
       x: -100
     }, {
       opacity: 1,
       x: 0,
       duration: 1
-    },)
+    })
     return tl;
   }
 
@@ -94,7 +114,7 @@ $(document).ready(() => {
     markers: false,
     scrub: true,
     scroller: "[data-scroll-container]",
-    animation: aboutValuesSmallImg('.sec2-about__img2'),
+    // animation: aboutValuesSmallImg('.sec2-about__img2'),
     onEnter: () => {
       aboutValuesOnEnter('.sec2-about__img2')
     }
@@ -106,7 +126,7 @@ $(document).ready(() => {
     markers: false,
     scrub: true,
     scroller: "[data-scroll-container]",
-    animation: aboutValuesSmallImg('.sec2-about__img4'),
+    // animation: aboutValuesSmallImg('.sec2-about__img4'),
     onEnter: () => {
       aboutValuesOnEnterFromRight('.sec2-about__img4')
     }
