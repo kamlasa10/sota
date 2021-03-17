@@ -13,12 +13,14 @@ window.addEventListener('load', () => {
   let isAppend = false;
 
   window.locoScroll.on('scroll', (e) => {
+    if (e.delta.y > 300 && !isAppend) {
+      $('.language').fadeOut(200)
+      isAppend = true;
+    }
+
     if (e.delta.y > 0 && !isAppend) {
       // eslint-disable-next-line no-undef
-      $('.language').fadeOut(200, () => {
-        $('.header').addClass('moving')
-      })
-      isAppend = true;
+      $('.header').addClass('moving')
     } else if (e.delta.y <= 0 && isAppend) {
       // eslint-disable-next-line no-undef
       $('.language').fadeIn(200, () => {

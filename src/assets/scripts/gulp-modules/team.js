@@ -54,4 +54,10 @@
     disabledScroll()
   }
   disabledScroll()
+
+  $(window).on('resize', (e) => {
+    if ($(window).width() <= 1025) {
+      $('.team__footer-link').before('<div></div>')
+    }
+  }).resize()
 }())

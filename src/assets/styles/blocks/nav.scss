@@ -4,9 +4,9 @@
   left: 0;
   transform: translateX(-100%);
   z-index: 30;
-  height: 100vh;
+  min-height: 100vh;
   background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   padding: 50px 0;
   padding-top: 80px;
   display: flex;
@@ -17,9 +17,10 @@
   max-width: 400px;
 
   @include to(1440px) {
+    overflow-x: hidden;
     padding-left: 35px;
     padding-right: 35px;
-    width: 25%;
+    width: 26%;
   }
 
   @include to(1370px) {

@@ -8,7 +8,7 @@ const startChangeSlide = () => {
 let src
 const tl = gsap.timeline({ onStart: startChangeSlide })
 
-function setPreviewNextSlide(nextSlide, current) {
+function setPreviewNextSlide(nextSlide, current, isAnimateText = true) {
   src = nextSlide.find('.main__item-bg').css('background-image')
     .slice(5, nextSlide.find('.main__item-bg').css('background-image')
       .length - 2)
@@ -18,18 +18,31 @@ function setPreviewNextSlide(nextSlide, current) {
       $('.main__progress-img img').attr('src', src)
     }, 300)
 
-    const tl = gsap.timeline()
-
     setTimeout(() => {
       gsap.to('.main__progress-img', { opacity: 1, x: 0 })
     }, 900)
 
-    tl
-      .fromTo(current.find('.main__small-title'), {
-        duration: 1, y: -35, opacity: 0, delay: 0.4
-      }, { duration: 1, opacity: 1, y: 0 }, '<0.2')
-      .fromTo(current.find('.main__title'), { duration: 1, y: 30, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, 0.9)
-      .fromTo(current.find('.main__desc'), { duration: 1, y: 40, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, '<0.2')
+    if (isAnimateText) {
+      const tl = gsap.timeline()
+
+      tl
+        .fromTo(current.find('.main__small-title'), {
+          duration: 1, y: -35, opacity: 0, delay: 0.4
+        }, { duration: 1, opacity: 1, y: 0 }, '<0.2')
+        .fromTo(current.find('.main__title'), { duration: 1, y: 30, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, 0.9)
+        .fromTo(current.find('.main__desc'), { duration: 1, y: 40, opacity: 0 }, { duration: 1, opacity: 1, y: 0 }, '<0.2')
+
+      return
+    }
+
+    setTimeout(() => {
+      gsap.fromTo('.main__item-wrap', {
+        scale: 0.6,
+      }, {
+        scale: 1,
+        duration: 1.3,
+      })
+    }, 150)
 
     return
   }
@@ -37,6 +50,8 @@ function setPreviewNextSlide(nextSlide, current) {
   $('.main__progress-wrap').find('.main__progress-img').attr('src', src)
   isFirst = false
 }
+
+let scrollTriggerIntance
 
 (function () {
   function animateTabs(node) {
@@ -67,7 +82,8 @@ function setPreviewNextSlide(nextSlide, current) {
             duration: 1.2,
             opacity: 1
           }, 0)
-        return
+        
+        break
       }
       case 2: {
         tl.fromTo('.choise-us__item--2-right', {
@@ -87,7 +103,7 @@ function setPreviewNextSlide(nextSlide, current) {
             duration: 1
           }, 0)
 
-        return
+        break
       }
       case 3: {
         let imgHeight = '100%'
@@ -130,6 +146,8 @@ function setPreviewNextSlide(nextSlide, current) {
           }, 0.6)
       }
     }
+
+    ScrollTriggerInstance.refresh()
   }
 
   class TabsWithAnimation extends Tabs {
@@ -374,7 +392,7 @@ const swiper = new Swiper('.js-main__wrap', {
         duration: 8.4,
         width: '100%'
       })
-      $('.main__progress-current').text('/01')
+      $('.main__progress-current').text('01/')
       $('.main__progress-total').text(`0${Math.ceil(e.slides.length / 2)}`)
     },
     slideChange(e) {
@@ -396,21 +414,21 @@ const swiper = new Swiper('.js-main__wrap', {
       }
       try {
         if (Math.ceil(e.slides.length / 2) < e.snapIndex) {
-          setPreviewNextSlide($(e.slides[2]), $(e.slides[e.activeIndex]))
-          $('.main__progress-current').text('/ 01')
+          setPreviewNextSlide($(e.slides[2]), $(e.slides[e.activeIndex]), false)
+          $('.main__progress-current').text('01/')
 
           return
         }
 
         if (e.previousIndex === 1 && !e.activeIndex) {
-          setPreviewNextSlide($(e.slides[1]), $(e.slides[e.activeIndex]))
-          $('.main__progress-current').text(`/ 0${Math.ceil(e.slides.length / 2)}`)
+          setPreviewNextSlide($(e.slides[1]), $(e.slides[e.activeIndex]), false)
+          $('.main__progress-current').text(`0${Math.ceil(e.slides.length / 2)}/`)
 
           return;
         }
       } catch (e) {}
-      setPreviewNextSlide($(e.slides[e.activeIndex + 1]), $(e.slides[e.activeIndex]))
-      $('.main__progress-current').text(`/0${e.activeIndex}`)
+      setPreviewNextSlide($(e.slides[e.activeIndex + 1]), $(e.slides[e.activeIndex]), false)
+      $('.main__progress-current').text(`0${e.activeIndex}/`)
 
       sliderFlag = false
     },
@@ -474,7 +492,7 @@ function choiseSec() {
 
 function projectSec() {
   const tl = gsap.timeline()
-  const imgOffset = '-47%'
+  let imgOffset = '-47%'
 
   if ($(window).width() <= 1370) {
     imgOffset = '-41%'
@@ -486,7 +504,7 @@ function projectSec() {
     y: 0
   })
     .fromTo('.project__content-right', {
-      y: '-13%'
+      y: $(window).width() <= 1440 ? '-18%' : '-13%'
     }, {
       y: imgOffset
     }, 0)
@@ -569,17 +587,33 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
   let offsetPattern = '+=1800'
 
   if ($(window).width() <= 1440) {
-    offsetPattern = '+=1500'
+    offsetPattern = '+=1200'
+  }
+
+  if ($(window).width() <= 1370) {
+    offsetPattern = '+=1200'
+  }
+
+  if ($(item).data().section === 'project') {
+    ScrollTriggerInstance = ScrollTrigger.create({
+      trigger: item,
+      // end: "+=1000",
+      scrub: $(item).data().section === 'project',
+      scroller: "[data-scroll-container]",
+      markers: $(item).data().section === 'project',
+      animation: fn(),
+      end: $(item).data().section === 'project' ? offsetPattern : ''
+    });
+
+    return
   }
 
   ScrollTrigger.create({
     trigger: item,
     // end: "+=1000",
-    markers: true,
     scrub: $(item).data().section === 'project',
     scroller: "[data-scroll-container]",
     animation: fn(),
-    end: $(item).data().section === 'project' ? offsetPattern : ''
   });
 })
 
