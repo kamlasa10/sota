@@ -44,6 +44,7 @@ $(document).ready(() => {
       prevEl: '.js-preview-slider-prev',
     }
   });
+
 	
   const update = () => {
     currentSlide.innerHTML = `0${swiper.realIndex + 1}`;
@@ -96,20 +97,107 @@ $(document).ready(() => {
 
 
   // POPUP 
+  
+  class createReviewPopup {
+    constructor(openBtns, closeBtn, popup) {
+      this.openBtns = openBtns;
+      this.closeBtn = closeBtn;
+      this.popup = popup;
+      this.slider = null;
+    }
+
+    createSlides(slidesSrcArray) {
+      const self = this;
+
+      const sliderEl = document.querySelector('.js-pu-slider-wrapper');
+
+      slidesSrcArray.forEach((slide) => {
+        const newSlide = document.createElement('div');
+        const newSlideImg = document.createElement('img');
+        newSlideImg.src = slide;
+        newSlide.classList.add('swiper-slide');
+        newSlide.appendChild(newSlideImg);
+        sliderEl.appendChild(newSlide)
+      })
+
+      const nextSlide = document.querySelector('.cntrl-prod-gal__arrow_next');
+      const prevSlide = document.querySelector('.cntrl-prod-gal__arrow_prev');
+      this.slider = new Swiper('.pu-slider-s2__img-wrapper', {
+        slidesPerView: 1,
+        allowTouchMove: false,
+        spaceBetween: 100,
+        init: true,
+        navigation: {	
+          nextEl: '.cntrl-prod-gal__arrow_next',
+          prevEl: '.cntrl-prod-gal__arrow_prev',
+        }
+      });
+
+      // nextSlide.addEventListener('click', function(){
+      //   self.slider.slideNext()
+      // })
+      // prevSlide.addEventListener('click', function(){
+      //   self.slider.slidePrev()
+      // })
+    }
+
+    clearPopup() {
+      this.slider.destroy(true, true);
+      while (document.querySelector('.js-pu-slider-wrapper').firstChild) {
+        document.querySelector('.js-pu-slider-wrapper').firstChild.remove();
+      }
+    }
+
+    eventListeners() {
+      const self = this;
+      this.openBtns.forEach((btn) => {
+        btn.addEventListener('click', function () {
+          const { id } = $(this).data();
+          $.ajax({
+            method: 'POST',
+            url: "/wp-admin/admin-ajax.php",
+            data: { action: 'review', id },
+            beforeSend() { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+  
+            },
+            success(resp) {
+              const respObj = JSON.parse(resp)
+              const slides = respObj.slider;
+              self.createSlides(slides);
+
+                
+              $('.pu-slider-s2__text').html = respObj.text
+              self.popup.classList.add('show');
+            },
+            error(error) {
+              console.log(error)
+            },
+            complete() { // Set our complete callback, adding the .hidden class and hiding the spinner.
+            }
+          })
+        })
+      })
+
+
+      this.closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        self.clearPopup();
+        self.popup.classList.remove('show')
+      })
+    }
+
+    init() {
+      this.eventListeners();
+    }
+  }
 
   const popupCloseBtn = document.querySelector('.js-reviews-popup-close');
   const popup = document.querySelector('.js-reviews-popup');
-  const previewBtnsArray = document.querySelectorAll('.preview__main')
+  const previewOpenBtn = document.querySelectorAll('.js-preview-open-popup');
 
-  popupCloseBtn.addEventListener('click', () => {
-    popup.classList.remove('show')
-  })
+  const reviewPopup = new createReviewPopup(previewOpenBtn, popupCloseBtn, popup);
+  reviewPopup.init();
 
-  previewBtnsArray.forEach((btn, _) => {
-    btn.addEventListener('click', () => {
-      popup.classList.add('show')
-    })
-  })
 
   const popupSwiper = new Swiper('.js-reviews-popup-main-slider', {
     speed: 1000,
@@ -123,6 +211,7 @@ $(document).ready(() => {
     },
     direction: 'horizontal',
     loop: false,
+    allowTouchMove: false,
     // Navigation arrows
   	navigation: {	
       nextEl: '.js-reviews-pu-arrow-next',
