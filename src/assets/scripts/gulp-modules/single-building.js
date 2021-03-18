@@ -13,9 +13,10 @@ $(document).ready(() => {
   try {
     window.dataForProjectForm = {
       name: $('.build-descr__title').text(),
-      activeImgSrc: $('.js-project-main-slider swiper-slide-active img').attr('src'),
-      projectPrice: $('.js-active-choise-plan').data().price,
+      activeImgSrc: $('.js-project-main-slider .swiper-slide-active img').attr('src'),
+      projectPrice: $('.js-active-choise-plan').val(),
     }
+    console.log($('.js-project-main-slider .swiper-wrapper .swiper-slide-active'))
     $('.js-project-price').text(`${dataForProjectForm.projectPrice}$`)
     $('.header-pu-form__title').text(window.dataForProjectForm.name)
 
@@ -93,185 +94,84 @@ $(document).ready(() => {
 
   // AJAX CONSTRUCTION POPUP
 	
-  class CreatePopupData {
-    constructor() {
-      this.markup = this.markup.bind(this);
-      this.$constructionSlider = $('.js-construction-slider');
-      this.selectedReportId = null;
-      this.selectedReportObj = null;
-      this.nextReport = null;
-      this.prevReport = null;
+  class createReviewPopup {
+    constructor(openBtns, closeBtn, popup) {
+      this.openBtns = openBtns;
+      this.closeBtn = closeBtn;
+      this.popup = popup;
+      this.slider = null;
     }
 
-    // getCurrentReport(id){
-    // 	const self = this;
-
-    // 	return new Promise(function(resolve, reject){
-    // 		$.ajax({
-    // 			method: 'POST',
-    // 			url: "/wp-admin/admin-ajax.php",
-    // 			data: {action: 'progress', id },
-    // 			beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
-    // 				$('.loader-wrap').css('opacity', '0.5')
-    // 				$('.js-construction-slider').fadeOut()
-    // 				$('.loader-wrap').show()
-    // 		},
-    // 			success: function(resp){
-    // 				resolve(resp)
-    // 			},
-    // 			error: function(error){
-    // 				reject(error)
-    // 			},
-    // 			complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
-    // 				$('.loader-wrap').hide()
-    // 				$('.js-construction-slider').fadeIn()
-    // 		},
-    // 		})
-    // 	})
-    // }
-
-    clearPopup() {
-      this.$constructionSlider.slick('unslick');
-      while (document.querySelector('.js-construction-slider').firstChild) {
-        document.querySelector('.js-construction-slider').firstChild.remove()
-      }
-    }
-
-    // hideReportButton(reportButton){
-    // 	$(`.${reportButton}`).css('opacity', '0').css('pointerEvents', 'none')
-    // }
-
-    // showReportButton(reportButton){
-    // 	$(`.${reportButton}`).css('opacity', '1').css('pointerEvents', 'all')
-    // }
-
-    // checkNextReport(id, nextOrPrev){
-    // 	if (nextOrPrev === 'next'){
-    // 		if (id){
-    // 			this.nextReport = id
-    // 			this.showReportButton('report-btn_next');
-    // 		} else {
-    // 			this.nextReport = null;
-    // 			this.hideReportButton('report-btn_next');
-    // 		}
-    // 	} else if (nextOrPrev === 'prev'){
-    // 		if (id){
-    // 			this.prevReport = id
-    // 			this.showReportButton('report-btn_prev');
-    // 		} else {
-    // 			this.prevReport = null;
-    // 			this.hideReportButton('report-btn_prev');
-    // 		}
-    // 	}
-    // }
-
-    eventListeners() {
+    createSlides(slidesSrcArray) {
       const self = this;
-      const constructionArray = document.querySelectorAll('.constr-slide');
-      const constructionPopup = document.querySelector('.js-construction-popup');
-      const constructionPopupCloseBtn = document.querySelector('.js-construction-popup-close');
-      const nextReport = document.querySelector('.report-btn_next');
-      const prevReport = document.querySelector('.report-btn_prev');
+      const sliderWrapper = document.querySelector('.js-construction-popup-main-slider')
+      const sliderEl = sliderWrapper.querySelector('.swiper-wrapper');
+      console.log(sliderWrapper);
+      console.log(sliderEl)
 
-      // nextReport.addEventListener('click', function(){
-      // 	self.clearPopup();
-      // 	self.resolveResport(self.getCurrentReport(self.nextReport));
-      // 	const nextRepotId = $(`[data-id="${self.nextReport}"]`).data('next');
-      // 	const prevRepotId = $(`[data-id="${self.nextReport}"]`).data('prev');
-      // 	self.checkNextReport(nextRepotId, 'next');
-      // 	if (prevRepotId){
-      // 		self.prevReport = prevRepotId;
-      // 		self.showReportButton('report-btn_prev');	
-      // 	}
-      // })
-
-      // prevReport.addEventListener('click', function(){
-      // 	self.clearPopup();
-      // 	self.resolveResport(self.getCurrentReport(self.prevReport));
-      // 	const prevRepotId = $(`[data-id="${self.prevReport}"]`).data('prev');
-      // 	const nextRepotId = $(`[data-id="${self.prevReport}"]`).data('next');
-      // 	self.checkNextReport(prevRepotId, 'prev');
-      // 	if (nextRepotId){
-      // 		self.nextReport = nextRepotId;
-      // 		self.showReportButton('report-btn_next');	
-      // 	}
-      // })
-
-      constructionArray.forEach((construction, index) => {
-        construction.addEventListener('click', (e) => {
-          e.preventDefault();
-					
-          // self.checkNextReport(this.dataset.next, 'next');
-          // self.checkNextReport(this.dataset.prev, 'prev');
-          // self.selectedReportId = this.dataset.id
-          // self.resolveResport(self.getCurrentReport(self.selectedReportId));
-					
-          constructionPopup.classList.add('show');
-        })
-      })
-
-      constructionPopupCloseBtn.addEventListener('click', () => {
-        constructionPopup.classList.remove('show');
-        self.nextReport = null;
-        self.prevReport = null;				
-        self.clearPopup();
-      })
-    }
-
-    resolveResport(promise) {
-      const self = this;
-      promise.then((resp) => {
-        const { slider, date, month } = JSON.parse(resp);
-        self.markup(slider, date, month)
-        self.slickSliderInit();
-      })
-    }
-		
-    markup(slider, date, month) {
-      const self = this;
-      const monthEl = document.querySelector('.construction-popup__title');
-      const sliderEl = document.querySelector('.js-construction-slider');
-      const dateEl = document.querySelector('.construction-popup__date');
-
-      dateEl.querySelectorAll('p')[0].innerHTML = `${date.d}.${date.m}`;
-      dateEl.querySelectorAll('p')[1].innerHTML = `${date.y}`;
-
-      monthEl.innerHTML = month;
-      slider.forEach((slide, index) => {
+      slidesSrcArray.forEach((slide) => {
         const newSlide = document.createElement('div');
         const newSlideImg = document.createElement('img');
         newSlideImg.src = slide;
-        newSlide.classList.add('construction-slider__item');
+        newSlide.classList.add('swiper-slide');
         newSlide.appendChild(newSlideImg);
         sliderEl.appendChild(newSlide)
       })
+
+      this.slider = new Swiper('.js-construction-popup-main-slider', {
+        slidesPerView: 1,
+        allowTouchMove: false,
+        spaceBetween: 0,
+        init: true,
+        navigation: {	
+          nextEl: '.js-reviews-pu-arrow-next',
+          prevEl: '.js-reviews-pu-arrow-prev',
+        }
+      });
     }
 
-		 slickSliderInit() {
+    clearPopup() {
+      this.slider.destroy(true, true);
+      while (document.querySelector('.js-pu-slider-wrapper').firstChild) {
+        document.querySelector('.js-pu-slider-wrapper').firstChild.remove();
+      }
+    }
+
+    eventListeners() {
       const self = this;
-      const $nextSlider = $('.js-construction-slider-next');
-      const $prevSlider = $('.js-construction-slider-prev');
+      this.openBtns.forEach((btn) => {
+        btn.addEventListener('click', function () {
+          const { id } = $(this).data();
+          $.ajax({
+            method: 'POST',
+            url: "/wp-admin/admin-ajax.php",
+            data: { action: 'progress', id },
+            beforeSend() { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+  
+            },
+            success(resp) {
+              const respObj = JSON.parse(resp)
+              const slides = respObj.slider;
+              self.createSlides(slides);
 
-      this.$constructionSlider.on("init", (event, slick) => {
-        $(".js-construction-current-slide").text(slick.currentSlide + 1);
-        $('.js-construction-total-slides').text(`/${slick.slideCount}`)
-      });
-		
-      this.$constructionSlider.on("afterChange", (event, slick, currentSlide) => {
-        $(".js-construction-current-slide").text(slick.currentSlide + 1);
-        $('.js-construction-total-slides').text(`/${slick.slideCount}`)
-      });
-
-      this.$constructionSlider.slick({
-        arrows: false
+                
+              $('.pu-slider-s2__text').html = respObj.text
+              self.popup.classList.add('show');
+            },
+            error(error) {
+              console.log(error)
+            },
+            complete() { // Set our complete callback, adding the .hidden class and hiding the spinner.
+            }
+          })
+        })
       })
 
-      $nextSlider.on('click', () => {
-        self.$constructionSlider.slick('slickNext')
-      })
 
-      $prevSlider.on('click', () => {
-        self.$constructionSlider.slick('slickPrev')
+      this.closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        self.clearPopup();
+        self.popup.classList.remove('show')
       })
     }
 
@@ -280,8 +180,12 @@ $(document).ready(() => {
     }
   }
 
-  createPopupData = new CreatePopupData();
-  createPopupData.init();
+  const popupCloseBtn = document.querySelector('.js-construction-popup-close');
+  const popup = document.querySelector('.js-construction-popup');
+  const previewOpenBtn = document.querySelectorAll('.constr-slide');
+
+  const reviewPopup = new createReviewPopup(previewOpenBtn, popupCloseBtn, popup);
+  reviewPopup.init();
 
 
   /** *********************************************** */
