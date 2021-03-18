@@ -460,40 +460,35 @@ gsap.from('.socials', {
 function choiseSec() {
   const tl = gsap.timeline()
 
+  let offsetImg = '-32%'
+
+  if ($(window).width() <= 1370) {
+    offsetImg = '-29%'
+  }
+
   tl.fromTo('.title', {
-    duration: 1.2,
     y: -30,
   }, {
     y: 0,
   }, 0)
     .fromTo('.choise-us__tab', {
-      opacity: 0,
-      y: 20,
-      duration: 1.5
+      y: 30,
     }, {
-      opacity: 1,
       y: 0,
-      stagger: 0.15
-    }, 0).fromTo('.choise-us__item--1-img img', {
-      width: '0%'
+    }, 0).fromTo('.choise-us__item--1-img', {
+      y: '15%'
     }, {
-      duration: 0.8,
-      width: $(window).width() > 1440 ? '80%' : '77%'
-    }, 0.2)
+      y: offsetImg
+    }, 0)
     .fromTo('.choise-us__item--1-right', {
-      opacity: 0,
-      x: 100
+      y: 100
     }, {
-      duration: 1,
-      opacity: 1,
-      x: 0
+      y: 0
     }, 0)
     .fromTo('.choise-us__item--1-left .bg', {
-      y: 80,
+      y: 150,
     }, {
       y: 0,
-      duration: 1.2,
-      opacity: 1
     }, 0)
     .fromTo('.choise-us__contentt', {
       y: 80
@@ -540,46 +535,34 @@ function contactsSec() {
   const tl = gsap.timeline()
 
   tl.fromTo('.contacts__bg', {
-    y: 200,
+    y: 250,
   }, {
     y: 0,
-    opacity: 1,
-    duration: 1.3
-  })
+  }, 0.075)
     .fromTo('.contacts__small-title', {
-      y: -40,
+      y: -20,
     }, {
       y: 0,
-      opacity: 1,
-      duration: 1
     }, 0)
     .fromTo('.contacts__title', {
-      y: 20,
-      opacity: 0
+      y: 30,
     }, {
       y: 0,
-      opacity: 1,
-      duration: 1
     }, 0)
     .fromTo('.contacts__list', {
       y: 50,
     }, {
       y: 0,
-      opacity: 1,
-      duration: 1
     }, 0)
     .fromTo('.contacts__block', {
       y: 80,
     }, {
       y: 0,
-      opacity: 1,
-      duration: 1
     }, 0)
     .fromTo('.contacts__map', {
-      width: 0,
+      y: '50%'
     }, {
-      width: '100%',
-      duration: 1
+      y: 0
     }, 0)
 
   return tl
@@ -592,7 +575,8 @@ const objWithFnAnimation = {
 }
 
 gsap.utils.toArray('[data-section]').forEach((item) => {
-  const fn = objWithFnAnimation[$(item).data().section]
+  const sectionName = $(item).data().section
+  const fn = objWithFnAnimation[sectionName]
 
   let offsetPattern = '+=1800'
 
@@ -608,10 +592,10 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
     ScrollTriggerInstance = ScrollTrigger.create({
       trigger: item,
       // end: "+=1000",
-      scrub: $(item).data().section === 'project',
+      scrub: sectionName === 'project',
       scroller: "[data-scroll-container]",
       animation: fn(),
-      end: $(item).data().section === 'project' ? offsetPattern : ''
+      end: sectionName === 'project' ? offsetPattern : ''
     });
 
     return
@@ -623,9 +607,22 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
     offsetContacts = '+=1100'
   }
 
+  if (sectionName === 'choise') {
+    ScrollTrigger.create({
+      trigger: item,
+      end: $(window).height() + 100,
+      scrub: true,
+      scroller: "[data-scroll-container]",
+      animation: fn(),
+      markers: true
+    });
+
+    return
+  }
+
   ScrollTrigger.create({
     trigger: item,
-    end: $(item).data().section === 'choise' ? offsetContacts : '',
+    end: `+=${$(window).height() / 1}`,
     scrub: true,
     scroller: "[data-scroll-container]",
     animation: fn(),

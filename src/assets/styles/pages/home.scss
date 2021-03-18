@@ -427,6 +427,8 @@
           justify-content: flex-end;
           align-items: center;
           text-transform: uppercase;
+          position: relative;
+          z-index: 2;
 
           &::before {
             content: "";
