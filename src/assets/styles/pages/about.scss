@@ -194,6 +194,7 @@
 	&__img1{
 		overflow: hidden;
     padding-bottom: 165%;
+		z-index: 1;
     position: relative;
 		img{
 			position: absolute;
@@ -210,6 +211,8 @@
 		position: absolute;
 		left: -165px;
 		bottom: -70px;
+		z-index: 2;
+
 		width: 60%;
 		img{
 			object-fit: cover;

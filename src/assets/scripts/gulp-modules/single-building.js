@@ -59,11 +59,11 @@ $(document).ready(() => {
   });
 
   galleryMain.on('slideChangeTransitionStart', () => {
-    galleryThumbs.slideTo(galleryMain.activeIndex);
+    // galleryThumbs.slideTo(galleryMain.activeIndex);
   });
 
   galleryThumbs.on('transitionStart', () => {
-    galleryMain.slideTo(galleryThumbs.activeIndex);
+    // galleryMain.slideTo(galleryThumbs.activeIndex);
   });
 
   // CONSTRUCTION SLIDERS 
@@ -319,7 +319,7 @@ $(document).ready(() => {
   });
   
   galleryProjectMain.on('slideChangeTransitionStart', () => {
-    galleryProjectThumbs.slideTo(galleryProjectMain.activeIndex);
+    // galleryProjectThumbs.slideTo(galleryProjectMain.activeIndex);
     
     try { 
       changeValueByProp(
@@ -331,7 +331,7 @@ $(document).ready(() => {
   });
   
   galleryProjectThumbs.on('transitionStart', () => {
-    galleryProjectMain.slideTo(galleryProjectThumbs.activeIndex);
+    // galleryProjectMain.slideTo(galleryProjectThumbs.activeIndex);
   });
 
 
