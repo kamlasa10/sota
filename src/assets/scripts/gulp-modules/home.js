@@ -21,7 +21,7 @@ function setPreviewNextSlide(nextSlide, current, isAnimateText = true) {
     setTimeout(() => {
       gsap.to('.main__progress-img', { opacity: 1, x: 0 })
     }, 900)
-    console.log(window.showAnimation)
+    
     if (isAnimateText || window.showAnimation) {
       const tl = gsap.timeline()
 
@@ -573,6 +573,8 @@ const objWithFnAnimation = {
   project: projectSec,
   contacts: contactsSec
 }
+
+objWithFnAnimation.choise()
 
 gsap.utils.toArray('[data-section]').forEach((item) => {
   const sectionName = $(item).data().section
