@@ -4,7 +4,6 @@ function changeValueByProp(prop, value) {
 
 function setNewProjectPrice(prop, value) {
   changeValueByProp(prop, value)
-
   $('.js-project-price').text(value)
   $('.js-current-project-value').text(value)
 }
@@ -23,7 +22,6 @@ $(document).ready(() => {
     $('[data-price]').on('change', (e) => {
       const currentPrice = $(e.target).data().price
       const currentChoisePlanName = $(e.target).attr('id')
-
       setNewProjectPrice('projectPrice', `${currentPrice}$`)
       $('[name=sotaseries]').checked = ''
       $(`[data-plan-name=${currentChoisePlanName}]`).attr('checked', 'checked')

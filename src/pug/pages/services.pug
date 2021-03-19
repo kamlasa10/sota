@@ -41,23 +41,62 @@ block content
                         a(href="#").choise-us__link.btn--with-icon Всі наші проєкти
                             span
                             +svg('round')
-            .container.services__tabs
-                .tabs__header.header-tabs
-                    .header-tabs__single-tab-title.single-tab-title.active
+            .services__tabs.tabs
+                .tabs__header.header-tabs.container
+                    a(href="#tab1").header-tabs__single-tab-title.single-tab-title.active.js-serv-tab-btn
                         span Підготовчі послуги
-                    .header-tabs__single-tab-title.single-tab-title
+                    a(href="#tab2").header-tabs__single-tab-title.single-tab-title.js-serv-tab-btn
                         span ПОСЛУГИ З ПРОЄКТУВАННЯ 
-                    .header-tabs__single-tab-title.single-tab-title
+                    a(href="#tab3").header-tabs__single-tab-title.single-tab-title.js-serv-tab-btn
                         span ПОСЛУГИ З Будівництва
-                    .header-tabs__single-tab-title.single-tab-title
+                    a(href="#tab4").header-tabs__single-tab-title.single-tab-title.js-serv-tab-btn
                         span ПОСЛУГИ ПІСЛЯ ЗДАЧІ ОБ'ЄКТУ 
-            .services__table 
-                .services__table-header 
-                    .container
-                        .services-table-header-wrap
-                            .services__table-header-item Найменування послуг
-                            .services__table-header-item Період надання
-                            .services__table-header-item Опис послуги
+                .tabs__body.body-tabs.js-serv-content
+                    .body-tabs__tab.active.js-serv-single-tab(data-tab="#tab1")
+                        .services__table.table-services
+                            .table-services__table-header 
+                                .container
+                                    .table-services__inner
+                                        .table-services__col.table-services__col_1
+                                            h4.table-services__header-title Найменування послуг
+                                        .table-services__col.table-services__col_2
+                                            h4.table-services__header-title Період надання
+                                        .table-services__col.table-services__col_3
+                                            h4.table-services__header-title Опис послуги
+                            .table-services__table-wrapper 
+                                .container
+                                    table.table-services__table 
+                                        tr 
+                                            td.table-services__col.table-services__col_1 Виїздна консультації з проєктування та будівництва
+                                            td.table-services__col.table-services__col_2 1 - 3 годин
+                                            td.table-services__col.table-services__col_3 
+                                                span Проведення інформаційно-консультаційної роботи для клієнта, відповіді на питання відповідно робіт з проектування: 
+                                                ol.table-services__list
+                                                    li Виїзд на локацію
+                                                    li Визначення та формування первинної потреби
+                                                    li Визначення основної функціонального завдання, формату проекту 
+                                                    li Відповідь на питання - навіщо потрібен проект та деталізація складових проекту
+                                                    li Консультування щодо отримання дозвільної документації 
+                                                    li Консультування щодо технологій, процесів та етапів будівництва 
+                                                    li Консультування щодо підбору та характеристик  матеріалів відповідно до потреб  
+                                        tr 
+                                            td.table-services__col.table-services__col_1 Консультації з проектування та будівництва в офісі
+                                            td.table-services__col.table-services__col_2 1 - 3 годин
+                                            td.table-services__col.table-services__col_3 
+                                                span Проведення інформаційно-консультаційної роботи для клієнта, відповіді на питання відповідно робіт з проектування:
+                                                ol.table-services__list
+                                                    li Визначення та формування первинної потреби
+                                                    li Визначення основної функціонального завдання, формату проекту
+                                                    li Відповідь на питання - навіщо потрібен проект та деталізація складових проекту
+                                                    li Консультування щодо отримання дозвільної документації
+                                                    li онсультування щодо технологій, процесів та етапів будівництва
+                                                    li Консультування щодо технологій, процесів та етапів будівництва 
+                                                    li Консультування щодо підбору та характеристик види матеріалів відповідно до потреб
+                                        
+                    .body-tabs__tab.active.js-serv-single-tab(data-tab="#tab2")
+                    .body-tabs__tab.active.js-serv-single-tab(data-tab="#tab3")
+                    .body-tabs__tab.active.js-serv-single-tab(data-tab="#tab4")
+            
 block footer
   include ../includes/footer.pug
 
