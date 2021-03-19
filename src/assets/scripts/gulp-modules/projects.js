@@ -2,13 +2,30 @@ const idxElem = window.location.hash.split('#')[1]
 let activeTab = $(`[data-tab-filter=${idxElem}]`).index() === -1 ? 0 : $(`[data-tab-filter=${idxElem}]`).index()
 
 const currentContent = activeTab >= 1 ? 2 : 1
-
+let isEnd = false
 document.addEventListener('click', (e) => {
   if (e.target.tagName === 'A' && $(e.target).attr('href').split('#')[1]) {
     const filterName = $(e.target).attr('href').split('#')[1]
 
     activeTab = $(`[data-tab-filter=${filterName}]`).index()
     $(`[data-tab-filter=${filterName}]`).trigger('click')
+     
+    if (isEnd) {
+      setTimeout(() => {
+        window.locoScroll.scrollTo('.page__inner')
+      }, 500)
+    }
+  }
+})
+
+let prevHeightBody
+
+window.locoScroll.on('scroll', (e) => {
+  prevHeight = document.body.scrollHeight
+  if (document.body.scrollHeight / 3 <= e.delta.y || e.delta.y < 1000) {
+    isEnd = true
+  } else {
+    isEnd = false
   }
 })
 
