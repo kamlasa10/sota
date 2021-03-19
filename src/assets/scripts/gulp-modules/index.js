@@ -1,10 +1,51 @@
 @@include('./libs.js');
 @@include('../modules/vacancy/vacancyLoadingLogic.js');
 
+class SetCountPortion {
+    constructor(nodes, page, countShowNodePerStep) {
+        this.nodes = Array.from(document.querySelectorAll(nodes))
+        this.page = page
+        this.countShowNodePerStep = countShowNodePerStep
+        this.init()
+    }
+
+    createObjWithTypePortion() {
+       return this.nodes.reduce((acc, next) => {
+            const type = next.dataset.stepType
+
+            acc[type] = acc[type] || []
+            acc[type].push(next)
+
+            return acc
+        }, {})
+    }
+
+    init() {
+        const ObjOfArrNodes = this.createObjWithTypePortion()
+
+        Object.values(ObjOfArrNodes).forEach(arr => {
+            let count = 0
+            let portionStep = 1
+
+            arr.forEach(node => {
+                if(count < this.countShowNodePerStep) {
+                    node.setAttribute('data-portion', portionStep)
+                    count++
+                } else {
+                    count = 0
+                    ++portionStep
+                    node.setAttribute('data-portion', portionStep)
+                    count++
+                }
+            })
+        })
+    }
+}
+
 let isPhoneValid
 let isMenuShow = false
 
-$('.js-btn-top').css('top', ($(window).height() - 150) + 'px')
+$('.js-btn-top').css('top', ($(window).height() - 200) + 'px')
 
 setTimeout(() => {
   const tl = gsap.timeline()
@@ -206,7 +247,8 @@ $(document).ready(() => {
                 warn: 'field is required'
             }
         }
-        const language = document.body.dataset.language
+        const language = $('html').attr('lang')
+        console.log(language)
 
         function checkEmail(str) {
             const re = /\S+@\S+\.\S+/;
@@ -378,9 +420,9 @@ $(document).ready(() => {
                         data.append('contactBy', $(value).val())
                     }
                     return
-                } 
+                }   
 
-                if(value.tagName === 'INPUT') {
+                if(value.tagName.toLowerCase() === 'input' || value.tagName.toLowerCase() === 'textarea') {
                     data.append($(value).attr("name"), $(value).val() || '');
                 }
             });
@@ -392,6 +434,12 @@ $(document).ready(() => {
 
             $(`[data-contacts-file] span`).text('Файл не вибрано')
             $('.status-request').show()
+
+            try {
+                if($('.contacts-select__current').text()) {
+                    data.append('choiseSelect', $('.contacts-select__current').text())
+                }
+            } catch(e) {}
             
 
             $.ajax({

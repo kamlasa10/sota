@@ -55,6 +55,14 @@ class VacancyProgress {
   }
 
   init() {
+    if (!this.$items.length) {
+      $('.vacancy__progress-bottom__fill').css('width', '100%')
+      this.countLoadingPerClick = 0
+      this.totalItems = 0
+      this.progressChange()
+      return
+    }
+
     $('.js-loading__more').show()
 
     this.$items.each((i, item) => {
