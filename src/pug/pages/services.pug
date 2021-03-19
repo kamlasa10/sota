@@ -1,0 +1,65 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Services'
+    var id_page = 'id-page-services'
+    var class_page = 'class-page-services'
+    var breadcrumbsBtn = 'filter'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Services',
+        link: pagesLink[0].services
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4EBsCfQfnwCFGD_o8iLWwH97tmNCU-6E&amp;ver=1613742125#038;sensor=false&amp;ver=1.33"></script>
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/services.js')
+block content
+    .services.inner-page
+        .container
+            h1.inner-page-title.services__inner-page-title Наші послуги
+        .services-us-tab__sec1
+            .services__hero 
+                .services__hero-left
+                    .bg
+                    +img('./services/services-img.png')
+                .services__hero-right 
+                    .services__hero-wrap
+                        .services__hero-small-title.small-title-with-decor Комплексний підхід
+                        .services__hero-title.title ПОСЛУГИ З ПРОЄКТУВАННЯ та будівництва будинків 
+                        p.services__hero-desc Ми пропонуємо максимально повний комплекс послуг з ппроєктування та будівництва заміських будинків під ключ та гарантуємо якість виконаних робіт.
+                        p.services__hero-desc Позбавте себе від клопоту звернення до різних виконавців, що в підсумку призводить до додаткових витрат, втрати часу та нервів.
+                        a(href="#").choise-us__link.btn--with-icon Всі наші проєкти
+                            span
+                            +svg('round')
+            .container.services__tabs
+                .tabs__header.header-tabs
+                    .header-tabs__single-tab-title.single-tab-title.active
+                        span Підготовчі послуги
+                    .header-tabs__single-tab-title.single-tab-title
+                        span ПОСЛУГИ З ПРОЄКТУВАННЯ 
+                    .header-tabs__single-tab-title.single-tab-title
+                        span ПОСЛУГИ З Будівництва
+                    .header-tabs__single-tab-title.single-tab-title
+                        span ПОСЛУГИ ПІСЛЯ ЗДАЧІ ОБ'ЄКТУ 
+            .services__table 
+                .services__table-header 
+                    .container
+                        .services-table-header-wrap
+                            .services__table-header-item Найменування послуг
+                            .services__table-header-item Період надання
+                            .services__table-header-item Опис послуги
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

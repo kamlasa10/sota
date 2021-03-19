@@ -21,7 +21,7 @@ function setPreviewNextSlide(nextSlide, current, isAnimateText = true) {
     setTimeout(() => {
       gsap.to('.main__progress-img', { opacity: 1, x: 0 })
     }, 900)
-    
+    console.log(window.showAnimation)
     if (isAnimateText || window.showAnimation) {
       const tl = gsap.timeline()
 
@@ -43,11 +43,12 @@ function setPreviewNextSlide(nextSlide, current, isAnimateText = true) {
         duration: 1.3,
       })
     }, 150)
-
-    return
   }
+  
+  setTimeout(() => {
+    $('.main__progress-wrap').find('.main__progress-img').attr('src', src)
+  }, 200)
 
-  $('.main__progress-wrap').find('.main__progress-img').attr('src', src)
   isFirst = false
 }
 
@@ -350,7 +351,7 @@ let scrollTriggerIntance
   new google.maps.Marker({
     position: { lat: 50.461714448701464, lng: 30.496371456088845 },
     map,
-    icon: '../dist/assets/images/maps/home.svg'
+    icon: '../wp-content/themes/sota/assets/images/maps/home.svg'
   });
 }())
 
@@ -574,7 +575,6 @@ const objWithFnAnimation = {
   contacts: contactsSec
 }
 
-objWithFnAnimation.choise()
 
 gsap.utils.toArray('[data-section]').forEach((item) => {
   const sectionName = $(item).data().section
@@ -616,7 +616,6 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
       scrub: true,
       scroller: "[data-scroll-container]",
       animation: fn(),
-      markers: true
     });
 
     return
@@ -628,10 +627,8 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
     scrub: true,
     scroller: "[data-scroll-container]",
     animation: fn(),
-    markers: true
   });
 })
-
 
 // window.addEventListener("load", () => {
 //   // set up our WebGL context and append the canvas to our wrapper

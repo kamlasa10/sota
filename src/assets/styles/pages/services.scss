@@ -1,0 +1,91 @@
+#id-page-services {
+    .services {
+        &__inner-page-title {
+            margin-bottom: 78px;
+        }
+        
+        &__hero {
+            margin-bottom: 88px;
+            display: flex;
+
+            &-left {
+                position: relative;
+                width: 45%;
+
+                .bg {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 50%;
+                    background-color: #333;
+                }
+
+                img {
+                    position: relative;
+                    z-index: 2;
+                    width: 93%;
+                    height: 79%;
+                    object-fit: cover;
+                }
+            }
+
+            &-right {
+                padding-bottom: 70px;
+                position: relative;
+                margin-left: 90px;
+                width: 55%;
+            }
+
+            &-wrap {
+                max-width: 750px;
+            }
+
+            &-small-title {
+                margin-bottom: 12px;
+                line-height: 1em;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+
+            &-desc {
+                margin-bottom: 20px;
+            }
+
+            .choise-us__link {
+                margin-top: 42px;
+                display: inline-flex;
+            }
+        }
+
+        &__tabs {
+            margin-bottom: 56px;
+
+            .header-tabs {
+                width: 100%;
+                max-width: none;
+                margin: 0;
+            }
+        }
+
+        &__table {
+            &-header {
+                background-color: #333;
+                
+                &-wrap {
+                    width: 80%;
+                    display: flex;
+                    justify-content: space-between;
+                
+                }
+
+                &-item {
+                    font-size: 16px;
+                    line-height: 1.5em;
+                    color: #fff;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

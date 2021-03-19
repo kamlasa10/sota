@@ -4,6 +4,8 @@
 let isPhoneValid
 let isMenuShow = false
 
+$('.js-btn-top').css('top', ($(window).height() - 150) + 'px')
+
 setTimeout(() => {
   const tl = gsap.timeline()
 
@@ -350,7 +352,7 @@ $(document).ready(() => {
                     }
 
                     if (isValid) {
-                        sendAjaxForm("static/mail.php", $form);
+                        sendAjaxForm("/wp-admin/admin-ajax.php", $form);
                     }
                 })
             })
@@ -368,7 +370,6 @@ $(document).ready(() => {
             }
 
             $.each($(selectorForm)[0], function(key, value) {
-                console.log(key, value)
                 if ($(value).attr('name') === 'file' && value.files !== undefined) {
                     data.append('file', value.files[0])
                     return
@@ -379,7 +380,9 @@ $(document).ready(() => {
                     return
                 } 
 
-                data.append($(value).attr("name"), $(value).val() || '');
+                if(value.tagName === 'INPUT') {
+                    data.append($(value).attr("name"), $(value).val() || '');
+                }
             });
 
             data.append("action", "application");
