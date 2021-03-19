@@ -13,12 +13,12 @@ $(document).ready(() => {
   try {
     window.dataForProjectForm = {
       name: $('.build-descr__title').text(),
-      activeImgSrc: $('.js-project-main-slider .swiper-slide-active img').attr('src'),
+      activeImgSrc: $($('.product-gallery__main').find('.swiper-slide img')[0]).attr('src'),
       projectPrice: $('.js-active-choise-plan').val(),
     }
-    console.log($('.js-project-main-slider .swiper-wrapper .swiper-slide-active'))
     $('.js-project-price').text(`${dataForProjectForm.projectPrice}$`)
     $('.header-pu-form__title').text(window.dataForProjectForm.name)
+    $('.js-choise-img-form').attr('src', window.dataForProjectForm.activeImgSrc)
 
     $('[data-price]').on('change', (e) => {
       const currentPrice = $(e.target).data().price
@@ -225,13 +225,6 @@ $(document).ready(() => {
   galleryProjectMain.on('slideChangeTransitionStart', () => {
     // galleryProjectThumbs.slideTo(galleryProjectMain.activeIndex);
     
-    try { 
-      changeValueByProp(
-        'activeImgSrc', 
-        $('.js-project-main-slider swiper-slide-active img').attr('src')
-      )
-      $('.js-choise-img-form').attr('src', window.dataForProjectForm.activeImgSrc)
-    } catch (e) {}
   });
   
   galleryProjectThumbs.on('transitionStart', () => {

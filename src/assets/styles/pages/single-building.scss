@@ -357,6 +357,7 @@
 		padding: 60px 0 0;
 		// max-width: 1020px;
 		max-width: 1160px;
+		width: 100%;
 		@include to(1370px){
 			max-width: 980px;
 		}
