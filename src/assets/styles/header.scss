@@ -55,6 +55,17 @@
     align-items: center;
     height: 110px;
     transition: all .4s;
+
+    @include to(650px) {
+      margin-top: 18px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      height: 90px;
+    }
+
+    @include to(480px) {
+      margin-top: 21px;
+    }
   }
 
   &__right {
@@ -65,6 +76,30 @@
 
     @include to(1440px) {
       transform: translateX(-145px);
+    }
+
+    @include to(920px) {
+      transform: translateX(-80px);
+    }
+
+    @include to(920px) {
+      transform: translateX(-88px);
+    }
+
+    @include to(650px) {
+      margin-top: 17px;
+      width: 100%;
+      transform: translateY(-5px) translateX(5px);
+      display: flex;
+      justify-content: center;
+    }
+
+    @include to(480px) {
+      transform: translateY(0px) translateX(0px);
+    }
+
+    @include to(375px) {
+      transform: translateX(0);
     }
   }
 
@@ -84,10 +119,25 @@
       // height: var(--header-h - 30px);
     }
 
+    @include to(920px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include to(650px) {
+      height: 38px;
+    }
+
     svg {
       width: 200px;
       height: 70px;
       fill: white;
+
+      @include to(920px) {
+        width: auto;
+        height: 100%;
+      }
     }
   }
 
@@ -107,6 +157,15 @@
     &::after {
       bottom: -9px;
     }
+
+    @include to(920px) {
+      font-size: 16px;
+      line-height: 1em;
+    }
+
+    @include to(480px) {
+      font-size: 15px;
+    } 
   }
 
   &.moving {
@@ -158,5 +217,35 @@
     left: 50%;
     margin-right: -50%;
     transform: translateX(-50%);
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 920px) {
+  .header__logo {
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translateX(-50%);
+
+    @include to(920px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    svg {
+      width: 136px;
+      height: 46px;
+    }
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 480px) {
+  .header__logo {
+    svg {
+      width: 120px;
+      height: 42px;
+    }
   }
 }

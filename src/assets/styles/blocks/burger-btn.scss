@@ -18,6 +18,14 @@
     width: 53px;
   }
 
+  @include to(650px) {
+    transform: translateY(35%);
+  }
+
+  @include to(480px) {
+    width: 41px;
+  }
+
   &::before,
   &::after {
     content: "";

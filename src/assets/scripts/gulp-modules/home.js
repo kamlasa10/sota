@@ -9,6 +9,7 @@ let src
 const tl = gsap.timeline({ onStart: startChangeSlide })
 
 function setPreviewNextSlide(nextSlide, current, isAnimateText = true) {
+  console.log(nextSlide.find('.main__item-bg').css('background-image'))
   src = nextSlide.find('.main__item-bg').css('background-image')
     .slice(5, nextSlide.find('.main__item-bg').css('background-image')
       .length - 2)
@@ -64,6 +65,7 @@ let scrollTriggerIntance
         tl.fromTo('.choise-us__item--1-img img', {
           width: '0%'
         }, {
+          x: $(window).width() <= 1025 ? '30px' : '',
           duration: 0.8,
           width: $(window).width() > 1440 ? '80%' : '77%'
         }, 0.6)
@@ -479,7 +481,7 @@ function choiseSec() {
     }, 0).fromTo('.choise-us__item--1-img', {
       y: '15%'
     }, {
-      y: offsetImg
+      y: offsetImg,
     }, 0)
     .fromTo('.choise-us__item--1-right', {
       y: 100
@@ -491,7 +493,7 @@ function choiseSec() {
     }, {
       y: 0,
     }, 0)
-    .fromTo('.choise-us__contentt', {
+    .fromTo('.choise-us__content', {
       y: 80
     }, {
       y: 0

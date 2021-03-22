@@ -37,6 +37,18 @@
     width: 35%;
   }
 
+  @include to(770px) {
+    width: 44%;
+  }
+
+  @include to(480px) {
+    width: 100%;
+    top: 100px;
+    padding-left: 16px;
+    padding-right: 0;
+    overflow-y: scroll;
+  }
+
   &--show {
     transform: translateX(0);
   }
@@ -68,6 +80,11 @@
     &:hover {
       color: darken(#808080, 10%);
     }
+
+    @include to(480px) {
+      margin-top: 30px;
+      padding-left: 16px;
+    }
   }
 
   &__list {
@@ -79,6 +96,16 @@
     overflow-y: auto;
     height: 700px;
     margin-top: auto;
+
+    @include to(480px) {
+      height: auto;
+      transform: translateY(-7%);
+    }
+
+    @include to(320px) {
+      transform: none;
+      justify-content: flex-start;
+    }
   }
 
   &__item {
