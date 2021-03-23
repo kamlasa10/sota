@@ -145,6 +145,9 @@
 	&__right{
 		flex-basis: 625px;
 		padding-left: 150px;
+		@include to(992px){
+			padding-left: 40px;
+		}
 	}
 }
 

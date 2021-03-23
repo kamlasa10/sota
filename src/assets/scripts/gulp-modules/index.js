@@ -405,8 +405,10 @@ $(document).ready(() => {
                     selectorForm.find('button[type=submit]').css('pointer-events', 'initial')
                     $('.popup').hide()
                     console.log($(`[data-popup=${selectorForm.data().successType}]`))
-                    $(`[data-popup=${selectorForm.data().successType}]`).show()
-                    $('.overlay').addClass('overlay--show')
+                    // $(`[data-popup=${selectorForm.data().successType}]`).show()
+                    // $('.overlay').addClass('overlay--show')
+                    $('.overlay').removeClass('overlay--show')
+                    document.querySelector('.js-link-to-thank').click();
                     $('.status-request').hide()
                     $(selectorForm)[0].reset();
                 },

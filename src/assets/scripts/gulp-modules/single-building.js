@@ -262,8 +262,13 @@ $(document).ready(() => {
   });
   
   const update = () => {
-    const currentSlide = document.querySelector('.js-current-slide');
-    currentSlide.innerHTML = swiper.realIndex < 9 ? `0${swiper.realIndex + 1}` : swiper.realIndex + 1;
+    const currentSlideNumber = document.querySelector('.js-current-slide');
+    const slideIdx = swiper.realIndex;
+    const slideSubtitle = document.querySelector('.slider-control__subtitle');
+    const currentSlide = swiper.slides[slideIdx];
+    const currentSlideDataText = currentSlide.querySelector('img').dataset.name;
+    slideSubtitle.innerHTML = currentSlideDataText;
+    currentSlideNumber.innerHTML = slideIdx < 9 ? `0${slideIdx + 1}` : slideIdx + 1;
   }
   
   swiper.on('init', () => {
