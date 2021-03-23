@@ -559,6 +559,26 @@
             @include to(1370px) {
                 grid-template-columns: repeat(auto-fit, minmax(354px, 375px));
             }
+
+            @include to(1300px) {
+              grid-template-columns: repeat(auto-fit, minmax(354px, 354px));
+            }
+
+            @include to(1025px) {
+              grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+            }
+
+          @include to(950px) {
+            justify-content: center;
+          }
+
+          @include to(770px) {
+            grid-template-columns: repeat(auto-fit, minmax(340px, 340px));
+          }
+
+          @include to(700px) {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          }
         }
 
         &__img {
@@ -580,6 +600,18 @@
                     transition: all 0.4s;
                 }
             }
+
+            @include to(1025px) {
+              height: 250px;
+            }
+
+          @include to(800px) {
+            height: 223px;
+          }
+
+          @include to(480px) {
+            height: 200px;
+          }
         }
 
         &__item {

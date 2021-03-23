@@ -11,6 +11,20 @@
 			@include to(1370px) {
 				column-gap: 55px;
 			}
+
+      @include to(1025px) {
+        margin-right: 0;
+        column-gap: 47px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      @include to(850px) {
+        column-gap: 30px;
+      }
+
+      @include to(770px) {
+        grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+      }
 		}
 
 		&__footer {
@@ -52,6 +66,14 @@
 			text-transform: uppercase;
 			font-weight: 700;
 			color: #EC5629;
+
+      @include to(1025px) {
+        margin-bottom: 12px;
+      }
+
+      @include to(770px) {
+        margin-bottom: 8px;
+      }
 		}
 
 		&__img {
@@ -71,6 +93,18 @@
 					transform: translateX(0);
 				}
 			}
+
+      @include to(1025px) {
+        height: 330px;
+      }
+
+      @include to(850px) {
+        height: 250px;
+      }
+
+      @include to(770px) {
+        height: 226px;
+      }
 		}
 
 		&__info {

@@ -45,32 +45,44 @@ class SetCountPortion {
 let isPhoneValid
 let isMenuShow = false
 
-$('.js-btn-top').css('top', ($(window).height() - 200) + 'px')
+if($(window).width() >= 1024) {
+  $('.js-btn-top').css('top', ($(window).height() - 200) + 'px')
+}
 
 setTimeout(() => {
   const tl = gsap.timeline()
+  let offsetX = 450
+
+  if($(window).width() <= 1025) {
+    offsetX = 200
+  }
+
+  if($(window).width() <= 480) {
+    offsetX = 110
+  }
 
   tl.to('.preloader__mask', {
-    duration: 0.8,
+    duration: 1.2,
+    stagger: 0.3,
     y: '-100%'
   })
   tl.to('.bg-for-finish-animate', {
     duration: 1.5,
     x: '100%',
     ease: Power1.ease
-   }, .8).to('#Preloader', {
+   }, 1.4).to('#Preloader', {
     duration: 1.1,
-    x: 450
-  }, 0.9)
+    x: offsetX
+  }, 1.4)
   .to('.preloader-bg', {
     duration: 0.8,
     opacity: 0,
     zIndex: -100
-  }, 1.3)
+  }, 1.8)
   .to('#Preloader', {
     opacity: 0,
     zIndex: -100
-  }, 1.2)
+  }, 1.6)
   .fromTo('.header', {
     y: '-80',
     opacity: 0
@@ -78,7 +90,7 @@ setTimeout(() => {
     opacity: 1,
     y: 0,
     duration: 1.3
-  }, 0.6)
+  }, 1)
   .fromTo('.socials', {
     y: 50,
     opacity: 0
@@ -86,7 +98,7 @@ setTimeout(() => {
     y: 0,
     duration: 1.3,
     opacity: 1
-  }, 1.3)
+  }, 1.7)
 
 
  }, 100)
@@ -151,9 +163,9 @@ if($(window).width() > 1025) {
         smoothMobile: false,
         inertia: 1.1
     });
-    
+
     window.locoScroll.on("scroll", ScrollTrigger.update);
-    
+
     ScrollTrigger.scrollerProxy("[data-scroll-container]", {
         scrollTop(value) {
             return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
@@ -169,9 +181,9 @@ if($(window).width() > 1025) {
         // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
         pinType: document.querySelector("[data-scroll-container]").style.transform ? "transform" : "fixed"
     });
-    
+
     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-    
+
     // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
     ScrollTrigger.refresh();
 }
@@ -345,7 +357,7 @@ $(document).ready(() => {
                             }
                         }
                     });
-                    
+
                     if ($(this).attr('type') === 'file' &&
                         $('[data-value]')[0] && $('[data-value]').data().value === false) {
                         $('.popup-contacts__item-file').addClass('error')
@@ -427,7 +439,7 @@ $(document).ready(() => {
                         data.append('contactBy', $(value).val())
                     }
                     return
-                }   
+                }
 
                 if(value.tagName.toLowerCase() === 'input' || value.tagName.toLowerCase() === 'textarea') {
                     data.append($(value).attr("name"), $(value).val() || '');
@@ -447,7 +459,7 @@ $(document).ready(() => {
                     data.append('choiseSelect', $('.contacts-select__current').text())
                 }
             } catch(e) {}
-            
+
 
             $.ajax({
                 url: url, //url страницы (action_ajax_form.php)
@@ -543,7 +555,7 @@ class TabChange {
       const self = this;
       const tabBtns = document.querySelectorAll(btnClass);
       const tabs = document.querySelectorAll(tabClass);
-	
+
       tabBtns.forEach((btn, _) => {
         btn.addEventListener('click', function (e) {
           e.preventDefault();
