@@ -52,6 +52,14 @@ $fields_sm: 15px;
     max-width: 1160px;
     padding: 0 20px;
   }
+
+  @include to(920px) {
+      padding: 0 30px;
+  }
+
+  @include to(480px) {
+      padding: 0 16px;
+  }
 }
 
 @mixin row-flex(){

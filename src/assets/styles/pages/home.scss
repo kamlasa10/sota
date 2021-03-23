@@ -57,6 +57,14 @@
       &-wrap {
         max-width: 100%;
         padding-left: 100px;
+
+        @include to(920px) {
+          padding-left: 70px;
+        }
+
+        @include to(480px) {
+          padding-left: 0;
+        }
       }
     }
 
@@ -72,6 +80,18 @@
 
       @include to(1440px) {
         font-size: 14px;
+      }
+
+      @include to(920px) {
+        font-size: 12px;
+      }
+
+      @include to(375px) {
+        font-size: 11px;
+      }
+
+      @include to(320px) {
+        font-size: 10px;
       }
 
       &::before {
@@ -99,6 +119,28 @@
       @include to(1440px) {
         font-size: 56px;
       }
+
+      @include to(920px) {
+        margin-bottom: 23px;
+        font-size: 40px;
+        line-height: 1.4em;
+      }
+
+      @include to(650px) {
+        font-size: 35px;
+      }
+
+      @include to(480px) {
+        font-size: 24px;
+      }
+
+      @include to(375px) {
+        font-size: 22px;
+      }
+
+      @include to(320px) {
+        font-size: 20px;
+      }
     }
 
     &__desc {
@@ -124,10 +166,23 @@
         @include to(1440px) {
           min-width: $border-red-width-laptop;
         }
+
+        @include to(920px) {
+          margin-top: 10px;
+        }
+
+        @include to(480px) {
+          margin-right: 11px;
+          min-width: $border-red-width-mobile;
+        }
       }
 
       @include to(1440px) {
         font-size: 18px;
+      }
+
+      @include to(375px) {
+        font-size: 16px;
       }
     }
 
@@ -138,6 +193,21 @@
       position: relative;
       margin-bottom: 5px;
       margin-right: 35px;
+
+      @include to(920px) {
+        width: 38%;
+        margin-right: 65px;
+      }
+
+      @include to(650px) {
+        width: 40%;
+        margin-right: 35px;
+      }
+
+      @include to(480px) {
+        width: 50%;
+        margin-right: 25px;
+      }
 
       &-wrap {
         bottom: 15%;
@@ -152,6 +222,14 @@
           display: flex;
           justify-content: flex-end;
           align-items: flex-end;
+        }
+
+        @include to(920px) {
+          bottom: 95px;
+        }
+
+        @include to(650px) {
+          bottom: 42px;
         }
       }
 
@@ -178,6 +256,10 @@
         @include to(1440px) {
           top: -50px;
         }
+
+        @include to(480px) {
+          top: -40px;
+        }
       }
 
       &-current {
@@ -187,6 +269,10 @@
 
         @include to(1440px) {
           font-size: 36px;
+        }
+
+        @include to(480px) {
+          font-size: 24px;
         }
       }
 
@@ -217,6 +303,18 @@
         @include to(1370px) {
           width: 24%;
           height: 95%;
+        }
+
+        @include to(920px) {
+          width: 23%;
+        }
+
+        @include to(480px) {
+          width: 47%;
+        }
+
+        @include to(375px) {
+          width: 45%;
         }
 
         &-1 {
@@ -255,6 +353,11 @@
     padding-bottom: 250px;
     display: flex;
     align-items: center;
+
+    @include to(1025px) {
+      padding-top: 110px;
+      padding-bottom: 230px;
+    }
 
     &__wrap {
       width: 100%;
@@ -349,6 +452,11 @@
             padding-left: 17%;
           }
 
+          @include to(1025px) {
+            padding-left: 17%;
+            width: 54%;
+          }
+
           &-content {
             position: relative;
             max-width: 450px;
@@ -372,6 +480,11 @@
 
               @include to(1440px) {
                 width: $border-red-width-laptop;
+              }
+
+              @include to(850px) {
+                width: $border-red-width-mobile;
+                left: 15px;
               }
             }
 
@@ -411,6 +524,18 @@
           @include to(1370px) {
             width: 79%;
             transform: translate(37%, -29%);
+          }
+
+          @include to(1025px) {
+            width: 90%;
+          }
+
+          @include to(850px) {
+            width: 100%;
+
+            img {
+              width: 95%;
+            }
           }
         }
 
@@ -547,6 +672,10 @@
 
         &-right {
           width: 38%;
+
+          @include to(850px) {
+            width: 47%;
+          }
         }
 
         &-img {
@@ -571,12 +700,9 @@
           margin-left: 73px;
           padding-left: 0;
 
-          @include to(1440px) {
-            
-          }
-
           span {
             right: 19px;
+            top: 48%;
           }
 
           &:hover {
@@ -584,11 +710,21 @@
               right: 14px;
             }
           }
+
+          @include to(1025px) {
+            transform: translateY(-70%);
+            margin-left: 40px !important;
+          }
         }
       }
 
       .choise-us__link {
         padding-left: 24px;
+
+        @include to(1025px) {
+          padding-left: 0;
+          margin-left: 24px;
+        } 
       }
 
       &--3 {
@@ -638,7 +774,6 @@
             }
 
             @include to(1370px) {
-              height: 30%;
               transform: translateY(10%) translateX(0%);
               width: 97%;
             }
@@ -669,6 +804,14 @@
               height: 91%;
               transform: translateX(44%);
             }
+
+            @include to(1025px) {
+              object-fit: cover;
+            }
+
+            @include to(850px) {
+              transform: translateX(30%);
+            }
           }
         }
 
@@ -690,6 +833,10 @@
 
             @include to(1370px) {
               width: 480px;
+            }
+
+            @include to(850px) {
+              width: 100%;
             }
           }
 
@@ -851,6 +998,14 @@
               a {
                 padding-left: 0 !important;
                 display: inline-flex;
+              }
+
+              @include to(1025px) {
+                width: 100%;
+
+                a {
+                  margin-left: 50px !important;
+                }
               }
             }
           }

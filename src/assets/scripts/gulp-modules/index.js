@@ -1,10 +1,51 @@
 @@include('./libs.js');
 @@include('../modules/vacancy/vacancyLoadingLogic.js');
 
+class SetCountPortion {
+    constructor(nodes, page, countShowNodePerStep) {
+        this.nodes = Array.from(document.querySelectorAll(nodes))
+        this.page = page
+        this.countShowNodePerStep = countShowNodePerStep
+        this.init()
+    }
+
+    createObjWithTypePortion() {
+       return this.nodes.reduce((acc, next) => {
+            const type = next.dataset.stepType
+
+            acc[type] = acc[type] || []
+            acc[type].push(next)
+
+            return acc
+        }, {})
+    }
+
+    init() {
+        const ObjOfArrNodes = this.createObjWithTypePortion()
+
+        Object.values(ObjOfArrNodes).forEach(arr => {
+            let count = 0
+            let portionStep = 1
+
+            arr.forEach(node => {
+                if(count < this.countShowNodePerStep) {
+                    node.setAttribute('data-portion', portionStep)
+                    count++
+                } else {
+                    count = 0
+                    ++portionStep
+                    node.setAttribute('data-portion', portionStep)
+                    count++
+                }
+            })
+        })
+    }
+}
+
 let isPhoneValid
 let isMenuShow = false
 
-$('.js-btn-top').css('top', ($(window).height() - 150) + 'px')
+$('.js-btn-top').css('top', ($(window).height() - 200) + 'px')
 
 setTimeout(() => {
   const tl = gsap.timeline()
@@ -56,21 +97,26 @@ $('[name=phone]').each(function() {
 
 $('.js-burger-btn').on('click', e => {
     $('.nav').toggleClass('nav--show')
-    const coord = $('.js-burger-btn')[0].getBoundingClientRect()
 
-    $('.js-nav__close').css({
-        top: coord.y + 5,
-        left: coord.x + 5
-    })
+    if($(window).width() > 480) {
+        const coord = $('.js-burger-btn')[0].getBoundingClientRect()
+
+        $('.js-nav__close').css({
+            top: coord.y + 5,
+            left: coord.x + 5
+        })
+    }
 })
 
 $(window).resize(() => {
-    const coord = $('.js-burger-btn')[0].getBoundingClientRect()
+    if($(window).width() > 480) {
+        const coord = $('.js-burger-btn')[0].getBoundingClientRect()
 
-    $('.js-nav__close').css({
-        top: coord.y + 5,
-        left: coord.x + 5
-    })
+        $('.js-nav__close').css({
+            top: coord.y + 5,
+            left: coord.x + 5
+        })
+    }
 }).trigger('resize')
 
 $('.js-nav__close').on('click', e => {
@@ -98,35 +144,37 @@ $('.js-popup-btn').on('click', e => {
     $('.header').addClass('show')
 })
 
-window.locoScroll = new LocomotiveScroll({
-    el: document.querySelector("[data-scroll-container]"),
-    smooth: true,
-    smoothMobile: false,
-    inertia: 1.1
-});
-
-window.locoScroll.on("scroll", ScrollTrigger.update);
-
-ScrollTrigger.scrollerProxy("[data-scroll-container]", {
-    scrollTop(value) {
-        return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-    }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-    getBoundingClientRect() {
-        return {
-            top: 0,
-            left: 0,
-            width: window.innerWidth,
-            height: window.innerHeight
-        };
-    },
-    // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-    pinType: document.querySelector("[data-scroll-container]").style.transform ? "transform" : "fixed"
-});
-
-ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
-// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-ScrollTrigger.refresh();
+if($(window).width() > 1025) {
+    window.locoScroll = new LocomotiveScroll({
+        el: document.querySelector("[data-scroll-container]"),
+        smooth: true,
+        smoothMobile: false,
+        inertia: 1.1
+    });
+    
+    window.locoScroll.on("scroll", ScrollTrigger.update);
+    
+    ScrollTrigger.scrollerProxy("[data-scroll-container]", {
+        scrollTop(value) {
+            return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+        }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+        getBoundingClientRect() {
+            return {
+                top: 0,
+                left: 0,
+                width: window.innerWidth,
+                height: window.innerHeight
+            };
+        },
+        // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+        pinType: document.querySelector("[data-scroll-container]").style.transform ? "transform" : "fixed"
+    });
+    
+    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    
+    // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+    ScrollTrigger.refresh();
+}
 
 $(document)[0].addEventListener('click', e => {
     const path = e.path || (e.composedPath && e.composedPath());
@@ -206,7 +254,8 @@ $(document).ready(() => {
                 warn: 'field is required'
             }
         }
-        const language = document.body.dataset.language
+        const language = $('html').attr('lang')
+        console.log(language)
 
         function checkEmail(str) {
             const re = /\S+@\S+\.\S+/;
@@ -378,9 +427,9 @@ $(document).ready(() => {
                         data.append('contactBy', $(value).val())
                     }
                     return
-                } 
+                }   
 
-                if(value.tagName === 'INPUT') {
+                if(value.tagName.toLowerCase() === 'input' || value.tagName.toLowerCase() === 'textarea') {
                     data.append($(value).attr("name"), $(value).val() || '');
                 }
             });
@@ -392,6 +441,12 @@ $(document).ready(() => {
 
             $(`[data-contacts-file] span`).text('Файл не вибрано')
             $('.status-request').show()
+
+            try {
+                if($('.contacts-select__current').text()) {
+                    data.append('choiseSelect', $('.contacts-select__current').text())
+                }
+            } catch(e) {}
             
 
             $.ajax({
@@ -511,6 +566,16 @@ class TabChange {
       this.tabSwitch(this.tabClass, this.tabBtnClass, this.tabWrapperClass)
     }
   }
+
+  // adaptive
+  $(window).on('resize', () => {
+    if($(window).width() <= 920) {
+        $('.language__current').append($('.language__link--current'))
+        $('.language__list-dropdown').append($('.language__link:not(.language__link--current)'))
+    } else {
+        $('.header__language').append($('.language__link'))
+    }
+  }).resize()
 
 
 // animate

@@ -3,42 +3,58 @@
 // import FormMonster from '../../pug/components/form/form';
 // import SexyInput from '../../pug/components/input/input';
 
+const { doc } = require("prettier");
+
 /** ******************************* */
 /*
  * smooth scroll start
  */
 
+function scroller(y) {
+  console.log(y)
+  if (y > 300 && isLanguageShow) {
+    $('.language').fadeOut(200)
+    isLanguageShow = false
+  }
+
+  if (y > 0 && !isAppend) {
+    // eslint-disable-next-line no-undef
+    $('.header').addClass('moving')
+    isAppend = true;
+  } else if (y <= 0 && isAppend) {
+    // eslint-disable-next-line no-undef
+    $('.language').fadeIn(200, () => {
+      $('.header').removeClass('moving')
+      isLanguageShow = true
+    })
+    isAppend = false;
+  }
+
+  if (y > 2000) {
+    window.showAnimation = true
+    window.countShowWithAnimation = 0
+  }
+
+  window.currentPos = y
+}
+
 /* eslint-disable-next-line */
 window.addEventListener('load', () => {
-  let isAppend = false;
-  let isLanguageShow = true
+  const isAppend = false;
+  const isLanguageShow = true
 
-  window.locoScroll.on('scroll', (e) => {
-    if (e.delta.y > 300 && isLanguageShow) {
-      $('.language').fadeOut(200)
-      isLanguageShow = false
-    }
-
-    if (e.delta.y > 0 && !isAppend) {
-      // eslint-disable-next-line no-undef
-      $('.header').addClass('moving')
-      isAppend = true;
-    } else if (e.delta.y <= 0 && isAppend) {
-      // eslint-disable-next-line no-undef
-      $('.language').fadeIn(200, () => {
-        $('.header').removeClass('moving')
-        isLanguageShow = true
+  $(window).on('resize', () => {
+    if ($(window).width() > 1025) {
+      window.locoScroll.on('scroll', (e) => {
+        scroller(e.delta.y)
+      });
+    } else {
+      console.log('ky')
+      window.addEventListener('scroll', (e) => {
+        scroller(document.documentElement.offsetTop)
       })
-      isAppend = false;
     }
-
-    if (e.delta.y > 2000) {
-      window.showAnimation = true
-      window.countShowWithAnimation = 0
-    }
-
-    window.currentPos = e.delta.y
-  });
+  }).resize()
 
   $('.js-btn-top').click(() => {
     if ($(window).width() < 1025) {

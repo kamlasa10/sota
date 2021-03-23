@@ -3,7 +3,7 @@
     position: absolute;
     bottom: 13.5%;
     left: 100px;
-    z-index: 10;
+    z-index: 8;
     width: 100px;
 
     @include to(1440px) {
@@ -18,6 +18,18 @@
 
     @include to(1250px) {
       left: 20px;
+    }
+
+    @include to(920px) {
+      bottom: 94px;
+    }
+
+    @include to(650px) {
+      bottom: 35px;
+    }
+
+    @include to(480px) {
+      display: none !important;
     }
 
     &__link {
@@ -95,5 +107,24 @@
   @media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 1445px) {
     .socials {
       left: 45px;
+    }
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 1025px) {
+    .socials {
+      left: 20px;
+    }
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 920px) {
+    .socials {
+      left: 30px;
+      bottom: 88px;
+    }
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 480px) {
+    .socials {
+      display: none !important;
     }
   }

@@ -29,6 +29,8 @@ window.locoScroll.on('scroll', (e) => {
   }
 })
 
+new SetCountPortion('.projects__item', null, 6)
+
 class ProjectsTabs extends Tabs {
   constructor(content, tabs, activeClass, firstShow) {
     super(content, tabs, activeClass, firstShow)
