@@ -66,7 +66,8 @@
 		}
 	}
 	&__main{
-		height: 375px;
+		// height: 375px;
+		height: 100%;
 		width: 565px;
 		margin-left: 0;
 		margin-right: 0;
@@ -79,7 +80,8 @@
 	}
 	&__thumbs{
 		width: 100px;
-		height: 375px;
+		// height: 375px;
+		height: 100%;
 		margin-right: 20px;
 		margin-left: 0;
 
@@ -88,18 +90,19 @@
 			cursor: pointer;
 			&:hover{
 				&::after{
-					opacity: .6;
+					opacity: 1;
 				}
 			}
 			&::after{
 				content: '';
 				display: block;
 				position: absolute;
-				top: 0;
+				bottom: 0;
 				left: 0;
 				width: 100px;
-				height: calc(100px - 13px);
-				background: #000;
+				height: 2px;
+				// height: calc(100px - 13px);
+				background: #EC5629;
 				opacity: 0;
 				transition: all .5s;
 			}
@@ -111,7 +114,7 @@
 
 				&-active{
 					&::after{
-						opacity: .6;
+						opacity: 1;
 					}
 				}
 			}

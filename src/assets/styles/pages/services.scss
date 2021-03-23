@@ -77,6 +77,9 @@
         &__col{
             padding-top: 40px;
             padding-bottom: 40px;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
             &_1{
                 flex-basis: 30%;
                 width: 30%;
@@ -90,7 +93,6 @@
             &_3{
                 flex-basis: 40%;
                 width: 40%;
-
             }
         }
         &__table-header{
@@ -106,6 +108,42 @@
         }
         &__header-title{
             color: #fff;
+        }
+        &__table{
+            margin-bottom: 50px;
+            tr{
+                position: relative;
+                
+                &:nth-child(odd){
+                    background: #FAFAFA;
+                }
+            }
+        }
+        &__table-row{
+
+            &:nth-child(odd){
+                background: #FAFAFA;
+            }
+        }
+        &__table-row-inner{
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .serv-bot-sec{
+        display: flex;
+        padding-bottom: 200px;
+        &__block1{
+            display: flex;
+            justify-content: center;
+            width: 50%;
+            background: #333333;
+            padding: 8% 0;
+        }
+        &__block2{
+            width: 30%;
+            transform: translate(-25%, 25%);
         }
     }
 }
