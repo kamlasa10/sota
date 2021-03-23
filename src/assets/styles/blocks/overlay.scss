@@ -37,6 +37,10 @@
     &:nth-child(4) {
       left: 92.5%;
     }
+
+    @include to(1025px) {
+      display: none;
+    }
   }
 }
 
@@ -58,6 +62,18 @@
   width: 100%;
   background-color: #fff;
   padding: 45px 100px;
+
+  @include to(770px) {
+    padding: 45px 90px;
+  }
+
+  @include to(700px) {
+    padding: 45px 50px;
+  }
+
+  @include to(480px) {
+    padding: 45px 16px;
+  }
 
   .section-grid {
     position: absolute;
@@ -158,6 +174,18 @@
       position: relative;
       width: 48%;
 
+      @include to(770px) {
+        width: 45%;
+      }
+
+      @include to(600px) {
+        width: 47%;
+      }
+
+      @include to(414px) {
+        width: 100%;
+      }
+
       &-label,
       &-label span{
         position: relative;
@@ -168,11 +196,19 @@
         @include placeholder {
           color: #333;
         }
+
+        @include to(414px) {
+          margin-bottom: 20px;
+        }
       }
 
       &-wrap {
         position: relative;
         display: flex;
+
+        @include to(480px) {
+          flex-direction: column;
+        }
       }
 
       input,
@@ -205,6 +241,10 @@
         color: #808080;
         transition: all .4s;
 
+        @include to(770px) {
+          width: 34%;
+        }
+
         &-label {
           cursor: pointer;
 
@@ -223,11 +263,22 @@
         &.error {
           border: 1px solid #EC5629;
         }
+
+        @include to(414px) {
+          width: 70%;
+          justify-content: center;
+          margin-bottom: 16px;
+        }
       }
 
       &--file .popup-contacts__item-wrap {
         margin-bottom: 30px;
         align-items: center;
+
+        @include to(414px) {
+          margin-top: 30px;
+          align-items: flex-start;
+        }
       }
 
       &--checkbox {
@@ -240,6 +291,10 @@
           margin-right: 32px;
           display: flex;
           line-height: 1.5em;
+
+          @include to(414px) {
+            margin-bottom: 0;
+          }
   
           input {
             display: none;
@@ -249,7 +304,6 @@
             order: -1;
             margin-right: 18px;
             position: relative;
-            display: block;
             width: 24px;
             height: 24px;
             border-radius: 50%;
@@ -275,6 +329,11 @@
               opacity: 1;
             }
           }
+        }
+
+        @include to(414px) {
+          flex-direction: column;
+          align-items: flex-start;
         }
       }
 

@@ -11,6 +11,14 @@
                 column-gap: 23px;
                 grid-template-columns: repeat(auto-fit, minmax(369px, 1fr));
             }
+
+          @include to(1150px) {
+            grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
+          }
+
+          @include to(770px) {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          }
         }
 
         &__decor {
@@ -26,6 +34,13 @@
                 top: -2px;
                 right: 0;
                 width: 40px;
+
+              @include to(480px) {
+                top: auto;
+                bottom: -2px;
+                right: auto;
+                left: 0;
+              }
             }
 
             &-right {
@@ -34,6 +49,13 @@
                 right: -2px;
                 height: 40px;
                 width: 3px;
+
+                @include to(480px) {
+                  top: auto;
+                  bottom: -2px;
+                  right: auto;
+                  left: -2px;
+                }
             }
         }
 
@@ -50,6 +72,11 @@
                 .vacancy__decor-right {
                     top: -2px;
                     height: 50%;
+
+                  @include to(480px) {
+                    top: auto;
+                    bottom: -2px;
+                  }
                 }
             }
         }
@@ -64,6 +91,11 @@
         &__foter {
             display: flex;
             justify-content: flex-end;
+
+          @include to(480px) {
+            justify-content: flex-start;
+            padding-left: 35px;
+          }
         }
 
         &__inner {
@@ -112,6 +144,11 @@
             @include to(1370px) {
                 width: 360px;
             }
+
+          @include to(480px) {
+            max-width: 287px;
+            width: 100%;
+          }
         }
 
         &-top {

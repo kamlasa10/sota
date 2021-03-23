@@ -1,4 +1,4 @@
-const proxy = "sota-2";
+const proxy = "sota";
 let webPackSetting = true;
 let typeScriptSetting = false;
 

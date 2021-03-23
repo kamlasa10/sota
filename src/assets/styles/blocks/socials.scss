@@ -29,7 +29,9 @@
     }
 
     @include to(480px) {
-      display: none !important;
+      &.socials__main {
+        display: none !important;
+      }
     }
 
     &__link {
@@ -124,7 +126,7 @@
   }
 
   @media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 480px) {
-    .socials {
+    .socials__main {
       display: none !important;
     }
   }

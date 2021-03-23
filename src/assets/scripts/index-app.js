@@ -3,62 +3,59 @@
 // import FormMonster from '../../pug/components/form/form';
 // import SexyInput from '../../pug/components/input/input';
 
-const { doc } = require("prettier");
-
 /** ******************************* */
 /*
  * smooth scroll start
  */
 
-function scroller(y) {
-  console.log(y)
-  if (y > 300 && isLanguageShow) {
-    $('.language').fadeOut(200)
-    isLanguageShow = false
-  }
-
-  if (y > 0 && !isAppend) {
-    // eslint-disable-next-line no-undef
-    $('.header').addClass('moving')
-    isAppend = true;
-  } else if (y <= 0 && isAppend) {
-    // eslint-disable-next-line no-undef
-    $('.language').fadeIn(200, () => {
-      $('.header').removeClass('moving')
-      isLanguageShow = true
-    })
-    isAppend = false;
-  }
-
-  if (y > 2000) {
-    window.showAnimation = true
-    window.countShowWithAnimation = 0
-  }
-
-  window.currentPos = y
-}
-
 /* eslint-disable-next-line */
 window.addEventListener('load', () => {
-  const isAppend = false;
-  const isLanguageShow = true
+
+  let isAppend = false;
+  let isLanguageShow = true
+
+  function scroller(y) {
+    if (y > 300 && isLanguageShow) {
+      $('.language').fadeOut(200)
+      isLanguageShow = false
+    }
+
+    if (y > 0 && !isAppend) {
+      // eslint-disable-next-line no-undef
+      $('.header').addClass('moving')
+      isAppend = true;
+    } else if (y <= 0 && isAppend) {
+      // eslint-disable-next-line no-undef
+      $('.language').fadeIn(200, () => {
+        $('.header').removeClass('moving')
+        isLanguageShow = true
+      })
+      isAppend = false;
+    }
+
+    if (y > 2000) {
+      window.showAnimation = true
+      window.countShowWithAnimation = 0
+    }
+
+    window.currentPos = y
+  }
 
   $(window).on('resize', () => {
-    if ($(window).width() > 1025) {
+    if ($(window).width() > 1030) {
       window.locoScroll.on('scroll', (e) => {
         scroller(e.delta.y)
       });
     } else {
-      console.log('ky')
-      window.addEventListener('scroll', (e) => {
-        scroller(document.documentElement.offsetTop)
+      window.addEventListener('scroll', () => {
+        scroller(document.documentElement.scrollTop)
       })
     }
   }).resize()
 
   $('.js-btn-top').click(() => {
     if ($(window).width() < 1025) {
-      $(document.body).stop().animate({ scrollTop: 0 }, 700)
+      $('html, body').stop().animate({ scrollTop: 0 }, 700)
     } else {
       window.locoScroll.scrollTo(0)
     }

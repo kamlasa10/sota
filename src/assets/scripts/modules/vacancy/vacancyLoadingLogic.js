@@ -7,7 +7,7 @@ class VacancyProgress {
 
     this.maxPortionValue = Math.ceil(this.totalItems / this.countLoadingPerClick)
     this.showNextPortionItems = this.showNextPortionItems.bind(this)
-        
+
     this.isFirst = true
     this.init()
   }
@@ -31,7 +31,7 @@ class VacancyProgress {
       const countLoading = this.$items.filter((_, item) => $(item).data().portion === this.currentPortion).length
       this.countLoadingPerClick += countLoading
     }
-        
+
     const delta = (this.currentPortion / this.maxPortionValue) * 100
     $('[data-progress]').css('width', `${delta}%`)
     this.progressChange()
@@ -50,8 +50,8 @@ class VacancyProgress {
   }
 
   progressChange() {
-    $('.js-progress-current').text(`${this.countLoadingPerClick} /`)
-    $('.js-progress-total').text(this.totalItems)
+    $('.js-progress-current').text(`${this.countLoadingPerClick >= 10 ? this.countLoadingPerClick : `0${this.countLoadingPerClick}`} /`)
+    $('.js-progress-total').text(this.totalItems >= 10 ? this.totalItems : `0${this.totalItems}`)
   }
 
   init() {

@@ -25,7 +25,7 @@ block scripts
   script(defer src='./assets/scripts/home.js')
 block content
   section.main
-    .socials
+    .socials.socials__main
       a(href="#").socials__link
         +svg('fb')
       a(href="#").socials__link
@@ -189,7 +189,7 @@ block content
             p.project__desc.project__desc--none.desc-with-border Беручи за основу прості лаконічні форми, ми створюємо продуманий світ, призначений для вашого життя в ньому.
           .project__content-right
             +img('project-pattern.png')
-        ul.project__list
+        ul.project__list.js-project__list
           li.project__item
             .project__img
               .project__img--hover 
@@ -227,11 +227,11 @@ block content
             li.contacts__item
               .contacts__item-title Адреса
               .contacts__item-content
-                p Київ, вул. Глибочицька, 40Г
+                p Київ, вул. Глибочицька, 40Г, 3 поверх, оф. 13
             li.contacts__item
               .contacts__item-title Телефон
               .contacts__item-content
-                a(href="tel:380673132938") Головний офіс: +38067 313 29 38
+                a(href="tel:380673132938") <span class="contacts__text">Головний офіс:</span>+38067 313 29 38
             li.contacts__item.contacts__item--top
               .contacts__item-title Працюємо
               .contacts__item-content пн-пт. 9:00 до 20:00 <br> сб. 10:00 до 17:00 <br> нд. вихідний

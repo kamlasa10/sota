@@ -22,16 +22,13 @@
         &__nav {
             &-item {
                 margin-bottom: 10px;
+                .news__nav-link {
+                    color: #333;
+                    font-weight: 700;
 
-                &.current {
-                    .news__nav-link {
+                    &.current {
                         color: #333;
                         font-weight: 700;
-
-                        &.current {
-                            color: #333;
-                            font-weight: 700;
-                        }
                     }
                 }
             }
