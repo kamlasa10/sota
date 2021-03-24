@@ -282,4 +282,40 @@ $(document).ready(() => {
   })
   
   swiper.init();
+
+  class createImgPopup {
+    constructor(openBtn) {
+      this.openBtn = openBtn;
+      this.popup = document.querySelector('.js-open-img-popup');
+      this.closeBtn = document.querySelector('.js-open-img-popup-close');
+      this.imgWrapper = document.querySelector('.js-img-wrapper');
+    }
+
+    eventListeners() {
+      const self = this;
+      this.openBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const imgSrc = this.getAttribute('src');
+        self.popup.classList.add('show');
+        const newImg = document.createElement('img');
+        newImg.classList.add('js-img-for-popup');
+        newImg.classList.add('open-img-popup__img');
+        newImg.setAttribute('src', imgSrc);
+        self.imgWrapper.appendChild(newImg);
+      })
+
+      this.closeBtn.addEventListener('click', (e) => {
+        const newImg = document.querySelector('.js-img-for-popup');
+        newImg.remove();
+        self.popup.classList.remove('show');
+      })
+    }
+
+    init() {
+      this.eventListeners();
+    }
+  }
+  const imgBtn = document.querySelector('.js-open-big-img');
+  const openImgPopup = new createImgPopup(imgBtn);
+  openImgPopup.init();
 });

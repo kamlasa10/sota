@@ -8,6 +8,20 @@
 		color: #808080;
 		font-weight: normal;
 	}
+	&__prep-text{
+		max-width: 190px;
+		display: block;
+		@include to(1440px){
+			max-width: 170px;
+		}
+	}
+}
+
+.header-tabs.single-project-tabs{
+	justify-content: space-between;
+	.header-tabs__single-tab-title + .header-tabs__single-tab-title{
+		margin-left: 10px;
+	}
 }
 
 .project-plan-tab{
@@ -98,6 +112,7 @@
 	&__key{
 		min-width: 150px;
 		display: inline-block;
+		color:#808080;
 	}
 
 	&__value{
@@ -127,6 +142,7 @@
 	line-height: 150%;
 	// max-width: 1020px;
 	max-width: 1160px;
+	color:#808080;
 	@include to(1370px){
 		max-width: 980px;
 	}
@@ -171,6 +187,7 @@
 	}
 	&__sec1{
 		padding-bottom: 40px;
+		color:#808080;
 	}
 	&__sec2{
 		padding: 75px 90px;
@@ -200,6 +217,9 @@
 	&__title{
 		line-height: 1.5;
 	}
+	&__value{
+		color:#808080;
+	}
 	&__item{
 		display: flex;
 	}
@@ -211,6 +231,7 @@
 		li{
 			list-style-type: decimal;
 			list-style-position: inside;
+			
 		}
 	}
 }
