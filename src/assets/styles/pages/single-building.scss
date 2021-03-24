@@ -165,7 +165,11 @@
 	background: rgba(0, 0, 0, 0.3);
 	backdrop-filter: blur(5px);
 	border-radius: 4px 0px 4px 4px;
-
+	&__arrow.swiper-button-disabled{
+		svg{
+			fill: #949292;
+		}
+	}
 	&__arrow{
 		display: flex;
 		align-items: center;
@@ -174,6 +178,7 @@
 		border: none;
 		padding: 0;
 		svg{
+			fill: #fff;
 			height: 13px;
 			width: 25px;
 		}

@@ -183,10 +183,14 @@ if($(window).width() > 1025) {
         pinType: document.querySelector("[data-scroll-container]").style.transform ? "transform" : "fixed"
     });
 
-    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    ScrollTrigger.addEventListener("refresh", () => window.locoScroll.update());
 
     // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
     ScrollTrigger.refresh();
+
+    setTimeout(() => {
+        window.locoScroll.update()
+    }, 2000)
 }
 
 $(document)[0].addEventListener('click', e => {

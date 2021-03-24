@@ -70,7 +70,20 @@
 	}
 }
 
+.single-tab-title.disabled{
+	pointer-events: none;
+	a{
+		pointer-events: none;
+		color: #B3B3B3;
+	}
+	span{
+		pointer-events: none;
+		color: #B3B3B3;
+	}
+}
+
 .descr-about{
+	color: #808080; 
 	font-size: 14px;
 	line-height: 171%;
 	letter-spacing: 0.06em;
@@ -277,6 +290,7 @@
 	font-size: 16px;
 	line-height: 150%;
 	letter-spacing: 0.06em;
+	color: #808080;
 	&__bold{
 		font-weight: 700;
 		color: #333333;
@@ -390,6 +404,9 @@
 
 .sec3-about{
 	counter-reset: my-awesome-counter;
+	&__title{
+		max-width: 500px
+	}
 	&__row{
 		@include row-flex();
 		&_2{
