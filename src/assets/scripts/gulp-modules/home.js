@@ -1,3 +1,49 @@
+$(document).ready(() => {
+  if($(window).width() <= 650) {
+    const swiper = new Swiper('.js-contacts-slider', {
+      speed: 500,
+      allowTouchMove: true,
+      noSwiping: false,
+      slidesPerView: 1,
+      on: {
+        init(e) {
+          if(e.activeIndex === 0) {
+            $('.js-project__prev').attr('disabled', true).addClass('disabled')
+          }
+        },
+        slideChange(e) {
+          $('.project__arrow').removeClass('disabled').attr('disabled', false)
+
+          if(e.activeIndex === 0) {
+            $('.js-project__prev').attr('disabled', true).addClass('disabled')
+            return
+          }
+
+          if(e.activeIndex === e.slides.length - 1) {
+            $('.js-project__next').attr('disabled', true).addClass('disabled')
+            return
+          }
+        }
+      }
+    })
+  
+    $('.js-project__prev').on('click', (e) => {
+      e.preventDefault()
+  
+      swiper.slidePrev(500)
+    })
+  
+    $('.js-project__next').on('click', (e) => {
+      e.preventDefault()
+      console.log('click')
+  
+      swiper.slideNext(500)
+    })
+  }
+})
+
+
+
 let isFirst = true
 const startChangeSlide = () => {
   setTimeout(() => {
@@ -460,9 +506,24 @@ function choiseSec() {
   const tl = gsap.timeline()
 
   let offsetImg = '-32%'
+  let offsetX = '140'
 
   if ($(window).width() <= 1370) {
     offsetImg = '-29%'
+  }
+
+  if($(window).width <= 1025) {
+    offsetImg = '-27%'
+  }
+
+  if($(window).width() <= 850 && $(window).width() >= 770) {
+    offsetImg = '-9%'
+    offsetX = '90'
+  }
+
+  if($(window).width() < 770) {
+    offsetImg = '-9%'
+    offsetX = '50'
   }
 
   tl.fromTo('.title', {
@@ -478,11 +539,12 @@ function choiseSec() {
       y: '15%'
     }, {
       y: offsetImg,
+      x: offsetX
     }, 0)
     .fromTo('.choise-us__item--1-right', {
       y: 100
     }, {
-      y: 0
+      y: 0,
     }, 0)
     .fromTo('.choise-us__item--1-left .bg', {
       y: 150,
@@ -635,3 +697,5 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
     animation: fn(),
   });
 })
+
+// adaptive 

@@ -104,7 +104,8 @@ setTimeout(() => {
  }, 100)
 
 $('[name=phone]').each(function() {
-    $(this).inputmask("38(099)999 99 99", { placeholder: "38(0__)___ __ __", clearMaskOnLostFocus: true })
+    $(this).attr('placeholder', '+38(0__)___ __ __')
+    $(this).inputmask("+38(099)999 99 99", { clearMaskOnLostFocus: true })
 })
 
 $('.js-burger-btn').on('click', e => {

@@ -13,8 +13,17 @@ window.addEventListener('load', () => {
 
   let isAppend = false;
   let isLanguageShow = true
+  let isTopShowBtn = false
 
   function scroller(y) {
+    if($(window).height() <= y && !isTopShowBtn) {
+      $('.js-btn-top').fadeOut(200)
+      isTopShowBtn = false
+    } else if($(window).height() >= y && isTopShowBtn) {
+      $('.js-btn-top').fadeIn(200)
+      isTopShowBtn = true
+    }
+
     if (y > 300 && isLanguageShow) {
       $('.language').fadeOut(200)
       isLanguageShow = false
