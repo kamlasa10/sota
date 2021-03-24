@@ -82,12 +82,14 @@
 		width: 100px;
 		// height: 375px;
 		height: 100%;
+		max-height: 440px;
 		margin-right: 20px;
 		margin-left: 0;
 
 		.swiper-slide{
 			position: relative;
 			cursor: pointer;
+			// max-height: 100px;
 			&:hover{
 				&::after{
 					opacity: 1;

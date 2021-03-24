@@ -1,40 +1,4 @@
 $(document).ready(() => {
-  const tl = gsap.timeline({});
-
-  tl.set('.sec1-about__descr', {
-    opacity: 0,
-    y: 10
-  })
-    .set('.sec1-about__about', {
-      opacity: 0,
-      y: 10
-    })
-    .fromTo('.sec1-about__descr', {
-      opacity: 0,
-      y: 10
-    }, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      delay: 1.5
-    }, '<')
-    .fromTo('.sec1-about__about', {
-      opacity: 0,
-      y: 10
-    }, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      // delay: 1.5
-    }, '<')
-    .fromTo('.sec1-about__left', {
-      backgroundSize: '355px 335px ',
-    }, {
-      backgroundSize: '395px 373px',
-      duration: 1,
-
-    }, '<')
-
   function aboutValuesOnEnter(item) {
     const tl = gsap.timeline()
     if (item === ".sec3-about__img1") {
@@ -107,72 +71,110 @@ $(document).ready(() => {
     })
     return tl;
   }
+  
+  if ($(window).width() >= 1024) {
+    const tl = gsap.timeline({});
 
-  ScrollTrigger.create({
-    trigger: '.sec2-about__img2',
-    // end: "+=1000",
-    markers: false,
-    scrub: true,
-    scroller: "[data-scroll-container]",
-    // animation: aboutValuesSmallImg('.sec2-about__img2'),
-    onEnter: () => {
-      aboutValuesOnEnter('.sec2-about__img2')
-    }
-  });
+    tl.set('.sec1-about__descr', {
+      opacity: 0,
+      y: 10
+    })
+      .set('.sec1-about__about', {
+        opacity: 0,
+        y: 10
+      })
+      .fromTo('.sec1-about__descr', {
+        opacity: 0,
+        y: 10
+      }, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 1.5
+      }, '<')
+      .fromTo('.sec1-about__about', {
+        opacity: 0,
+        y: 10
+      }, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        // delay: 1.5
+      }, '<')
+      .fromTo('.sec1-about__left', {
+        backgroundSize: '355px 335px ',
+      }, {
+        backgroundSize: '395px 373px',
+        duration: 1,
 
-  ScrollTrigger.create({
-    trigger: '.sec2-about__img4',
-    // end: "+=1000",
-    markers: false,
-    scrub: true,
-    scroller: "[data-scroll-container]",
-    // animation: aboutValuesSmallImg('.sec2-about__img4'),
-    onEnter: () => {
-      aboutValuesOnEnterFromRight('.sec2-about__img4')
-    }
-  });
+      }, '<')
 
-  ScrollTrigger.create({
-    trigger: '.sec2-about',
-    // end: "+=1000",
-    markers: false,
-    scrub: true,
-    scroller: "[data-scroll-container]",
-    animation: aboutValuesBigImg('.sec2-about__img1 img'),
-  });
-
-  ScrollTrigger.create({
-    trigger: '.sec2-about__img3',
-    // end: "+=1000",
-    markers: false,
-    scrub: true,
-    scroller: "[data-scroll-container]",
-    animation: aboutValuesBigImg('.sec2-about__img3 img'),
-  });
-
-  gsap.utils.toArray('.values-text-block').forEach((item) => {
     ScrollTrigger.create({
-      trigger: item,
+      trigger: '.sec2-about__img2',
+      // end: "+=1000",
+      markers: false,
+      scrub: true,
+      scroller: "[data-scroll-container]",
+      // animation: aboutValuesSmallImg('.sec2-about__img2'),
+      onEnter: () => {
+        aboutValuesOnEnter('.sec2-about__img2')
+      }
+    });
+  
+    ScrollTrigger.create({
+      trigger: '.sec2-about__img4',
+      // end: "+=1000",
+      markers: false,
+      scrub: true,
+      scroller: "[data-scroll-container]",
+      // animation: aboutValuesSmallImg('.sec2-about__img4'),
+      onEnter: () => {
+        aboutValuesOnEnterFromRight('.sec2-about__img4')
+      }
+    });
+  
+    ScrollTrigger.create({
+      trigger: '.sec2-about',
+      // end: "+=1000",
+      markers: false,
+      scrub: true,
+      scroller: "[data-scroll-container]",
+      animation: aboutValuesBigImg('.sec2-about__img1 img'),
+    });
+  
+    ScrollTrigger.create({
+      trigger: '.sec2-about__img3',
+      // end: "+=1000",
+      markers: false,
+      scrub: true,
+      scroller: "[data-scroll-container]",
+      animation: aboutValuesBigImg('.sec2-about__img3 img'),
+    });
+  
+    gsap.utils.toArray('.values-text-block').forEach((item) => {
+      ScrollTrigger.create({
+        trigger: item,
+        // end: "+=1000",
+        markers: false,
+        scroller: "[data-scroll-container]",
+        animation: textBlockAnim(item)
+      });
+    })
+  
+  
+    ScrollTrigger.create({
+      trigger: '.sec3-about__img1',
       // end: "+=1000",
       markers: false,
       scroller: "[data-scroll-container]",
-      animation: textBlockAnim(item)
+      animation: aboutValuesOnEnter('.sec3-about__img1')
     });
-  })
-
-
-  ScrollTrigger.create({
-    trigger: '.sec3-about__img1',
-    // end: "+=1000",
-    markers: false,
-    scroller: "[data-scroll-container]",
-    animation: aboutValuesOnEnter('.sec3-about__img1')
-  });
-  ScrollTrigger.create({
-    trigger: '.sec3-about__img2',
-    // end: "+=1000",
-    markers: false,
-    scroller: "[data-scroll-container]",
-    animation: aboutValuesOnEnterFromRight('.sec3-about__img2')
-  });
+    ScrollTrigger.create({
+      trigger: '.sec3-about__img2',
+      // end: "+=1000",
+      markers: false,
+      scroller: "[data-scroll-container]",
+      animation: aboutValuesOnEnterFromRight('.sec3-about__img2')
+    });
+  }
 });
