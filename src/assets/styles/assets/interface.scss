@@ -772,3 +772,9 @@
   top:0;
   left: 0;
 }
+
+.tab-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: not-allowed !important;
+}

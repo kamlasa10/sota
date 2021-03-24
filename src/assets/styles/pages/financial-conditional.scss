@@ -101,6 +101,7 @@
                 text-transform: uppercase;
                 color: #EC5629;
                 max-width: 700px;
+                font-weight: 600;
                 line-height: 1.5em;
 
                 @include to(1440px) {
@@ -297,7 +298,8 @@
                 font-size: 20px;
                 line-height: 1.5em;
                 font-weight: 400;
-                width: 77%;
+                width: 92%;
+                padding-left: 56px;
 
                 @include to(1440px) {
                     font-size: 18px;

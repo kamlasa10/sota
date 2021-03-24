@@ -104,7 +104,8 @@ setTimeout(() => {
  }, 100)
 
 $('[name=phone]').each(function() {
-    $(this).inputmask("38(099)999 99 99", { placeholder: "38(0__)___ __ __", clearMaskOnLostFocus: true })
+    $(this).attr('placeholder', '+38(0__)___ __ __')
+    $(this).inputmask("+38(099)999 99 99", { clearMaskOnLostFocus: true })
 })
 
 $('.js-burger-btn').on('click', e => {
@@ -182,10 +183,14 @@ if($(window).width() > 1025) {
         pinType: document.querySelector("[data-scroll-container]").style.transform ? "transform" : "fixed"
     });
 
-    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    ScrollTrigger.addEventListener("refresh", () => window.locoScroll.update());
 
     // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
     ScrollTrigger.refresh();
+
+    setTimeout(() => {
+        window.locoScroll.update()
+    }, 2000)
 }
 
 $(document)[0].addEventListener('click', e => {
