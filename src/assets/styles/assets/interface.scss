@@ -535,6 +535,9 @@
 
 .inner-page{
   padding-top: 165px;
+  @include to(480px){
+    padding-top: 120px;
+  }
 }
 
 .border-decor {

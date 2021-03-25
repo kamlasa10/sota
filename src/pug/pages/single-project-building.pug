@@ -49,8 +49,16 @@ block content
                   +img('single-building/01.jpg')
                 .swiper-slide
                   +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
             .product-gallery__main.swiper-container.js-project-main-slider
               .swiper-wrapper 
+                .swiper-slide
+                  +img('single-building/01.jpg').js-open-big-img
+                .swiper-slide
+                  +img('single-building/01.jpg').js-open-big-img
                 .swiper-slide
                   +img('single-building/01.jpg').js-open-big-img
                 .swiper-slide
@@ -130,7 +138,7 @@ block content
                   .swiper-wrapper 
                     each val in [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
                       .swiper-slide
-                        +img('single-building/plan3.png')
+                        +img('single-building/plan3.png').js-open-big-img
               .project-plan-tab__info 
                 h4.project-plan-tab__title.orange-subtitle Специфікація проєкту
                 ol.project-plan-tab__list.plan-tab-list
