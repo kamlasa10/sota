@@ -1084,6 +1084,7 @@
         }
 
         @include to(480px) {
+          margin-top: 5px;
           margin-bottom: 0;
         }
 
@@ -1127,6 +1128,10 @@
           width: 32%;
           margin-left: -30px;
 
+          @include to(480px) {
+            margin-left: 0;
+          }
+
           &::after {
             content: "";
             position: absolute;
@@ -1169,6 +1174,11 @@
 
             @include to(480px) {
               width: 90%;
+              height: 100px;
+            }
+
+            @include to(320px) {
+              height: 85px;
             }
           }
 
@@ -1209,6 +1219,23 @@
 
             @include to(660px) {
               transform: translateX(10%);
+            }
+
+            @include to(480px) {
+              width: 68%;
+              height: 340px;
+
+              transform: translateX(13%);
+            }
+
+            @include to(375px) {
+              width: 77%;
+              height: 330px;
+            }
+
+            @include to(320px) {
+              width: 70%;
+              height: 280px;
             }
           }
 
@@ -1290,6 +1317,12 @@
 
           @include to(480px) {
             padding-left: 16px;
+            padding-right: 16px;
+            margin-top: 65px;
+          }
+
+          @include to(320px) {
+            margin-top: 55px;
           }
         }
 
@@ -1413,8 +1446,16 @@
           }
 
           @include to(480px) {
-            left: 17%;
-            top: 69px;
+            left: 13%;
+            top: 72px;
+          }
+
+          @include to(375px) {
+            left: 3%;
+          }
+
+          @include to(320px) {
+            left: 4%;
           }
         }
 
@@ -1442,6 +1483,12 @@
 
           @include to(770px) {
             margin-left: 4%;
+          }
+
+          @include to(480px) {
+            margin-left: 0;
+            padding-left: 16px;
+            padding-right: 16px;
           }
 
           &-left {

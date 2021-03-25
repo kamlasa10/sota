@@ -9,7 +9,7 @@ document.addEventListener('click', (e) => {
 
     activeTab = $(`[data-tab-filter=${filterName}]`).index()
     $(`[data-tab-filter=${filterName}]`).trigger('click')
-     
+
     if (isEnd) {
       setTimeout(() => {
         window.locoScroll.scrollTo('.page__inner')
@@ -20,14 +20,28 @@ document.addEventListener('click', (e) => {
 
 let prevHeightBody
 
-window.locoScroll.on('scroll', (e) => {
-  prevHeight = document.body.scrollHeight
-  if (document.body.scrollHeight / 3 <= e.delta.y || e.delta.y < 1000) {
-    isEnd = true
-  } else {
-    isEnd = false
-  }
-})
+if ($(window).width() >= 1025) {
+  window.locoScroll.on('scroll', (e) => {
+    prevHeight = document.body.scrollHeight
+    if (document.body.scrollHeight / 3 <= e.delta.y || e.delta.y < 1000) {
+      isEnd = true
+    } else {
+      isEnd = false
+    }
+  })
+}
+
+if ($(window).width() <= 1024) {
+  document.addEventListener('scroll', () => {
+    prevHeight = document.body.scrollHeight
+    if (document.body.scrollHeight / 3 <= document.documentElement.scrollTop
+      || document.documentElement.scrollTop < 1000) {
+      isEnd = true
+    } else {
+      isEnd = false
+    }
+  })
+}
 
 new SetCountPortion('.projects__item', null, 6)
 
@@ -39,7 +53,7 @@ class ProjectsTabs extends Tabs {
   onTabChange(activeTab) {
     if (activeTab.data().tabFilter) {
       const filterName = activeTab.data().tabFilter
-            
+
       $(`[data-filter]`).each(function () {
         $(this).data().filter === filterName ? $(this).fadeIn(200) : $(this).hide()
       })
@@ -85,7 +99,7 @@ function firstSec() {
     }, {
       scale: 1
     }, 0)
-  
+
 
   return tl
 }

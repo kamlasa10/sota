@@ -572,7 +572,7 @@
           }
 
           @include to(770px) {
-            grid-template-columns: repeat(auto-fit, minmax(340px, 340px));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 330px));
           }
 
           @include to(700px) {
@@ -608,7 +608,15 @@
             height: 223px;
           }
 
+          @include to(660px) {
+            height: 240px;
+          }
+
           @include to(480px) {
+            height: 225px;
+          }
+
+          @include to(320px) {
             height: 200px;
           }
         }

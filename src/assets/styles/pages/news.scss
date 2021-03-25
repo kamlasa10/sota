@@ -6,6 +6,32 @@
             @include to(1440px) {
                 max-width: 1010px;
             }
+
+            @include to(800px) {
+              padding-left: 30px;
+              justify-content: space-between;
+              width: 100%;
+              padding-right: 30px;
+
+              .single-tab-title {
+                font-size: 14px;
+              }
+            }
+
+            @include to(730px) {
+              flex-wrap: wrap;
+              justify-content: flex-start;
+
+              .single-tab-title {
+                font-size: 15px;
+                margin-bottom: 15px;
+                margin-right: 25px;
+
+                &:last-child {
+                  margin-right: 0;
+                }
+              }
+            }
         }
 
         .choise-us__link {
@@ -100,6 +126,10 @@
                     width: 48%;
                 }
 
+              @include to(800px) {
+                width: 72%;
+              }
+
                 &-name,
                 &-date {
                     font-size: 14px;
@@ -143,6 +173,11 @@
                     width: 35%;
                     height: 182px;
                 }
+
+              @include to(800px) {
+                width: 46%;
+                height: 145px;
+              }
 
                 img {
                     width: 100%;

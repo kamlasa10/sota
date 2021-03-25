@@ -93,6 +93,9 @@
     }
 
     @include to(480px) {
+      margin-right: 6px;
+      margin-bottom: 30px;
+
       svg {
         display: block;
         width: 20px;
@@ -127,11 +130,28 @@
       font-weight: 700;
       color: #EC5629;
       text-transform: uppercase;
+
+      @include to(770px) {
+        font-size: 24px;
+      }
+
+      @include to(660px) {
+        font-size: 20px;
+        margin-bottom: 16px;
+      }
+
+      @include to(320px) {
+        font-size: 18px;
+      }
     }
 
     &__desc {
       color: #000;
       text-transform: none;
+
+      @include to(770px) {
+        font-size: 16px;
+      }
     }
   }
 
