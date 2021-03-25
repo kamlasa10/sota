@@ -17,7 +17,19 @@ block scripts
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/single-vacancy.js')
 block content
-    .single-single-vacancy.inner-page
+    .single-vacancy.inner-page
+        .container.single-vacancy__mobile
+            h1.inner-page-title.about__inner-page-title Про компанію
+        .tabs.about__tabs.single-vacancy__mobile.single-vacancy__mobile--correct
+            .tabs__header.header-tabs
+                .header-tabs__single-tab-title.single-tab-title(data-choise="1")
+                    span ПРО нас
+                .header-tabs__single-tab-title.single-tab-title
+                    span Команда
+                .header-tabs__single-tab-title.single-tab-title.active
+                    span Вакансії
+                .header-tabs__single-tab-title.single-tab-title.disabled
+                    span Відгуки
         .single-vacancy__img 
             +img('single-vacancy-img.jpg')
         .container 
@@ -73,7 +85,7 @@ block content
                                 label.popup-contacts__item-label
                                     span Побатькові<sup>*</sup>
                                     input(type="text" data-required="true" name="patronymic")
-                        .popup-contacts__wrap
+                        .popup-contacts__wrap.popup-contacts__wrap--tablet
                             .popup-contacts__item
                                 label.popup-contacts__item-label
                                     span Телефон:<sup>*</sup>

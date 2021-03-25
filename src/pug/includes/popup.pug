@@ -39,7 +39,9 @@
     .popup-thank__desc Наш менеджер зв’яжеться з вами, щойно її отримає!
   .popup-contacts.popup.js-popup(data-popup="contacts")
     .popup-contacts-close-block
-      button(type="button" data-popup-type="contacts").popup-close.js-popup-close.nav__close.btn--res ЗАКРИТИ
+      button(type="button" data-popup-type="contacts").popup-close.js-popup-close.nav__close.btn--res 
+      span ЗАКРИТИ
+      +svg('cross')
     form.popup-contacts__form(data-form="contacts" data-success-type="thank")
       .status-request Запрос в обработке...
       .section-grid
@@ -94,10 +96,13 @@
       .popup-contacts__footer
         .popup-contacts__footer-wrap
           .popup-contacts__footer-text Ми не розповсюджуємо ваші персональні данні
-          button(type="submit").popup-contacts__btn.btn.js-popup-contacts.btn--with-icon.btn--res Відправити
-            span
-            +svg('round')
-        .popup-contacts__item 
+          .popup-contacts__footer-block
+            button(type="submit").popup-contacts__btn.btn.js-popup-contacts.btn--with-icon.btn--res Відправити
+              span
+              +svg('round')
+          .popup-contacts__item.popup-contacts__item--bottom.popup-contacts__item--bottom-mobile
+            label.popup-contacts__item-label <sup>*</sup> обов’язкові для заповнення поля
+        .popup-contacts__item.popup-contacts__item--bottom.popup-contacts__item--bottom--desk
           label.popup-contacts__item-label <sup>*</sup> обов’язкові для заповнення поля
   .popup-project-form.popup.js-popup(data-popup="single-project")
     form.pu-form.popup-project-form__form(data-form="single-project" data-success-type="thank")
