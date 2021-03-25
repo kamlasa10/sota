@@ -868,6 +868,10 @@
           @include to(770px) {
             margin-top: -7px;
           }
+
+          @include to(480px) {
+            
+          }
         }
 
         &-list:first-child {
