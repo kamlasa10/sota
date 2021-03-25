@@ -573,7 +573,11 @@ function projectSec() {
   }
 
   if ($(window).width() <= 770) {
-    imgOffset = '-67%'
+    imgOffset = '-66%'
+  }
+
+  if ($(window).width() <= 660) {
+    imgOffset = '-74%'
   }
 
   tl.fromTo('.project__content-left', {

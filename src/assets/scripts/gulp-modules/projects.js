@@ -235,7 +235,7 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
       createScrollTrigger({
         trigger: sec,
         start: '-1000',
-        end: '+=1100'
+        end: $(window).width() > 1440 ? '+=1100' : '+=1300'
       }, fn)
     }
   }

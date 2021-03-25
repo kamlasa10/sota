@@ -157,6 +157,12 @@ $('.js-popup-btn').on('click', e => {
     $('.header').addClass('show')
 })
 
+document.addEventListener('keydown', e => {
+    if(e.ctrlKey && e.key === 'f' && $(window).width() >= 1025) {
+        window.locoScroll.start()
+    }
+})
+
 if($(window).width() > 1025) {
     window.locoScroll = new LocomotiveScroll({
         el: document.querySelector("[data-scroll-container]"),
