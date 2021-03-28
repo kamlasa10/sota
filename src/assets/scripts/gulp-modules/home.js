@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  if($(window).width() <= 650) {
+  if ($(window).width() <= 650) {
     const swiper = new Swiper('.js-contacts-slider', {
       speed: 500,
       allowTouchMove: true,
@@ -7,21 +7,20 @@ $(document).ready(() => {
       slidesPerView: 1,
       on: {
         init(e) {
-          if(e.activeIndex === 0) {
+          if (e.activeIndex === 0) {
             $('.js-project__prev').attr('disabled', true).addClass('disabled')
           }
         },
         slideChange(e) {
           $('.project__arrow').removeClass('disabled').attr('disabled', false)
 
-          if(e.activeIndex === 0) {
+          if (e.activeIndex === 0) {
             $('.js-project__prev').attr('disabled', true).addClass('disabled')
             return
           }
 
-          if(e.activeIndex === e.slides.length - 1) {
+          if (e.activeIndex === e.slides.length - 1) {
             $('.js-project__next').attr('disabled', true).addClass('disabled')
-            return
           }
         }
       }
@@ -41,7 +40,6 @@ $(document).ready(() => {
     })
   }
 })
-
 
 
 let isFirst = true
@@ -512,16 +510,16 @@ function choiseSec() {
     offsetImg = '-29%'
   }
 
-  if($(window).width <= 1025) {
+  if ($(window).width <= 1025) {
     offsetImg = '-27%'
   }
 
-  if($(window).width() <= 850 && $(window).width() >= 770) {
+  if ($(window).width() <= 850 && $(window).width() >= 770) {
     offsetImg = '-9%'
     offsetX = '90'
   }
 
-  if($(window).width() < 770) {
+  if ($(window).width() < 770) {
     offsetImg = '-9%'
     offsetX = '50'
   }
