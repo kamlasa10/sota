@@ -119,6 +119,25 @@ function createScrollTrigger(opts, fn, scrub = true) {
     scrub,
     animation: fn(),
     ...opts,
-    scroller: "[data-scroll-container]"
+    scroller: $(window).width() >= 1025 ? "[data-scroll-container]" : ''
   })
 }
+
+// adaptive
+
+$(window).on('resize', () => {
+  if ($(window).width() <= 940) {
+    $('.js-financial-container').append($('.financial__intro-title'))
+  }
+
+  if ($(window).width() <= 480) {
+    $('.financial__step-item').each((_, item) => {
+      $(item).append($(item).find('.financial__step-item-desc'))
+    })
+  } else {
+    $('.financial__step-item').each((_, item) => {
+      $(item).find('.financial__step-item-top-content')
+        .append($(item).find('.financial__step-item-desc'))
+    })
+  }
+}).resize()

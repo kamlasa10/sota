@@ -68,7 +68,7 @@ class ProjectsTabs extends Tabs {
   }
 }
 
-new ProjectsTabs($('[data-content-choise]'), $('.header-tabs__single-tab-title'), 'active', currentContent)
+new ProjectsTabs($('[data-content-choise]'), $('.js-projects-tab'), 'active', currentContent)
 
 if (activeTab > 0) {
   $(`[data-tab-filter=${idxElem}]`).trigger('click')

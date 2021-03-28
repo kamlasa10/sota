@@ -1,8 +1,24 @@
 #id-page-financial {
     .financial {
         &__intro {
+            position: relative;
             display: flex;
             align-items: flex-end;
+
+            @include to(940px) {
+              margin-top: 110px;
+            }
+
+            @include to(740px) {
+              margin-top: 30px;
+              flex-direction: column;
+              align-items: flex-start;
+            }
+
+            @include to(480px) {
+              margin-top: 90px;
+              background-color: #333;
+            }
     
             &-left {
                 width: 45%;
@@ -11,12 +27,53 @@
                 @include to(1370px) {
                     width: 44%;
                 }
+
+                @include to(940px) {
+                  position: absolute;
+                  top: -41%;
+                  z-index: 5;
+                }
+
+                @include to(770px) {
+                  top: -32%;
+                }
+
+                @include to(740px) {
+                  position: static;
+                  width: 85%;
+                }
+
+                @include to(480px) {
+                  width: 100%;
+                  transform: translateY(-33%);
+                }
+
+                @include to(320px) {
+                  transform: translateY(-41%);
+                }
             }
 
             img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+
+                @include to(940px) {
+                  width: 91%;
+                  object-fit: contain;
+                }
+
+                @include to(770px) {
+                  width: 96%;
+                }
+
+                @include to(740px) {
+                  width: 80%;
+                }
+
+                @include to(480px) {
+                  width: 86%;
+                }
             }
     
             &-right {
@@ -26,6 +83,24 @@
 
                 @include to(1370px) {
                     width: 56%;
+                }
+
+                @include to(940px) {
+                  width: 85%;
+                  margin-left: auto;
+                  display: flex;
+                  justify-content: flex-end;
+                  background-color: #333;
+                }
+
+                @include to(770px) {
+                  width: 90%;
+                }
+
+                @include to(740px) {
+                  width: 100%;
+                  margin-left: 0;
+                  justify-content: center;
                 }
 
                 img {
@@ -47,6 +122,45 @@
                         width: 48%;
                         height: 76%;
                         bottom: -65%;
+                    }
+
+                    @include to(1025px) {
+                      width: 51%;
+                      height: 62%;
+                      bottom: -51%;
+                    }
+
+                    @include to(940px) {
+                      width: 64%;
+                      height: 200px;
+                      bottom: -100%;
+                      left: 50%;
+                      object-fit: contain;
+                    }
+
+                    @include to(770px) {
+                      width: 41%;
+                      height: 194px;
+                      object-fit: cover;
+                      bottom: -105%;
+                      left: 59%;
+                    }
+
+                    @include to(480px) {
+                      width: 34%;
+                      height: 170px;
+                      bottom: -202%;
+                      left: 66%;
+                    }
+
+                    @include to(375px) {
+                      height: 155px;
+                      bottom: -201%;
+                    }
+
+                    @include to(320px) {
+                      bottom: -140%;
+                      height: 145px;
                     }
                 }
 
@@ -79,6 +193,20 @@
                     @include to(1370px) {
                         align-items: flex-start;
                         padding-left: 80px;
+                    }
+
+                    @include to(940px) {
+                      padding: 35px;
+                      padding-left: 30px;
+                    }
+
+                    @include to(870px) {
+                      padding-right: 15px;
+                    }
+
+                    @include to(480px) {
+                      padding: 16px;
+                      margin-top: -77px;
                     }
                 }
 
@@ -113,6 +241,24 @@
                     padding-left: 80px;
                     max-width: 735px;
                 }
+
+                @include to(940px) {
+                  padding-left: 70px;
+                  margin-bottom: 32px;
+                }
+
+                @include to(600px) {
+                  font-size: 20px;
+                  padding-left: 0;
+                }
+
+                @include to(480px) {
+                  font-size: 18px;
+                }
+
+                @include to(320px) {
+                  font-size: 16px;
+                }
             }
 
             &-desc {
@@ -129,6 +275,19 @@
                     max-width: 542px;
                     margin-left: 0;
                 }
+
+                @include to(940px) {
+                  max-width: 490px;
+                }
+
+                @include to(870px){
+                  max-width: 435px;
+                }
+
+                @include to(770px) {
+                  max-width: 411px;
+                  font-size: 16px;
+                }
             }
         }
 
@@ -138,6 +297,35 @@
             padding-right: 70px;
             margin-top: 85px;
             position: relative;
+
+            @include to(1025px) {
+              margin-bottom: 41px;
+            }
+
+            @include to(940px) {
+              margin-top: 160px;
+            }
+
+            @include to(870px) {
+              padding-left: 20px;
+              padding-right: 20px;
+            }
+
+            @include to(770px) {
+              padding-left: 0;
+              padding-right: 0;
+              margin-bottom: 55px;
+            }
+
+            @include to(660px) {
+              margin-top: 140px;
+              margin-bottom: 30px;
+            }
+
+            @include to(480px) {
+              margin-top: 110px;
+              margin-bottom: 30px;
+            }
 
             // &::after {
             //     content: "";
@@ -157,6 +345,42 @@
                 flex-direction: column;
                 z-index: 2;
 
+                @include to(1025px) {
+                  &:not(:first-child) {
+                    margin-top: -61px;
+                  }
+                }
+
+                @include to(770px) {
+                  &:not(:first-child) {
+                    margin-top: -90px;
+                  }
+                }
+
+                @include to(660px) {
+                  margin-top: 0;
+
+                  &:not(:first-child) {
+                    margin-top: 0;
+                  }
+
+                  &:first-child {
+                    margin-top: 0;
+                  }
+
+                  svg {
+                    display: none;
+                  }
+                }
+
+                @include to(480px) {
+                  margin-bottom: 16px;
+
+                  &:last-child {
+                    margin-bottom: 0;
+                  }
+                }
+
                 &::after {
                     content: "";
                     position: absolute;
@@ -167,6 +391,10 @@
                     width: 2px;
                     background-color: #333;
                     transition: all .4s;
+
+                    @include to(660px) {
+                      display: none;
+                    }
                 }
 
                 &:last-child {
@@ -181,11 +409,31 @@
                         transform: translateX(-50%);
                         width: 2px;
                         background-color: #fff;
+
+                        @include to(660px) {
+                          display: none;
+                        }
+                    }
+
+                    @include to(940px) {
+                      margin-top: -110px;
+                    }
+
+                    @include to(770px) {
+                      margin-top: -125px;
+                    }
+
+                    @include to(660px) {
+                      margin-top: 0;
                     }
                 }
 
                 &--right {
                     align-items: flex-end;
+
+                    @include to(660px) {
+                      align-items: flex-start;
+                    }
                 }
 
                 svg {
@@ -198,6 +446,12 @@
                     width: 17px;
                     height: 17px;
                     z-index: 1;
+
+                    @include to(770px) {
+                      width: 13px;
+                      height: 14px;
+                      right: calc(50% - 13px);
+                    }
                 }
 
                 &:not(:first-child) {
@@ -212,12 +466,24 @@
                     @include to(1370px) {
                         width: 44%;
                     }
+
+                    @include to(940px) {
+                      width: 47%;
+                    }
+
+                    @include to(660px) {
+                      width: 100%;
+                    }
                 }
 
                 &-top {
                     margin-bottom: 16px;
                     display: flex;
                     align-items: flex-start;
+
+                    @include to(480px) {
+                      margin-bottom: -5px;
+                    }
 
                     .number {
                         min-width: 68px;
@@ -228,6 +494,25 @@
                         margin-right: 10px;
                         display: block;
                         transform: translateY(-12px);
+
+                        @include to(770px) {
+                          min-width: 75px;
+                          font-size: 24px;
+                          margin-right: 4px;
+                          transform: translateY(-8px);
+                        }
+
+                        @include to(480px) {
+                          font-size: 18px;
+                          transform: translateY(-2px);
+                          min-width: 55px;
+                        }
+
+                        @include to(320px) {
+                          font-size: 16px;
+                          min-width: 51px;
+                          transform: translateY(-1px);
+                        }
                     }
 
                     .text {
@@ -241,6 +526,14 @@
                 &:not(:first-child) {
                     .number {
                         min-width: 80px;
+
+                        @include to(480px) {
+                          min-width: 56px;
+                        }
+
+                        @include to(320px) {
+                          min-width: 52px;
+                        }
                     }
                 }
 
@@ -251,12 +544,47 @@
         }
 
         &__info {
+            position: relative;
             margin-bottom: 150px;
             display: flex;
+
+            @include to(1025px) {
+              margin-bottom: 90px;
+            }
+
+            @include to(770px) {
+              margin-bottom: 40px;
+            }
 
             &-left {
                 width: 60%;
                 margin-right: -60px;
+
+                @include to(770px) {
+                  width: 55%;
+                }
+
+                @include to(580px) {
+                  width: 100%;
+                }
+
+                @include to(480px) {
+                  & > .container {
+                    display: flex;
+                    margin-top: 137px;
+                    justify-content: center;
+                    padding-left: 16px;
+                  }
+                }
+
+                @include to(320px) {
+                  & > .container {
+                    display: flex;
+                    margin-top: 120px;
+                    justify-content: center;
+                    padding-left: 16px;
+                  }
+                }
 
                 &-wrap {
                     margin-bottom: 68px;
@@ -274,6 +602,23 @@
                     @include to(1280px) {
                         padding-left: 10%;
                     }
+
+                    @include to(1025px) {
+                      padding: 45px;
+                    }
+
+                    @include to(770px) {
+                      margin-bottom: 55px;
+                      padding: 40px 30px;
+                    }
+
+                    @include to(580px) {
+                      padding: 32px 30px;
+                    }
+
+                    @include to(480px) {
+                      padding: 32px 16px;
+                    }
                 }
 
                 .container {
@@ -290,6 +635,10 @@
 
                 &-block {
                     padding-left: 120px;
+
+                    @include to(480px) {
+                      padding-left: 0;
+                    }
                 }
             }
 
@@ -309,12 +658,44 @@
                 @include to(1370px) {
                     width: 98%;
                 }
+
+                @include to(770px) {
+                  width: 100%;
+                  font-size: 16px;
+                  padding-left: 0;
+                }
             }
 
             &-right {
                 position: relative;
                 width: 45%;
                 overflow: hidden;
+
+                @include to(1025px) {
+                  width: 46%;
+                }
+
+                @include to(770px) {
+                  width: 53%;
+                }
+
+                @include to(580px) {
+                  position: absolute;
+                  bottom: 7px;
+                  right: 0;
+                  height: 110px;
+                  width: 210px;
+                }
+
+                @include to(480px) {
+                  bottom: 91px;
+                }
+
+                @include to(320px) {
+                  width: 175px;
+                  height: 90px;
+                  bottom: 96px;
+                }
 
                 img {
                     position: absolute;
@@ -324,13 +705,26 @@
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+
+                    @include to(1025px) {
+                      height: 72%;
+                    }
+
+                    @include to(770px) {
+                      height: 72%;
+                    }
+
+                    @include to(580px) {
+                      height: 100%;
+                      top: 0;
+                    }
                 }
             }
         }
     }
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 1445px) {
+@media screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 1445px) and(min-width: 1100px) {
     #id-page-financial .financial__intro-right img {
         width: 51%;
         height: 89%;

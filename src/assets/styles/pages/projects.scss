@@ -48,6 +48,10 @@
                         }
                     }
 
+                    &--correct {
+                      color: #C4C4C4;
+                    }
+
                     &:last-child {
                         margin-bottom: 0;
                     }
@@ -609,7 +613,7 @@
           }
 
           @include to(660px) {
-            height: 240px;
+            height: 280px;
           }
 
           @include to(480px) {
@@ -688,7 +692,7 @@
 
         &__content {
             position: relative;
-            padding: 24px 21px;
+            padding: 24px 16px;
             background-color: #fff;
             border: 1px solid #C6C5C5;
             border-top-color: transparent;
@@ -708,11 +712,22 @@
 
             &-title {
                 color: #808080;
+                max-width: 75%;
             }
 
             &-desc {
                 color: #333;
                 font-weight: 500;
+                min-width: 25%;
+
+                @include to(1025px) {
+                  min-width: 40%;
+                  text-align: right;
+                }
+
+                @include to(770px) {
+                  min-width: 30%;
+                }
             }
         }
 
