@@ -412,6 +412,10 @@
     margin-bottom: 35px;
   }
 
+  @include to(850px) {
+    font-size: 34px;
+  }
+
   @include to(770px) {
     font-size: 32px;
   }
@@ -780,8 +784,7 @@
   left: 0;
 }
 
-.tab-disabled {
-  opacity: 0.3;
+.disabled {
+  opacity: .5;
   pointer-events: none;
-  cursor: not-allowed !important;
 }

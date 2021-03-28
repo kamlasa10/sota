@@ -71,8 +71,8 @@
     padding: 45px 50px;
   }
 
-  @include to(480px) {
-    padding: 45px 16px;
+  @include to(650px) {
+    padding: 35px 16px;
   }
 
   .section-grid {
@@ -87,6 +87,26 @@
     color: #333;
     position: static;
     letter-spacing: 0.06em;
+
+    svg {
+      display: none;
+    }
+
+    @include to(480px) {
+      margin-right: 6px;
+      margin-bottom: 30px;
+
+      svg {
+        display: block;
+        width: 20px;
+        height: 20px;
+        stroke: #808080;
+      }
+
+      span {
+        display: none;
+      }
+    }
   }
 
   &-thank {
@@ -110,11 +130,28 @@
       font-weight: 700;
       color: #EC5629;
       text-transform: uppercase;
+
+      @include to(770px) {
+        font-size: 24px;
+      }
+
+      @include to(660px) {
+        font-size: 20px;
+        margin-bottom: 16px;
+      }
+
+      @include to(320px) {
+        font-size: 18px;
+      }
     }
 
     &__desc {
       color: #000;
       text-transform: none;
+
+      @include to(770px) {
+        font-size: 16px;
+      }
     }
   }
 
@@ -168,6 +205,10 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+
+      @include to(480px) {
+        flex-direction: column;
+      }
     }
 
     &__item {
@@ -182,7 +223,7 @@
         width: 47%;
       }
 
-      @include to(414px) {
+      @include to(480px) {
         width: 100%;
       }
 
@@ -286,6 +327,14 @@
         align-items: center;
         margin-top: 25px;
 
+        @include to(770px) {
+          width: 80%;
+        }
+
+        @include to(480px) {
+          margin-bottom: 11px;
+        }
+
         .popup-contacts__item-label {
           cursor: pointer;
           margin-right: 32px;
@@ -311,6 +360,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            @include to(480px) {
+              margin-bottom: 16px;
+            }
 
             &::before {
               content: "";
@@ -348,11 +401,40 @@
       &-wrap {
         display: flex;
         justify-content: space-between;
+
+        @include to(480px) {
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
       }
 
       .popup-contacts__item {
         margin-bottom: 0;
         margin-top: -15px;
+
+        &--bottom {
+          margin-top: 0;
+          order: 1;
+
+          &--desk {
+            display: block;
+          }
+
+          &--mobile {
+            display: none;
+          }
+
+          @include to(480px) {
+            &--desk {
+              display: none;
+            }
+
+            &--mobile {
+              display: block;
+            }
+          }
+        }
       }
 
       .popup-contacts__btn {
@@ -365,10 +447,24 @@
             right: 19px;
           }
         }
+
+        @include to(770px) {
+          transform: translateY(10px);
+        }
+
+        @include to(480px) {
+          order: 1;
+          display: inline-flex;
+          transform: translateY(0);
+        }
       }
 
       .popup-contacts__btn {
         line-height: 4.2em;
+
+        @include to(480px) {
+          order: 2;
+        }
       }
     }
   }
@@ -450,6 +546,24 @@
       z-index: 3;
     }
   }
+}
 
+
+.popup-contacts__footer {
+  @include to(480px) {
+    display: flex;
+    flex-direction: column;
+
+    &-text {
+      margin-bottom: 15px;
+    }
+
+    &-block {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      order: 2;
+    }
+  }
 }
 

@@ -66,23 +66,23 @@ setTimeout(() => {
     stagger: 0.3,
     y: '-100%'
   })
-  tl.to('.bg-for-finish-animate', {
+  .to('.bg-for-finish-animate', {
     duration: 1.5,
     x: '100%',
     ease: Power1.ease
-   }, 1.4).to('#Preloader', {
+  }, 1.4).to('#Preloader', {
     duration: 1.1,
     x: offsetX
   }, 1.4)
-  .to('.preloader-bg', {
-    duration: 0.8,
-    opacity: 0,
-    zIndex: -100
-  }, 1.8)
-  .to('#Preloader', {
-    opacity: 0,
-    zIndex: -100
-  }, 1.6)
+    .to('.preloader-bg', {
+      duration: 0.8,
+      opacity: 0,
+      zIndex: -100
+    }, 1.8)
+    .to('#Preloader', {
+      opacity: 0,
+      zIndex: -100
+    }, 1.6)
   .fromTo('.header', {
     y: '-80',
     opacity: 0
@@ -99,8 +99,6 @@ setTimeout(() => {
     duration: 1.3,
     opacity: 1
   }, 1.7)
-
-
  }, 100)
 
 $('[name=phone]').each(function() {
@@ -155,6 +153,12 @@ $('.js-popup-btn').on('click', e => {
     $('.overlay').addClass('overlay--show')
 
     $('.header').addClass('show')
+})
+
+document.addEventListener('keydown', e => {
+    if(e.ctrlKey && e.key === 'f' && $(window).width() >= 1025) {
+        window.locoScroll.start()
+    }
 })
 
 if($(window).width() > 1025) {

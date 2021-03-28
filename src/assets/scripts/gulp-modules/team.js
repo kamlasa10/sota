@@ -42,6 +42,7 @@
 
         prevDirectionScroll = e.deltaY
     		})
+      // eslint-disable-next-line no-mixed-spaces-and-tabs
     	})
 
     	$('.team__info-wrap')[0].addEventListener('mouseleave', () => {
@@ -80,29 +81,37 @@
           init(e) {
             e.slides.forEach((item) => {
               $(item).find('.team__content-wrap').hide()
+              $(item).find('.team__socials').hide()
             })
             $('.swiper-slide-active').find('.team__content-wrap').show()
+            $('.swiper-slide-active').find('.team__socials').show()
           },
           slideChange(e) {
             e.slides.forEach((item) => {
               $(item).find('.team__content-wrap').hide()
+              $(item).find('.team__socials').hide()
             })
 
-            let activeSlide
-            console.log(e.slides.length)
-
-            if (Math.ceil(e.slides.length / 2 + 2) < e.snapIndex) {
-              $(e.slides[1]).find('.team__content-wrap').show()
-
-              return
+            if (e.swipeDirection === 'next') {
+              $('.swiper-slide-active').next().find('.team__content-wrap').fadeIn(200)
+              $('.swiper-slide-active').next().find('.team__socials').fadeIn(200)
+            } else {
+              $('.swiper-slide-active').prev().find('.team__content-wrap').fadeIn(200)
+              $('.swiper-slide-active').prev().find('.team__socials').fadeIn(200)
             }
 
-            if (e.previousIndex === 1 && !e.activeIndex) {
-              $(e.slides[1]).find('.team__content-wrap').show()
-              return;
-            }
-
-            $(e.slides[e.activeIndex]).find('.team__content-wrap').show()
+            // if (Math.ceil(e.slides.length / 2) < e.realIndex) {
+            //   $(e.slides[1]).find('.team__content-wrap').fadeIn(200)
+            //
+            //   return
+            // }
+            //
+            // if (e.previousIndex === 1 && !e.realIndex) {
+            //   $(e.slides[1]).find('.team__content-wrap').fadeIn(200)
+            //   return;
+            // }
+            //
+            // $(e.slides[e.activeIndex]).find('.team__content-wrap').fadeIn(200)
           }
         }
       })
