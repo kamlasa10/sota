@@ -5,6 +5,12 @@
 		}
 		&__header{
 			margin-bottom: 60px;
+			@include to(992px){
+				margin-bottom: 49px;
+			}
+			@include to(640px){
+				margin-bottom: 28px;
+			}
 		}
 	}
 
@@ -14,11 +20,35 @@
 		display: flex;
 		padding-bottom: 90px;
 		position: relative;
+		@include to(992px){
+			padding-bottom: 0px;
+			margin-bottom: 40px;
+			background: #333333;
+		}
+		@include to(640px){
+			flex-direction: column-reverse;
+			background: #fff;
+			position: relative;
+		}
+	}
+
+	&__link{
+		@include to(640px){
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 8px;
+			width: 190px;
+		}
+
 	}
 
 	&__map{
 		width: 100%;
 		height: 100%;
+		@include to(640px){
+			min-height: 230px;
+		}
 		
 	}
 
@@ -34,9 +64,32 @@
 		height: 400px;
 		.socials__link{
 			background-color: #EC5629;
+			@include to(992px){
+				margin-bottom: 0;
+			}
 			&:hover{
 				background-color: #d03e12;
 			}
+		}
+		.socials__link + .socials__link{
+			@include to(992px){
+				margin-left: 8px;
+			}
+		}
+		@include to(992px){
+			background: none;
+			position: absolute;
+			bottom: 120px;
+			height: auto;
+			width: auto;
+			padding: 0;
+			right: auto;
+			left: 40px;
+			display: flex;
+			
+		}
+		@include to(640px){
+			display: none;
 		}
 	}
 
@@ -45,18 +98,40 @@
 		padding-top: 60px;
 		padding-bottom: 45px;
 		padding-right: 100px;
+		@include to(992px){
+			padding-right: 22px;
+			width: 67%;
+			padding-top: 79px;
+			padding-bottom: 210px;
+		}
+		@include to(640px){
+			width: 100%;
+			padding-right: 0;
+			padding-top: 0;
+			padding-bottom: 94px;
+		}
 	}
 
 	&__content{
+		@include to(992px){
+			position: relative;
+		}
 		.container{
 			max-width: 100%;
 			padding-left: 0;
 			padding-right: 13%;
+			@include to(992px){
+				padding-right: 0;
+			}
+
 		}
 	}
 
 	&__content-wrapper, &__map-wrapper{
 		background: #333333;
+		@include to(640px){
+			background: #FFFFFF;
+		}
 
 	}
 
@@ -65,6 +140,19 @@
 		margin-left: auto;
 		padding-top: 50px;
 		padding-bottom: 30px;
+		@include to(992px){
+			padding-top: 72px;
+			padding-right: 50px;
+			padding-bottom: 72px;
+		}
+		@include to(640px){
+			width: 100%;
+			padding-right: 16px;
+			padding-left: 16px;
+			padding-top: 0;
+			padding-bottom: 0;
+			margin-bottom: 24px;
+		}
 
 	}
 
@@ -77,6 +165,14 @@
 		letter-spacing: 0.02em;
 		font-family: 'Druk Text Wide Cyr', sans-serif;
 		margin-bottom: 40px;
+		@include to(992px){
+			font-size: 24px;
+			margin-bottom: 24px;
+		}
+		@include to(640px){
+			font-size: 18px;
+			margin-bottom: 16px;
+		}
 	}
 
 	&__subtitle{
@@ -89,6 +185,9 @@
 		position: relative;
 		margin-bottom: 12px;
 		display: block;
+		@include to(640px){
+			font-size: 10px;
+		}
 		&::before{
 			position: absolute;
 			content: '';
@@ -97,6 +196,9 @@
 			background: #B3B3B3;
 			left: 0;
 			top: 7px;
+			@include to(640px){
+				top: 5px
+			}
 		}
 	}
 
@@ -106,6 +208,9 @@
 
 	&__adress{
 		margin-bottom: 40px;
+		@include to(992px){
+			margin-bottom: 12px;
+		}
 	}
 }
 
@@ -119,15 +224,28 @@
 		letter-spacing: 0.04em;
 		flex-basis: 100px;
 		margin-right: 15px;
+		@include to(992px){
+			flex-basis: auto;
+			margin-bottom: 8px;
+		}
+		@include to(640px){
+			color: #333;
+		}
 	}
 
 	&__item{
 		display: flex;
 		align-items: flex-start;
+		@include to(992px){
+			flex-direction: column;
+		}
 	}
 
 	&__item + &__item{
 		margin-top: 30px;
+		@include to(992px){
+			margin-top: 16px;
+		}
 	}
 
 	&__val{

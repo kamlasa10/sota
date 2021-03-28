@@ -1,6 +1,12 @@
 .word{
 	&__inner-page-title{
 		margin-bottom: 35px;
+		@include to(992px){
+			margin-bottom: 32px;
+		}
+		@include to(640px){
+			margin-bottom: 24px;
+		}
 	}
 
 	&__tabs{

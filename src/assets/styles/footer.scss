@@ -164,6 +164,9 @@
       align-items: center;
       padding-bottom: 40px;
     }
+    @include to(480px){
+      padding-top: 40px;
+    }
   }
 
   &__right {

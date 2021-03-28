@@ -29,6 +29,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			text-align: center;
 		}
 	}
 }
@@ -156,6 +157,7 @@
 		}
 		@include to(480px){
 			padding-top: 0;
+			padding-bottom: 40px;
 		}
 	}
 }
@@ -638,6 +640,9 @@
 		@include to(992px){
 			margin-bottom: 20px;
 		}
+		@include to(480px){
+			margin-bottom: 0;
+		}
 	}
 	&__row{
 		@include row-flex();
@@ -654,13 +659,19 @@
 			}
 			@include to(480px){
 				.sec3-about__col_2{
+					@include size(12);
 					max-width: 100%;
-					margin-left: 0;
+					margin-left: 15px;
 				}
 			}
 		}
 		&_2{
 			margin-bottom: 15px;
+		}
+		&_2{
+			.sec3-about__list{
+				margin-bottom: 0;
+			}
 		}
 	}
 	&__col{
@@ -683,6 +694,14 @@
 				@include to(992px){
 					margin-bottom: 30px;
 				}
+				@include to(480px){
+					margin-bottom: 0;
+				}
+			}
+		}
+		&_5{
+			@include to(480px){
+				display: none;
 			}
 		}
 		&_6{
@@ -708,6 +727,9 @@
 		@include to(992px){
 			margin-top: 8px;
 		}
+		@include to(480px){
+			margin-top: 16px;
+		}
 	}
 	&__item{
 		counter-increment: my-awesome-counter;
@@ -720,6 +742,8 @@
 		max-width: 350px;
 		@include to(480px){
 			color: #B3B3B3;
+			padding-left: 40px;
+			font-weight: 400;
 		}
 		&_wide{
 			max-width: 430px;
@@ -743,6 +767,9 @@
 		max-width: inherit;
 		@include to(992px){
 			height: 145px;
+		}
+		@include to(480px){
+			display: none;
 		}
 	}
 	&__img2{
@@ -771,6 +798,9 @@
 		margin-left: 55px;
 		@include to(992px){
 			margin-top: 30px;
+		}
+		@include to(480px){
+			margin-top: 16px;
 		}
 	}
 }

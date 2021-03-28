@@ -555,7 +555,9 @@ class TabChange {
       const containerItem = document.querySelector(container);
       const tabHeight = activeTabItem.offsetHeight;
       containerItem.style.height = `${tabHeight}px`;
-      window.locoScroll.update();
+      if ($(window).witdth > 1025){
+          window.locoScroll.update();
+      }
     }
 
     tabSwitch(tabClass, btnClass, containerClass) {
@@ -572,8 +574,10 @@ class TabChange {
           const activeHref = this.getAttribute('href');
           const activeTab = document.querySelector(`[data-tab="${activeHref}"]`);
           activeTab.classList.add('active');
-          self.setTabHeight(`${tabClass}.active`, containerClass)
-          window.locoScroll.update();
+          self.setTabHeight(`${tabClass}.active`, containerClass);
+          if ($(window).witdth > 1025){
+            window.locoScroll.update();
+            }
         })
       })
     }
