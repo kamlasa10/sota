@@ -2,6 +2,19 @@
     color: #808080;
 
     .single-vacancy {
+
+        &__mobile {
+            display: none;
+
+            @include to(480px) {
+                display: block;
+
+                &--correct {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
         &__img {
             margin-bottom: 45px;
             height: 350px;
@@ -10,10 +23,15 @@
 
             img {
                 height: 100%;
+                object-fit: cover;
             }
 
             @include to(1440px) {
                 height: 305px;
+            }
+
+            @include to(480px) {
+                display: none;
             }
         }
 
@@ -36,6 +54,14 @@
             color: #808080;
             font-weight: 500;
             text-decoration: none;
+
+            @include to(600px) {
+                margin-bottom: 0;
+            }
+
+            @include to(480px) {
+                margin-left: 18px;
+            }
 
             svg {
                 width: 45px;
@@ -62,6 +88,11 @@
             @include to(1440px) {
                 font-size: 24px;
             }
+
+            @include to(600px) {
+                font-size: 20px;
+                margin-bottom: 13px;
+            }
         }
 
         &__desc {
@@ -69,6 +100,14 @@
 
             &-item {
                 margin-bottom: 32px;
+
+                @include to(770px) {
+                    margin-bottom: 24px;
+                }
+
+                @include to(600px) {
+                    margin-bottom: 15px;
+                }
 
                 &:last-child {
                     margin-bottom: 0;
@@ -80,6 +119,14 @@
                     color: #333;
                     font-weight: 700;
                     margin-bottom: 16px;
+
+                    @include to(770px) {
+                        margin-bottom: 10px;
+                    }
+
+                    @include to(320px) {
+                        font-size: 18px;
+                    }
                 }
             }
 
@@ -95,14 +142,50 @@
                 padding-right: 28%;
                 font-weight: 700;
                 color: #333;
+
+                @include to(770px) {
+                    margin-bottom: 40px;
+                    padding-right: 0;
+                }
             }
         }
 
         &__form {
             margin-bottom: 97px;
 
+            @include to(600px) {
+                margin-bottom: 50px;
+            }
+
             &-wrap {
                 max-width: 950px;
+
+                @include to(770px) {
+                    .popup-contacts__item-wrap .popup-contacts__item-file {
+                        width: 28%;
+                    }
+                    margin-right: 70px;
+                }
+
+                @include to(600px) {
+                    margin-right: 20px;
+                }
+
+                @include to(480px) {
+                    margin-right: 0;
+
+                    .popup-contacts__item-wrap .popup-contacts__item-file {
+                        width: 100%;
+                        margin-right: 0;
+                        padding-right: 0;
+                        justify-content: flex-start;
+                        margin-bottom: 20px;
+
+                        .popup-contacts__item-wrap {
+                            margin-bottom: -20px !important;
+                        }
+                    }
+                }
             }
 
             &-title {
@@ -116,17 +199,47 @@
                 @include to(1440px) {
                     font-size: 24px;
                 }
+
+                @include to(770px) {
+                    margin-bottom: 25px;
+                }
+
+                @include to(600px) {
+                    font-size: 20px;
+                }
+
+                @include to(320px) {
+                    font-size: 18px;
+                }
             }
 
             .popup-contacts__title {
                 margin-bottom: 18px;
+
+                @include to(480px) {
+                    margin-bottom: 13px;
+                }
             }
 
             .popup-contacts__wrap {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(193px, 1fr));
                 column-gap: 29px;
                 row-gap: 22px;
+
+                @include to(770px) {
+                    column-gap: 20px;
+
+                    &--tablet {
+                        grid-template-columns: 198px 1fr;
+                    }
+                }
+
+                @include to(600px) {
+                    grid-template-columns: 1fr;
+                    column-gap: 0;
+                    row-gap: 0;
+                }
             }
 
             .popup-contacts__item {
@@ -146,10 +259,25 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+
+                @include to(480px) {
+                    margin-top: 32px;
+                    .single-vacancy__share {
+                        display: none;
+                    }
+                }
             }
 
             &-info {
                 margin-bottom: 25px;
+
+                @include to(600px) {
+                    margin-bottom: 16px;
+                }
+
+                @include to(480px) {
+                    margin-top: -15px;
+                }
             }
 
             &-text {
@@ -168,7 +296,7 @@
 
     span:first-child {
         margin-right: 16px;
-        font-family: $tt-first-neue;
+        font-family: $default-font;
         font-size: 20px;
         line-height: 1.4em;
         color: #808080;

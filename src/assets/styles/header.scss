@@ -107,7 +107,7 @@
     height: 70px;
     transition: all .4s;
     position: absolute;
-    left: 50%;
+    left: calc(50% - 7px);
     transform: translateX(-50%);
     transition: all .4s;
 

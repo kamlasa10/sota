@@ -1,9 +1,4 @@
 footer.footer#footer
-  button(type="button").btn-top.btn--res.js-btn-top
-    +svg('rhombus').btn-top__rhombus
-    span.btn-top__span
-      +svg('icon-top').btn-top__icon
-      span наверх
   .footer__wrap
     .footer__left
       .footer__left-wrap
@@ -21,23 +16,26 @@ footer.footer#footer
     .footer__right
       .footer__right-wrap
         .footer__item
-          .footer__item-name Про компанію
+          .footer__item-name.footer__item-name--short Про компанію
           a(href="#").footer__item-link Про нас
           a(href="#").footer__item-link Команда
           a(href="#").footer__item-link Вакансії
           a(href="#").footer__item-link Відгуки
-        .footer__item
+        .footer__item.js-footer__item--services-block
           .footer__item-name Наші послуги
           a(href="#").footer__item-link Проектування будинку
           a(href="#").footer__item-link Будівництво під ключ
-        .footer__item
+          .footer__item-name.footer__item-name--tablet Фінансові умови
+          a(href="#").footer__item-name.footer__item-name--tablet Партнери
+        .footer__item.js-footer__item--projects-block
           .footer__item-name Наші будинки
           a(href="#").footer__item-link Проекти будинків
           a(href="#").footer__item-link Побудовані будинки
-        .footer__item
-          .footer__item-name Фінансові умови
-          a(href="#").footer__item-name Партнери
-          a(href="#").footer__item-name Новини
+          a(href="#").footer__item-name.footer__item-name--tablet Новини
+        .footer__item.js-footer__item--info
+          .footer__item-name.footer__item--desk Фінансові умови
+          a(href="#").footer__item-name.footer__item--desk Партнери
+          a(href="#").footer__item-name.footer__item--desk Новини
       .footer__right-bottom
         p SOTA CONSTRUCTION, 2021
         p <a href="https://smarto.agency/">Developed by SMART ORANGE</a>

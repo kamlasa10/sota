@@ -25,7 +25,7 @@ block scripts
   script(defer src='./assets/scripts/home.js')
 block content
   section.main
-    .socials
+    .socials.socials__main
       a(href="#").socials__link
         +svg('fb')
       a(href="#").socials__link
@@ -87,7 +87,7 @@ block content
             .choise-us__item--1-right-content
               p <span>Sota Construction</span> - молода технологічна компанія, яка займається будівництвом сучасних, естетичних і функціональних будинків.
               p Ми створюємо заміські будинки, які служать продовженням особистості людини.
-            a(href="#").choise-us__link.btn--with-icon Детальніше про компанію
+            a(href="#").choise-us__link.choise-us__link--desk.btn--with-icon Детальніше про компанію
               span
               +svg('round')
 
@@ -116,7 +116,7 @@ block content
           .choise-us__item--2-right
             .choise-us__item--2-img
               +img('choise-us--2-img.png')
-            a(href="#").choise-us__link.btn--with-icon Детальніше про компанію
+            a(href="#").choise-us__link.choise-us__link--desk.btn--with-icon Детальніше про компанію
               span
               +svg('round')
         .choise-us__item.choise-us__item--3(data-content-choise="3")
@@ -173,11 +173,15 @@ block content
                   b.choise-us__item--3-block-number / 12
                   .choise-us__item--3-block-desc Охайне будівництво на усіх етапах із акуратними будівельниками
               div.choise-us__item--3-bottom-left-wrap
-                a(href="#").choise-us__link.btn--with-icon Детальніше про компанію
+                a(href="#").choise-us__link.choise-us__link--desk.btn--with-icon Детальніше про компанію
                   span
                   +svg('round')
             .choise-us__item--3-bottom-right 
               +img('chouse-us--3-img-bottom.jpg')
+        .choise-us__block-mobile
+          .a(href="#").choise-us__link-mobile.choise-us__link.btn--with-icon Детальніше про компанію
+            span
+            +svg('round')
   section.project(data-section="project")
     .project__wrap
       .container
@@ -189,30 +193,37 @@ block content
             p.project__desc.project__desc--none.desc-with-border Беручи за основу прості лаконічні форми, ми створюємо продуманий світ, призначений для вашого життя в ньому.
           .project__content-right
             +img('project-pattern.png')
-        ul.project__list
-          li.project__item
-            .project__img
-              .project__img--hover 
-                a(href="#").choise-us__link.btn--with-icon.choise-us__link.btn--with-icon-white Відкрити
-                  span
-                  +svg('round')
-              a(href="#")
-                +img('/projects/project-img.png')
-              .project__info 201 м<sup>2</sup>
-            a(href="#").project__name SOTA 001
-          li.project__item
-            .project__img
-              .project__img--hover 
-                a(href="#").choise-us__link.btn--with-icon.choise-us__link.btn--with-icon-white Відкрити
-                  span
-                  +svg('round')
-              +img('/projects/project-img2.png')
-              .project__info 280 м<sup>2</sup>
-            a(href="#").project__name Sota 002
+        .swiper-container.js-contacts-slider
+          ul.project__list.js-project__list.swiper-wrapper
+            li.project__item.swiper-slide
+              .project__img
+                .project__img--hover 
+                  a(href="#").choise-us__link.btn--with-icon.choise-us__link.btn--with-icon-white Відкрити
+                    span
+                    +svg('round')
+                a(href="#")
+                  +img('/projects/project-img.png')
+                .project__info 201 м<sup>2</sup>
+              .project__item-mobile
+                a(href="#").project__name SOTA 001
+            li.project__item.swiper-slide
+              .project__img
+                .project__img--hover 
+                  a(href="#").choise-us__link.btn--with-icon.choise-us__link.btn--with-icon-white Відкрити
+                    span
+                    +svg('round')
+                +img('/projects/project-img2.png')
+                .project__info 280 м<sup>2</sup>
+              .project__item-mobile
+                a(href="#").project__name Sota 002
         .project__block
           a(href="#").project__link.btn--with-icon Всі наші проЄкти
             span
             +svg('round')
+        button.project__prev.project__arrow.js-project__prev.btn--res
+          +svg('slider-arrow')
+        button.project__next.project__arrow.js-project__next.btn--res
+          +svg('slider-arrow')
   section.contacts(data-section="contacts")
     .contacts__bg
     .container
@@ -227,11 +238,11 @@ block content
             li.contacts__item
               .contacts__item-title Адреса
               .contacts__item-content
-                p Київ, вул. Глибочицька, 40Г
+                p Київ, вул. Глибочицька, 40Г, 3 поверх, оф. 13
             li.contacts__item
               .contacts__item-title Телефон
               .contacts__item-content
-                a(href="tel:380673132938") Головний офіс: +38067 313 29 38
+                a(href="tel:380673132938") <span class="contacts__text">Головний офіс:</span>+38067 313 29 38
             li.contacts__item.contacts__item--top
               .contacts__item-title Працюємо
               .contacts__item-content пн-пт. 9:00 до 20:00 <br> сб. 10:00 до 17:00 <br> нд. вихідний

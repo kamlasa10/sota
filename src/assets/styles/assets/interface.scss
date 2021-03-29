@@ -35,7 +35,6 @@
   }
   &__radio-btn-wrapper{
     flex-basis: 50%;
-   
   }
 }
 
@@ -153,21 +152,26 @@
 
 }
 
-
 #Preloader {
   position: absolute;
-  width: 310px;
+  width: 520px;
   height: 320px;
   left: 50%;
-  z-index: 5;
   top: 50%;
   transform: translate(-50%, -50%) scale(0.75);
   transform-origin: center center;
   z-index: 1001;
+  display: flex;
   overflow: hidden;
 
   svg {
     padding: 2px;
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
     width: 100%;
     height: 100%;
     outline: none;
@@ -182,10 +186,22 @@
     left: 0;
     right: 0;
     bottom: 0;
-    width: 120%;
+    width: 130px;
     height: 120%;
     background-color: #fff;
     z-index: 1002;
+
+    &--2 {
+      left: 130px;
+    }
+
+    &--3 {
+      left: 260px;
+    }
+
+    &--4 {
+      left: 390px;
+    }
   }
 }
 @media (max-width: 767px) {
@@ -229,6 +245,7 @@
 	display: flex;
 	flex-direction: column;
 	z-index: 2;
+  min-height: 100vh;
 	.page__content {
 		flex-grow: 1;
 	}
@@ -389,6 +406,31 @@
   @include to(1440px) {
     font-size: 36px;
   }
+
+  @include  to(1025px) {
+    margin-bottom: 35px;
+  }
+
+  @include to(850px) {
+    font-size: 34px;
+  }
+
+  @include to(770px) {
+    font-size: 32px;
+  }
+
+  @include to(765px) {
+    font-size: 25px;
+  }
+
+  @include to(480px) {
+    font-size: 20px !important;
+    line-height: 2em;
+  }
+
+  @include to(320px) {
+    font-size: 18px !important;
+  }
 }
 
 .section-grid {
@@ -426,6 +468,10 @@
       left: 80.3%;
     }
   }
+
+  @include to(770px) {
+    display: none;
+  }
 }
 
 .desc-with-border {
@@ -441,6 +487,15 @@
 
     @include to(1440px) {
       min-width: 80px;
+    }
+
+    @include to(770px) {
+      margin-right: 8px;
+      min-width: $border-red-width-tablet;
+    }
+
+    @include to(480px) {
+      min-width: $border-red-width-mobile;
     }
   }
 }
@@ -480,6 +535,12 @@
 
 .inner-page{
   padding-top: 165px;
+  @include to(992px){
+    padding-top: 140px;
+  }
+  @include to(480px){
+    padding-top: 120px;
+  }
 }
 
 .border-decor {
@@ -511,6 +572,11 @@
     align-items: center;
     label{
       cursor: pointer;
+    }
+    &__text{
+      &_with-question{
+        display: flex;
+      }
     }
     &__circle{
       position: relative;
@@ -714,11 +780,15 @@
     }
   }
 }
-
 .hidden-link{
   opacity: 0;
   pointer-events: none;
   position: absolute;
   top:0;
   left: 0;
+}
+
+.disabled {
+  opacity: .5;
+  pointer-events: none;
 }

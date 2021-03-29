@@ -19,7 +19,7 @@ class ProjectsTabs extends Tabs {
   }
 
   trigger() {
-    super.trigger(this.onTabChange, activeTab)
+    super.trigger(this.onTabChange)
   }
 }
 

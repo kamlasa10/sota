@@ -49,16 +49,24 @@ block content
                   +img('single-building/01.jpg')
                 .swiper-slide
                   +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
+                .swiper-slide
+                  +img('single-building/01.jpg')
             .product-gallery__main.swiper-container.js-project-main-slider
               .swiper-wrapper 
                 .swiper-slide
-                  +img('single-building/01.jpg')
+                  +img('single-building/01.jpg').js-open-big-img
                 .swiper-slide
-                  +img('single-building/01.jpg')
+                  +img('single-building/01.jpg').js-open-big-img
                 .swiper-slide
-                  +img('single-building/01.jpg')
+                  +img('single-building/01.jpg').js-open-big-img
                 .swiper-slide
-                  +img('single-building/01.jpg')
+                  +img('single-building/01.jpg').js-open-big-img
+                .swiper-slide
+                  +img('single-building/01.jpg').js-open-big-img
+                .swiper-slide
+                  +img('single-building/01.jpg').js-open-big-img
               .product-gallery__controls.cntrl-prod-gal
                 button.cntrl-prod-gal__arrow.cntrl-prod-gal__arrow_prev
                   +svg('prod-gal-arrow')
@@ -78,11 +86,9 @@ block content
                 td Вартість ескізного проекту
                 td 26 700 грн
               tr 
-                td Термін підготовки робочого проєкту
+                td 
+                  span.table-build-descr__prep-text Термін підготовки робочого проєкту
                 td 38 робочих днів
-              tr 
-                td Термін будівництва
-                td 6 місяців
               tr 
                 td(colspan="2").table-build-descr__colspan Вартість будівництва будинку в комплектації:
               tr 
@@ -90,7 +96,12 @@ block content
                   .radio-btn-wrapper.table-build-descr__radio-btn-wrapper
                     input(type="radio" id="sotaoptima" class="js-active-choise-plan" checked name="sota" data-price="125000")
                     label(for="sotaoptima").radio-btn-wrapper__circle
-                    label(for="sotaoptima").radio-btn-wrapper__text Sota Optima
+                    label(for="sotaoptima").radio-btn-wrapper__text.radio-btn-wrapper__text_with-question Sota Optima
+                      .question-popup 
+                        .question-popup__question-mark 
+                         +svg('question')
+                        .question-popup__dialog
+                          span Деталі про Sota Optima та Sota Prime дивитися у розділі Комплектація та спеціфікація проекту
                   .radio-btn-wrapper.table-build-descr__radio-btn-wrapper
                     input(type="radio" id="sotaprime" name="sota" data-price="175000")
                     label(for="sotaprime").radio-btn-wrapper__circle
@@ -104,13 +115,13 @@ block content
   .sb-ss 
     .container 
       .tabs.sb-ss__tabs
-        .tabs__header.header-tabs
+        .tabs__header.header-tabs.single-project-tabs
           a(href="#tab-plan").header-tabs__single-tab-title.single-tab-title.active.js-proj-tab-btn
             span Планування
-          a(href="#tab-specs").header-tabs__single-tab-title.single-tab-title.js-proj-tab-btn
-            span Комплектації та специфікація проєкту
           a(href="#tab-about").header-tabs__single-tab-title.single-tab-title.js-proj-tab-btn
             span Опис проєкту
+          a(href="#tab-specs").header-tabs__single-tab-title.single-tab-title.js-proj-tab-btn
+            span Комплектації та специфікація проєкту
           a(href="#tab-sklad").header-tabs__single-tab-title.single-tab-title.js-proj-tab-btn
             span Складова проєкту
         .tabs__body.body-tabs.js-proj-tab-content
@@ -132,7 +143,7 @@ block content
                   .swiper-wrapper 
                     each val in [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
                       .swiper-slide
-                        +img('single-building/plan3.png')
+                        +img('single-building/plan3.png').js-open-big-img
               .project-plan-tab__info 
                 h4.project-plan-tab__title.orange-subtitle Специфікація проєкту
                 ol.project-plan-tab__list.plan-tab-list
