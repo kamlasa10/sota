@@ -282,11 +282,20 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
         }, fn)
       }
 
-      if ($(window).width() < 1025) {
+
+      if ($(window).width() < 1025 && $(window).width() > 770) {
         createScrollTrigger({
           trigger: sec,
           start: '-800',
           end: '+=800'
+        }, fn)
+      }
+
+      if ($(window).width() < 770) {
+        createScrollTrigger({
+          trigger: sec,
+          start: '-1000',
+          end: '+=1000'
         }, fn)
       }
     }
