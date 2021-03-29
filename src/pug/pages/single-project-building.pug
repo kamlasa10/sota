@@ -111,7 +111,7 @@ block content
               span
               +svg('round')
         a(href="#").content-sb__arrow.content-sb__arrow_next
-          +svg('slider-arrow')
+          +svg('slider-arrow-fat')
   .sb-ss 
     .container 
       .tabs.sb-ss__tabs
@@ -247,6 +247,15 @@ block content
                 tr 
                   td Прибирання ділянки, вивезення сміття
                   td Прибирання ділянки, вивезення сміття        
+            .project-specs-tab__spec-table.project-specs-tab__spec-table_2.spec-table
+              .spec-table__col
+                button.btn--with-icon.spec-table__link.btn--res.js-popup-btn(data-open-popup="single-project") ЗАМОВИТИ Проект SOTA OPTIMA
+                  span
+                  +svg('round')
+              .spec-table__col
+                button.btn--with-icon.spec-table__link.btn--res.js-popup-btn(data-open-popup="single-project") ЗАМОВИТИ Проект SOTA PRIME
+                  span
+                  +svg('round')
           .body-tabs__tab.js-proj-single-tab(data-tab="#tab-about").project-about-tab  
             .project-about-tab__inner 
               .project-about-tab__sec1 
@@ -357,6 +366,12 @@ block content
                       li Вузли підключення опалювальних приладів
                       li Принципова схема теплового вузла (Топкова)
                       li Специфікація обладнання, приладів і матеріалів для систем опалення та вентиляції
+                li.sklad-list__item
+                  .sklad-list__key 
+                  .sklad-list__value
+                    button.btn--with-icon.sklad-list__link.btn--res.js-popup-btn(data-open-popup="single-project") ЗАМОВИТИ Проект
+                      span
+                      +svg('round')
 
 block footer
   include ../includes/footer.pug
