@@ -230,4 +230,9 @@
 .open-img-popup.js-open-img-popup
     .open-img-popup__inner
       button(type="button").open-img-popup__close-btn.js-open-img-popup-close ЗАКРИТИ
-      .open-img-popup__img-wrapper.js-img-wrapper
+      button.reviews-pu-arrow.reviews-pu-arrow_prev.js-img-pu-arrow-prev
+        +svg('slider-arrow')
+      .open-img-popup__img-wrapper.js-img-pu-slider
+        .swiper-wrapper.js-img-wrapper
+      button.reviews-pu-arrow.reviews-pu-arrow_next.js-img-pu-arrow-next
+        +svg('slider-arrow')
