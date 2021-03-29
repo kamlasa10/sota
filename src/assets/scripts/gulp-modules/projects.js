@@ -100,7 +100,7 @@ function firstSec() {
       scale: 1
     }, 0)
 
-  if($(window).width() <= 800) {
+  if ($(window).width() <= 800) {
     tl.fromTo('.projects-start__top-bottom', {
       y: 43
     }, {
@@ -132,7 +132,7 @@ function threeSec() {
   const tl = gsap.timeline()
   const width = $(window).width()
 
-  if(width > 1024) {
+  if (width > 1024) {
     tl.fromTo($('.projects-start__item--2 .projects-start__item-right img'), {
       y: '20%'
     }, {
@@ -140,7 +140,7 @@ function threeSec() {
     })
   }
 
-  if(width <= 1024) {
+  if (width <= 1024) {
     tl.fromTo($('.projects-start__item--2 .projects-start__item-right img'), {
       y: '15%'
     }, {
@@ -224,8 +224,7 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
 
   switch (animationName) {
     case 'first': {
-
-      if($(window).width() > 800) {  
+      if ($(window).width() > 800) {  
         createScrollTrigger({
           start: '-600',
           end: '+=1600',
@@ -233,7 +232,7 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
         }, fn)
       }
 
-      if($(window).width() <= 800) {
+      if ($(window).width() <= 800) {
         createScrollTrigger({
           start: '-600',
           end: '+=1000',
@@ -251,7 +250,7 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
     }
 
     case 'three': {
-      if($(window).width() <= 1025) {
+      if ($(window).width() <= 1025) {
         createScrollTrigger({
           trigger: sec,
           start: '-800',
@@ -275,8 +274,7 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
     }
 
     case 'five': {
-
-      if($(window).width() > 1025) {
+      if ($(window).width() > 1025) {
         createScrollTrigger({
           trigger: sec,
           start: '-1000',
@@ -284,7 +282,7 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
         }, fn)
       }
 
-      if($(window).width() < 1025) {
+      if ($(window).width() < 1025) {
         createScrollTrigger({
           trigger: sec,
           start: '-800',
@@ -313,13 +311,13 @@ function createScrollTrigger(opts, fn, scrub = true) {
 }
 
 $(window).on('resize', () => {
-  if($(window).width() <= 805) {
+  if ($(window).width() <= 805) {
     $('.projects-start__top-bottom').append($('.js-projects-start__top-desc'))
   } else {
     $('.projects-start__top-content').append($('.js-projects-start__top-desc'))
   }
 
-  if($(window).width() <= 905) {
+  if ($(window).width() <= 905) {
     $('.projects-start__item--2 .projects-start__item-left-content').before($('.projects-start__item--1 .projects-start__item-left-content'))
   }
 })
