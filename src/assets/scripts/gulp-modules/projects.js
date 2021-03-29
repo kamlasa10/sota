@@ -100,6 +100,13 @@ function firstSec() {
       scale: 1
     }, 0)
 
+  if($(window).width() <= 800) {
+    tl.fromTo('.projects-start__top-bottom', {
+      y: 43
+    }, {
+      y: 0
+    }, 0)
+  }
 
   return tl
 }
@@ -123,13 +130,24 @@ function secondSec() {
 
 function threeSec() {
   const tl = gsap.timeline()
+  const width = $(window).width()
 
-  tl.fromTo($('.projects-start__item--2 .projects-start__item-right img'), {
-    y: '20%'
-  }, {
-    y: 0
-  })
+  if(width > 1024) {
+    tl.fromTo($('.projects-start__item--2 .projects-start__item-right img'), {
+      y: '20%'
+    }, {
+      y: 0
+    })
+  }
 
+  if(width <= 1024) {
+    tl.fromTo($('.projects-start__item--2 .projects-start__item-right img'), {
+      y: '15%'
+    }, {
+      y: 0
+    })
+  }
+  
   return tl
 }
 
@@ -161,7 +179,7 @@ function fiveSec() {
     y: offseTop
   })
     .fromTo('.projects-start__item-left img', {
-      scale: 1.3
+      scale: $(window).width() > 1025 ? 1.3 : 1
     }, {
       scale: 1
     }, 0)
@@ -206,11 +224,22 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
 
   switch (animationName) {
     case 'first': {
-      createScrollTrigger({
-        start: '-600',
-        end: '+=1600',
-        trigger: sec
-      }, fn)
+
+      if($(window).width() > 800) {  
+        createScrollTrigger({
+          start: '-600',
+          end: '+=1600',
+          trigger: sec
+        }, fn)
+      }
+
+      if($(window).width() <= 800) {
+        createScrollTrigger({
+          start: '-600',
+          end: '+=1000',
+          trigger: sec
+        }, fn)
+      }
 
       break
     }
@@ -222,11 +251,19 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
     }
 
     case 'three': {
-      createScrollTrigger({
-        trigger: sec,
-        start: '-1000',
-        end: '+=1000'
-      }, fn)
+      if($(window).width() <= 1025) {
+        createScrollTrigger({
+          trigger: sec,
+          start: '-800',
+          end: '+=750'
+        }, fn)
+      } else {
+        createScrollTrigger({
+          trigger: sec,
+          start: '-1000',
+          end: '+=1000'
+        }, fn)
+      }
     }
 
     case 'four': {
@@ -238,11 +275,22 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
     }
 
     case 'five': {
-      createScrollTrigger({
-        trigger: sec,
-        start: '-1000',
-        end: '+=1100'
-      }, fn)
+
+      if($(window).width() > 1025) {
+        createScrollTrigger({
+          trigger: sec,
+          start: '-1000',
+          end: '+=1100'
+        }, fn)
+      }
+
+      if($(window).width() < 1025) {
+        createScrollTrigger({
+          trigger: sec,
+          start: '-800',
+          end: '+=800'
+        }, fn)
+      }
     }
 
     case 'six': {
@@ -260,6 +308,18 @@ function createScrollTrigger(opts, fn, scrub = true) {
     scrub,
     animation: fn(),
     ...opts,
-    scroller: "[data-scroll-container]"
+    scroller: $(window).width() > 1025 ? "[data-scroll-container]" : ''
   })
 }
+
+$(window).on('resize', () => {
+  if($(window).width() <= 805) {
+    $('.projects-start__top-bottom').append($('.js-projects-start__top-desc'))
+  } else {
+    $('.projects-start__top-content').append($('.js-projects-start__top-desc'))
+  }
+
+  if($(window).width() <= 905) {
+    $('.projects-start__item--2 .projects-start__item-left-content').before($('.projects-start__item--1 .projects-start__item-left-content'))
+  }
+})
