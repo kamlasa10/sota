@@ -35,7 +35,6 @@
   }
   &__radio-btn-wrapper{
     flex-basis: 50%;
-   
   }
 }
 
@@ -573,6 +572,11 @@
     align-items: center;
     label{
       cursor: pointer;
+    }
+    &__text{
+      &_with-question{
+        display: flex;
+      }
     }
     &__circle{
       position: relative;
