@@ -289,6 +289,7 @@ $(document).ready(() => {
       this.popup = document.querySelector('.js-open-img-popup');
       this.closeBtn = document.querySelector('.js-open-img-popup-close');
       this.imgWrapper = document.querySelector('.js-img-wrapper');
+      this.slider = null;
     }
 
     eventListeners() {
@@ -296,21 +297,50 @@ $(document).ready(() => {
       this.openBtn.forEach((btn) => {
         btn.addEventListener('click', function (e) {
           e.preventDefault();
-          const imgSrc = this.getAttribute('src');
+          const swiperWrapper = this.closest('.swiper-wrapper');
+          const imgs = swiperWrapper.querySelectorAll('img')
+          imgs.forEach((slide) => {
+            const newSlide = document.createElement('div');
+            const newSlideImg = document.createElement('img');
+            newSlideImg.src = slide.getAttribute('src');
+            newSlide.classList.add('swiper-slide');
+            newSlide.appendChild(newSlideImg);
+            self.imgWrapper.appendChild(newSlide)
+          })
+
+          // const imgSrc = this.getAttribute('src');
+          self.slider = new Swiper('.js-img-pu-slider', {
+            slidesPerView: 1,
+            allowTouchMove: false,
+            spaceBetween: 100,
+            init: true,
+            navigation: {	
+              nextEl: '.js-img-pu-arrow-next',
+              prevEl: '.js-img-pu-arrow-prev',
+            }
+          });
           self.popup.classList.add('show');
-          const newImg = document.createElement('img');
-          newImg.classList.add('js-img-for-popup');
-          newImg.classList.add('open-img-popup__img');
-          newImg.setAttribute('src', imgSrc);
-          self.imgWrapper.appendChild(newImg);
+          // const newImg = document.createElement('img');
+          // newImg.classList.add('js-img-for-popup');
+          // newImg.classList.add('open-img-popup__img');
+          // newImg.setAttribute('src', imgSrc);
+          // self.imgWrapper.appendChild(newImg);
         })
       })
 
       this.closeBtn.addEventListener('click', (e) => {
         const newImg = document.querySelector('.js-img-for-popup');
-        newImg.remove();
+        // newImg.remove();
+        self.clearPopup();
         self.popup.classList.remove('show');
       })
+    }
+
+    clearPopup() {
+      this.slider.destroy(true, true);
+      while (this.imgWrapper.firstChild) {
+        this.imgWrapper.firstChild.remove();
+      }
     }
 
     init() {
