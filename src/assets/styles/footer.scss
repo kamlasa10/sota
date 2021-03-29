@@ -26,6 +26,11 @@
     width: 68px;
     height: 84px;
     fill: none;
+
+    @include to(770px) {
+      width: 50px;
+      height: 80px;
+    }
   }
 
   &__span {
@@ -42,6 +47,10 @@
     @include to(1370px) {
       font-size: 10px;
     }
+
+    @include to(770px) {
+      font-size: 9px;
+    }
   }
 
   &__icon {
@@ -50,6 +59,11 @@
     width: 54px;
     height: 10px;
     fill: none;
+
+    @include to(770px) {
+      width: 46px;
+      height: 10px;
+    }
   }
 }
 

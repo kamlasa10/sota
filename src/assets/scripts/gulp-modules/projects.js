@@ -302,11 +302,21 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
     }
 
     case 'six': {
-      createScrollTrigger({
-        trigger: sec,
-        start: '-1000',
-        end: $(window).width() > 1440 ? '+=1100' : '+=1300'
-      }, fn)
+      if($(window).width() >= 770) {   
+        createScrollTrigger({
+          trigger: sec,
+          start: '-1000',
+          end: $(window).width() > 1440 ? '+=1100' : '+=1300'
+        }, fn)
+      }
+
+      if($(window).width() < 770) {
+        createScrollTrigger({
+          trigger: sec,
+          start: '-1000',
+          end: '+=950'
+        }, fn)
+      }
     }
   }
 })
@@ -329,5 +339,9 @@ $(window).on('resize', () => {
 
   if($(window).width() <= 905) {
     $('.projects-start__item--2 .projects-start__item-left-content').before($('.projects-start__item--1 .projects-start__item-left-content'))
+  }
+
+  if($(window).width() <= 770) {
+    $('.projects-start__item--6 .container').append($('.projects-start__item--6 .projects-start__text--full'))
   }
 })
