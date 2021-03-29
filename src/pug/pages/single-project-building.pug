@@ -96,7 +96,12 @@ block content
                   .radio-btn-wrapper.table-build-descr__radio-btn-wrapper
                     input(type="radio" id="sotaoptima" class="js-active-choise-plan" checked name="sota" data-price="125000")
                     label(for="sotaoptima").radio-btn-wrapper__circle
-                    label(for="sotaoptima").radio-btn-wrapper__text Sota Optima
+                    label(for="sotaoptima").radio-btn-wrapper__text.radio-btn-wrapper__text_with-question Sota Optima
+                      .question-popup 
+                        .question-popup__question-mark 
+                         +svg('question')
+                        .question-popup__dialog
+                          span Деталі про Sota Optima та Sota Prime дивитися у розділі Комплектація та спеціфікація проекту
                   .radio-btn-wrapper.table-build-descr__radio-btn-wrapper
                     input(type="radio" id="sotaprime" name="sota" data-price="175000")
                     label(for="sotaprime").radio-btn-wrapper__circle
