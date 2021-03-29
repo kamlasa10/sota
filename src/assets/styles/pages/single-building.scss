@@ -45,12 +45,22 @@
 		}
 		&_prev{
 			transform: rotate(180deg);
-		}
-		&:hover{
-			svg{
-				fill: #333;
+			&:hover{
+				svg{
+					fill: #333;
+				}
 			}
 		}
+		&_next{
+			transition: all .3s;
+			svg{
+				fill: #EC5629;		
+			}
+			&:hover{
+				transform: translateX(15px);
+			}
+		}
+
 	}
 }
 

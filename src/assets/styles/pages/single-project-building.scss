@@ -71,12 +71,17 @@
 			transition: all .3s;
 			width: 13px;
 			height: 20px;
-			fill: #C4C4C4;
+			fill: #808080;
 		}
 		&:hover{
 			svg{
 				fill: #EC5629;
 			}
+		}
+	}
+	&__arrow.swiper-button-disabled{
+		svg{
+			fill: #C4C4C4;
 		}
 	}
 }
@@ -131,6 +136,22 @@
 		position: absolute;
 		top: 0;
 		left:0;
+	}
+}
+
+.project-specs-tab{
+	&__spec-table{
+		&_2{
+			padding-top: 60px;
+			display: flex;
+			justify-content: space-between;
+			.spec-table__col{
+				flex-basis: 50%;
+				&:nth-child(2){
+					padding-left: 20px;
+				}
+			}
+		}
 	}
 }
 
@@ -212,7 +233,9 @@
 
 }
 .sklad-list{
-
+	&__link{
+		margin-top: 20px;;
+	}
 	&__key{
 		flex-basis: 30%;
 		flex-shrink: 0;
