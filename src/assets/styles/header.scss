@@ -4,6 +4,13 @@
   z-index: 10;
   transition: all .4s;
 
+  & > .container {
+    @include to(480px) {
+      z-index: 5;
+      position: relative;
+    }
+  }
+
   &.show {
     z-index: 70;
   }
@@ -166,6 +173,10 @@
     @include to(480px) {
       font-size: 15px;
     } 
+
+    @include to(320px) {
+      font-size: 14px;
+    }
   }
 
   &.moving {

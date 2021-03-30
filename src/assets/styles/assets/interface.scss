@@ -460,7 +460,7 @@
 
   @include to(480px) {
     font-size: 20px !important;
-    line-height: 2em;
+    line-height: 1.5em;
   }
 
   @include to(320px) {
@@ -556,6 +556,12 @@
 
   &--animate {
     transform: translateY(0);
+  }
+
+  @include to(480px) {
+    padding-left: 0;
+    padding-bottom: 8px;
+    transform: translateY(-3px);
   }
 }
 
@@ -824,6 +830,6 @@
 }
 
 .disabled {
-  opacity: .5;
+  color: #B3B3B3;
   pointer-events: none;
 }

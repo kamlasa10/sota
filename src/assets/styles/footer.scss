@@ -22,6 +22,13 @@
     top: calc(86vh - 60px);
   }
 
+  @include to(480px) {
+    top: auto;
+    position: relative;
+    margin-bottom: 18px;
+    transform: translateX(20%);
+  }
+
   &__rhombus {
     width: 68px;
     height: 84px;
@@ -51,6 +58,10 @@
     @include to(770px) {
       font-size: 9px;
     }
+
+    @include to(480px) {
+      font-size: 8px;
+    }
   }
 
   &__icon {
@@ -62,7 +73,7 @@
 
     @include to(770px) {
       width: 46px;
-      height: 10px;
+      height: 9px;
     }
   }
 }
@@ -285,8 +296,13 @@
         @include to(480px) {
           margin-bottom: 18px;
 
-          &:last-child {
+          &:first-child {
+            order: -1;
+          }
+
+          &:nth-child(2) {
             margin-bottom: 0;
+            order: 1;
           }
         }
 
@@ -354,6 +370,9 @@
     }
 
     @include to(320px) {
+      padding-left: 0;
+      padding-right: 35px;
+
       &:first-child {
         width: 100%;
       }

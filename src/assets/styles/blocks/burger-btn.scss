@@ -12,6 +12,12 @@
   font-family: $default-font;
   width: 55px;
   letter-spacing: 0.04em;
+  transition: all .2s;
+
+  &.mobile {
+    opacity: 0;
+    z-index: -2;
+  }
 
   @include to(1440px) {
     font-size: 12px;

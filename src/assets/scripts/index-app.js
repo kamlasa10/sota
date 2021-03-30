@@ -21,7 +21,6 @@ window.addEventListener('load', () => {
     }
 
     if ($(window).height() <= y || y >= 1000 && !isTopShowBtn) {
-      console.log('bb')
       $('.js-btn-top').fadeIn(200)
       isTopShowBtn = true
     } else if ($(window).height() >= y && isTopShowBtn) {
