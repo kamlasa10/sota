@@ -37,11 +37,11 @@ function firstSec() {
   }, {
     y: '15%'
   })
-  .fromTo('.financial__intro-left img', {
-    scale: 1
-  }, {
-    scale: 1.125
-  }, 0)
+    .fromTo('.financial__intro-left img', {
+      scale: 1
+    }, {
+      scale: 1.125
+    }, 0)
 
   return tl
 }
@@ -79,17 +79,17 @@ function threeSec() {
     y: 0,
     opacity: 1
   })
-  .fromTo('.financial__info-left', {
-    y: 50,
-    opacity: 0
-  }, {
-    duration: 1,
-    opacity: 1,
-    y: 0
-  }, 0)
-  .fromTo('.financial__intro-right img', {
+    .fromTo('.financial__info-left', {
+      y: 50,
+      opacity: 0
+    }, {
+      duration: 1,
+      opacity: 1,
+      y: 0
+    }, 0)
+    .fromTo('.financial__intro-right img', {
     
-  })
+    })
 
   return tl
 }

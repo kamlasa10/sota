@@ -102,11 +102,11 @@ function setPreviewNextSlide(nextSlide, current, isAnimateText = true) {
 
     let firstScreanImgWidth = '80%'
 
-    if($(window).width() < 1440) {
+    if ($(window).width() < 1440) {
       firstScreanImgWidth = '77%'
     }
 
-    if($(window).width() <= 770) {
+    if ($(window).width() <= 770) {
       firstScreanImgWidth = '94%'
     }
 
