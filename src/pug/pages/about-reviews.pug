@@ -107,11 +107,11 @@ block content
                     .preview-slider-control__line-active
                   button.preview-slider-control__btn.preview-slider-control__btn_prev.js-preview-slider-prev Назад
             .about-review-tab__mob-control
-              .about-review-tab__mob-prev
-                span Назад
+              .about-review-tab__mob-arrow.about-review-tab__mob-arrow_prev
+                +svg('slider-arrow')
               .about-review-tab__mob-num-wrapper
-              .about-review-tab__mob-next
-                span вперед
+              .about-review-tab__mob-arrow.about-review-tab__mob-arrow_next
+                +svg('slider-arrow')
 block footer
   include ../includes/footer.pug
 

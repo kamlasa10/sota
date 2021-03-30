@@ -218,4 +218,20 @@ $(document).ready(() => {
       prevEl: '.js-reviews-pu-arrow-prev',
     }
   });
+
+  // JS ADAPTIVE
+
+  const progressBarNumbers = $('.preview-progress-bar__slides-number');
+  const mobBtnNext = document.querySelector('.about-review-tab__mob-arrow_next')
+  const mobBtnPrev = document.querySelector('.about-review-tab__mob-arrow_prev')
+  if ($(window).width() <= 640) {
+    progressBarNumbers.appendTo('.about-review-tab__mob-num-wrapper');
+
+    mobBtnNext.addEventListener('click', () => {
+      swiper.slideNext();
+    })
+    mobBtnPrev.addEventListener('click', () => {
+      swiper.slidePrev();
+    })
+  }
 });

@@ -1,6 +1,14 @@
 .sb{
 	&__inner-page-title{
 		margin-bottom: 35px;
+		@include to(640px){
+			padding: 0 16px;
+		}
+	}
+	.container{
+		@include to(640px){
+			padding: 0;
+		}
 	}
 }
 
@@ -10,7 +18,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-
+	@include to(640px){
+		padding-top: 0;
+	}
 	&__inner{
 		display: flex;
 		flex-basis: 1160px;
@@ -21,6 +31,14 @@
 		}
 		@include to(1280px){
 			max-width: 940px;
+		}
+		@include to(1024px){
+			flex-wrap: wrap;
+			padding: 0 45px;
+		}
+		@include to(640px){
+			padding: 0;
+			max-width: 100%;
 		}
 	}
 	&__descr{
@@ -34,14 +52,29 @@
 		@include to(1280px){
 			padding-left: 40px;
 		}
+		@include to(1024px){
+			padding-left: 0;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		@include to(640px){
+			padding: 0 16px;
+		}
 	}
 	&__arrow{
 		display: flex;
 		align-items: center;
+		@include to(640px){
+			display: none;
+		}
 		svg{
 			fill: #c4c4c4;
 			width: 45px;
 			transition: all .3s;
+			@include to(1024px){
+				width: 28px;
+				height: 15px;
+			}
 		}
 		&_prev{
 			transform: rotate(180deg);
@@ -68,6 +101,16 @@
 	display: flex;
 	padding: 20px 0;
 	// flex-wrap: wrap;
+	@include to(1024px){
+		flex-basis: 100%;
+		justify-content: center;
+		padding: 0;
+		margin-bottom: 30px;
+	}
+	@include to(640px){
+		max-width: 100%;
+		margin-bottom: 16px;
+	}
 
 	.swiper-slide{
 		img{
@@ -76,7 +119,6 @@
 		}
 	}
 	&__main{
-		// height: 375px;
 		height: 100%;
 		width: 565px;
 		margin-left: 0;
@@ -87,6 +129,15 @@
 		@include to(1280px){
 			width: 480px;
 		}
+		@include to(1024px){
+			max-width: 475px;
+			max-height: 315px;
+		}
+		@include to(640px){
+			max-width: 100%;
+			width: 100%;
+		}
+
 	}
 	&__thumbs{
 		width: 100px;
@@ -95,6 +146,14 @@
 		max-height: 440px;
 		margin-right: 20px;
 		margin-left: 0;
+		@include to(1024px){
+			width: 85px; 
+			margin-right: 15px;
+			max-height: 315px;
+		}
+		@include to(640px){
+			display: none;
+		}
 
 		.swiper-slide{
 			position: relative;
@@ -117,6 +176,9 @@
 				background: #EC5629;
 				opacity: 0;
 				transition: all .5s;
+				@include to(1024px){
+					width: 85px;
+				}
 			}
 			img{
 				height: 100%;
@@ -139,6 +201,12 @@
 		bottom: 0;
 		right: 0;
 		z-index: 5;
+		@include to(640px){
+			right: calc((25% - 10px) /2)
+		}
+		@include to(500px){
+			right: calc((26% - 10px) /2)
+		}
 	}
 
 	&__size{
@@ -158,6 +226,15 @@
 		top: 0;
 		right: 0;
 		z-index: 5;
+		@include to(640px){
+			right: calc((25% - 10px) /2);
+			font-size: 12px;
+		}
+		@include to(500px){
+			right: calc((26% - 10px) /2);
+			width: 74px;
+			height: 40px;
+		}
 		sup{
 			font-weight: 500;
 			font-size: 12px;
@@ -208,6 +285,13 @@
 	&__title{
 		margin-bottom: 16px;
 		max-width: 350px;
+		@include to(1024px){
+			font-size: 24px;
+			flex-basis: 40%;
+		}
+		@include to(640px){
+			flex-basis: 100%;
+		}
 	}
 	&__subtitle{
 		font-weight: 700;
@@ -222,10 +306,20 @@
 		color: #808080;
 		width: 100%;
 		margin-bottom: 35px;
+		@include to(1024px){
+			flex-basis: 60%;
+			margin-bottom: 24px;
+		}
+		@include to(640px){
+			flex-basis: 100%;
+		}
 		td {
 			padding: 15px 0;
 			@include to(1370px){
 				padding: 10px 0;
+			}
+			@include to(1024px){
+				padding: 4px 0;
 			}
 			&:first-child{
 				padding-right: 10px;
@@ -248,9 +342,14 @@
 	&__link{
 		font-size: 14px;
 		display: inline-flex;
-		// span{
-		// 	top: 29px
-		// }
+		@include to(1024px){
+			margin-left: 40%;
+			padding-left: 0;
+		}
+		@include to(640px){
+			margin: 0 auto;
+			padding: 0;
+		}
 
 		span {
 			right: 25px;
@@ -266,6 +365,17 @@
 
 .sb-ss {
 	padding-bottom: 90px;
+	@include to(1024px){
+		padding-bottom: 40px;
+	}
+	// @include to(640px){
+	// 	padding-bottom: 10px;
+	// }
+	.container{
+		@include to(640px){
+			padding: 0;
+		}
+	}
 	.tabs__header{
 		// max-width: 1020px;
 		max-width: 1160px;
@@ -275,9 +385,54 @@
 		@include to(1280px){
 			max-width: 940px;
 		}
+		@include to(1024px){
+			max-width: 575px;
+			flex-wrap: wrap;
+			justify-content: space-between;
+
+		}
 		justify-content: flex-start;
 		.header-tabs__single-tab-title{
 			text-decoration: none;
+			@include to(1024px){
+				flex-basis: auto;
+			}
+			@include to(640px){
+				height: 45px;
+			}
+			&:nth-child(1){
+				order: 1;
+				@include to(640px){
+					flex-basis: calc(50% - 8px);
+				}
+			}
+			&:nth-child(2){
+				order: 2;
+				@include to(640px){
+					flex-basis: calc(50% - 8px);
+					padding: 6px 20px;
+				}
+			}
+			&:nth-child(3){
+				order: 4;
+				flex-basis: 100%;
+				text-align: center;
+				margin-top: 30px;
+				@include to(640px){
+					flex-basis: 100%;
+					margin-top: 0;
+					order: 3;
+					margin-left: 0;
+				}
+			}
+			&:nth-child(4){
+				order: 3;
+				@include to(640px){
+					flex-basis: calc(50% - 8px);
+					padding: 6px 20px;
+					order: 4;
+				}
+			}
 		}
 		.header-tabs__single-tab-title + .header-tabs__single-tab-title{
 			margin-left: 60px;
@@ -293,6 +448,10 @@
 	.tabs{
 		&__header{
 			margin-bottom: 60px;
+			@include to(1024px){
+				margin-bottom: 32px;
+			}
+
 		}
 
 		&__body{

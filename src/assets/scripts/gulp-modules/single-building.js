@@ -40,6 +40,25 @@ $(document).ready(() => {
   });
 
   const galleryMain = new Swiper(".js-gallery-main", {
+    breakpoints: {
+      320: {
+        slidesPerView: 1.3,
+        effect: 'slide',
+        centeredSlides: true,
+        loop: true,
+        spaceBetween: 10
+      },
+      640: {
+        slidesPerView: 1,
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        },
+        centeredSlides: false,
+        loop: false,
+        spaceBetween: 0
+      }
+    },
     watchOverflow: true,
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
@@ -48,21 +67,9 @@ $(document).ready(() => {
       nextEl: '.cntrl-prod-gal__arrow_next',
       prevEl: '.cntrl-prod-gal__arrow_prev',
     },
-    effect: 'fade',
-    fadeEffect: {
-      crossFade: true
-    },
     thumbs: {
       swiper: galleryThumbs
     }
-  });
-
-  galleryMain.on('slideChangeTransitionStart', () => {
-    // galleryThumbs.slideTo(galleryMain.activeIndex);
-  });
-
-  galleryThumbs.on('transitionStart', () => {
-    // galleryMain.slideTo(galleryThumbs.activeIndex);
   });
 
   // CONSTRUCTION SLIDERS 
@@ -203,6 +210,25 @@ $(document).ready(() => {
   });
   
   const galleryProjectMain = new Swiper(".js-project-main-slider", {
+    breakpoints: {
+      320: {
+        slidesPerView: 1.3,
+        effect: 'slide',
+        centeredSlides: true,
+        loop: true,
+        spaceBetween: 10
+      },
+      640: {
+        slidesPerView: 1,
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        },
+        centeredSlides: false,
+        loop: false,
+        spaceBetween: 0
+      }
+    },
     watchOverflow: true,
     watchSlidesVisibility: true,
     watchSlidesProgress: true,
@@ -211,24 +237,13 @@ $(document).ready(() => {
       nextEl: '.cntrl-prod-gal__arrow_next',
       prevEl: '.cntrl-prod-gal__arrow_prev',
     },
-    effect: 'fade',
-    fadeEffect: {
-      crossFade: true
-    },
+    
     thumbs: {
       swiper: galleryProjectThumbs
-    }
-  });
-  
-  galleryProjectMain.on('slideChangeTransitionStart', () => {
-    // galleryProjectThumbs.slideTo(galleryProjectMain.activeIndex);
-    
-  });
-  
-  galleryProjectThumbs.on('transitionStart', () => {
-    // galleryProjectMain.slideTo(galleryProjectThumbs.activeIndex);
-  });
+    },
 
+  });
+  
 
   if ($('.js-constr-single-tab').length != 0) {
     const constrTab = new TabChange('.js-constr-single-tab', '.js-constr-tab-btn', '.js-constr-content');
@@ -243,15 +258,28 @@ $(document).ready(() => {
 
   
   const swiper = new Swiper('.js-plan-slider', {
+    breakpoints: {
+      320: {
+        slidesPerView: 1.3,
+        effect: 'slide',
+        centeredSlides: true,
+        loop: true,
+        spaceBetween: 10
+      },
+      640: {
+        slidesPerView: 1,
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        },
+        centeredSlides: false,
+        loop: false,
+        spaceBetween: 0
+      }
+    },
     speed: 1000,
-    spaceBetween: 0,
-    slidesPerView: 1,
     initialSlide: 0,
     init: false,
-    effect: 'fade',
-    fadeEffect: {
-      crossFade: true
-    },
     direction: 'horizontal',
     loop: false,
     // Navigation arrows
@@ -308,7 +336,6 @@ $(document).ready(() => {
             self.imgWrapper.appendChild(newSlide)
           })
 
-          // const imgSrc = this.getAttribute('src');
           self.slider = new Swiper('.js-img-pu-slider', {
             slidesPerView: 1,
             allowTouchMove: false,
@@ -320,11 +347,6 @@ $(document).ready(() => {
             }
           });
           self.popup.classList.add('show');
-          // const newImg = document.createElement('img');
-          // newImg.classList.add('js-img-for-popup');
-          // newImg.classList.add('open-img-popup__img');
-          // newImg.setAttribute('src', imgSrc);
-          // self.imgWrapper.appendChild(newImg);
         })
       })
 
@@ -350,4 +372,28 @@ $(document).ready(() => {
   const imgBtns = document.querySelectorAll('.js-open-big-img');
   const openImgPopup = new createImgPopup(imgBtns);
   openImgPopup.init();
+  if ($(window).width() <= 1024) {
+    try {
+      const mobToggleBtn = document.querySelector('.mob-toggle-btn__btn');
+      const projectTable = document.querySelector('.project-specs-tab__spec-table');
+      const optimaLabel = document.querySelector('.mob-toggle-btn__text_optima');
+      const primeLabel = document.querySelector('.mob-toggle-btn__text_prime');
+  
+      mobToggleBtn.addEventListener('click', () => {
+        if (mobToggleBtn.checked) {
+          optimaLabel.classList.remove('active');
+          projectTable.classList.remove('project-specs-tab__spec-table_optima');
+          projectTable.classList.add('project-specs-tab__spec-table_prime');
+          primeLabel.classList.add('active');
+        } else {
+          primeLabel.classList.remove('active');
+          optimaLabel.classList.add('active');
+          projectTable.classList.remove('project-specs-tab__spec-table_prime');
+          projectTable.classList.add('project-specs-tab__spec-table_optima');
+        }
+      })
+    } catch (e) {
+      console.log(e)
+    }
+  }
 });

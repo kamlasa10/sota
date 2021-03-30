@@ -23,6 +23,29 @@
 			max-width: 100%;
 		}
 	}
+	&__mob-control{
+		display: none;
+		@include to(640px){
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+	&__mob-arrow{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		svg{
+			width: 45px;
+			height: 14px;
+		}
+		&_prev{
+			svg{
+				transform: rotate(180deg);
+			}
+		}
+	}
+	
 }
 
 .content-tabs__single-tab.about-review-tab{

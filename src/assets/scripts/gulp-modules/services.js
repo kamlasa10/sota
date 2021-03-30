@@ -28,4 +28,13 @@ $(document).ready(() => {
   const tabBtns = document.querySelectorAll('.js-serv-tab-btn');
   tabBtns.forEach((btn) => {
   })
+
+  $(".table-services__table-header").scroll(() => {
+    $(".table-services__table-wrapper")
+      .scrollLeft($(".table-services__table-header").scrollLeft());
+  });
+  $(".table-services__table-wrapper").scroll(() => {
+    $(".table-services__table-wrapper")
+      .scrollLeft($(".table-services__table-wrapper").scrollLeft());
+  });
 });
