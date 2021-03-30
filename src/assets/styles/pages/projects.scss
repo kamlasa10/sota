@@ -1,6 +1,10 @@
 #id-page-projects {
     .vacancy__progress {
         margin-bottom: 73px;
+
+        @include to(480px) {
+          margin-bottom: 0;
+        }
     }
 
     @include to(800px) {

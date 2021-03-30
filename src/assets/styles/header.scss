@@ -200,6 +200,10 @@
       }
 
       transform: translateX(-50%) scale(0.8);
+
+      @include to(480px) {
+        transform: translateX(-50%) scale(0.9);
+      }
     }
 
     &.header_dark{

@@ -157,6 +157,10 @@
                 margin-bottom: 50px;
             }
 
+            @include to(480px) {
+              margin-bottom: 0;
+            }
+
             &-wrap {
                 max-width: 950px;
 
@@ -273,8 +277,15 @@
 
                 @include to(480px) {
                     margin-top: 32px;
+                    display: flex;
+                    row-gap: 0;
+
                     .single-vacancy__share {
                         display: none;
+                    }
+
+                    .share-btns {
+                      display: none;
                     }
                 }
             }

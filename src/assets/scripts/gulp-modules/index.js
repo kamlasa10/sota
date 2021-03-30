@@ -259,8 +259,8 @@ $(document).ready(() => {
                 warn: 'field is required'
             }
         }
-        // const language = $('html').attr('lang')
-        const language = $('body').attr('data-language')
+
+        const language = $('html').attr('lang')
 
         function checkEmail(str) {
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
