@@ -13,12 +13,21 @@
 
 .header-pu-form{
   display: flex;
+  @include to(640px){
+    flex-wrap: wrap;
+  }
   &__title{
     margin-bottom: 40px;
+    @include to(640px){
+      display: none !important; 
+    }
   }
   &__info-wrapper {
     padding-left: 30px;
     width: 100%;
+    @include to(640px){
+      padding-left: 0;
+    }
   }
   &__radio-wrapper {
     display: flex;
@@ -28,6 +37,10 @@
   &__img-wrapper {
     flex-basis: 50%;
     flex-shrink: 0;
+    @include to(640px){
+      flex-basis: 100%;
+      margin-bottom: 15px;
+    }
     img{
       height: 100%;
       object-fit: cover;
@@ -43,6 +56,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include to(640px){
+      flex-wrap: wrap;
+    }
+  }
+  &__btn{
+    @include to(640px){
+      margin: 48px auto 0;
+    }
   }
   &__subtitle{
     font-weight: 700;
@@ -75,9 +96,15 @@
     }
     &_phone{
       flex-basis: calc(40% - 15px);
+      @include to(640px){
+        flex-basis: 100%;
+      }
     }
     &_email{
       flex-basis: calc(60% - 15px);
+      @include to(640px){
+        flex-basis: 100%;
+      }
     }
 
   }
@@ -111,7 +138,10 @@
     display: flex;
     align-items: center;
     height: 52px;
-
+    @include to(640px){
+      margin-bottom: 15px;
+      max-width: 200px;
+    }
     span {
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -119,6 +149,7 @@
       display: block;
     }
   }
+
   &__add-info{
     width: 100%;
   }
@@ -144,6 +175,10 @@
     margin-top: 25px;
     margin-bottom: 20px;
     width: 45%;
+    @include to(640px){
+      width: 100%;
+      flex-wrap: wrap;
+    }
   }
   &__label{
     margin-bottom: 15px;
@@ -425,7 +460,7 @@
 
   @include to(480px) {
     font-size: 20px !important;
-    line-height: 2em;
+    line-height: 1.5em;
   }
 
   @include to(320px) {
@@ -521,6 +556,12 @@
 
   &--animate {
     transform: translateY(0);
+  }
+
+  @include to(480px) {
+    padding-left: 0;
+    padding-bottom: 8px;
+    transform: translateY(-3px);
   }
 }
 
@@ -789,6 +830,6 @@
 }
 
 .disabled {
-  opacity: .5;
+  color: #B3B3B3;
   pointer-events: none;
 }

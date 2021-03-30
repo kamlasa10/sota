@@ -110,6 +110,14 @@ block content
                             button(type="submit").popup-contacts__btn.submit__btn.single-vacancy__btn.btn.js-popup-contacts.btn--with-icon.btn--res Подати заявку
                                 span
                                 +svg('round')
+                        .share-btns
+                            a.facebook(rel='nofollow' href='javascript: void(0)' onclick="window.open('https://www.facebook.com/sharer.php?u=<?=$actual_link?>','sharer','status=0,toolbar=0,width=650,height=500');" title='Поделиться в Facebook')
+                            a.vkontakte(rel='nofollow' href='javascript: void(0)' onclick="window.open('https://vkontakte.ru/share.php?url=<?=$actual_link?>','sharer','status=0,toolbar=0,width=650,height=500');" title='Поделиться Вконтакте')
+                            a.ok(rel='nofollow' href='javascript: void(0)' onclick="window.open('https://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl=<?=$actual_link?>&st.comments=ОПИСАНИЕ','sharer','status=0,toolbar=0,width=650,height=500');" title='Поделиться в Одноклассниках')
+                            a.telegram(rel='nofollow' href='javascript: void(0)' onclick="window.open('https://telegram.me/share/url?url=<?=$actual_link?>','sharer','status=0,toolbar=0,width=650,height=500');" title='Поделиться в Телеграм')
+                            a.pinterest(rel='nofollow' href='javascript: void(0)' onclick="window.open('https://ru.pinterest.com/pin/create/button/?url=<?=$actual_link?>','sharer','status=0,toolbar=0,width=650,height=500');" data-media='АДРЕС_ИЗОБРАЖЕНИЯ' title='Запинить')
+                            a.twitter(rel='nofollow' href='javascript: void(0)' onclick="window.open('https://twitter.com/intent/tweet?text=ТАЙТЛ_СТРАНИЦЫ. ОПИСАНИЕ. СССЫЛКА','sharer','status=0,toolbar=0,width=650,height=500');" title='Твитнуть')
+                            a.mail(rel='nofollow' href='javascript: void(0)' onclick="window.open('https://connect.mail.ru/share?url=<?=$actual_link?>','sharer','status=0,toolbar=0,width=650,height=500');" title='Поделиться в @Мой мир')
                         a(href="#").single-vacancy__share
                             span Поділитися
                             span.single-vacancy__share-block

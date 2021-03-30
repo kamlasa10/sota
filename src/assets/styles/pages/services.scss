@@ -2,15 +2,37 @@
     .services {
         &__inner-page-title {
             margin-bottom: 78px;
+            @include to(992px){
+                margin-bottom: 32px;
+            }
         }
-        
+        &__hero-title{
+            @include to(992px){
+                font-size: 24px !important;
+                margin-bottom: 24px;
+            }
+            @include to(640px){
+                font-size: 16px !important;
+                margin-bottom: 16px;
+            }
+        }
         &__hero {
             margin-bottom: 88px;
             display: flex;
+            @include to(992px){
+                margin-bottom: 40px;
+            }
+            @include to(640px){
+                flex-direction: column;
+            }
 
             &-left {
                 position: relative;
                 width: 45%;
+                @include to(640px){
+                    width: 100%;
+                    margin-bottom: 75px;
+                }
 
                 .bg {
                     position: absolute;
@@ -18,6 +40,16 @@
                     width: 100%;
                     height: 50%;
                     background-color: #333;
+                    @include to(992px){
+                        bottom: auto;
+                        top: 25%;
+                        height: 25%;
+                    }
+                    @include to(640px){
+                        bottom: -50px;
+                        top:auto;
+                        height: 45%;
+                    }
                 }
 
                 img {
@@ -26,6 +58,9 @@
                     width: 93%;
                     height: 79%;
                     object-fit: cover;
+                    @include to(992px){
+                        height: 40%;
+                    }
                 }
             }
 
@@ -34,10 +69,25 @@
                 position: relative;
                 margin-left: 90px;
                 width: 55%;
+                @include to(992px){
+                    margin-left: 45px;
+                    padding-right: 30px;
+                    padding-bottom: 0;
+                }
+                @include to(640px){
+                    width: 100%;
+                    padding-right: 16px;
+                    padding-left: 16px;
+                    margin-left: 0;
+                    margin-top: 24px;
+                }
             }
 
             &-wrap {
                 max-width: 750px;
+                @include to(992px){
+                    max-width: 375px;
+                }
             }
 
             &-small-title {
@@ -54,6 +104,9 @@
             .choise-us__link {
                 margin-top: 42px;
                 display: inline-flex;
+                @include to(992px){
+                    margin-top: 12px;
+                }
             }
         }
 
@@ -63,11 +116,32 @@
             .header-tabs {
                 max-width: 1400px;
                 padding-bottom: 60px;
+                @include to(992px){
+                    flex-wrap: wrap;
+                }
             }
+
+            .single-tab-title{
+                &:nth-child(4){
+                    @include to(992px){
+                        margin-top: 16px;
+                        @include to(640px){
+                            margin-top: 0;
+                        }
+                    }
+                }
+               
+            }
+        }
+        &__table{
+            margin-bottom: 72px;
         }
     }
 
     .table-services{
+        @include to(992px){
+            overflow-y: scroll;
+        }
         &__list{
             margin-top: 0;
             margin-bottom: 0;
@@ -100,6 +174,36 @@
             .table-services__col{
                 text-align: center;
             }
+            @include to(992px){
+                overflow-y: scroll;
+                background-color: #fff;
+                position: relative;
+                padding-bottom: 20px;
+            }
+            &::before{
+                @include to(992px){
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 1000px;
+                    height: calc(100% - 32px);
+                    background-color: #333;
+                }
+            }
+            .container{
+                @include to(992px){
+                    max-width: none;
+                    width: 1000px;
+                }
+            }
+
+        }
+        &__table-wrapper{
+            @include to(992px){
+                overflow-y: scroll;
+            }
         }
         &__inner{
             padding: 10px 0;
@@ -111,6 +215,9 @@
         }
         &__table{
             margin-bottom: 50px;
+            @include to(992px){
+                width: 1000px;
+            }
             tr{
                 position: relative;
                 
@@ -118,6 +225,7 @@
                     background: #FAFAFA;
                 }
             }
+
         }
         &__table-row{
 
@@ -134,16 +242,34 @@
     .serv-bot-sec{
         display: flex;
         padding-bottom: 200px;
+        @include to(992px){
+            position: relative;
+            padding-bottom: 100px;
+        }
+        @include to(640px){
+            display: none;
+        }
         &__block1{
             display: flex;
             justify-content: center;
             width: 50%;
             background: #333333;
             padding: 8% 0;
+            @include to(992px){
+                width: 65%;
+                padding: 12% 0;
+            }
         }
         &__block2{
             width: 30%;
             transform: translate(-25%, 25%);
+            @include to(992px){
+                width: 45%;
+                transform: translate(0, 0);
+                position: absolute;
+                right: 0;
+                bottom: 40px;
+            }
         }
     }
 }

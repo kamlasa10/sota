@@ -1,36 +1,47 @@
 function firstSec() {
   const tl = gsap.timeline()
 
-  tl.fromTo('.financial__intro-left img', {
-    scale: 1.2
+  // tl.fromTo('.financial__intro-left img', {
+  //   scale: 1.2
+  // }, {
+  //   scale: 1,
+  //   duration: 1
+  // }, 1.7)
+  //   .fromTo('.financial__intro-title', {
+  //     opacity: 0,
+  //     y: -30
+  //   }, {
+  //     opacity: 1,
+  //     y: 0,
+  //     duration: 1
+  //   }, 1.9)
+  //   .fromTo('.financial__intro-right-block', {
+  //     y: 30,
+  //     opacity: 0
+  //   }, {
+  //     y: 0,
+  //     opacity: 1,
+  //     duration: 1
+  //   }, 1.9)
+  //   .fromTo('.financial__intro-right img', {
+  //     y: 100,
+  //     scale: 1.1
+  //   }, {
+  //     y: 0,
+  //     scale: 1,
+  //     duration: 1
+  //   }, 1.85)
+
+  tl.fromTo('.financial__intro-left', {
+    y: 0,
   }, {
-    scale: 1,
-    duration: 1
-  }, 1.7)
-    .fromTo('.financial__intro-title', {
-      opacity: 0,
-      y: -30
+    y: '15%'
+  })
+    .fromTo('.financial__intro-left img', {
+      scale: 1
     }, {
-      opacity: 1,
-      y: 0,
-      duration: 1
-    }, 1.9)
-    .fromTo('.financial__intro-right-block', {
-      y: 30,
-      opacity: 0
-    }, {
-      y: 0,
-      opacity: 1,
-      duration: 1
-    }, 1.9)
-    .fromTo('.financial__intro-right img', {
-      y: 100,
-      scale: 1.1
-    }, {
-      y: 0,
-      scale: 1,
-      duration: 1
-    }, 1.85)
+      scale: 1.125
+    }, 0)
 
   return tl
 }
@@ -76,6 +87,9 @@ function threeSec() {
       opacity: 1,
       y: 0
     }, 0)
+    .fromTo('.financial__intro-right img', {
+    
+    })
 
   return tl
 }
@@ -92,7 +106,10 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
 
   switch (animationName) {
     case 'first': {
-      fn()
+      createScrollTrigger({
+        trigger: sec,
+        end: '+=1500'
+      }, fn, true)
       break
     }
 

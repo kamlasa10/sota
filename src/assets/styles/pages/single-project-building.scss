@@ -21,6 +21,9 @@
 	justify-content: space-between;
 	.header-tabs__single-tab-title + .header-tabs__single-tab-title{
 		margin-left: 10px;
+		@include to(640px){
+			margin-left: 0;
+		}
 	}
 }
 
@@ -36,19 +39,38 @@
 		@include to(1370px){
 			max-width: 980px;
 		}
+		@include to(1024px){
+		}
+		@include to(640px){
+			max-width: 100%;
+			flex-direction: column;
+		}
 	}
 
 	&__slider-wrapper{
 		display: flex;
 		flex-basis: 60%;
+		@include to(1024px){
+			flex-wrap: wrap;
+		}
+		@include to(640px){
+			flex-basis: 100%;
+		}
 	}
 	&__slider{
 		max-width: 400px;
 		margin: 0 auto;
+		@include to(640px){
+			max-width: 100%;
+		}
 	}
 
 	&__info{
 		flex-grow: 1;
+		@include to(640px){
+			padding: 0 16px;
+			margin-top: 16px;
+		}
 	}
 
 	&__slider-control{
@@ -58,6 +80,18 @@
 }
 
 .preview-progress-bar{
+	@include to(1024px){
+		display: flex;
+		align-items: center;
+	}
+	@include to(640px){
+		display: none;
+	}
+	&__slides-number{
+		@include to(1024px){
+			margin: 0 15px;
+		}
+	}
 	&__arrow{
 		padding: 15px 0;
 		cursor: pointer;
@@ -90,6 +124,7 @@
 	counter-reset: my-awesome-counter;
   list-style: none;
 	padding-left: 0;
+
 	&__item{
 		counter-increment: my-awesome-counter;
 		display: flex;
@@ -132,10 +167,22 @@
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	@include to(1024px){
+		justify-content: space-around;
+		flex-basis: 100%;
+	}
+	@include to(640px){
+		justify-content: flex-start;
+		padding: 0 16px;
+		margin-bottom: 15px;
+	}
 	&__subtitle{
 		position: absolute;
 		top: 0;
 		left:0;
+		@include to(1024px){
+			position: static;
+		}
 	}
 }
 
@@ -151,6 +198,9 @@
 					padding-left: 20px;
 				}
 			}
+			@include to(1024px){
+				display: none;
+			}
 		}
 	}
 }
@@ -161,13 +211,20 @@
 
 .spec-table{
 	line-height: 150%;
-	// max-width: 1020px;
 	max-width: 1160px;
+	margin: 0 auto;
 	color:#808080;
 	@include to(1370px){
 		max-width: 980px;
 	}
-	margin: 0 auto;
+	@include to(1024px){
+		text-align: center;
+		margin-top: 20px;
+	}
+	@include to(640px){
+		margin-top: 15px;
+		text-align: left;
+	}
 	thead{
 		th{
 			padding: 30px 0;
@@ -201,6 +258,10 @@
 	}
 	&__list{
 		color: #ffffff;
+		@include to(1024px){
+			max-width: 575px;
+			margin: 0 auto;
+		}
 		li{
 			list-style-type: '-  ';
 			list-style-position: inside;
@@ -209,24 +270,49 @@
 			}
 		}
 	}
+	&__text{
+		max-width: 575px;
+		margin: 0 auto;
+	}
 	&__sec1{
 		padding-bottom: 40px;
 		color:#808080;
+		@include to(640px){
+			padding: 0 16px 40px;
+		}
 	}
 	&__sec2{
 		padding: 75px 90px;
 		background: #333333;
+		@include to(1024px){
+			padding: 72px 0;
+		}
+		@include to(640px){
+			padding: 24px 16px;
+		}
 	}
 	&__sec2-title{
 		margin-bottom: 15px;
+		@include to(1024px){
+			max-width: 575px;
+			margin: 0 auto 15px;
+		}
 	}
 }
 .project-sklad-tab{
+	&__list{
+		@include to(640px){
+			padding: 0 16px;
+		}
+	}
 	&__inner{
 		// max-width: 1020px;
 		max-width: 1160px;
 		@include to(1370px){
 			max-width: 980px;
+		}
+		@include to(1024px){
+			max-width: 100%;
 		}
 		margin: 0 auto;
 	}
@@ -239,18 +325,30 @@
 	&__key{
 		flex-basis: 30%;
 		flex-shrink: 0;
+		@include to(1024px){
+			flex-basis: 40%;
+		}
 	}
 	&__title{
 		line-height: 1.5;
+		@include to(640px){
+			margin-bottom: 8px;
+		}
 	}
 	&__value{
 		color:#808080;
 	}
 	&__item{
 		display: flex;
+		@include to(640px){
+			flex-direction: column;
+		}
 	}
 	&__item + &__item{
 		margin-top: 30px;
+		@include to(640px){
+			margin-top: 16px;
+		}
 	}
 	&__ordered-list{
 		padding-left: 0;
@@ -322,5 +420,109 @@
 			display: block;
 			width: 260px;
 		}
+	}
+}
+
+.mob-toggle-btn{
+	display: none;
+	@include to(1024px){
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&__btn{
+		margin: 0 20px;
+		appearance: none;
+		position: relative;
+		display: inline-block;
+		width: 126px;
+		height: 40px;
+		vertical-align: top;
+		background: #ffffff;
+		border: 2px solid #EC5629;
+		border-radius: 30px;
+		outline: none;
+		cursor: pointer;
+		@include to(640px){
+			border: 1px solid #EC5629;
+			width: 74px;
+			height: 22px;
+			margin: 0 7px;
+		}
+		&::after {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: 67px;
+			height: 36px;
+			background-color: #EC5629;
+			border-radius: 999px;
+			transform: translateX(0);
+			transition: all .3s;
+			@include to(640px){
+				width: 39px;
+				height: 20px;
+			}
+		}
+		&::before {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			left: 13px;
+			top: 9px;
+			z-index: 2;
+			width: 17px;
+			height: 17px;
+			background-color: #fff;
+			border-radius: 50%;
+			transform: translateX(0);
+			transition: all .3s;
+			@include to(640px){
+				width: 10px;
+				height: 10px;
+				left: 8px;
+				top: 5px;
+			}
+		}
+		&:checked::after {
+			transform: translateX(55px);
+			@include to(640px){
+				transform: translateX(34px);
+			}
+		}
+		&:checked::before {
+			transform: translateX(55px);
+			@include to(640px){
+				transform: translateX(34px);
+			}
+		}
+	}
+	&__text{
+		font-size: 18px;
+		line-height: 144%;
+		font-weight: 700;
+		color: #808080;
+	}
+	&__text.active{
+		color: #EC5629;
+	}
+}
+
+.project-specs-tab__spec-table_optima{
+	td:nth-child(2){
+		display: none;
+	}
+	th{
+		display: none;
+	}
+}
+.project-specs-tab__spec-table_prime{
+	td:nth-child(1){
+		display: none;
+	}
+	th{
+		display: none;
 	}
 }

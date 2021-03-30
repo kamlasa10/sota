@@ -175,7 +175,11 @@ block content
                     span.plan-tab-list__key Гараж
                     span.plan-tab-list__value 26 м<sup>2</sup>
           .body-tabs__tab.js-proj-single-tab(data-tab="#tab-specs").project-specs-tab
-            table.project-specs-tab__spec-table.spec-table
+            .project-specs-tab__mob-toggle.mob-toggle-btn
+              label(for="mob-checkbox").mob-toggle-btn__text.mob-toggle-btn__text_optima.active Sota Optima
+              input(type="checkbox" id="mob-checkbox").mob-toggle-btn__btn
+              label(for="mob-checkbox").mob-toggle-btn__text.mob-toggle-btn__text_prime Sota Prime
+            table.project-specs-tab__spec-table.spec-table.project-specs-tab__spec-table_optima
               thead
                 tr 
                   th.orange-subtitle Sota Optima

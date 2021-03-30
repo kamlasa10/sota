@@ -100,6 +100,16 @@ function setPreviewNextSlide(nextSlide, current, isAnimateText = true) {
     const tabName = node.data().choise
     const tl = gsap.timeline()
 
+    let firstScreanImgWidth = '80%'
+
+    if ($(window).width() < 1440) {
+      firstScreanImgWidth = '77%'
+    }
+
+    if ($(window).width() <= 770) {
+      firstScreanImgWidth = '94%'
+    }
+
     switch (tabName) {
       case 1: {
         tl.fromTo('.choise-us__item--1-img img', {
@@ -107,7 +117,7 @@ function setPreviewNextSlide(nextSlide, current, isAnimateText = true) {
         }, {
           x: $(window).width() <= 1025 ? '30px' : '',
           duration: 0.8,
-          width: $(window).width() > 1440 ? '80%' : '77%'
+          width: firstScreanImgWidth
         }, 0.6)
           .fromTo('.choise-us__item--1-right', {
             opacity: 0,
@@ -440,6 +450,7 @@ const swiper = new Swiper('.js-main__wrap', {
       $('.main__progress-total').text(`0${Math.ceil(e.slides.length / 2)}`)
     },
     slideChange(e) {
+      console.log(e)
       if (!sliderFlag) {
         myTl.pause()
         $('.main__progress-bar-indicator').css('width', 0)
@@ -543,12 +554,12 @@ function choiseSec() {
       y: 100
     }, {
       y: 0,
-    }, 0)
+    }, 0.05)
     .fromTo('.choise-us__item--1-left .bg', {
       y: 150,
     }, {
       y: 0,
-    }, 0)
+    }, 0.1)
     .fromTo('.choise-us__content', {
       y: 80
     }, {
