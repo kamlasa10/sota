@@ -3,12 +3,12 @@
 
 function debounce(delay, fn) {
     let timeout
-  
+
     return function() {
       if(timeout) {
           clearTimeout(timeout)
       }
-  
+
       timeout = setTimeout(fn, delay)
     }
   }
@@ -148,7 +148,7 @@ $(window).resize(() => {
 
 $('.js-nav__close').on('click', e => {
     $('.nav').removeClass('nav--show')
-    
+
     setTimeout(() => {
         $('.js-burger-btn').removeClass('mobile')
     }, 200)
@@ -182,7 +182,6 @@ document.addEventListener('keydown', e => {
 })
 
 $(window).on('resize', () => {
-    console.log('resize')
     if($(window).width() > 1025) {
         window.locoScroll = new LocomotiveScroll({
             el: document.querySelector("[data-scroll-container]"),
@@ -190,9 +189,9 @@ $(window).on('resize', () => {
             smoothMobile: false,
             inertia: 1.1
         });
-    
+
         window.locoScroll.on("scroll", ScrollTrigger.update);
-    
+
         ScrollTrigger.scrollerProxy("[data-scroll-container]", {
             scrollTop(value) {
                 return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
@@ -208,17 +207,17 @@ $(window).on('resize', () => {
             // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
             pinType: document.querySelector("[data-scroll-container]").style.transform ? "transform" : "fixed"
         });
-    
+
         ScrollTrigger.addEventListener("refresh", () => window.locoScroll.update());
-    
+
         // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
         ScrollTrigger.refresh();
-    
+
         setTimeout(() => {
             window.locoScroll.update()
         }, 2000)
     }
-}).resize()
+})
 
 $(document)[0].addEventListener('click', e => {
     const path = e.path || (e.composedPath && e.composedPath());
