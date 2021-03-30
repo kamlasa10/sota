@@ -17,8 +17,10 @@ $(document).ready(() => {
           item.classList.add('active');
         })
         
-        self.setTabHeight(`${tabClass}.active`, containerClass)
-        window.locoScroll.update();
+        self.setTabHeight(`${tabClass}.active`, containerClass);
+        if ($(window).width() >= 1024) {
+          window.locoScroll.update();
+        }
       })
     })
   }
@@ -29,12 +31,13 @@ $(document).ready(() => {
   tabBtns.forEach((btn) => {
   })
 
-  $(".table-services__table-header").scroll(() => {
-    $(".table-services__table-wrapper")
-      .scrollLeft($(".table-services__table-header").scrollLeft());
+  $(".table-services__table-header").scroll(function () {
+    console.log($(this))
+    $(this).next()
+      .scrollLeft($(this).scrollLeft());
   });
-  $(".table-services__table-wrapper").scroll(() => {
-    $(".table-services__table-wrapper")
-      .scrollLeft($(".table-services__table-wrapper").scrollLeft());
+  $(".table-services__table-wrapper").scroll(function () {
+    $(this).prev()
+      .scrollLeft($(this).scrollLeft());
   });
 });
