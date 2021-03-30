@@ -301,7 +301,7 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
     }
 
     case 'six': {
-      if($(window).width() >= 770) {   
+      if ($(window).width() >= 770) {   
         createScrollTrigger({
           trigger: sec,
           start: '-1000',
@@ -309,7 +309,7 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
         }, fn)
       }
 
-      if($(window).width() < 770) {
+      if ($(window).width() < 770) {
         createScrollTrigger({
           trigger: sec,
           start: '-1000',
@@ -340,7 +340,7 @@ $(window).on('resize', () => {
     $('.projects-start__item--2 .projects-start__item-left-content').before($('.projects-start__item--1 .projects-start__item-left-content'))
   }
 
-  if($(window).width() <= 770) {
+  if ($(window).width() <= 770) {
     $('.projects-start__item--6 .container').append($('.projects-start__item--6 .projects-start__text--full'))
   }
 })
