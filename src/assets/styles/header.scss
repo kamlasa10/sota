@@ -188,6 +188,10 @@
 
     .language {
       top: 29px;
+
+      @include to(480px) {
+        top: 12px;
+      }
     }
 
     .header__logo {
