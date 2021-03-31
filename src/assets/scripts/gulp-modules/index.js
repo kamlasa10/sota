@@ -577,9 +577,14 @@ class TabChange {
     setTabHeight(activeTab, container) {
       const activeTabItem = document.querySelector(activeTab);
       const containerItem = document.querySelector(container);
-      const tabHeight = activeTabItem.offsetHeight;
-      containerItem.style.height = `${tabHeight}px`;
-      if ($(window).width() > 1025){
+      setTimeout(function(){
+        const tabHeight = activeTabItem.offsetHeight;
+        containerItem.style.height = `${tabHeight}px`;
+        console.log(activeTabItem)
+        console.log(tabHeight)
+      }, 0)
+
+      if ($(window).width() > 1024){
           window.locoScroll.update();
       }
     }
@@ -597,7 +602,7 @@ class TabChange {
         tabBtns.forEach((btn, _) => {
             btn.addEventListener('click', function (e) {
             e.preventDefault();
-            if ($(window).width() > 1025){
+            if ($(window).width() > 1024){
                 self.removeClass(tabBtns, 'active');
                 self.removeClass(tabs, 'active');
                 this.classList.add('active');
@@ -606,17 +611,19 @@ class TabChange {
                 activeTab.classList.add('active');
                 self.setTabHeight(`${tabClass}.active`, containerClass);
                 window.locoScroll.update();
+            } else{
+                self.removeClass(tabBtns, 'active');
+                self.removeClass(tabs, 'active');
+                $(tabs).hide();
+                this.classList.add('active');
+                const activeHref = this.getAttribute('href');
+                const activeTab = document.querySelector(`[data-tab="${activeHref}"]`);
+                activeTab.classList.add('active');
+                $(`[data-tab="${activeHref}"]`).show();
+                self.setTabHeight(`${tabClass}.active`, containerClass);
             }
             
-            self.removeClass(tabBtns, 'active');
-            self.removeClass(tabs, 'active');
-            $(tabs).hide();
-            this.classList.add('active');
-            const activeHref = this.getAttribute('href');
-            const activeTab = document.querySelector(`[data-tab="${activeHref}"]`);
-            activeTab.classList.add('active');
-            $(`[data-tab="${activeHref}"]`).show();
-            self.setTabHeight(`${tabClass}.active`, containerClass);
+
             })
         })
     }

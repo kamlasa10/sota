@@ -315,6 +315,7 @@ $(document).ready(() => {
       this.closeBtn = document.querySelector('.js-open-img-popup-close');
       this.imgWrapper = document.querySelector('.js-img-wrapper');
       this.slider = null;
+      this.slideIndex = 0;
     }
 
     eventListeners() {
@@ -323,6 +324,7 @@ $(document).ready(() => {
         btn.addEventListener('click', function (e) {
           e.preventDefault();
           const swiperWrapper = this.closest('.swiper-wrapper');
+          self.slideIndex = swiperWrapper.querySelector('.swiper-slide-active').getAttribute('aria-label').split('/')[0];
           const imgs = swiperWrapper.querySelectorAll('img')
           imgs.forEach((slide) => {
             const newSlide = document.createElement('div');
@@ -332,15 +334,31 @@ $(document).ready(() => {
             newSlide.appendChild(newSlideImg);
             self.imgWrapper.appendChild(newSlide)
           })
-
           self.slider = new Swiper('.js-img-pu-slider', {
             slidesPerView: 1,
             allowTouchMove: false,
-            spaceBetween: 100,
+            spaceBetween: 0,
             init: true,
+            initialSlide: self.slideIndex - 1,
             navigation: {	
               nextEl: '.js-img-pu-arrow-next',
               prevEl: '.js-img-pu-arrow-prev',
+            },
+            breakpoints: {
+              // when window width is >= 320px
+              320: {
+                slidesPerView: 1.3,
+                spaceBetween: 15,
+                allowTouchMove: true,
+                loop: true,
+                centeredSlides: true
+              },
+              // when window width is >= 640px
+              640: {
+                slidesPerView: 1,
+                allowTouchMove: false,
+                spaceBetween: 0
+              }
             }
           });
           self.popup.classList.add('show');
@@ -372,10 +390,17 @@ $(document).ready(() => {
     try {
       const mobToggleBtn = document.querySelector('.mob-toggle-btn__btn');
       const projectTable = document.querySelector('.project-specs-tab__spec-table');
+
       const optimaLabel = document.querySelector('.mob-toggle-btn__text_optima');
       const primeLabel = document.querySelector('.mob-toggle-btn__text_prime');
       projectTable.classList.add('project-specs-tab__spec-table_optima');
+
+
       mobToggleBtn.addEventListener('click', () => {
+        setTimeout(() => {
+          $('.js-proj-tab-content').css('height', `${$('.project-specs-tab').outerHeight()}px`)
+        }, 0)
+
         if (mobToggleBtn.checked) {
           optimaLabel.classList.remove('active');
           projectTable.classList.remove('project-specs-tab__spec-table_optima');
