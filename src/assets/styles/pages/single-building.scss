@@ -403,7 +403,6 @@
 			&:nth-child(1){
 				@include to(1024px){
 					order: 1;
-
 				}
 				@include to(640px){
 					flex-basis: calc(50% - 8px);
@@ -413,7 +412,6 @@
 				@include to(1024px){
 					order: 2;
 				}
-				
 				@include to(640px){
 					flex-basis: calc(50% - 8px);
 					padding: 6px 20px;
@@ -426,7 +424,7 @@
 					text-align: center;
 					margin-top: 30px;
 				}
-			
+
 				@include to(640px){
 					flex-basis: 100%;
 					margin-top: 0;
@@ -437,7 +435,6 @@
 			&:nth-child(4){
 				@include to(1024px){
 					order: 3;
-
 				}
 				@include to(640px){
 					flex-basis: calc(50% - 8px);

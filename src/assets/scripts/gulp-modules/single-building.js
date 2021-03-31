@@ -261,22 +261,19 @@ $(document).ready(() => {
     breakpoints: {
       320: {
         slidesPerView: 1.3,
-        effect: 'slide',
         centeredSlides: true,
         loop: true,
         spaceBetween: 10
       },
       640: {
         slidesPerView: 1,
-        effect: 'fade',
-        fadeEffect: {
-          crossFade: true
-        },
         centeredSlides: false,
         loop: false,
         spaceBetween: 0
       }
     },
+    effect: 'slide',
+
     speed: 1000,
     initialSlide: 0,
     init: false,
@@ -352,7 +349,6 @@ $(document).ready(() => {
 
       this.closeBtn.addEventListener('click', (e) => {
         const newImg = document.querySelector('.js-img-for-popup');
-        // newImg.remove();
         self.clearPopup();
         self.popup.classList.remove('show');
       })
@@ -378,7 +374,7 @@ $(document).ready(() => {
       const projectTable = document.querySelector('.project-specs-tab__spec-table');
       const optimaLabel = document.querySelector('.mob-toggle-btn__text_optima');
       const primeLabel = document.querySelector('.mob-toggle-btn__text_prime');
-  
+      projectTable.classList.add('project-specs-tab__spec-table_optima');
       mobToggleBtn.addEventListener('click', () => {
         if (mobToggleBtn.checked) {
           optimaLabel.classList.remove('active');
