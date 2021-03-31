@@ -1,4 +1,12 @@
 #id-page-team {
+  .sec1-team {
+    & > .container {
+      @include to(480px) {
+        padding: 0;
+      }
+    }
+  }
+
 	.team {
 		&__list {
 			display: grid;
@@ -107,6 +115,7 @@
 
       @include to(480px) {
         margin-bottom: 0;
+        padding-right: 48px;
       }
 		}
 

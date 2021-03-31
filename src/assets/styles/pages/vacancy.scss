@@ -19,6 +19,10 @@
           @include to(770px) {
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
           }
+
+          @include to(767px) {
+            grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+          }
         }
 
         &__decor {
@@ -121,9 +125,12 @@
         }
 
         &__block {
-            margin-bottom: 66px;
             display: flex;
             justify-content: center;
+
+            .choise-us__link {
+              margin-bottom: 66px;
+            }
         }
     }
 }

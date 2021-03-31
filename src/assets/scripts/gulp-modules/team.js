@@ -68,13 +68,14 @@
         speed: 500,
         allowTouchMove: true,
         noSwiping: false,
-        spaceBetween: 20,
+        spaceBetween: 15,
         breakpoints: {
           320: {
-            slidesPerView: 1.4
+            slidesPerView: 1.3
           },
           350: {
-            slidesPerView: 1.5
+            slidesPerView: 1.5,
+            spaceBetween: 10
           }
         },
         on: {

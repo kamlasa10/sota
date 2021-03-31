@@ -3,12 +3,12 @@
 
 function debounce(delay, fn) {
     let timeout
-  
+
     return function() {
       if(timeout) {
           clearTimeout(timeout)
       }
-  
+
       timeout = setTimeout(fn, delay)
     }
   }
@@ -148,7 +148,7 @@ $(window).resize(() => {
 
 $('.js-nav__close').on('click', e => {
     $('.nav').removeClass('nav--show')
-    
+
     setTimeout(() => {
         $('.js-burger-btn').removeClass('mobile')
     }, 200)
@@ -180,45 +180,6 @@ document.addEventListener('keydown', e => {
         window.locoScroll.start()
     }
 })
-
-$(window).on('resize', () => {
-    console.log('resize')
-    if($(window).width() > 1025) {
-        window.locoScroll = new LocomotiveScroll({
-            el: document.querySelector("[data-scroll-container]"),
-            smooth: true,
-            smoothMobile: false,
-            inertia: 1.1
-        });
-    
-        window.locoScroll.on("scroll", ScrollTrigger.update);
-    
-        ScrollTrigger.scrollerProxy("[data-scroll-container]", {
-            scrollTop(value) {
-                return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-            }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-            getBoundingClientRect() {
-                return {
-                    top: 0,
-                    left: 0,
-                    width: window.innerWidth,
-                    height: window.innerHeight
-                };
-            },
-            // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-            pinType: document.querySelector("[data-scroll-container]").style.transform ? "transform" : "fixed"
-        });
-    
-        ScrollTrigger.addEventListener("refresh", () => window.locoScroll.update());
-    
-        // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-        ScrollTrigger.refresh();
-    
-        setTimeout(() => {
-            window.locoScroll.update()
-        }, 2000)
-    }
-}).resize()
 
 $(document)[0].addEventListener('click', e => {
     const path = e.path || (e.composedPath && e.composedPath());
@@ -298,8 +259,8 @@ $(document).ready(() => {
                 warn: 'field is required'
             }
         }
-        // const language = $('html').attr('lang')
-        const language = $('body').attr('data-language')
+
+        const language = $('html').attr('lang')
 
         function checkEmail(str) {
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -588,25 +549,40 @@ class TabChange {
     }
 
     tabSwitch(tabClass, btnClass, containerClass) {
-      const self = this;
-      const tabBtns = document.querySelectorAll(btnClass);
-      const tabs = document.querySelectorAll(tabClass);
+        const self = this;
+        const tabBtns = document.querySelectorAll(btnClass);
+        const tabs = document.querySelectorAll(tabClass);
 
-      tabBtns.forEach((btn, _) => {
-        btn.addEventListener('click', function (e) {
-          e.preventDefault();
-          self.removeClass(tabBtns, 'active');
-          self.removeClass(tabs, 'active');
-          this.classList.add('active');
-          const activeHref = this.getAttribute('href');
-          const activeTab = document.querySelector(`[data-tab="${activeHref}"]`);
-          activeTab.classList.add('active');
-          self.setTabHeight(`${tabClass}.active`, containerClass);
-          if ($(window).width() > 1025){
-            window.locoScroll.update();
+        if ($(window).width() <= 1024){
+            $(tabClass).hide();
+            $(`${tabClass}.active`).show();
+        }
+
+        tabBtns.forEach((btn, _) => {
+            btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            if ($(window).width() > 1025){
+                self.removeClass(tabBtns, 'active');
+                self.removeClass(tabs, 'active');
+                this.classList.add('active');
+                const activeHref = this.getAttribute('href');
+                const activeTab = document.querySelector(`[data-tab="${activeHref}"]`);
+                activeTab.classList.add('active');
+                self.setTabHeight(`${tabClass}.active`, containerClass);
+                window.locoScroll.update();
             }
+            
+            self.removeClass(tabBtns, 'active');
+            self.removeClass(tabs, 'active');
+            $(tabs).hide();
+            this.classList.add('active');
+            const activeHref = this.getAttribute('href');
+            const activeTab = document.querySelector(`[data-tab="${activeHref}"]`);
+            activeTab.classList.add('active');
+            $(`[data-tab="${activeHref}"]`).show();
+            self.setTabHeight(`${tabClass}.active`, containerClass);
+            })
         })
-      })
     }
 
     init() {
@@ -617,6 +593,44 @@ class TabChange {
 
   // adaptive
   $(window).on('resize', () => {
+    if($(window).width() > 1025) {
+      if(window.locoScroll) return
+
+      window.locoScroll = new LocomotiveScroll({
+        el: document.querySelector("[data-scroll-container]"),
+        smooth: true,
+        smoothMobile: false,
+        inertia: 1.1
+      });
+
+      window.locoScroll.on("scroll", ScrollTrigger.update);
+
+      ScrollTrigger.scrollerProxy("[data-scroll-container]", {
+        scrollTop(value) {
+          return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+        }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+        getBoundingClientRect() {
+          return {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight
+          };
+        },
+        // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+        pinType: document.querySelector("[data-scroll-container]").style.transform ? "transform" : "fixed"
+      });
+
+      ScrollTrigger.addEventListener("refresh", () => window.locoScroll.update());
+
+      // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+      ScrollTrigger.refresh();
+
+      setTimeout(() => {
+        window.locoScroll.update()
+      }, 1000)
+    }
+
     if($(window).width() <= 920) {
         $('.language__current').append($('.language__link--current'))
         $('.language__list-dropdown').append($('.language__link:not(.language__link--current)'))
