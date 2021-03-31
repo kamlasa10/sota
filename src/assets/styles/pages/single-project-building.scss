@@ -400,6 +400,9 @@
 		background: #fff;
 		top: 25px;
 		left: -20px;
+		@include to(640px){
+			left: -145px;
+		}
 		&::before{
 			content: '';
 			display: block;
@@ -413,6 +416,9 @@
 			left: 24px;
 			width: 8px;
 			height: 8px;
+			@include to(640px){
+				left: 148px;
+			}
 
 		}
 
