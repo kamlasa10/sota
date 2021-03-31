@@ -180,12 +180,16 @@ function styles() {
 		return gulp.src(paths.styles.main)
 		.pipe(sourcemaps.init()) // инциализация sourcemap'ов
 		.pipe(sass({
-				outputStyle: 'expanded' // компиляции в CSS с отступами
+				outputStyle: 'compressed' // компиляции в CSS с отступами
 		}))
 		.on('error', notify.onError({
 				title: 'SCSS',
 				message: '<%= error.message %>' // вывод сообщения об ошибке
 		}))
+		.pipe(autoprefixer({
+			cascade: false
+		}))
+		.pipe(cleanCSS({compatibility: 'ie8'}))
 		.pipe(sourcemaps.write())
 		.pipe(rename("main.min.css"))
 		.pipe(gulp.dest(paths.styles.dest))

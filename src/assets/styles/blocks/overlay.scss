@@ -554,15 +554,29 @@
       height: 10px;
       background-color: transparent;
     }
+
+  @include to(1025px) {
+    &.show {
+      &::after {
+          transform: rotate(180deg);
+        }
+      & ~ .contacts-select__list {
+          opacity: 1;
+          z-index: 3;
+        }
+      }
+    }
   }
 
-  &:hover {
-    .contacts-select__current::after {
-      transform: rotate(180deg);
-    }
-    .contacts-select__list {
-      opacity: 1;
-      z-index: 3;
+  @media (min-width: 1026px) {
+    &:hover {
+      .contacts-select__current::after {
+        transform: rotate(180deg);
+      }
+      .contacts-select__list {
+        opacity: 1;
+        z-index: 3;
+      }
     }
   }
 }

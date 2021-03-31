@@ -197,7 +197,7 @@ function fiveSec() {
     y: offseTop
   })
     .fromTo('.projects-start__item-left img', {
-      scale: $(window).width() > 1025 ? 1.3 : 1
+      scale: $(window).width() > 1025 ? 1 : 1
     }, {
       scale: 1
     }, 0)

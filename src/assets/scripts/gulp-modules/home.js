@@ -712,3 +712,17 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
 })
 
 // adaptive 
+
+if($(window).width() <= 1024) {
+  document.addEventListener('click', e => {
+    const path = event.path || (event.composedPath && event.composedPath());
+    console.log(!path.includes($('[data-select-current]')[0]))
+    if(!(path.includes($('[data-select-current]')[0])) && $('[data-select-current]').hasClass('show')) {
+      $('[data-select-current]').removeClass('show')
+    }
+  })
+
+  $('[data-select-current]').on('click', (e) => {
+    $(e.currentTarget).toggleClass('show')
+  })
+}

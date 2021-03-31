@@ -262,7 +262,8 @@ $(document).ready(() => {
             }
         }
 
-        const language = $('html').attr('lang')
+        // const language = $('html').attr('lang')
+        const language = $('body').attr('data-language')
 
         function checkEmail(str) {
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -359,6 +360,38 @@ $(document).ready(() => {
                         isValid = false
                     }
 
+                    if (this.dataset.required && isFirstShowWarn && $(this).val()) {
+                        if (
+                            $(this).attr("name") === "email" &&
+                            !checkEmail($(this).val())
+                        ) {
+                            removeFormTextWarn($(this));
+                            $(this)
+                                .parent()
+                                .append(
+                                    `<div class="field__error-msg">${msgWarnObj[language].email}</div>`
+                                );
+                            addIndicateWarnForNode($(this), "field--error", true);
+                            isValid = false;
+                            return;
+                        }
+
+                        if (
+                            $(this).attr("name") === "phone" &&
+                            checkNumbers(this.value).length < 12
+                        ) {
+                            removeFormTextWarn($(this));
+                            $(this)
+                                .parent()
+                                .append(
+                                    `<div class="field__error-msg">${msgWarnObj[language].phone}</div>`
+                                );
+                            addIndicateWarnForNode($(this), "field--error", true);
+                            isValid = false;
+                            return;
+                        }
+                    }
+
                     if (!$(this).val().replace(/\s+/g, "") && $(this)[0].type !== 'hidden' && this.dataset.required) {
                         removeFormTextWarn($(this))
 
@@ -384,6 +417,7 @@ $(document).ready(() => {
                 })
                 setTimeout(() => {
                     if (isFirstShowWarn) {
+                        console.log(true)
                         $('.field__error-msg').addClass('field__error-msg--animate')
                         isFirstShowWarn = false
                     }
