@@ -373,11 +373,17 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		@include to(640px){
+			width: 100%;
+		}
 	}
 	&__img-wrapper{
 		width: 85%;
 		height: 100%;
 		overflow: hidden;
+		@include to(640px){
+			width: 100%;
+		}
 	}
 	img{
 		width: 100%;
@@ -400,6 +406,12 @@
 		transition: all .4s;
 		&:hover{
 			color: #ffffff;
+		}
+	}
+
+	.reviews-pu-arrow{
+		@include to(640px){
+			display: none;
 		}
 	}
 }
