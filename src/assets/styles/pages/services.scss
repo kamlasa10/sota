@@ -140,7 +140,9 @@
 
     .table-services{
         @include to(992px){
-            overflow-y: scroll;
+            overflow-x: hidden;
+            overflow-y: visible;
+            width: 100vw;
         }
         &__list{
             margin-top: 0;
@@ -175,7 +177,8 @@
                 text-align: center;
             }
             @include to(992px){
-                overflow-y: scroll;
+                overflow-x: scroll;
+                overflow-y: visible;
                 background-color: #fff;
                 position: relative;
                 padding-bottom: 20px;
