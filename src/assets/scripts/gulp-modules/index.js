@@ -549,25 +549,40 @@ class TabChange {
     }
 
     tabSwitch(tabClass, btnClass, containerClass) {
-      const self = this;
-      const tabBtns = document.querySelectorAll(btnClass);
-      const tabs = document.querySelectorAll(tabClass);
+        const self = this;
+        const tabBtns = document.querySelectorAll(btnClass);
+        const tabs = document.querySelectorAll(tabClass);
 
-      tabBtns.forEach((btn, _) => {
-        btn.addEventListener('click', function (e) {
-          e.preventDefault();
-          self.removeClass(tabBtns, 'active');
-          self.removeClass(tabs, 'active');
-          this.classList.add('active');
-          const activeHref = this.getAttribute('href');
-          const activeTab = document.querySelector(`[data-tab="${activeHref}"]`);
-          activeTab.classList.add('active');
-          self.setTabHeight(`${tabClass}.active`, containerClass);
-          if ($(window).width() > 1025){
-            window.locoScroll.update();
+        if ($(window).width() <= 1024){
+            $(tabClass).hide();
+            $(`${tabClass}.active`).show();
+        }
+
+        tabBtns.forEach((btn, _) => {
+            btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            if ($(window).width() > 1025){
+                self.removeClass(tabBtns, 'active');
+                self.removeClass(tabs, 'active');
+                this.classList.add('active');
+                const activeHref = this.getAttribute('href');
+                const activeTab = document.querySelector(`[data-tab="${activeHref}"]`);
+                activeTab.classList.add('active');
+                self.setTabHeight(`${tabClass}.active`, containerClass);
+                window.locoScroll.update();
             }
+            
+            self.removeClass(tabBtns, 'active');
+            self.removeClass(tabs, 'active');
+            $(tabs).hide();
+            this.classList.add('active');
+            const activeHref = this.getAttribute('href');
+            const activeTab = document.querySelector(`[data-tab="${activeHref}"]`);
+            activeTab.classList.add('active');
+            $(`[data-tab="${activeHref}"]`).show();
+            self.setTabHeight(`${tabClass}.active`, containerClass);
+            })
         })
-      })
     }
 
     init() {
