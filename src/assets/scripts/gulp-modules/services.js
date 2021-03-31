@@ -50,12 +50,24 @@ $(document).ready(() => {
   tabBtns.forEach((btn) => {
   })
 
+
+  let scrolling = 1;
   $(".table-services__table-header").scroll(function () {
-    $(this).next()
-      .scrollLeft($(this).scrollLeft());
+    if (scrolling == 1) {
+      scrolling = 0;
+      $(this).next()
+        .scrollLeft($(this).scrollLeft());
+    } else {
+      scrolling = 1;
+    }
   });
   $(".table-services__table-wrapper").scroll(function () {
-    $(this).prev()
-      .scrollLeft($(this).scrollLeft());
+    if (scrolling == 1) {
+      scrolling = 0;
+      $(this).prev()
+        .scrollLeft($(this).scrollLeft());
+    } else {
+      scrolling = 1
+    }
   });
 });
