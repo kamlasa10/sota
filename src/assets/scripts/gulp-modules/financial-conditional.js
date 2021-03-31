@@ -64,7 +64,7 @@ function secondSec() {
   const tl = gsap.timeline()
 
   tl.fromTo('.financial__step-item--animate', {
-    y: -100,
+    y: -110,
   }, {
     y: 0,
     duration: 1.4
@@ -87,22 +87,16 @@ function secondSec() {
 function threeSec() {
   const tl = gsap.timeline()
 
-  tl.fromTo('.financial__info-right', {
-    y: '-50',
-    opacity: 0
+  tl.fromTo('.financial__info', {
+    y: 80
   }, {
-    duration: 1,
-    y: 0,
-    opacity: 1
-  })
-  .fromTo('.financial__info-left', {
-    y: 50,
-    opacity: 0
-  }, {
-    duration: 1,
-    opacity: 1,
     y: 0
-  }, 0)
+  })
+  .fromTo('.financial__info-right img', {
+    y: '-18%'
+  }, {
+    y: 0
+  }, 0.05)
 
   return tl
 }
@@ -137,8 +131,10 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
     case 'three': {
       createScrollTrigger({
         trigger: sec,
-        start: '-700',
-      }, fn, false)
+        start: '-500',
+        markers: true,
+        end: `+=${window.height() / 1.2}`
+      }, fn, true)
       break
     }
   }

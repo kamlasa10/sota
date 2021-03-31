@@ -517,23 +517,25 @@ function choiseSec() {
   let offsetImg = '-32%'
   let offsetX = '140'
 
-  if ($(window).width() <= 1370) {
-    offsetImg = '-29%'
-  }
-
-  if ($(window).width <= 1025) {
-    offsetImg = '-27%'
-  }
-
-  if ($(window).width() <= 850 && $(window).width() >= 770) {
-    offsetImg = '-9%'
-    offsetX = '90'
-  }
-
-  if ($(window).width() < 770) {
-    offsetImg = '-9%'
-    offsetX = '50'
-  }
+  $(window).on('resize', () => {
+    if ($(window).width() <= 1370) {
+      offsetImg = '-29%'
+    }
+  
+    if ($(window).width <= 1025) {
+      offsetImg = '-27%'
+    }
+  
+    if ($(window).width() <= 850 && $(window).width() >= 770) {
+      offsetImg = '-9%'
+      offsetX = '90'
+    }
+  
+    if ($(window).width() < 770) {
+      offsetImg = '-8%'
+      offsetX = '50'
+    }
+  }).resize()
 
   tl.fromTo('.title', {
     y: -30,
@@ -680,7 +682,7 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
       trigger: item,
       // end: "+=1000",
       scrub: sectionName === 'project',
-      scroller: $(window).width() >= 1025 ? "[data-scroll-container]" : '',
+      scroller: $(window).width() > 1025 ? "[data-scroll-container]" : '',
       animation: fn(),
       end: sectionName === 'project' ? offsetPattern : ''
     });
@@ -705,7 +707,7 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
       trigger: item,
       end,
       scrub: true,
-      scroller: $(window).width() >= 1025 ? "[data-scroll-container]" : '',
+      scroller: $(window).width() > 1025 ? "[data-scroll-container]" : '',
       animation: fn(),
     });
 
@@ -716,7 +718,7 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
     trigger: item,
     end: `+=${$(window).height() / 1}`,
     scrub: true,
-    scroller: $(window).width() >= 1025 ? "[data-scroll-container]" : '',
+    scroller: "[data-scroll-container]",
     animation: fn(),
   });
 })

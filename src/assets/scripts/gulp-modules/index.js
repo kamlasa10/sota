@@ -66,7 +66,7 @@ $(window).on('resize', () => {
 setTimeout(() => {
   const tl = gsap.timeline({
     onComplete() {
-        $('#Preloader').remove()
+        $('.bg-for-finish-animate').remove()
     }
   })
   let offsetX = 450
