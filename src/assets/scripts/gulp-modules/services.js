@@ -32,7 +32,6 @@ $(document).ready(() => {
   })
 
   $(".table-services__table-header").scroll(function () {
-    console.log($(this))
     $(this).next()
       .scrollLeft($(this).scrollLeft());
   });
