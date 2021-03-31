@@ -52,7 +52,7 @@ function firstSec() {
     scale: 1.125
   }, 0)
   .fromTo('.financial__intro-right img', {
-    y: '20%'
+    y: '23%'
   }, {
     y: 0
   }, 0.08)
@@ -96,7 +96,7 @@ function threeSec() {
     y: '-18%'
   }, {
     y: 0
-  }, 0.05)
+  }, 0)
 
   return tl
 }
@@ -131,9 +131,7 @@ gsap.utils.toArray('[data-section]').forEach((sec) => {
     case 'three': {
       createScrollTrigger({
         trigger: sec,
-        start: '-500',
-        markers: true,
-        end: `+=${window.height() / 1.2}`
+        end: '+=620'
       }, fn, true)
       break
     }
