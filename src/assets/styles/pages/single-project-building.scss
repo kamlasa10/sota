@@ -60,6 +60,7 @@
 	&__slider{
 		max-width: 400px;
 		margin: 0 auto;
+		overflow: hidden;
 		@include to(640px){
 			max-width: 100%;
 		}
@@ -271,8 +272,11 @@
 		}
 	}
 	&__text{
-		max-width: 575px;
-		margin: 0 auto;
+		@include to(1024px){
+			max-width: 575px;
+			margin: 0 auto;
+		}
+
 	}
 	&__sec1{
 		padding-bottom: 40px;
