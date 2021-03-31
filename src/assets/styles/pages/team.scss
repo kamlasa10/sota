@@ -1,5 +1,7 @@
 #id-page-team {
   .sec1-team {
+	margin-bottom: -40px;
+
     & > .container {
       @include to(480px) {
         padding: 0;

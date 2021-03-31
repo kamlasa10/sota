@@ -1329,6 +1329,10 @@
           .choise-us__link {
             padding-left: 0;
             display: inline-flex;
+
+            @include to(480px) {
+              padding-left: 0 !important;
+            }
           }
 
           @include to(1440px) {

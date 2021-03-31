@@ -57,9 +57,11 @@ class SetCountPortion {
 let isPhoneValid
 let isMenuShow = false
 
-if($(window).width() >= 1024) {
-  $('.js-btn-top').css('top', ($(window).height() - 200) + 'px')
-}
+$(window).on('resize', () => {
+    if($(window).width() >= 1024) {
+        $('.js-btn-top').css('top', ($(window).height() - 200) + 'px')
+    }
+}).resize()
 
 setTimeout(() => {
   const tl = gsap.timeline()
@@ -624,7 +626,12 @@ class TabChange {
     }
 
     if($(window).width() <= 480) {
+        $('.header').removeClass('header_dark')
         $('.footer__right-bottom').append($('.js-btn-top'))
+
+        if($('body').attr('id') !== 'index-page') {
+            $('.header').addClass('mobile')
+        }
     }
   }).resize()
 

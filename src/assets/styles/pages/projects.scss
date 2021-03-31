@@ -20,6 +20,9 @@
     }
 
     @include to(480px) {
+        .tabs__header {
+            margin-left: 0;
+        }
         .content-tabs__single-tab {
             padding-top: 15px;
         }
@@ -944,6 +947,11 @@
                             display: flex;
                             justify-content: center;
                         }
+
+                        @include to(480px) {
+                            width: calc(100% + 16px);
+                            margin-left: -16px;
+                        }
                     }
 
                     img {
@@ -1066,7 +1074,7 @@
           }
 
           @include to(770px) {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 330px));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 339px));
           }
 
           @include to(700px) {

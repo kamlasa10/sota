@@ -414,6 +414,14 @@
         line-height: 1.5em;
         margin-bottom: 1px;
       }
+
+      @include to(480px) {
+        line-height: 1.9em;
+      }
+
+      @include to(320px) {
+        line-height: 1.5em;
+      }
     }
 
     &-link {

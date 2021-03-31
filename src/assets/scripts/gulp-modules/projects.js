@@ -10,10 +10,26 @@ document.addEventListener('click', (e) => {
     activeTab = $(`[data-tab-filter=${filterName}]`).index()
     $(`[data-tab-filter=${filterName}]`).trigger('click')
 
-    if (isEnd) {
-      setTimeout(() => {
+    setTimeout(() => {
+      const path = e.path || (e.composedPath && e.composedPath());
+
+      if(path.includes($('.js-loading__more')[0])) {
+        if(isEnd) {
+          window.locoScroll.scrollTo('.page__inner')
+          $('.js-nav__close').trigger('click')
+        }
+        return
+      }
+
+      if ($(window).width() >= 1025) {
         window.locoScroll.scrollTo('.page__inner')
-      }, 500)
+        $('.js-nav__close').trigger('click')
+      }
+    }, 500)
+
+    if($(window).width() < 1025) {
+      $("html, body").stop().animate({ scrollTop: 0}, 1000);
+      $('.js-nav__close').trigger('click')
     }
   }
 })
@@ -60,7 +76,9 @@ class ProjectsTabs extends Tabs {
       new VacancyProgress($(`[data-filter=${filterName}]`))
     }
 
-    window.locoScroll.update()
+    if($(window).width >= 1025) {
+      window.locoScroll.update()
+    }
   }
 
   trigger() {
