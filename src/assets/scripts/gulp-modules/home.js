@@ -671,12 +671,16 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
     offsetPattern = '+=1200'
   }
 
+  if($(window).width() < 1025) {
+    offsetPattern = '+=1000'
+  }
+
   if ($(item).data().section === 'project') {
     ScrollTriggerInstance = ScrollTrigger.create({
       trigger: item,
       // end: "+=1000",
       scrub: sectionName === 'project',
-      scroller: "[data-scroll-container]",
+      scroller: $(window).width() >= 1025 ? "[data-scroll-container]" : '',
       animation: fn(),
       end: sectionName === 'project' ? offsetPattern : ''
     });
@@ -691,11 +695,17 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
   }
 
   if (sectionName === 'choise') {
+    let end = $(window).height() + 100
+
+    if($(window).width() < 1025) {
+      end = $(window).height() * 1.4
+    }
+
     ScrollTrigger.create({
       trigger: item,
-      end: $(window).height() + 100,
+      end,
       scrub: true,
-      scroller: "[data-scroll-container]",
+      scroller: $(window).width() >= 1025 ? "[data-scroll-container]" : '',
       animation: fn(),
     });
 
@@ -706,7 +716,7 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
     trigger: item,
     end: `+=${$(window).height() / 1}`,
     scrub: true,
-    scroller: "[data-scroll-container]",
+    scroller: $(window).width() >= 1025 ? "[data-scroll-container]" : '',
     animation: fn(),
   });
 })

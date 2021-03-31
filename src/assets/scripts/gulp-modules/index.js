@@ -64,7 +64,11 @@ $(window).on('resize', () => {
 }).resize()
 
 setTimeout(() => {
-  const tl = gsap.timeline()
+  const tl = gsap.timeline({
+    onComplete() {
+        $('#Preloader').remove()
+    }
+  })
   let offsetX = 450
 
   if($(window).width() <= 1025) {
@@ -262,8 +266,7 @@ $(document).ready(() => {
             }
         }
 
-        // const language = $('html').attr('lang')
-        const language = $('body').attr('data-language')
+        const language = $('html').attr('lang')
 
         function checkEmail(str) {
             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
