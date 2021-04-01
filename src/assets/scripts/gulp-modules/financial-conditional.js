@@ -46,16 +46,16 @@ function firstSec() {
   }, {
     y: '7%'
   })
-  .fromTo('.financial__intro-left img', {
-    scale: 1
-  }, {
-    scale: 1.125
-  }, 0)
-  .fromTo('.financial__intro-right img', {
-    y: '23%'
-  }, {
-    y: 0
-  }, 0.08)
+    .fromTo('.financial__intro-left img', {
+      scale: 1
+    }, {
+      scale: 1.125
+    }, 0)
+    .fromTo('.financial__intro-right img', {
+      y: '23%'
+    }, {
+      y: 0
+    }, 0.08)
 
   return tl
 }
@@ -69,11 +69,11 @@ function secondSec() {
     y: 0,
     duration: 1.4
   })
-  .fromTo('.financial__step', {
-    y: '50'
-  }, {
-    y: '10'
-  }, 0.05)
+    .fromTo('.financial__step', {
+      y: '50'
+    }, {
+      y: '10'
+    }, 0.05)
     .fromTo('.financial__step-item::after', {
       height: 0
     }, {
@@ -92,11 +92,11 @@ function threeSec() {
   }, {
     y: 0
   })
-  .fromTo('.financial__info-right img', {
-    y: '-18%'
-  }, {
-    y: 0
-  }, 0)
+    .fromTo('.financial__info-right img', {
+      y: '-18%'
+    }, {
+      y: 0
+    }, 0)
 
   return tl
 }
