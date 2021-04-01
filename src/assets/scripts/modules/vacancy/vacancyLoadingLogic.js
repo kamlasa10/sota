@@ -40,6 +40,7 @@ class VacancyProgress {
 
   showNextPortionItems() {
     if (this.isLastPortion()) {
+      $('.vacancy__progress').addClass('end')
       $('.js-loading__more').hide()
     }
 
@@ -72,6 +73,7 @@ class VacancyProgress {
     })
 
     if (this.isLastPortion()) {
+      $('.vacancy__progress').addClass('end')
       $('.js-loading__more').hide()
     }
 

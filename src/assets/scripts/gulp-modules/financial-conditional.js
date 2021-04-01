@@ -3,7 +3,7 @@ function createScrollTrigger(opts, fn, scrub = true) {
     scrub,
     animation: fn(),
     ...opts,
-    scroller: $(window).width() >= 1025 ? "[data-scroll-container]" : ''
+    scroller: "[data-scroll-container]"
   })
 }
 
@@ -62,9 +62,12 @@ function firstSec() {
 
 function secondSec() {
   const tl = gsap.timeline()
+  let offsetY = -110
+
+  if($(window).width() <= 1440) offsetY = -80
 
   tl.fromTo('.financial__step-item--animate', {
-    y: -110,
+    y: offsetY,
   }, {
     y: 0,
     duration: 1.4
