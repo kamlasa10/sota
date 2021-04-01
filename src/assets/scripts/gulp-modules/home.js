@@ -673,7 +673,7 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
     offsetPattern = '+=1200'
   }
 
-  if($(window).width() < 1025) {
+  if ($(window).width() < 1025) {
     offsetPattern = '+=1000'
   }
 
@@ -699,7 +699,7 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
   if (sectionName === 'choise') {
     let end = $(window).height() + 100
 
-    if($(window).width() < 1025) {
+    if ($(window).width() < 1025) {
       end = $(window).height() * 1.4
     }
 
@@ -725,11 +725,11 @@ gsap.utils.toArray('[data-section]').forEach((item) => {
 
 // adaptive 
 
-if($(window).width() <= 1024) {
-  document.addEventListener('click', e => {
+if ($(window).width() <= 1024) {
+  document.addEventListener('click', (e) => {
     const path = event.path || (event.composedPath && event.composedPath());
     console.log(!path.includes($('[data-select-current]')[0]))
-    if(!(path.includes($('[data-select-current]')[0])) && $('[data-select-current]').hasClass('show')) {
+    if (!(path.includes($('[data-select-current]')[0])) && $('[data-select-current]').hasClass('show')) {
       $('[data-select-current]').removeClass('show')
     }
   })
