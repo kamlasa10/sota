@@ -64,7 +64,7 @@ function secondSec() {
   const tl = gsap.timeline()
   let offsetY = -110
 
-  if($(window).width() <= 1440) offsetY = -80
+  if ($(window).width() <= 1440) offsetY = -80
 
   tl.fromTo('.financial__step-item--animate', {
     y: offsetY,
