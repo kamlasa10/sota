@@ -136,12 +136,17 @@
         &__table{
             margin-bottom: 72px;
         }
+        .body-tabs__tab{
+            z-index: 500;
+            -webkit-overflow-scrolling: touch;
+        }
     }
 
     .table-services{
         @include to(992px){
             -webkit-overflow-scrolling: touch;
             width: 100%;
+            overflow: auto;
             max-width: 100vw;
         }
         &__list{
@@ -179,11 +184,11 @@
             @include to(992px){
                 overflow-x: scroll;
                 overflow-y: visible;
-                -webkit-overflow-scrolling: touch;
+                overflow: scroll;
+                -webkit-overflow-scrolling: touch ;
                 background-color: #fff;
                 position: relative;
                 padding-bottom: 20px;
-                width: 100%;
             }
             &::before{
                 @include to(992px){
@@ -201,7 +206,6 @@
                 @include to(992px){
                     max-width: none;
                     width: 1000px;
-                    -webkit-overflow-scrolling: touch;
                 }
             }
 
@@ -210,8 +214,7 @@
             @include to(992px){
                 overflow-x: scroll;
                 overflow-y: visible;
-                // width: 100vw;
-                width: 100%;
+                overflow: scroll;
                 -webkit-overflow-scrolling: touch ;
             }
         }
@@ -227,7 +230,6 @@
             margin-bottom: 50px;
             @include to(992px){
                 width: 1000px;
-                -webkit-overflow-scrolling: touch;
             }
             tr{
                 position: relative;

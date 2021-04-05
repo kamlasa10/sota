@@ -583,13 +583,12 @@ class TabChange {
       setTimeout(function(){
         const tabHeight = activeTabItem.offsetHeight;
         containerItem.style.height = `${tabHeight}px`;
-        console.log(activeTabItem)
-        console.log(tabHeight)
+        if ($(window).width() > 1024){
+            window.locoScroll.update();
+        }
       }, 0)
 
-      if ($(window).width() > 1024){
-          window.locoScroll.update();
-      }
+
     }
 
     tabSwitch(tabClass, btnClass, containerClass) {
