@@ -46,16 +46,16 @@ function firstSec() {
   }, {
     y: '7%'
   })
-    .fromTo('.financial__intro-left img', {
-      scale: 1
-    }, {
-      scale: 1.125
-    }, 0)
-    .fromTo('.financial__intro-right img', {
-      y: '23%'
-    }, {
-      y: 0
-    }, 0.08)
+  .fromTo('.financial__intro-left img', {
+    scale: 1
+  }, {
+    scale: 1.125
+  }, 0)
+  .fromTo('.financial__intro-right img', {
+    y: '23%'
+  }, {
+    y: 0
+  }, 0.08)
 
   return tl
 }
@@ -72,11 +72,11 @@ function secondSec() {
     y: 0,
     duration: 1.4
   })
-    .fromTo('.financial__step', {
-      y: '50'
-    }, {
-      y: '10'
-    }, 0.05)
+  .fromTo('.financial__step', {
+    y: '50'
+  }, {
+    y: '10'
+  }, 0.05)
     .fromTo('.financial__step-item::after', {
       height: 0
     }, {
@@ -95,11 +95,11 @@ function threeSec() {
   }, {
     y: 0
   })
-    .fromTo('.financial__info-right img', {
-      y: '-18%'
-    }, {
-      y: 0
-    }, 0)
+  .fromTo('.financial__info-right img', {
+    y: '-18%'
+  }, {
+    y: 0
+  }, 0)
 
   return tl
 }
@@ -110,36 +110,38 @@ const animateObj = {
   three: threeSec
 }
 
-gsap.utils.toArray('[data-section]').forEach((sec) => {
-  const animationName = $(sec).data().section
-  const fn = animateObj[animationName]
-
-  switch (animationName) {
-    case 'first': {
-      createScrollTrigger({
-        trigger: sec,
-        end: `+=${$(window).height() * 1.8}`
-      }, fn, true)
-      break
+if($(window).width() > 1025) {
+  gsap.utils.toArray('[data-section]').forEach((sec) => {
+    const animationName = $(sec).data().section
+    const fn = animateObj[animationName]
+  
+    switch (animationName) {
+      case 'first': {
+        createScrollTrigger({
+          trigger: sec,
+          end: `+=${$(window).height() * 1.8}`
+        }, fn, true)
+        break
+      }
+  
+      case 'second': {
+        createScrollTrigger({
+          trigger: sec,
+          start: '-=700'
+        }, fn, true)
+        break
+      }
+  
+      case 'three': {
+        createScrollTrigger({
+          trigger: sec,
+          end: '+=620'
+        }, fn, true)
+        break
+      }
     }
-
-    case 'second': {
-      createScrollTrigger({
-        trigger: sec,
-        start: '-=700'
-      }, fn, true)
-      break
-    }
-
-    case 'three': {
-      createScrollTrigger({
-        trigger: sec,
-        end: '+=620'
-      }, fn, true)
-      break
-    }
-  }
-})
+  })
+}
 
 // adaptive
 $(window).on('resize', () => {

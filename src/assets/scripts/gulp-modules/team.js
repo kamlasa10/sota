@@ -69,12 +69,13 @@
         allowTouchMove: true,
         noSwiping: false,
         spaceBetween: 15,
+        slidesPerView: 1.3,
         breakpoints: {
           320: {
             slidesPerView: 1.3
           },
           350: {
-            slidesPerView: 1.5,
+            slidesPerView: 1.3,
             spaceBetween: 10
           }
         },

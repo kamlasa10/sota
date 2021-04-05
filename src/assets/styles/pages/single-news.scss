@@ -1,5 +1,9 @@
 #id-page-single-news {
   .single-news {
+    @include to(480px) {
+      margin-bottom: -48px;
+    }
+
     .tabs__header {
       max-width: 1100px;
 
@@ -40,6 +44,8 @@
 
         .single-tab-title {
           min-height: 45px;
+          padding-top: 9px;
+          padding-bottom: 9px;
           margin-right: 0;
           margin-bottom: 0;
           height: auto;
@@ -255,6 +261,12 @@
       @include to(770px) {
         margin-top: 45px;
         margin-bottom: 45px;
+      }
+
+      @include to(480px) {
+        margin-left: -16px;
+        margin-right: -16px;
+        width: calc(100% + 32px);
       }
 
       .inner-page-title {

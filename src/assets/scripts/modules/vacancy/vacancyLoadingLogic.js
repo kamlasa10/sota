@@ -38,7 +38,9 @@ class VacancyProgress {
     this.isFirst = false
   }
 
-  showNextPortionItems() {
+  showNextPortionItems(e) {
+    e.preventDefault()
+
     if (this.isLastPortion()) {
       $('.vacancy__progress').addClass('end')
       $('.js-loading__more').hide()
@@ -47,7 +49,10 @@ class VacancyProgress {
     this.currentPortion += 1
     $(`[data-portion=${this.currentPortion}]`).fadeIn(400)
     this.calculateCountLoading()
-    window.locoScroll.update()
+    
+    if($(window).width() > 1025) {
+      window.locoScroll.update()
+    }
   }
 
   progressChange() {
@@ -77,7 +82,7 @@ class VacancyProgress {
       $('.js-loading__more').hide()
     }
 
-    this.prepareListener('click', () => this.showNextPortionItems())
+    this.prepareListener('click', (e) => this.showNextPortionItems(e))
     this.calculateCountLoading()
   }
 }

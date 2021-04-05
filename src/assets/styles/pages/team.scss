@@ -1,9 +1,8 @@
 #id-page-team {
   .sec1-team {
-	margin-bottom: -40px;
-
     & > .container {
       @include to(480px) {
+		margin-bottom: -40px;
         padding: 0;
       }
     }
@@ -48,7 +47,7 @@
 			display: grid;
 			column-gap: 82px;
 			grid-template-columns: repeat(auto-fit, minmax(310px, 375.33px));
-			margin-bottom: 50px;
+			margin-bottom: 70px;
 
 			@include to(1370px) {
 				column-gap: 55px;
@@ -238,7 +237,7 @@
       @include to(480px) {
         top: auto;
         bottom: 0;
-        left: 78.9%;
+        left: calc(100% - 48px);
         position: absolute;
 
         .socials__link {
@@ -252,11 +251,7 @@
           }
         }
       }
-
-      @include to(320px) {
-        left: 74.9%;
-      }
-		}
+	}
 	}
 
 	.socials {

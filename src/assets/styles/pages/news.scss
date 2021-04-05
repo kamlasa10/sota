@@ -118,6 +118,7 @@
 
         @include to(480px) {
           padding-left: 10px;
+          line-height: 1.3em;
           padding-right: 10px;
           text-align: center;
         }
